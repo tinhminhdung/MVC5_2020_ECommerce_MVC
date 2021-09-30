@@ -1,0 +1,501 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DanhGiaSao</title>
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+    <link href="~/Resources/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Resources/font-awesome/font-awesome.min.css" rel="stylesheet" />
+
+
+    code gốc: F:\Congty_APhuc\Nam2021\Thang08\VS.CongDong_MVC_DaiHocDongDO\VS.E_Commerce\Views\Products
+    <style>
+
+
+        .codexworld_rating_widget {
+            padding: 0px;
+            margin: 0px;
+            float: left;
+            padding-bottom: 10px;
+        }
+
+            .codexworld_rating_widget li {
+                line-height: 0px;
+                width: 28px;
+                height: 28px;
+                padding: 0px;
+                margin: 0px;
+                margin-left: 2px;
+                list-style: none;
+                float: left;
+                cursor: pointer;
+            }
+
+                .codexworld_rating_widget li span {
+                    display: none;
+                }
+
+        .btn-send-rate {
+            color: #fff;
+            background: #00a7d4;
+            text-align: center;
+            padding: 8px 30px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .urh-left {
+            width: 21%;
+            text-align: center;
+            float: left;
+        }
+
+        .urh-right {
+            width: 73%;
+            float: left;
+            margin-left: 40px;
+        }
+
+        .number-big-rate {
+            font-size: 80px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .star-big-rate {
+            margin-left: 10px;
+        }
+
+            .star-big-rate i {
+                font-size: 20px;
+            }
+
+        .count-rate {
+            margin: 5px 0 0 10px;
+        }
+
+        .u-rate-f1-progress {
+            width: 70%;
+            float: left;
+            height: 30px;
+        }
+
+        .u-rate-f1-star {
+            width: 21%;
+            float: left;
+            margin: 0 10px;
+        }
+
+            .u-rate-f1-star i {
+                font-size: 19px;
+            }
+
+        .u-rate-f1-num {
+            width: 5%;
+            float: left;
+        }
+
+            .u-rate-f1-num p {
+                color: #000;
+            }
+
+        .rate-course {
+            margin: 5px 0;
+        }
+
+        .star-rate {
+            margin-left: 0;
+        }
+
+        .u-block-cmhv .star-rate {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .star-rate i {
+            font-size: 19px;
+        }
+
+        .n-rate {
+            color: #464646;
+        }
+
+
+        .co-or {
+            color: #eb8a2f;
+        }
+
+        .u-learn-what, .u-des-course, .u-list-course, .u-course-plus, .u-rate-hv, .u-cm-hv, .u-combo-buy, .u-face-cm, .u-course-teacher {
+            background: #fff;
+            border: 1px solid #d7d7d7;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 10px;
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        .u-detail-course .u-detail-block-left h3 {
+            padding: 15px 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .u-learn-what h3, .u-des-course h2, .u-list-course h2, .u-course-plus h3, .u-course-teacher h3, .u-combo-buy h3, .u-rate-hv h3, .u-cm-hv h3 {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        .u-cm-hv div {
+            padding: 0 15px;
+            overflow: hidden;
+        }
+
+        .u-block-cmhv {
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .ava-hv {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: #0975b5;
+            border-radius: 50%;
+            font-size: 21px;
+            font-weight: 300;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+            .ava-hv img {
+                max-width: none;
+            }
+
+        .block-hv DIV {
+            width: 90%;
+            float: left;
+            padding: 0 !important;
+        }
+
+        .name-hv {
+            float: left;
+            margin-right: 40px;
+            font-weight: 500;
+        }
+
+        .rate-hv {
+            display: block;
+        }
+
+            .rate-hv p {
+                line-height: 25px;
+            }
+
+        .cm-hv {
+            display: inline-block;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .u-cm-hv ul li:last-child {
+            border: 0;
+        }
+
+        .view-more {
+            font-weight: 600;
+            color: #333333;
+            background: #eeeeeeb5;
+            border-radius: 5px;
+            padding: 6px 10px;
+            text-align: center;
+        }
+
+        .u-cm-hv .view-more {
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .u-combo-usua {
+            border-bottom: 1px solid #c8c8c8;
+            padding-bottom: 10px;
+            display: inline-block;
+            padding-top: 10px;
+            width: 100%;
+        }
+
+        .u-combo-buy > div > ul > li:nth-child(3) > .u-combo-usua:last-child {
+            border: 0;
+        }
+
+        .uom-block-intro, .uom-block-rate, .uom-block-doc, .uom-block-gv, .uom-block-aff-share, .uom-block-chat, .uom-block-bookmark {
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
+            padding: 15px;
+            display: inline-block;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div style="clear: both" id="nhan_xet"></div>
+        
+        <div class="u-rate-hv" id="u-rate-hv">
+            <h3>Đánh giá của học viên</h3>
+            <div class="urh-left">
+                <div class="number-big-rate">5</div>
+                <div class="star-big-rate">
+                    <span class="star-rate">
+                        <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="count-rate">@ViewBag.CountDanhGiaSao đánh giá</div>
+            </div>
+            <div class="urh-right">
+                <div class="u-rate-f1">
+                    <div class="u-rate-f1-progress">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.Rank11" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.Rank11%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-rate-f1-star">
+                        <span class="star-rate">
+                            <i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i>
+                        </span>
+                    </div>
+                    <div class="u-rate-f1-num">
+                        <p>@ViewBag.Rank11%</p>
+                    </div>
+                </div>
+                <div class="u-rate-f1">
+                    <div class="u-rate-f1-progress">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.Rank12" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.Rank12%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-rate-f1-star">
+                        <span class="star-rate">
+                            <i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i>                                            <i class="fa fa-star-o co-or"></i>
+                        </span>
+                    </div>
+                    <div class="u-rate-f1-num">
+                        <p>@ViewBag.Rank12%</p>
+                    </div>
+                </div>
+                <div class="u-rate-f1">
+                    <div class="u-rate-f1-progress">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.Rank13" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.Rank13%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-rate-f1-star">
+                        <span class="star-rate">
+                            <i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i> <i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i>
+                        </span>
+                    </div>
+                    <div class="u-rate-f1-num">
+                        <p>@ViewBag.Rank13%</p>
+                    </div>
+                </div>
+                <div class="u-rate-f1">
+                    <div class="u-rate-f1-progress">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.Rank14" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.Rank14%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-rate-f1-star">
+                        <span class="star-rate">
+                            <i class="fa fa-star co-or"></i><i class="fa fa-star co-or"></i> <i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i>
+                        </span>
+                    </div>
+                    <div class="u-rate-f1-num">
+                        <p>@ViewBag.Rank14%</p>
+                    </div>
+                </div>
+                <div class="u-rate-f1">
+                    <div class="u-rate-f1-progress">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.Rank15" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.Rank15%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-rate-f1-star">
+                        <span class="star-rate">
+                            <i class="fa fa-star co-or"></i><i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i><i class="fa fa-star-o co-or"></i>
+                        </span>
+                    </div>
+                    <div class="u-rate-f1-num">
+                        <p>@ViewBag.Rank15%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @{
+            List<Entity.DanhGiaSao> ddanhGiaSao = ViewBag.VDanhGiaSao as List<Entity.DanhGiaSao>;
+            if (ddanhGiaSao != null)
+            {
+                <div style="clear: both"></div>
+                <div class="u-cm-hv">
+                    <h3>Nhận xét của học viên</h3>
+                    <div>
+                        <ul class="load_comment" id="myList">
+                            @foreach (var item in ddanhGiaSao)
+                            {
+                                <li class="u-block-cmhv">
+                                    <div class="ava-hv">
+                                        Ảnh
+                                        @*<img src="/Uploads/pic/avatar/@Html.Raw(Commond.ShowAnhThanhVien(item.IDThanhVien.ToString())) " />*@
+                                    </div>
+                                    <div class="block-hv">
+                                        <div class="block-inner">
+                                            <div class="name-hv">IDThanhVienIDThanhVienIDThanhVien@*@Html.Raw(Commond.ShowNameThanhVien(item.IDThanhVien.ToString()))*@</div>
+                                        </div>
+                                        <div class="cm-hv">
+                                            <div class="rate-hv">
+                                                <span class="star-rate">
+                                                    @Html.Raw(Commond.ShowRankThanhVien(item.MotSao.ToString(), item.HaiSao.ToString(), item.BaSao.ToString(), item.BonSao.ToString(), item.NamSao.ToString()))
+                                                </span>
+                                                <p>@Html.Raw(item.NoiDung)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <style>
+                        #myList li {
+                            display: none;
+                        }
+                    </style>
+                    <center>
+                        <a class="view-more" id="loadMore" data-id="301" href="javascript:void(0)">
+                            Xem thêm
+                        </a>
+                    </center>
+                </div>
+            }
+        }
+
+
+        <div style="clear: both"></div>
+        <div class="uom-block-rate" style="@ViewBag.Annn ">
+            <h3 style="margin-top:7px;">Đánh giá khóa học</h3>
+            <div style="display: block; margin-top: 10px;">
+                <input name="rating" value="0" id="rating_star" type="hidden" />
+                <input name="IDThanhVien" value="@ViewBag.IDThanhViens" id="IDThanhVien" type="hidden" />
+                <input name="IDGiaoVien" value="@ViewBag.IDGiaoVien" id="IDGiaoVien" type="hidden" />
+                <input name="hdsipid" value="@ViewBag.hdipid" id="hdsipid" type="hidden" />
+            </div>
+            <div class="uom-txtbox">
+                <textarea class="form-control" id="comment_danhgia" placeholder="Nhập nội dung đánh giá (tối thiểu 20 kí tự)" rows="4"></textarea>
+            </div>
+            <p class="show_error" style="display: none; color: red; margin-top: 5px;">Bạn cần nhập đủ nội dung đánh giá và đánh giá sao!</p>
+            @*<a class=" btn-send-rate" id="btnGuidanhgia()" href="javascript:void(0);">Đã gửi</a>*@
+            <input id="btnGuidanhgia" onclick="Guidanhgia()" type="button" value="Gửi đánh giá" class="btn-send-rate">
+        </div>
+    </div>
+
+    <script src="~/Resources/js/rating.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#rating_star").codexworld_rating_widget({
+                    starLength: '5',
+                    initialValue: '5',
+                    callbackFunctionName: '',
+                    imageDirectory: '/Resources/images/',
+                    inputAttr: ''
+                });
+            });
+            function Guidanhgia() {
+                // debugger;
+                var comment = $('#comment_danhgia').val();
+                var value = $('#rating_star').val();
+                var IDThanhVien = $('#IDThanhVien').val();
+                var IDGiaoVien = $('#IDGiaoVien').val();
+                var hdsipid = $('#hdsipid').val();
+
+                if (IDThanhVien == '0') {
+                    alert('Bạn cần đăng nhập để thực hiện chức năng này!');
+                    e.preventDefault();
+                    return false;
+                }
+                if (comment.length > 0 && comment.length < 20) {
+                    alert('Nội dung đánh giá ít nhất từ 20 kí tự trở lên!');
+                    e.preventDefault();
+                    return false;
+                }
+
+                if (comment.length > 20 && value > 0) {
+                    $.ajax({
+                        url: '/Ajax/add_danh_gia',
+                        type: 'POST',
+                        dateType: 'text',
+                        data: {
+                            'hdsipid': hdsipid,
+                            'IDGiaoVien': IDGiaoVien,
+                            'IDThanhVien': IDThanhVien,
+                            'rating_value': value,
+                            'comment': comment,
+                        },
+                        success: function (message) {
+                            alert(message);
+                            location.reload();
+                        }
+                    });
+                } else {
+                    $('.show_error').css("display", "block");
+                    setTimeout(function () {
+                        $('.show_error').css("display", "none");
+                    }, 3000);
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                debugger;
+                size_li = $("#myList li").size();
+                x = 3;
+                $('#myList li:lt(' + x + ')').show();
+                $('#loadMore').click(function () {
+                    debugger;
+                    x = (x + 3 <= size_li) ? x + 3 : size_li;
+
+                    $('#myList li:lt(' + x + ')').show();
+                    if (x == size_li) {
+                        $('#loadMore').hide();
+                    }
+                });
+
+            });
+
+        </script>
+
+    </div>
+</body>
+</html>

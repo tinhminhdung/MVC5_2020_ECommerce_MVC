@@ -1,0 +1,50 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+<script>
+   $(document).ready(function () {
+       $.ajax({
+           url: "http://api.phanmembanhang.com/api/Category/ProductList",
+           type: "POST",
+           headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json',
+               'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJob3NjbyIsImF6cCI6ImFkbWluIiwianRpIjoiNTZkNjkwNDctNmI1Yi00NWJkLTk5M2YtMWRhYWI4MzBmMTFkIiwibmFtZWlkIjoiMSIsInNpZCI6IiIsIm5iZiI6MTYyNjg0OTQ4MSwiZXhwIjoxNjMyMDMzNDgxLCJpc3MiOiJob3Njby52biIsImF1ZCI6Imhvc2NvLnZuIn0.3DxbhbROU-s7izt5-xQy72Y5xIkkRVT1iEagPWtYSSI'
+           },
+           data: JSON.stringify({ 'productName': '', 'productCode': '', 'description': '', 'visible': true, 'instock': 0, 'productGroup': '', 'pageSize': 10, 'pageIndex': 10 }),
+           error: function (err) {
+               switch (err.status) {
+                   case "400":
+                       // bad request
+                       break;
+                   case "401":
+                       // unauthorized
+                       break;
+                   case "403":
+                       // forbidden
+                       break;
+                   default:
+                       //Something bad happened
+                       break;
+               }
+           },
+           success: function (data) {
+		     console.log(data);
+             //  console.log("Success!");
+           }
+       });
+   });
+   
+</script>
+
+<A onclick="SetName()">Show</A>
+
+
+</body>
+
+</html>
+
+

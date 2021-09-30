@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Products.cshtml";
+}
+<section class="main_container collection collection_container col-lg-9 col-md-9 col-sm-12 col-lg-push-3 col-md-push-3">
+    <div class="page_title margin-top-5">
+        <h1 class="title_page_h1">
+            <span>@Html.Raw(ViewBag.Name)</span>
+        </h1>
+    </div>
+    <div class="category-products products">
+        <div class="sortPagiBar"></div>
+        <section class="products-view products-view-grid collection_reponsive">
+            <div class="row">
+                <br>
+                <div class="News-content">
+                    <div class="contents">
+                        @Html.Raw(ViewBag.ShowConten)
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                @Html.Raw(ViewBag.ShowList)
+                <div style="clear: both;"></div>
+                <div class="pager">
+                    @Html.Raw(ViewBag.Phantrang)
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+

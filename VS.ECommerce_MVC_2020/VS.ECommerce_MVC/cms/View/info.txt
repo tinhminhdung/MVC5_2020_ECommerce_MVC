@@ -1,0 +1,30 @@
+﻿- tìm kiếm có url lọc như congdong. giáo viên, bảng lương
+- tỉnh thành mvc, congdong, cập nhập hồ sơ, 3mpic.thhees anh, cập nhật hồ sơ. và chọn như sơn, đại lý, thế anh tháng 2,năm 2020
+- dropdowlist giữ trạng thái , như congdong,tìm kiem onluyen, khotailieu,
+- dropdowlist ngày thang năm ,congdong. giáo viên, bảng lương
+- menumobile đẹp như linhkienchatluong.
+- lọc ngày tháng năm 
+if (!string.IsNullOrEmpty(txtNgayThangNam) && string.IsNullOrEmpty(txtDenNgayThangNam))
+	{
+		sql += MoreAll.MoreAll.LocDate_NgayThangNam(txtNgayThangNam);
+	}
+	else if (!string.IsNullOrEmpty(txtNgayThangNam) && !string.IsNullOrEmpty(txtDenNgayThangNam))
+	{
+		sql += " and ( NgayCapNhat>='" + MoreAll.MoreAll.LocDate(txtNgayThangNam) + "' and  NgayCapNhat<='" + MoreAll.MoreAll.LocDate(txtDenNgayThangNam) + "' )";
+	}
+
+public static string LocDate_NgayThangNam(string date)
+{
+	return " and ( day(NgayCapNhat)=" + Convert.ToDateTime(date).ToString("dd") + " and MONTH(NgayCapNhat)=" + Convert.ToDateTime(date).ToString("MM") + "  and  year(NgayCapNhat)=" + Convert.ToDateTime(date).ToString("yyyy") + " )";
+}
+public static string LocDate(string date)
+{
+	return Convert.ToDateTime(date).ToString("MM") + "/" + Convert.ToDateTime(date).ToString("dd") + "/" + Convert.ToDateTime(date).ToString("yyyy");
+}
+
+<asp:TextBox Style="width: 300px;" ID="txtNgayThangNam" placeholder="Tìm kiếm ngày nhập hàng từ ngày/tháng/năm" AutoPostBack="true" OnTextChanged="txtNgayThangNam_TextChanged" runat="server" CssClass="txt_csssearch" Width="200px"></asp:TextBox>
+<cc1:CalendarExtender ID="CalendarExtender1" Format="dd/MM/yyyy" runat="server" TargetControlID="txtNgayThangNam"></cc1:CalendarExtender>
+<asp:TextBox Style="width: 300px;" ID="txtDenNgayThangNam" placeholder="Tìm kiếm ngày nhập hàng đến ngày/tháng/năm" AutoPostBack="true" OnTextChanged="txtDenNgayThangNam_TextChanged" runat="server" CssClass="txt_csssearch" Width="200px"></asp:TextBox>
+<cc1:CalendarExtender ID="CalendarExtender2" Format="dd/MM/yyyy" runat="server" TargetControlID="txtDenNgayThangNam"></cc1:CalendarExtender>
+
+- Nếu 1 trang mà cần chưa nhiều from như from liên hệ thì phải dùng PartialView và   return RedirectToAction("Index", "Home"); về trang mình cần  và dung TempData["ThongBao4"]='thành công'  --> máy lọc nước Ag . ailifestore.com (H:\AGVietNam\VS.MayLocNuoc)

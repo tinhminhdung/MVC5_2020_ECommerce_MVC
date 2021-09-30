@@ -1,0 +1,51 @@
+﻿using MoreAll;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace VS.ECommerce_MVC.cms.Display.AllPage
+{
+    public partial class Box_search : System.Web.UI.UserControl
+    {
+        private string language = Captionlanguage.Language;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (System.Web.HttpContext.Current.Session["language"] != null)
+            {
+                this.language = System.Web.HttpContext.Current.Session["language"].ToString();
+            }
+            else
+            {
+                System.Web.HttpContext.Current.Session["language"] = this.language;
+                this.language = System.Web.HttpContext.Current.Session["language"].ToString();
+            }
+            if (!base.IsPostBack)
+            {
+                if (Request["su"] != "Search")
+                {
+                    MoreAll.MoreAll.SetCookie("Search", "", 5000);
+                }
+                else
+                {
+                    if (MoreAll.MoreAll.GetCookies("Search").ToString() != null)
+                    {
+                        txtkeyword.Text = MoreAll.MoreAll.GetCookies("Search").ToString();
+                    }
+                }
+            }
+        }
+
+        protected void lnksearch_Click(object sender, EventArgs e)
+        {
+            MoreAll.MoreAll.SetCookie("Search", txtkeyword.Text, 5000);
+            Response.Redirect("/Search.html");
+        }
+        protected string label(string id)
+        {
+            return Captionlanguage.GetLabel(id, this.language);
+        }
+    }
+}

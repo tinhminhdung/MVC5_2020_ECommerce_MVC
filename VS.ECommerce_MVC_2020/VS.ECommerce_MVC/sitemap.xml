@@ -1,0 +1,32 @@
+﻿<div class="clearfix cart_product productid-41230448">
+  <a class="cart_image" href="/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" title="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen">
+    <img src="https://bizweb.dktcdn.net/thumb/medium/100/415/483/products/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-10-215904-600x600.jpg" alt="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen">
+            </a>
+  <div class="cart_info">
+    <div class="cart_name">
+      <a href="/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" title="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen">Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen</a>
+    </div>
+    <div class="row-cart-left">
+      <div class="cart_item_name">
+        <label class="cart_size variant-title-popup d-none" style="display: none;">Default Title</label>
+        <div>
+          <label class="cart_quantity">Số lượng</label>
+          <div class="cart_select">
+            <div class="input-group-btn">
+              <input class="variantID" type="hidden" name="variantId" value="41230448">
+                <button onclick="var result = document.getElementById('qtyItem41230448'); var qtyItem41230448 = result.value; if( !isNaN( qtyItem41230448 ) &amp;&amp; qtyItem41230448 > 1 ) result.value--;return false;" disabled="" class="reduced items-count btn-minus btn btn-default" type="button">–</button>
+                <input type="text" maxlength="3" min="0" class="input-text number-sidebar qtyItem41230448" id="qtyItem41230448" name="Lines" size="4" value="1">
+                  <button onclick="var result = document.getElementById('qtyItem41230448'); var qtyItem41230448 = result.value; if( !isNaN( qtyItem41230448 )) result.value++;return false;" class="increase items-count btn-plus btn btn-default" type="button">+</button>
+                </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-right cart_prices">
+        <div class="cart__price">
+          <span class="cart__sale-price">4.540.000₫</span>
+        </div>
+        <a class="cart__btn-remove remove-item-cart" href="javascript:void(0)" data-id="41230448" title="Bỏ sản phẩm">Bỏ sản phẩm</a>
+      </div>
+    </div>
+  </div>
+</div>

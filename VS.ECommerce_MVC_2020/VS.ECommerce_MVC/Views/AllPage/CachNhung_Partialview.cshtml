@@ -1,0 +1,104 @@
+﻿@*Kiểu load code từ C#*@
+@{Html.RenderAction("Box_Facebook", "AllPage");}
+
+@{Html.RenderAction("MenuTop", "Menu");}
+
+@{Html.RenderAction("Header", "My_Partialview");}
+
+@{Html.RenderAction("Footer", "My_Partialview");}
+
+@{Html.RenderAction("Nav_conten", "My_Partialview");}
+
+@{Html.RenderAction("Lefmenu", "My_Partialview");}
+
+
+@*kiểu load code trên htm*@
+@Html.Partial("~/Views/AllPage/Register_Email.cshtml")
+@Html.Partial("~/Views/AllPage/Register_Phone.cshtml")
+
+@Html.Partial("~/Views/AllPage/Box_lang.cshtml")
+@Html.Partial("~/Views/Members/XinChao.cshtml")
+
+@Html.Partial("~/Views/AllPage/Chat_Zalo_FacebookNews.cshtml")
+@Html.Partial("~/Views/AllPage/Chat_Zalo_Facebook.cshtml")
+
+@Html.Partial("~/Views/AllPage/Register_LienHe.cshtml")
+
+
+
+https://dev.to/webdeasy/top-20-css-buttons-animations-f41
+fomat scss sang css 
+https://jsonformatter.org/scss-to-css
+
+
+<div class="cangiua">
+	<a class="buttona" href="http://video.chuathuongdien.com/" target="_blank"><i class="fa fa-arrow-right"></i>  BẤM ĐÂY ĐỂ ĐĂNG KÝ XEM NHIỀU KHÓA HỌC HƠN</a>
+</div>
+
+
+
+@{
+    List<Entity.Advertisings> dt = Services.SAdvertisings.Name_Text("select  * from Advertisings where lang='" + MoreAll.MoreAll.Language + "' and value=15   and Status=1 order by Orders asc  ");
+    if (dt.Count > 0)
+    {
+        foreach (var item in dt)
+        {
+           // string link = item.Path;
+            //target=" + Opentype + " href='" + Path + "'
+            <section class="section-aboutUs">
+                <div class="w-1200">
+                    <div class="box_wrap d-flex">
+                        <div class="box-txt aos-init aos-animate" data-aos="fade-right">
+                            <div class="rs page-title">
+                                <h2 class="rs">
+                                    <span>@Html.Raw(item.Name)</span>
+                                </h2>
+                            </div>
+                            <div class="details">
+                              @Html.Raw(item.Contents)
+                              </div>
+                        </div>
+                        <div class="box-img aos-init aos-animate" data-aos="fade-left">
+                            <img src="@item.vimg" title="@item.Name" alt="@item.Name">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    }
+}
+
+
+
+@{
+                string str = "";
+                string str3 = "";
+                List<Entity.Advertisings> dt2 = Services.SAdvertisings.Name_Text("select  * from Advertisings where lang='" + MoreAll.MoreAll.Language + "' and value=16   and Status=1 order by Orders asc  ");
+                if (dt2.Count > 0)
+                {
+                    int i = 0;
+                    foreach (var item in dt2)
+                    {
+                        if (i == 1 || i == 3)
+                        {
+                            str += ("<div class=\"progress-item d-flex\"> <div class=\"box-icon\"> <img src=\"" + item.vimg + "\" title=\"" + item.Name + "\" alt=\"" + item.Name + "\"> </div> <div class=\"box-txt\"> <div class=\"date\">" + Html.Raw(item.Name) + "</div> <div class=\"des\">" + Html.Raw(item.Contents) + "</div> </div> </div>");
+                        }
+                        if (i == 0 || i == 2 || i == 4)
+                        {
+                            str3 += ("<div class=\"progress-item d-flex\"> <div class=\"box-icon\"> <img src=\"" + item.vimg + "\" title=\"" + item.Name + "\" alt=\"" + item.Name + "\"> </div> <div class=\"box-txt\"> <div class=\"date\">" + Html.Raw(item.Name) + "</div> <div class=\"des\">" + Html.Raw(item.Contents) + "</div> </div> </div>");
+                        }
+                        i++;
+                    }
+                    <div class="box-progress box-progressWeb aos-init aos-animate" data-aos="fade-up">
+                        <div class="progress-group progress-group1 d-flex">
+                            @Html.Raw(str)
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-group progress-group2 d-flex">
+                            @Html.Raw(str3)
+                        </div>
+                    </div>
+                }
+            }
+			
+			

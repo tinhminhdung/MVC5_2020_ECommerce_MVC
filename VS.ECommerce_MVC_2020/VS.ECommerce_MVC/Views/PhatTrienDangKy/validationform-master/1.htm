@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <form id="validate-me-plz">
+        <div>
+            Required: <input type="text" name="required" data-rule-required="true" />
+        </div>
+        <div>
+            Required w/custom message: <input type="text" name="required-sassy" data-rule-required="true" data-msg-required="Please enter SOMETHING." />
+        </div>
+        <div>
+            Email: <input type="text" name="email" data-rule-email="true"/>
+        </div>
+        <div>
+            Email w/custom message: <input type="text" name="anotherEmail" data-rule-email="true" data-msg-email="Please enter a valid email address you dummy." />
+        </div>
+		<input autocomplete="off" name="ten-dn" class="form-control " type="text" required="required" data-msg-required="Thông tin bắt buộc" data-rule-vietenextra="true" aria-required="true">
+		
+		<select class="selectUI theme-01" name="nam-kd" required="required" data-msg-required="Thông tin bắt buộc" aria-required="true" aria-invalid="false"><option value=""></option>
+<option value="[value] Ít hơn 1 năm">Ít hơn 1 năm</option>
+<option value="[value] Từ 1 năm đến dưới 3 năm">Từ 1 năm đến dưới 3 năm</option>
+<option value="[value] Từ 3 năm đến dưới 5 năm">Từ 3 năm đến dưới 5 năm</option>
+<option value="[value] Từ 5 năm trở lên">Từ 5 năm trở lên</option>
+</select>
+        <div>
+            <input type="submit" value="Validate!" />
+        </div>
+    </form>
+	
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	
+	<script type="text/javascript">
+		$('#validate-me-plz').validate();
+	</script>
+</html>
+How it 

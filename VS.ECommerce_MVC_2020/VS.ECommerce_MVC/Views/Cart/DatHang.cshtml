@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Đặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    @*cái này để cho js xuất hiện dưới foooter của control chính*@
+    @*bắt buộc phải có để chạy Ajax jquery-ui.js*@
+    @*<script src="/Resources/scripMvc/jquery-ui.js"></script>*@
+    <script src="~/Resources/scripMvc/DatHang.js"></script>
+    @*<script src="~/Resources/scripMvc/shoppingCart.js"></script>*@
+}
+
+@{Html.RenderAction("Nav_conten", "My_Partialview");}
+<div class="container">
+    <div class="">
+
+        <h2>@Commond.label("lt_cartbox")</h2>
+
+        <div style="@ViewBag.pncart">
+            <div class='frm_cart '>
+                <div class="bgContent">
+                    <div class="borderBlock_ListPro scollgiohang">
+                        <table cellpadding="0" cellspacing="0" class="dcart scoll" width="100%" bgcolor="#FFFFFF" bordercolor="#C3C3C3">
+                            <tr>
+                                <td height="30" colspan="8" class="TitleItem" style="text-align: left">
+                                    @Commond.label("l_have") <span style="color: #F00; font-weight: bold;">@ViewBag.numberofproducts</span> @Commond.label("lproductsincart")
+                                </td>
+                            </tr>
+                            <tr class="procart">
+                                <td align="left"><strong>STT</strong></td>
+                                <td align="left"><strong>@Commond.label("l_images") </strong></td>
+                                <td align="center"><strong>@Commond.label("lt_firstname") </strong></td>
+                                <td align="center"><strong>@Commond.label("lprice") </strong></td>
+                                <td align="center"><strong>@Commond.label("lquantity") </strong></td>
+                                <td align="center"><strong>@Commond.label("l_tomoney") </strong></td>
+                            </tr>
+                            @{
+                                int k = 1;
+                                if (Session["cart"] != null)
+                                {
+                                    System.Data.DataTable dtcart = (System.Data.DataTable)Session["cart"];
+                                    if (dtcart.Rows.Count > 0)
+                                    {
+                                        for (int i = 0; i < dtcart.Rows.Count; i++)
+                                        {
+                                            <tr style="text-align:center">
+                                                <td height="30" align="center" class="TitleItem">
+                                                    @k
+                                                </td>
+                                                <td align="left" class="TitleItem">
+                                                    <img src="@Html.Raw(dtcart.Rows[i]["vimg"].ToString())" style="width: 77px; height: auto; border: solid 1px #d7d7d7" />
+                                                    @*<%#Mausac(Eval("Mausac").ToString())%><%#Kichthuoc(Eval("Kichco").ToString())%>*@
+                                                </td>
+                                                <td align="center" class="TitleItem"><strong>@dtcart.Rows[i]["Name"].ToString()</strong></td>
+                                                <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Price"].ToString()) </td>
+                                                <td align="center" class="TitleItem">
+                                                    <p id="TB_SoLuongThayDoi">@dtcart.Rows[i]["Quantity"].ToString()</p>
+                                                </td>
+                                                <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Money"].ToString()) </td>
+                                            </tr>
+                                            k++;
+                                        }
+                                    }
+                                }
+                            }
+                            <tr>
+                                <td height="30" colspan="5" align="right" class="TitleItem"><strong style="float: right; font-weight: bold; padding-right: 10px;">@Commond.label("ltotal"):</strong></td>
+                                <td colspan="3" align="center" class="TitleItem">
+                                    <strong>
+                                        @ViewBag.totalvnd
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm("DatHang", "Cart"))
+            {
+                <input type="hidden" id="hdBankCode" name="hdBankCode" value="VCB">
+                <input type="hidden" id="hdPayment" name="hdPayment" value="IB_ONLINE">
+                <input id="hdTongTien" name="hdTongTien" type="hidden" value="@ViewBag.TongTien" />
+                <input id="hdIDThanhVien" name="hdIDThanhVien" type="hidden" value="@ViewBag.IDThanhVien" />
+                <div class="frm-contact">
+                    <div style="width: 100%">
+                        <div>@ViewBag.ThongBao</div>
+                        <div style="float: left; width: 100%">
+                            <div class="labelll">
+                                @Commond.label("l_name"):<span style="color:red;" id="TB_TenKH"></span>
+                            </div>
+                            <div>
+                                @Html.TextBox("TenKH", (string)ViewBag.Name, new { placeholder = Commond.label("l_name"), @class = "ipgiohang", @onkeypress = "document.getElementById('TenKH').style.border = '1px solid #ebebeb',document.getElementById('TB_TenKH').innerHTML=''" })
+                            </div>
+                        </div>
+                        <div style="float: left; width: 100%">
+                            <div class="labelll">
+                                @Commond.label("l_address"):<span style="color:red;" id="TB_DiaChi"></span>
+                            </div>
+                            <div>
+                                @Html.TextBox("DiaChi", (string)ViewBag.Address, new { placeholder = Commond.label("l_address"), @class = "ipgiohang", @onkeypress = "document.getElementById('DiaChi').style.border = '1px solid #ebebeb',document.getElementById('TB_DiaChi').innerHTML=''" })
+                            </div>
+                        </div>
+                        <div style="float: left; width: 100%">
+                            <div class="labelll">
+                                @Commond.label("l_phone"): <span style="color:red;" id="TB_SoDienThoai"></span>
+                            </div>
+                            <div>
+                                @Html.TextBox("SoDienThoai", (string)ViewBag.Phone, new { placeholder = Commond.label("l_phone"), @class = "ipgiohang", @onkeypress = "document.getElementById('SoDienThoai').style.border = '1px solid #ebebeb',document.getElementById('TB_SoDienThoai').innerHTML=''" })
+                            </div>
+                        </div>
+                        <div style="float: left; width: 100%">
+                            <div class="labelll">
+                                @Commond.label("l_email"):<span style="color:red;" id="TB_Email"></span>
+                            </div>
+                            <div>
+                                @Html.TextBox("Email", (string)ViewBag.Email, new { placeholder = Commond.label("l_email"), @class = "ipgiohang", @onkeypress = "document.getElementById('Email').style.border = '1px solid #ebebeb',document.getElementById('TB_Email').innerHTML=''" })
+                            </div>
+                        </div>
+                        <div style="float: left; width: 100%">
+                            <div class="labelll">
+                                @Commond.label("l_content"):
+                            </div>
+                            <div style="float:left;">
+                                @Html.TextArea("Noidung")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both; height: 15px;"></div>
+                <div class="Buttondathang">
+                    <input type="submit" value="@Commond.label("l_produc_sder")" class="btnadd Dathang" onclick="return DatHang();" id="btnDatHang" />
+                    <a class="btnadd" href="/gio-hang.html">@Commond.label("l_produc_Edit_Cart")</a>
+                    <a class="btnadd" onclick="return confirm('Bạn muốn xóa sản phẩm ?')" href="/Cart/XoaToanBoGioHang">@Commond.label("lshoppingcancel")</a>
+                    <a class="btnadd" href="/">@Commond.label("tieptucmuahang")</a>
+                </div>
+                <div style=" clear:both"></div>
+                <div style="color: #333; float: left; font: 400 14px/22px arial; padding-top: 10px; width: 98%;">
+                    @Html.Raw(Commond.Setting("GioHang"))
+                </div>
+            }
+        </div>
+
+        <div style="@ViewBag.pnmessage">
+            <div class="modalbodys cart_body">
+                <i class="icon_cart"></i>
+                <h2>@Commond.label("giohang1")</h2>
+                <p>@Commond.label("giohang2")</p>
+                <a class="adrbutton" href="/">@Commond.label("giohang3")</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<br />
+
+<br />
+
+<br />
+<div style=" clear:left"></div>

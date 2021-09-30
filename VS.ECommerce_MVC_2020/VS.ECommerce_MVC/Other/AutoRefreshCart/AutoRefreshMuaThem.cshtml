@@ -1,0 +1,21 @@
+﻿
+<div class="modal-left">
+    <h3 class="title">
+        <i class="fa fa-check-square-o"></i> Sản phẩm này vừa được thêm vào giỏ hàng
+    </h3>
+    @Html.Raw(ViewBag.ThongTin)
+</div>
+<div class="modal-right">
+    <h3 class="title">
+        <a href="/gio-hang.html">
+            <i class="fa fa-caret-right"></i> Giỏ hàng của bạn <i>
+                (<b class="cart-popup-count">@Services.SessionCarts.LoadCart()</b>)
+            </i> sản phẩm
+        </a>
+    </h3>
+    <div class="total_price hidden">
+        <span>Tổng tiền: </span>
+        <span class="">@Services.SessionCarts.TongTien()</span>
+    </div>
+    <a href="/gio-hang.html" class="btn btn-block btn-red btn-full">Tiến hành thanh toán</a>
+</div>

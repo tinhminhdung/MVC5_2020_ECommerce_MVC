@@ -1,0 +1,60 @@
+﻿@*@model IEnumerable<Entity.Products>*@ 
+@*Có thể Lấy luôn Entity.Products để chạy nếu cùng 1 dự án code*@
+
+@*Khi đưa sang dự án khác để kết nối API thì phải viết lại Entity cho nó như là: ViewProduct *@
+@model IEnumerable<VS.ECommerce_MVC.Controllers.API_ProdutcsController.ViewProduct> 
+
+
+@*code mẫu*@
+@*
+    mvc
+    https://www.c-sharpcorner.com/article/asp-net-web-api-using-mvc-entity-framework-and-http-client-for-retrieve-data/
+
+    Scripts
+    https://www.c-sharpcorner.com/article/asp-net-web-api-using-mvc-and-entity-framework-part-one/
+
+
+
+*@
+
+@{
+    Layout = null;
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<div id="updatePanel" style="width:90%; padding:10px; margin:0 auto;">
+    <table class="table table-responsive table-striped table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: Yellow;color: blue">Name</th>
+                <th style="background-color: Yellow;color: blue">Price</th>
+                <th style="background-color: Yellow;color: blue">Brief</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@Html.Raw(item.Brief)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>  

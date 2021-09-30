@@ -1,0 +1,3 @@
+GO
+EXEC dbo.sp_changedbowner @loginame = N'vietdung', @map = false
+GO

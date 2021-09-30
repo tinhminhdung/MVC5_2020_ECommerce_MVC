@@ -1,0 +1,158 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadFileMau1</title>
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+    <style>
+        .chonfile > img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 139px;
+            zoom: 80%;
+        }
+
+        #fileuploadurl2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            color: #333;
+            width: 79%;
+            padding-right: 40px;
+            height: 100%;
+            overflow: hidden;
+            line-height: 40px;
+            padding-left: 15px;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding-top: 3px !important;
+        }
+
+        #FileAttachment2 {
+            z-index: 1;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            height: 43px;
+        }
+
+        #fileuploadurl1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            color: #333;
+            width: 79%;
+            padding-right: 40px;
+            height: 100%;
+            overflow: hidden;
+            line-height: 40px;
+            padding-left: 15px;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding-top: 3px !important;
+        }
+
+        #FileAttachment1 {
+            z-index: 1;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            height: 43px;
+        }
+        .chonfile {
+            position: relative;
+        }
+        .tsiilee {
+            float: right;
+            width: 344px;
+            padding-top: 5px;
+            color: red;
+        }
+
+            .tsiilee a {
+                color: red;
+            }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.flImage1').change(function () {
+                debugger;
+                var filename = $(this).val();
+                var lastIndex = filename.lastIndexOf("\\");
+                if (lastIndex >= 0) {
+                    filename = filename.substring(lastIndex + 1);
+                }
+                $('#fileuploadurl1').text(filename);
+                $('#FileCMND').val($('#FileAttachment1').val());
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.flImage').change(function () {
+                debugger;
+                var filename = $(this).val();
+                var lastIndex = filename.lastIndexOf("\\");
+                if (lastIndex >= 0) {
+                    filename = filename.substring(lastIndex + 1);
+                }
+                $('#fileuploadurl2').text(filename);
+                $('#FileHocBa').val($('#FileAttachment2').val());
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        @ViewBag.hienthi
+        @using (Html.BeginForm("UploadFileMau1", "PhatTrienNangCap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+  
+                <div class="TextBox DiaChi">
+                    <div class="chonfile">
+                        <span id="fileuploadurl1">Chọn File CMTND/CCCD </span>
+                        <img src="/Resources/Images/i4.png" class=" lazyloaded" data-src="/Resources/Images/i4.png" alt="FileAttachment">
+                        <input type="file" name="FileAttachment1" tabindex="13" id="FileAttachment1" class="upload flImage1" accept=".doc,.docx,.pdf,.xls,.xlsx,.rar,.zip,.jpg,.png" />
+                        <input type="hidden" id="FileCMND" name="FileCMND" value="">
+
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div class="tsiilee">@Html.Raw(ViewBag.FileChungMinhThu)</div>
+
+        
+
+            
+            <div style="  clear:both; height:20px"></div>
+  
+                <div class="TextBox DiaChi">
+                    <div class="chonfile">
+                        <span id="fileuploadurl2">Chọn File Học bạ</span>
+                        <img src="/Resources/Images/i4.png" class=" lazyloaded" data-src="/Resources/Images/i4.png" alt="FileAttachment">
+                        <input type="file" name="FileAttachment2" id="FileAttachment2" tabindex="14" class="upload flImage" accept=".doc,.docx,.pdf,.xls,.xlsx,.rar,.zip,.jpg,.png" />
+                        <input type="hidden" id="FileHocBa" name="FileHocBa" value="">
+                    </div>
+
+                </div>
+                <div style="clear:both"></div>
+                <div class="tsiilee">@Html.Raw(ViewBag.FileHocBa)</div>
+            <div style="  clear:both"></div>
+
+            <div class="sukienhosso">
+                <input type="submit" value="thêm mới" class="btnmvc" />
+            </div>
+        }
+
+
+    </div>
+</body>
+</html>

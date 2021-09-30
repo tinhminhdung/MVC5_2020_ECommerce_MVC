@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="">
+    <div id="content" class="blog-wrapper blog-archive page-wrapper">
+        @Html.Raw(Advertisings.Ad_vertisings.Advertisings_A_Images("14"))
+        @{Html.RenderAction("Nav_conten", "My_Partialview");}
+        <div class="row row-large ">
+            @{Html.RenderAction("Lefmenu", "My_Partialview");}
+            <!-- .post-sidebar -->
+            <div class="large-9 col medium-col-first">
+                <h1 class="page-title is-large uppercase">
+                    <span>Tìm kiếm</span>
+                </h1>
+                <div id="row-1140955211" class="row large-columns-3 medium-columns- small-columns-1 row-masonry">
+                    @Html.Raw(ViewBag.ShowList)
+                    <div style="clear: both;"></div>
+                    <div class="pager">
+                        @Html.Raw(ViewBag.Phantrang)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

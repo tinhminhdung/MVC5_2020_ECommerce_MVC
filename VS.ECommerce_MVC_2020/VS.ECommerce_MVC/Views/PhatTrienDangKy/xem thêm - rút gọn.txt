@@ -1,0 +1,17 @@
+@Html.Raw(ViewBag.ShowConten)
+<div style="clear: both;"></div>
+
+ViewBag.ShowConten += "<article>";
+ViewBag.ShowConten += "<div class=\"News-content \">";//SeoNoiDung
+ViewBag.ShowConten += "<div class=\"contents\">";
+ViewBag.ShowConten += "<article>";
+ViewBag.ShowConten += table.Description;
+ViewBag.ShowConten += "</article>";
+ViewBag.ShowConten += " </div>";
+ViewBag.ShowConten += "</div>";
+ViewBag.ShowConten += "</article>";
+
+ .view-more, .view-less{padding-top: 20px; padding-bottom: 20px;font-size:14px;font-weight:600;font-style:normal;font-stretch:normal;line-height:1.43;letter-spacing:-.2px;text-align:center;color:#df322f;cursor:pointer}
+.SeoNoiDung { padding: 0px!important; margin-top: 0px!important; width: 96%; margin: auto; }
+
+<script src="/Resources/js/Readmore.js"></script>

@@ -1,0 +1,61 @@
+﻿@using VS.ECommerce_MVC
+
+@{
+    // Cách 1 chạy ko cache
+   // List<Entity.Category_News> Category = ViewBag.Category as List<Entity.Category_News>;
+
+    
+    // Cách 2 có cache
+    List<Entity.Category_News> Category = ViewBag.data as List<Entity.Category_News>;
+
+
+    // Cách 2 chạy ko cache
+    //var Category = ViewBag.Category as List<Entity.Category_News>;
+    Layout = "";
+}
+
+
+<section class="awe-section-6">
+    <section class="section_blog_main_index">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dear_title margin-bottom-30">
+                    <h2 class="title_center_">
+                        <a href="/tin-tuc.html" title="Tin tức">Tin tức</a>
+                    </h2>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog_owl_main">
+                    <div class="owl_blog_main_ owl-carousel" data-nav="false" data-dot="true" data-lg-items="3" data-md-items="3" data-height="false" data-xs-items="1" data-sm-items="2" data-margin="15">
+
+                        @if (Category.Count > 0)
+                        {
+                            foreach (var item in Category)
+                            {
+                                string link = "/tin-tuc/" + item.TangName + ".html";
+                                <div class="item_blog_owl">
+                                    <article class="blog-item blog-item-grid row">
+                                        <div class="wrap_blg">
+                                            <div class="blog-item-thumbnail img1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <a href="@link" title="@item.Title">
+                                                    @Html.Raw( AllQuery.MoreNews.Image_Title_Alt(item.ImagesSmall.ToString(), item.Title.ToString(), item.Alt.ToString()))
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_ar blog_large_item">
+                                                <h3 class="blog-item-name large_name">
+                                                    <a class="text1line" href="@link" title="@item.Title">@Html.Raw(AllQuery.MoreNews.Substring_Title(item.Title.ToString())) </a>
+                                                </h3>
+                                                <div class="summary_ text3line">@Html.Raw(AllQuery.MoreNews.Substring_Mota(item.Brief.ToString()))</div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

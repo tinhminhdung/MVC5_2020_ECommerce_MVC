@@ -1,0 +1,172 @@
+   https://www.aspforums.net/Threads/818432/Display-alert-message-if-file-not-uploaded-from-Controller-in-ASPNet-MVC/
+
+
+
+@Html.Raw(TempData["Message"])
+
+
+
+
+ //Đặt hàng nhanh ở trang chi tiết
+      
+        [HttpPost]
+        public ActionResult DatHangNhanh(FormCollection collect)
+        {
+            string hdTangName2 = "/san-pham/" + collect["hdTangName"] + ".html?soluong=402";
+            string hdTangName = "/san-pham/" + collect["hdTangName"] + ".html?loi=405";
+
+            string hdTangNameUrl = "/san-pham/" + collect["hdTangName"] + ".html";
+
+            string hdcuahang = collect["hdcuahang"];
+            if (Services.SessionCarts.CheckCuaHang() == "2")// lần đầu đi mua
+            {
+                if (hdcuahang != "0")// nếu chọn cửa hàng
+                {
+                    string txtQuantitys = collect["qty"];
+                    string hdipid = collect["hdipid"];
+
+                    //CheckTong
+                    Double TongCon = Convert.ToDouble(Commond.CheckTong(hdcuahang, hdipid));
+                    Double TongGioHang = Convert.ToDouble(Commond.CheckTongGioHang(hdipid));
+                    Double soluong = Convert.ToDouble(txtQuantitys);
+                    Double Tong = TongGioHang + soluong;
+                    if (TongCon >= Tong)
+                    {
+                        string CuaHang = "0";
+                        if (collect["hdcuahang"] != "")
+                        {
+                            CuaHang = collect["hdcuahang"];
+                        }
+                        List<Entity.Products> dt = SProducts.GetById(hdipid);
+                        if (dt.Count > 0)
+                        {
+                            SessionCarts.ShoppingCart_AddProduct_Sesion(hdipid.ToString(), Convert.ToInt32(txtQuantitys), "0", "0", CuaHang);
+                        }
+                        Response.Redirect("/gio-hang.html");
+                        return View();
+                    }
+                    else
+                    {
+                        TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong kho không đủ số lượng', showHideTransition: 'fade', icon: 'error' })}); </script>";
+                        Response.Redirect(hdTangNameUrl);
+                        //return Content("<html><head><script type=\"text/javascript\">alert('Trong kho không đủ số lượng');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+                        //Response.Redirect(hdTangName2);
+                        return View();
+                    }
+                }
+                else // TH nếu mua của admin,
+                {
+                    string txtQuantitys = collect["qty"];
+                    string hdipid = collect["hdipid"];
+                    string CuaHang = "0";
+                    if (collect["hdcuahang"] != "")
+                    {
+                        CuaHang = collect["hdcuahang"];
+                    }
+                    List<Entity.Products> dt = SProducts.GetById(hdipid);
+                    if (dt.Count > 0)
+                    {
+                        Double SoluongHienTai = Convert.ToDouble(dt[0].SoLuongCon.ToString());
+                        Double SoluongMua = Convert.ToDouble(SessionCarts.ShowSoLuong(hdipid.ToString())) + Convert.ToDouble(txtQuantitys);
+                        if (SoluongMua > SoluongHienTai)
+                        {
+                            TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong kho không đủ số lượng', showHideTransition: 'fade', icon: 'error' })}); </script>";
+                            Response.Redirect(hdTangNameUrl);
+                            return View();
+
+                           // return Content("<html><head><script type=\"text/javascript\">alert('Trong kho không đủ số lượng');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+                        }
+                        else
+                        {
+                            SessionCarts.ShoppingCart_AddProduct_Sesion(hdipid.ToString(), Convert.ToInt32(txtQuantitys), "0", "0", CuaHang);
+                            Response.Redirect("/gio-hang.html");
+                        }
+                    }
+
+                    return View();
+                }
+            }
+            else if (Services.SessionCarts.CheckCuaHang() == hdcuahang)
+            {
+                string txtQuantitys = collect["qty"];
+                string hdipid = collect["hdipid"];
+                if (hdcuahang != "0")// nếu chọn cửa hàng
+                {
+                    //CheckTong
+                    Double TongCon = Convert.ToDouble(Commond.CheckTong(Services.SessionCarts.CheckCuaHang(), hdipid));
+                    Double TongGioHang = Convert.ToDouble(Commond.CheckTongGioHang(hdipid));
+                    Double soluong = Convert.ToDouble(txtQuantitys);
+                    Double Tong = TongGioHang + soluong;
+                    if (TongCon >= Tong)
+                    {
+                        string CuaHang = "0";
+                        if (collect["hdcuahang"] != "")
+                        {
+                            CuaHang = collect["hdcuahang"];
+                        }
+                        List<Entity.Products> dt = SProducts.GetById(hdipid);
+                        if (dt.Count > 0)
+                        {
+                            SessionCarts.ShoppingCart_AddProduct_Sesion(hdipid.ToString(), Convert.ToInt32(txtQuantitys), "0", "0", CuaHang);
+                        }
+                        Response.Redirect("/gio-hang.html");
+                        return View();
+                    }
+                    else
+                    {
+                        TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong kho không đủ số lượng', showHideTransition: 'fade', icon: 'error' })}); </script>";
+                        Response.Redirect(hdTangNameUrl);
+                        return View();
+
+                     
+                       // return Content("<html><head><script type=\"text/javascript\">alert('Trong kho không đủ số lượng');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+                        //Response.Redirect(hdTangName2);
+                        //return View();
+                    }
+                }
+                else // TH nếu mua của admin,
+                {
+                    string CuaHang = "0";
+                    if (collect["hdcuahang"] != "")
+                    {
+                        CuaHang = collect["hdcuahang"];
+                    }
+                    List<Entity.Products> dt = SProducts.GetById(hdipid);
+                    if (dt.Count > 0)
+                    {
+                        Double SoluongHienTai = Convert.ToDouble(dt[0].SoLuongCon.ToString());
+                        Double SoluongMua = Convert.ToDouble(SessionCarts.ShowSoLuong(hdipid.ToString())) + Convert.ToDouble(txtQuantitys);
+                        if (SoluongMua > SoluongHienTai)
+                        {
+                            TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong kho không đủ số lượng', showHideTransition: 'fade', icon: 'error' })}); </script>";
+                            Response.Redirect(hdTangNameUrl);
+                            return View();
+
+                           // return Content("<html><head><script type=\"text/javascript\">alert('Trong kho không đủ số lượng');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+                        }
+                        else
+                        {
+                            SessionCarts.ShoppingCart_AddProduct_Sesion(hdipid.ToString(), Convert.ToInt32(txtQuantitys), "0", "0", CuaHang);
+                            Response.Redirect("/gio-hang.html");
+                        }
+                    }
+                    return View();
+                }
+            }
+            else
+            {
+                TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong giỏ hàng chỉ được phép mua sản phẩm của 1 cửa hàng. vui lòng chọn đúng cửa hàng mà bạn đang mua.', showHideTransition: 'fade', icon: 'error' })}); </script>";
+                Response.Redirect(hdTangNameUrl);
+                return View();
+
+               // return Content("<html><head><script type=\"text/javascript\">alert('Trong giỏ hàng chỉ được phép mua sản phẩm của 1 cửa hàng. vui lòng chọn đúng cửa hàng mà bạn đang mua.');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+                //Response.Redirect(hdTangName);
+                //return View();
+            }
+            return View();
+        }
+
+
+
+
+F:\AGVietNam\VS.TamGiacGiang_Ag_bigstore.shopping\VS.ECommerce_MVC\Controllers

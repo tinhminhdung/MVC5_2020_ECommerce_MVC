@@ -1,0 +1,68 @@
+﻿
+<link href="~/Resources/css/cart_sidebar.css" rel="stylesheet" />
+@*https://evo-mobile.mysapo.net/
+
+    F:\Congty_TheAnh\2021\Thang07\VS.NhaThuoc_APIPhanMemChinhThucOK\VS.ECommerce_MVC\Views\Cart
+
+
+    <a href="javascript:void(0)" class="evo-header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
+    <span class="acc-text">Giỏ hàng</span>
+    </a>*@
+@*<script>
+    <script>
+         $('.evo-header-cart').click(function () {
+             //debugger;
+             ShowCart();
+             $(".cart_sidebar").toggleClass('active');
+             $(".backdrop__body-backdrop___1rvky").addClass('active');
+         });
+
+         $('.backdrop__body-backdrop___1rvky, .cart_btn-close').click(function () {
+             $(".cart_sidebar").removeClass('active');
+             $(".backdrop__body-backdrop___1rvky").removeClass('active');
+         });
+
+         $(document).on('click', ".items-count", function () {
+            // $(this).parent().children('.items-count').prop('disabled', true);
+           //  var thisBtn = $(this);
+             var variantId = $(this).parent().find('.variantID').val();
+             var qty = $(this).parent().children('.number-sidebar').val();
+             var variantIdUpdate = variantId;
+             $.ajax({
+                 type: "POST",
+                 url: "/Ajax/Updatequantity",
+                 data: "{id:'" + variantId + "',quantity:'" + qty + "'}",
+                 contentType: "application/json; charset=utf-8",
+                 datatype: "json",
+                 async: "true",
+                 success: function (response) {
+                     // ShowCart();
+                     ShowTongTien();
+                 },
+                 error: function (response) {
+                 },
+                 beforeSend: function () {
+                    // $body.addClass('loading');
+                 },
+                 complete: function () {
+                    // $body.removeClass("loading");
+                 }
+             });
+         });
+     </script>*@
+<div class="backdrop__body-backdrop___1rvky "></div>
+<div class="cart_sidebar" id="cart-sidebars">
+    <div class="evo-cart-content">
+        <div class="clearfix cart_heading">
+            <h4 class="cart_title">Giỏ hàng</h4>
+            <div class="cart_btn-close" title="Đóng giỏ hàng">
+                <svg class="Icon Icon--close" viewBox="0 0 16 14">
+                    <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+        <div id="cartContent"></div>
+        <div id="ShowTongTien"></div>
+        
+    </div>
+</div>

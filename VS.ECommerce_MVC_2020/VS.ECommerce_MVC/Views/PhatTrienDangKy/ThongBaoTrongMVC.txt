@@ -1,0 +1,29 @@
+
+Nguồn demo 
+https://www.aspforums.net/Threads/818432/Display-alert-message-if-file-not-uploaded-from-Controller-in-ASPNet-MVC/
+   
+   
+============= html ==================
+@Html.Raw(TempData["Message"])
+
+
+================ C# ===============
+//Đặt hàng nhanh ở trang chi tiết http://bigstore.shopping/
+[HttpPost]
+public ActionResult DatHangNhanh(FormCollection collect)
+{
+	string hdTangName = "/san-pham/" + collect["hdTangName"] + ".html";
+
+	// 1: Cách hay dùng TempData["Message"]
+	TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong giỏ hàng chỉ được phép mua sản phẩm của 1 cửa hàng. vui lòng chọn đúng cửa hàng mà bạn đang mua.', showHideTransition: 'fade', icon: 'error' })}); </script>";
+	Response.Redirect(hdTangNameUrl);
+	return View();
+
+
+	// 2: Cách alert thông thường
+	// return Content("<html><head><script type=\"text/javascript\">alert('Trong giỏ hàng chỉ được phép mua sản phẩm của 1 cửa hàng. vui lòng chọn đúng cửa hàng mà bạn đang mua.');window.location.href='" + hdTangNameUrl + "'; </script></head></html>");
+          
+	return View();
+}
+
+F:\AGVietNam\VS.TamGiacGiang_Ag_bigstore.shopping\VS.ECommerce_MVC\Controllers

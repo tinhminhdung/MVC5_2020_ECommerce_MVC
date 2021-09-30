@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section id="blog_content" class="right-content col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-pull-3 col-md-pull-3">
+    <div class="page_title page__ col-lg-12 col-md-12 col-sm-12 no-padding">
+        <h1 class="title_page_h1"><span> Thư viện ảnh</span>	</h1>
+    </div>
+    <section class="list-blogs blog-main col-lg-12 col-md-12 col-xs-12 col-sm-12 no-padding">
+        <div class="row">
+           @Html.Raw(ViewBag.ltshow)
+        </div>
+    </section>
+</section>
+                   

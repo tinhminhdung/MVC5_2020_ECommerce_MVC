@@ -1,0 +1,54 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title></title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!--1*: F:\MVC\Himen.vn_MVC\MODEOUTLED\Views\Customer\CustomerIndexot.cshtml-->
+        <div id="msg" class="msg">
+            <div class="alert alert-info" id="update-message">
+            </div>
+        </div>
+
+        <script language="JavaScript" type="text/javascript">
+            // Ajax sử dụng cho change diem
+            $(".Diem").change(function () {
+                var cusId = $(this).attr("id");
+                var diem = $(this).val();
+                if (diem != "") {
+                    clearUpdateMessage();
+                    $.post("/Customer/ChangeCustomer", { "id": cusId, "diem": diem },
+                        function (data) {
+                            // Thay đổi thành công
+                            $('#msg').show();
+                            $('#update-message').removeClass().addClass("alert alert-info").text(htmlDecode(data));
+                            $('#msg').fadeOut(5000);
+                        });
+                } else {
+                    // Báo lỗi nhập dữ liệu
+                    $('#msg').show();
+                    $('#update-message').removeClass().addClass("alert alert-error").text("Phải nhập Điểm tích lũy.");
+                    $('#msg').fadeOut(5000);
+                }
+            });
+            function clearUpdateMessage() {
+                $('#update-message').text("");
+            }
+
+        </script>
+
+
+
+    </form>
+</body>
+</html>
+
+

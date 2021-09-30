@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "";
+}
+<script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+       
+        $('#InfoButton').on("click", function () {
+            debugger;
+            @*$.get('@Url.Action("InfoAction", "ShowDemo")', function (data) {
+                $("#myContentView").html(data);
+            });*@
+
+
+            $.ajax({
+                url: '@Url.Action("InfoAction", "ShowDemo")',
+                type: 'GET',
+                success: function (data) {
+                    $("#myContentView").html(data);
+                }
+            });
+
+
+
+            $('#NotesButton').on("click", function () {
+                @*$.get('@Url.Action("NotesAction", "ShowDemo")', function (data) {
+                    $("#myContentView").html(data);
+                });*@
+                $.ajax({
+                    url: '@Url.Action("NotesAction", "ShowDemo")',
+                    type: 'GET',
+                    success: function (data) {
+                        $("#myContentView").html(data);
+                    }
+                });
+
+
+                $('#OrdersButton').on("click", function () {
+                    @*$.get('@Url.Action("OrdersAction", "ShowDemo")', function (data) {
+                        $("#myContentView").html(data);
+                    });*@
+
+                    $.ajax({
+                        url: '@Url.Action("OrdersAction", "ShowDemo")',
+                        type: 'GET',
+                        success: function (data) {
+                            $("#myContentView").html(data);
+                        }
+                    });
+
+                });
+
+
+            });
+        });
+    });
+</script>
+<div class="row" id="myContentView"></div>
+@Html.RadioButton("radio", false, new { id = "InfoButton" }) InfoButton
+@Html.RadioButton("radio", false, new { id = "NotesButton" }) NotesButton
+@Html.RadioButton("radio", false, new { id = "OrdersButton" }) OrdersButton

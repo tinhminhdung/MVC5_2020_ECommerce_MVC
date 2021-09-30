@@ -1,0 +1,2 @@
+﻿Mỗi sản phẩm là chuẩn nhất , có phần mô tả các param và tên của API
+Bỏ phần HttpRequestMessage request đi 

@@ -1,0 +1,55 @@
+﻿@*<form action="/Ajax/LienHe" method="post" class="wpcf7-form">*@
+@using (Html.BeginForm("LienHe", "Ajax", new { @class = @"wpcf7-form" }, FormMethod.Post))
+{
+    <div class="form-lien-he">
+        <h3>Liên hệ với Alliance Hitech Farm Lập Thạch</h3>
+        <div style=" color:red">@Html.Raw(TempData["ThongBao"])</div>
+        <div class="row-form" id="nhanTuVan">
+            <div class="left">
+                <span class="wpcf7-form-control-wrap text-703"><input type="text" name="HoVaTen" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required required" aria-required="true" aria-invalid="false" placeholder="Họ và tên của anh chị..." /></span>
+            </div>
+            <div class="right">
+                <span class="wpcf7-form-control-wrap email-982"><input type="email" name="Email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email required" aria-required="true" aria-invalid="false" placeholder="Email của anh chị..." /></span>
+            </div>
+        </div>
+        <p>
+            <span class="wpcf7-form-control-wrap tel-591"><input type="tel" name="DienThoai" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel required" aria-required="true" aria-invalid="false" placeholder="Số điện thoại của anh chị..." /></span><br />
+            <span class="wpcf7-form-control-wrap textarea-106"><textarea name="NoiDung" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea required" aria-invalid="false" placeholder="Lời nhắn mà bạn muốn chúng tôi tư vấn..."></textarea></span><br />
+            <input type="submit" onclick="return SendTuVan();" value="Đăng ký ngay" class="wpcf7-form-control " />
+        </p>
+    </div>
+}
+
+<script type="text/javascript">
+    $('a.nhapLai').click(function () {
+        ResetInputContact('#nhanTuVan');
+        $("#HoVaTen").focus();
+    });
+    // chú lý: kiểu bắt buộc này là so sánh class .required xem ô nào mà có class css này là sẽ bị bắt buộc, code rất hay.4
+    //class="required"
+    function SendTuVan() {
+        debugger;
+        var obError = undefined;
+        $("#nhanTuVan .required").each(function () {
+            $(this).removeClass("boxFocus");
+            if (obError == undefined && $(this).val() === '') {
+                obError = $(this);
+                return false;
+            }
+        });
+
+        if (obError != undefined) {
+            obError.focus();
+            obError.addClass("boxFocus");
+            alert("Vui lòng nhập đầy đủ thông tin trong các ô có dấu * trước khi gửi");
+            return false;
+        }
+
+        if (!CheckEmailValue($("#Email").val())) {
+            $("#Email").focus();
+            $("#Email").addClass("boxFocus");
+            alert("Bạn đã nhập email chưa chính xác, vui lòng nhập lại email");
+            return false;
+        }
+    };
+</script>

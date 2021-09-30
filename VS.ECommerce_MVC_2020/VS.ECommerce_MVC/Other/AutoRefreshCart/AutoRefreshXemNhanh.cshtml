@@ -1,0 +1,50 @@
+﻿@using VS.ECommerce_MVC
+<div class="row">
+    <div class="col-sm-6">
+        <div class="image margin-bottom-15">
+            <a class="img-product clearfix" title="" href="javascript:;">
+                <img id="product-featured-image-quickview" class="img-responsive product-featured-image-quickview" src="@Model.Images" alt="quickview">
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="content">
+            @{
+                string link = "/san-pham/" + Model.TangName + ".html";
+                <h3 class="product-name"><a href="@link">@Model.Name</a></h3>
+            }
+            <div class="status clearfix">
+                Trạng thái: <span class="inventory"><i class="fa fa-check"></i> Còn hàng</span>
+            </div>
+            <div class="price-box margin-bottom-20 clearfix">
+                <div class="special-price f-left">
+                    <span class="price product-price">@AllQuery.MorePro.FormatMoney_Full_lh(Model.Price)</span>
+                </div>
+            </div>
+            <div class="product-description rte">@Html.Raw(Model.Brief) </div>
+            <a href="/products/nuoc-tinh-khiet-sapuwa-binh-voi-19l" class="view-more hidden">Xem chi tiết</a>
+            <div class="clearfix"></div>
+            <div class="info-other" style="display: block;"><p><label class="inline-block">Hãng sản xuất</label>: @Html.Raw(ViewBag.Hang)</p></div>
+            <input id="hdipid" name="hdipid" type="hidden" value="@Model.ipid" />
+            <div class="clearfix"></div>
+            <div class="quantity_wanted_p">
+                <label for="quantity-detail" class="quantity-selector">Số lượng</label>
+                <input type="number" max="999" min="0" name='@Model.ipid' id='@Model.ipid' value="1" class="input">
+                <button data-toggle="modal" class="btn-buy btn-cart btn btn-primary   left-to add_to_cart" onclick="AddShoppingCartItem(@Model.ipid)" data-target="#quickview" title="Thêm vào giỏ hàng">  Thêm vào giỏ hàng </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function AddShoppingCartItem(id) {
+        debugger;
+        var numPro = "#" + id;
+        var q = $(numPro).val().toString();
+        //bắt đầu
+        $('#AutoRefreshMuaThem').load('/My_Partialview/AutoRefreshMuaThemNhieu', { id: id, sl: q })
+        $("#RefreshHeaderCart").load("/My_Partialview/RefreshHeaderCart");
+        // $('#quickview').modal('hide');
+        $('#popupCartModal').modal('show');
+    }
+</script>

@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+
+    var category = (GetProductInfo_Model.Root)ViewBag.Category;
+}
+<div class="some-style">
+        <label>@category.data.Name</label>
+</div>
+
+@*@{
+    GetProductInfo_Model.Root Otherss = ViewBag.Category as GetProductInfo_Model.Root;
+    if (Otherss != null)
+    {
+           <label>@Otherss.data.Name</label>
+    }
+}*@

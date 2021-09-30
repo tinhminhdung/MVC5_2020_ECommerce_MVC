@@ -1,0 +1,138 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <!--code lấy ở đây nhé https://vking.vn/739-740/filter.html-->
+</head>
+<body>
+    <!--CHÚ Ý WEB NÀY ĐÃ LÀM RỒI NHÉ F:\CongtyGooDeign\Nam2021\Thang05\topbietthu.vn_vking.vn-->
+    <!-- code lấy ở đây nhé http://topbietthu.vn/-->
+    <br />
+    <script type="text/javascript">
+        $('a.nhapLai').click(function () {
+            ResetInputContact('#nhanTuVan');
+            $("#tbHoTen_RQ").focus();
+        });
+        // chú lý: kiểu bắt buộc này là so sánh class .required xem ô nào mà có class css này là sẽ bị bắt buộc, code rất hay.4
+        //class="required"
+        function SendTuVan() {
+            var obError = undefined;
+            $("#nhanTuVan .required").each(function () {
+                $(this).removeClass("boxFocus");
+                if (obError == undefined && $(this).val() === '') {
+                    obError = $(this);
+                    return false;
+                }
+            });
+
+            if (obError != undefined) {
+                obError.focus();
+                obError.addClass("boxFocus");
+                alert("Vui lòng nhập đầy đủ thông tin trong các ô có dấu * trước khi gửi");
+                return false;
+            }
+
+            if (!CheckEmailValue($("#tbEmail_RQ").val())) {
+                $("#tbEmail_RQ").focus();
+                $("#tbEmail_RQ").addClass("boxFocus");
+                alert("Bạn đã nhập email chưa chính xác, vui lòng nhập lại email");
+                return false;
+            }
+            //loading(true);
+        };
+    </script>
+
+
+    <!-- #region popup-request -->
+    <div class="popup-request">
+        <div class="over-bg"></div>
+        <div class="box-form">
+            <div class="bt-cls"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="title">Gửi yêu cầu tư vấn</div>
+            <div class="desc">
+
+            </div>
+            <div class="body" id="nhanTuVan">
+                <div class="box-input">
+                    <input name="tbHoTen_RQ" type="text" id="RQ" class="required" placeholder="Họ tên *" />
+                </div>
+                <div class="box-input">
+                    <input name="tbDiaChi_RQ" type="text" id="RQ" placeholder="Địa chỉ" />
+                </div>
+                <div class="box-input">
+                    <input name="tbEmail_RQ" type="text" id="RQ" class="required" placeholder="Email *" />
+                </div>
+                <div class="box-input">
+                    <input name="tbDienThoai_RQ" type="text" id="RQ" class="required" placeholder="Điện thoại *" />
+                </div>
+                <div class="box-input">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <select name="tbLoaiCongTrinh_RQ" id="tbLoaiCongTrinh_RQ" class="ddlLoaiCongTrinh required">
+                        <option value="">Chọn loại c&#244;ng tr&#236;nh</option>
+                        <option value="Biệt thự nhà vườn">Biệt thự nh&#224; vườn</option>
+                        <option value="Lâu đài dinh thự">L&#226;u đ&#224;i dinh thự</option>
+                        <option value="Nhà ống">Nh&#224; ống</option>
+                        <option value="Văn phòng - Công sở">Văn ph&#242;ng - C&#244;ng sở</option>
+                        <option value="Không xác định">Kh&#244;ng x&#225;c định</option>
+
+                    </select>
+                </div>
+                <div class="box-input">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <select name="tbMucDauTu_RQ" id="tbMucDauTu_RQ" class="ddlMucDauTu required">
+                        <option value="">Chọn mức đầu tư</option>
+                        <option value="&lt; 1 tỷ">&lt; 1 tỷ</option>
+                        <option value="1 - 1.5 tỷ">1 - 1.5 tỷ</option>
+                        <option value="1.5 - 2 tỷ">1.5 - 2 tỷ</option>
+                        <option value="2 - 3 tỷ">2 - 3 tỷ</option>
+                        <option value="3 - 5 tỷ">3 - 5 tỷ</option>
+                        <option value="5 - 10 tỷ">5 - 10 tỷ</option>
+                        <option value="> 10 tỷ">&gt; 10 tỷ</option>
+                        <option value="Không xác định">Kh&#244;ng x&#225;c định</option>
+
+                    </select>
+                </div>
+                <div class="box-input">
+                    <!--2 trang này cũng có nhé-->
+                    <!--https://aiboschone.com/register.html-->
+                    <!--http://topbietthu.vn/-->
+                    <span id="fileuploadurl2">Chọn tệp tin</span>
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw" class="lazyload" data-src="/Themes/Theme01/Assets/Css/Images/icon/i4.png" alt="" />
+                    <input type="file" name="FileAttachment2" id="FileAttachment2" class="upload flImage" accept=".doc,.docx,.pdf,.xls,.xlsx,.rar,.zip,.jpg,.png" />
+                    <script>
+                        $(document).ready(function () {
+                            $('.flImage').change(function () {
+                                var filename = $(this).val();
+                                var lastIndex = filename.lastIndexOf("\\");
+                                if (lastIndex >= 0) {
+                                    filename = filename.substring(lastIndex + 1);
+                                }
+                                $('#fileuploadurl2').text(filename);
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="box-input">
+                    <input name="tbTieuDe_RQ "  type="text" id="tbTieuDe_RQ" placeholder="Tiêu đề" />
+                </div>
+                <div class="box-input">
+                    <textarea name="tbYeuCau_RQ" rows="2" cols="20" id="tbYeuCau_RQ" placeholder="Yêu cầu cụ thể"></textarea>
+                </div>
+                <div class="gr-bt">
+                    <a onclick="return SendTuVan();" style=" color:red" >Gửi yêu cầu <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                 
+                       <a class="nhapLai" href="javascript:void(0);" title="Xóa nội dung">Xóa nội dung</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+
+
+
+</body>
+</html>

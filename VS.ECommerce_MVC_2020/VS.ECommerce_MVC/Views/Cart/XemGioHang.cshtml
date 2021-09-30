@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section jsFooter{
+    @*cái này để cho js xuất hiện dưới foooter của control chính*@
+    @*bắt buộc phải có để chạy Ajax jquery-ui.js*@
+    @*<script src="/Resources/scripMvc/jquery-ui.js"></script>*@
+    <script src="~/Resources/ScripMvc/Giohang.js"></script>
+}
+
+@{Html.RenderAction("Nav_conten", "My_Partialview");}
+<div class="container">
+                    <div class="">
+                        <h2>@Commond.label("lt_cartbox")</h2>
+
+                        <div style="@ViewBag.pncart">
+
+                            <div class='frm_cart '>
+                                <div class="bgContent">
+                                    <div class="borderBlock_ListPro scollgiohang">
+                                        <table cellpadding="0" cellspacing="0" class="dcart scoll" width="100%" bgcolor="#FFFFFF" bordercolor="#C3C3C3">
+                                            <tr>
+                                                <td height="30" colspan="8" class="TitleItem" style="text-align: left">
+                                                    @Commond.label("l_have") <span style="color: #F00; font-weight: bold;">@ViewBag.numberofproducts</span> @Commond.label("lproductsincart")
+                                                </td>
+                                            </tr>
+                                            <tr class="procart">
+                                                <td align="left"><strong>STT</strong></td>
+                                                <td align="left"><strong>@Commond.label("l_images") </strong></td>
+                                                <td align="center"><strong>@Commond.label("lt_firstname") </strong></td>
+                                                <td align="center"><strong>@Commond.label("lprice") </strong></td>
+                                                <td align="center"><strong>@Commond.label("lquantity") </strong></td>
+                                                <td align="center"><strong>@Commond.label("l_tomoney") </strong></td>
+                                                <td align="right"><strong>[@Commond.label("ldelete")]</strong></td>
+                                            </tr>
+                                            @{
+                                                int k = 1;
+                                                
+                                                if (Session["cart"] != null)
+                                                {
+                                                    System.Data.DataTable dtcart = (System.Data.DataTable)Session["cart"];
+                                                    if (dtcart.Rows.Count > 0)
+                                                    {
+                                                        
+                                                        for (int i = 0; i < dtcart.Rows.Count; i++)
+                                                        {
+                                                            <tr style="text-align:center">
+                                                                <td height="30" align="center" class="TitleItem">
+                                                                  @k
+                                                                </td>
+                                                                <td align="left" class="TitleItem">
+                                                                    <img src="@Html.Raw(dtcart.Rows[i]["vimg"].ToString())" style="width: 77px; height: auto; border: solid 1px #d7d7d7" />
+                                                                    @*<%#Mausac(Eval("Mausac").ToString())%><%#Kichthuoc(Eval("Kichco").ToString())%>*@
+                                                                </td>
+                                                                <td align="center" class="TitleItem"><strong>@dtcart.Rows[i]["Name"].ToString()</strong></td>
+                                                                <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Price"].ToString()) </td>
+                                                                <td align="center" class="TitleItem" style="text-align:center">
+                                                                    @Html.Hidden("Hidden_ipid", @dtcart.Rows[i]["PID"].ToString())
+                                                                    <input class="form-control input-sm txtQuantity" data-id="@dtcart.Rows[i]["PID"].ToString()" style="margin: auto !important; width: 50px; padding: 0px; margin: 0px; text-align: center; " type="text" value="@dtcart.Rows[i]["Quantity"].ToString()">
+                                                                </td>
+                                                                <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Money"].ToString()) </td>
+                                                                <td align="center">
+                                                                    <a class="xoasanpham" onclick="return confirm('Bạn muốn xóa sản phẩm ?')" href="/Cart/XoaGioHang/@dtcart.Rows[i]["PID"].ToString()">[Xóa]</a>
+                                                                </td>
+                                                            </tr>
+                                                            k++;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            <tr>
+                                                <td height="30" colspan="5" align="right" class="TitleItem"><strong style="float: right; font-weight: bold; padding-right: 10px;">@Commond.label("ltotal"):</strong></td>
+                                                <td colspan="3" align="center" class="TitleItem">
+                                                    <strong>
+                                                        @ViewBag.totalvnd
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="Buttondathang">
+                                    <a class="btnadd" href="/dat-hang.html">@Commond.label("l_produc_sder")</a>
+                                    <a class="btnadd" onclick="return  confirm('Bạn muốn xóa sản phẩm ?')" href="/Cart/XoaToanBoGioHang"> @Commond.label("lshoppingcancel")</a>
+                                    <a class="btnadd" href="/">@Commond.label("tieptucmuahang")</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div style="@ViewBag.pnmessage">
+                            <div class="modalbodys cart_body">
+                                <i class="icon_cart"></i>
+                                <h2>@Commond.label("giohang1")</h2>
+                                <p>@Commond.label("giohang2")</p>
+                                <a class="adrbutton" href="/">@Commond.label("giohang3")</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+<br />
+
+<br />
+
+<br />
+ 

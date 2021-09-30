@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Export</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("ImportExel", "PhatTrienDangKy", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.TextBox("postedFile", "", new { type = "file" }) <br />
+            <input id="HiddenAnhDaiDien" name="HiddenAnhDaiDien" type="hidden" value="@ViewBag.AnhDaiDiens" />
+            <div class="Avata">@Html.Raw(ViewBag.Avata)</div>
+
+            <input type="submit" value="Export" class="wpcf7-form-control " />
+        }
+    </div>
+</body>
+</html>

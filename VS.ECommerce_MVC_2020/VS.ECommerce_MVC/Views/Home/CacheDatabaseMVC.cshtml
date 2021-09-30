@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "";
+}
+@using VS.ECommerce_MVC
+@model List<Entity.Menu>
+@{
+    ViewBag.Title = "Index";
+}
+
+// ví dụ: https://stackoverflow.com/questions/343899/how-to-cache-data-in-a-mvc-application
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Name</th>
+                </tr>
+                @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                        </tr>
+
+                    }
+            </table>
+        </div>
+    </div>
+</div>

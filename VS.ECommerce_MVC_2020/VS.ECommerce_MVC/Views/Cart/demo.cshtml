@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Đặt hàng";
+    Layout = "";
+}
+<link href="/Templates/hinhgoc/fonts/google-font.css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet" type="text/css">
+<link href="/Templates/hinhgoc/fonts/google-font.css?family=Cabin:300,400,500,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://hinhgoc.net/templates/hinhgoc/css/bootstrap.min.css?v=637139253236178386" />
+<link href="~/Resources/ShopCart/css/custom.css" rel="stylesheet" />
+<script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+
+
+search by image google code
+
+@*https://www.google.com/searchbyimage?site=search&sa=X&image_url=http://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.png*@
+
+@*<form method="post" enctype="multipart/form-data" id="searchbyimage" accept-charset="UTF-8">
+    <label for="fileimg" style="cursor: pointer; font-weight: bold; color: #CA2537"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Tìm kiếm bằng hình ảnh</label>
+    <input type="file" id="fileimg" name="fileimg" accept="image/*" style="display: none" />
+    <input type="hidden" id="hdfimgsearch" name="hdfimgsearch" value="" />
+    <input type="hidden" id="donesearch" name="donesearch" value="" />
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            $("#fileimg")[0].addEventListener('change', function () {
+                donesearch();
+            });
+        });
+        function donesearch() {
+            $('#donesearch').val(1);
+            $('#searchbyimage').submit();
+        }
+    </script>
+</form>*@
+
+@using (Html.BeginForm("Demo", "Cart"))
+{
+
+<ul class="list-content-nganluong">
+    <li class="active">
+        <input type="radio" name="option_payment" id="IB_ONLINE" value="IB_ONLINE" checked="checked">
+        <label for="IB_ONLINE">Thanh toán chuyển khoản tự động qua Internet Banking</label>
+        <div class="boxContent">
+            <p>
+                <i>
+                    <span style="color: #ff5a00; font-weight: bold; text-decoration: underline;">Lưu ý</span>: Bạn cần đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến tại ngân hàng trước khi thực hiện.
+                </i>
+            </p>
+
+            <ul class="cardList clearfix">
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="VCB" id="IB_VCB" value="VCB" checked="checked">
+                    <label for="IB_VCB"><i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="DAB" id="IB_DAB" value="DAB">
+                    <label for="IB_DAB"><i class="DAB" title="Ngân hàng Đông Á"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="TCB" id="IB_TCB" value="TCB">
+                    <label for="IB_TCB"><i class="TCB" title="Ngân hàng Kỹ Thương"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="ICB" id="IB_ICB" value="ICB">
+                    <label for="IB_ICB"><i class="ICB" title="Ngân hàng Công Thương Việt Nam"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="EXB" id="IB_EXB" value="EXB">
+                    <label for="IB_EXB"><i class="EXB" title="Ngân hàng Xuất Nhập Khẩu"></i></label>
+                </li>
+
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="ib_bankcode" class="BIDV" id="IB_BIDV" value="BIDV">
+                    <label for="IB_BIDV"><i class="BIDV" title="Ngân hàng Đầu tư và Phát triển "></i></label>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </li>
+
+
+    <li>
+        <input type="radio" name="option_payment" id="QRCODE" value="QRCODE">
+        <label for="QRCODE">Thanh toán bằng QR CODE</label>
+        <div class="boxContent">
+
+            <ul class="cardList clearfix">
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="VCB" id="QR_VCB" value="VCB" checked="checked">
+                    <label for="QR_VCB"><i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="EXB" id="QR_EXB" value="EXB">
+                    <label for="QR_EXB"><i class="EXB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="VIB" id="QR_VIB" value="VIB">
+                    <label for="QR_VIB"><i class="VIB" title="Ngân hàng Quốc tế"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="ICB" id="QR_ICB" value="ICB">
+                    <label for="QR_ICB"><i class="ICB" title="Ngân hàng Công Thương Việt Nam"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="MSB" id="QR_MSB" value="MSB">
+                    <label for="QR_MSB"><i class="MSB" title="Ngân hàng Hàng Hải"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="NVB" id="QR_NVB" value="NVB">
+                    <label for="QR_NVB"><i class="NVB" title="Ngân hàng Nam Việt"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="VPB" id="QR_VPB" value="VPB">
+                    <label for="QR_VPB"><i class="VPB" title="Ngân Hàng Việt Nam Thịnh Vượng"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="AGB" id="QR_AGB" value="AGB">
+                    <label for="QR_AGB"><i class="AGB" title="Ngân hàng Nông nghiệp &amp; Phát triển nông thôn"></i></label>
+                </li>
+                <li class="bank-online-methods ">
+                    <input type="radio" name="qr_bankcode" class="SHB" id="QR_SHB" value="SHB">
+                    <label for="QR_SHB"><i class="SHB" title="Ngân hàng Sài Gòn - Hà Nội"></i></label>
+                </li>
+            </ul>
+
+        </div>
+
+    </li>
+
+    <li>
+        <input type="radio" name="option_payment" id="ATM_ONLINE" value="ATM_ONLINE">
+        <label for="ATM_ONLINE">Thanh toán Online bằng thẻ ngân hàng nội địa ATM</label>
+        <div class="boxContent">
+
+            <ul class="cardList clearfix">
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="VCB" id="VCB" value="VCB" checked="checked">
+                    <label for="VCB"><i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="DAB" id="DAB" value="DAB">
+                    <label for="DAB"><i class="DAB" title="Ngân hàng Đông Á"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="TCB" id="TCB" value="TCB">
+                    <label for="TCB"><i class="TCB" title="Ngân hàng Kỹ Thương"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="MB" id="MB" value="MB">
+                    <label for="MB"><i class="MB" title="Ngân hàng Quân Đội"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="SHB" id="SHB" value="SHB">
+                    <label for="SHB"><i class="SHB" title="Ngân hàng Sài Gòn - Hà Nội"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="VIB" id="VIB" value="VIB">
+                    <label for="VIB"><i class="VIB" title="Ngân hàng Quốc tế"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="ICB" id="ICB" value="ICB">
+                    <label for="ICB"><i class="ICB" title="Ngân hàng Công Thương Việt Nam"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="EXB" id="EXB" value="EXB">
+                    <label for="EXB"><i class="EXB" title="Ngân hàng Xuất Nhập Khẩu"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="ACB" id="ACB" value="ACB">
+                    <label for="ACB"><i class="ACB" title="Ngân hàng Á Châu"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="HDB" id="HDB" value="HDB">
+                    <label for="HDB"><i class="HDB" title="Ngân hàng thương mại cổ phần Phát triển Nhà Thành phố Hồ Chí Minh"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="MSB" id="MSB" value="MSB">
+                    <label for="MSB"><i class="MSB" title="Ngân hàng Hàng Hải"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="NVB" id="NVB" value="NVB">
+                    <label for="NVB"><i class="NVB" title="Ngân hàng Nam Việt"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="VAB" id="VAB" value="VAB">
+                    <label for="VAB"><i class="VAB" title="Ngân hàng Việt Á"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="VPB" id="VPB" value="VPB">
+                    <label for="VPB"><i class="VPB" title="Ngân Hàng Việt Nam Thịnh Vượng"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+
+                    <input type="radio" name="bankcode" class="SCB" id="SCB" value="SCB">
+                    <label for="SCB"><i class="SCB" title="Ngân hàng Sài Gòn Thương tín"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="OJB" id="OJB" value="OJB">
+                    <label for="OJB"><i class="OJB" title="Ngân hàng Đại Dương"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="PGB" id="PGB" value="PGB">
+                    <label for="PGB"><i class="PGB" title="Ngân hàng Xăng dầu Petrolimex"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="GPB" id="GPB" value="GPB">
+                    <label for="GPB"><i class="GPB" title="Ngân hàng TMCP Dầu khí Toàn Cầu"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="AGB" id="AGB" value="AGB">
+                    <label for="AGB"><i class="AGB" title="Ngân hàng Nông nghiệp &amp; Phát triển nông thôn"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="SGB" id="SGB" value="SGB">
+                    <label for="SGB"><i class="SGB" title="Ngân hàng Sài Gòn Công Thương"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="NAB" id="NAB" value="NAB">
+                    <label for="NAB"><i class="NAB" title="Ngân hàng Nam Á"></i></label>
+                </li>
+
+                <li class="bank-online-methods ">
+                    <input type="radio" name="bankcode" class="BAB" id="BAB" value="BAB">
+                    <label for="BAB"><i class="BAB" title="Ngân hàng Bắc Á"></i></label>
+                </li>
+            </ul>
+
+        </div>
+
+    </li>
+
+    <li>
+        <input type="radio" name="option_payment" id="NL" value="NL">
+        <label for="NL">Thanh toán bằng Ví điện tử NgânLượng</label>
+
+    </li>
+</ul>
+
+<button id="send2" name="send" type="submit"  class="btn btn-success"><i class="fa fa-money"></i>&nbsp;Nạp ngay</button>
+<script type="text/javascript">
+    $('input[name="option_payment"]').bind('click', function () {
+        $('.list-content-nganluong li').removeClass('active');
+        $(this).parent('li').addClass('active');
+
+    });
+</script>
+
+}
+@*<script type="text/javascript">
+    var submit = 0;
+    function CheckIsRepeat() {
+        if (++submit > 1) {
+            alert('Dữ liệu đang được xử lý. Thanks!');
+            return false;
+        }
+    }
+</script>*@
+
+@*<script type="text/javascript">
+    function CheckIsRepeat() {
+        alert('aaaaa');
+        var option_payment = $('input[name="option_payment"]:checked').val();
+        if (option_payment == "IB_ONLINE") {
+            //alert($('input[name="ib_bankcode"]:checked').prop('id'));
+            var BankCode = $('input[name="ib_bankcode"]:checked').prop('id');
+            $("#BankCode")[0].innerHTML = '<input id="BankCode" name="BankCode" type="hidden" value=' + BankCode + ' />';
+        }
+        if (option_payment == "QRCODE") {
+           // alert($('input[name="qr_bankcode"]:checked').prop('id'));
+            var BankCode = $('input[name="qr_bankcode"]:checked').prop('id');
+            $("#BankCode")[0].innerHTML = '<input id="BankCode" name="BankCode" type="hidden" value=' + BankCode + ' />';
+        }
+        if (option_payment == "ATM_ONLINE") {
+           // alert($('input[name="bankcode"]:checked').prop('id'));
+            var BankCode = $('input[name="bankcode"]:checked').prop('id');
+            $("#BankCode")[0].innerHTML = '<input id="BankCode" name="BankCode" type="hidden" value=' + BankCode + ' />';
+        }
+        if (option_payment == "NL") {
+           // alert('null');
+            $("#BankCode")[0].innerHTML = '<input id="BankCode" name="BankCode" type="hidden" value="null" />';
+        }
+        $("#Payment")[0].innerHTML = '<input id="Payment" name="Payment" type="hidden" value=' + option_payment + ' />';
+    }
+
+    //alert($('input[name="option_payment"]:checked').val());
+    //alert($('input[name="ib_bankcode"]:checked').prop('id'));
+    //alert($('input[name="qr_bankcode"]:checked').prop('id'));
+    //alert($('input[name="bankcode"]:checked').prop('id'));
+</script>*@
+<div id="BankCode"></div>
+<div id="Payment"></div>

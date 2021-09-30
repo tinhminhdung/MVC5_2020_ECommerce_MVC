@@ -1,0 +1,52 @@
+﻿<script>
+    $(document).ready(function () {
+        $('.chkclass').click(function () {
+            var getchkid = $(this).attr('id');
+            var isChecked = $('#' + getchkid).is(':checked');
+            if ($('#' + getchkid).is(':checked') == true) {
+                $('#td' + $(this).val()).css("color", "white");
+                $('#td' + $(this).val()).css("background-color", "blue");
+            }
+            else {
+                $('#td' + $(this).val()).css("color", "black");
+                $('#td' + $(this).val()).css("background-color", "white");
+            }
+        });
+    });
+    function SendTuVan() {
+        debugger;
+        var studentListVal = null;
+        studentListVal = [];
+
+        $('input:checkbox:checked').each(function () {
+            studentListVal.push($(this).attr('value'));
+        });
+        $.ajax({
+            type: "post",
+            url: "/Teacher/Studentl",
+            data: { Name: studentListVal },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                var selectedIds;
+                for (var i = 0; i < data.success.length; i++) {
+                    if (selectedIds != undefined) {
+                        selectedIds = selectedIds + " " + data.success[i];
+                    }
+                    else {
+                        selectedIds = data.success[i];
+                    }
+                }
+                alert('You have Selected Student Ids- ' + selectedIds);
+            }
+        });
+    }
+
+</script>
+  <div id="divStudentlist" style="height: 300px; overflow: auto; width: 500px; border: 1px solid #d7d7d7; padding: 10px; text-align: left; float: left;">
+                        <table>
+                            @Html.Raw(ViewBag.CheckLit)
+                        </table>
+                    </div>
+
+@Html.Raw(ViewBag.Javascrip)

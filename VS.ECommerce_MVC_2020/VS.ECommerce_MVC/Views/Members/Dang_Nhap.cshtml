@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Resources/ScripMvc/DangNhap.js"></script>
+}
+@*đăng ký đăng nhập hay có cả ảnh đại diện , thì lấy code ở trang 3mpic.vn/ 02/2020 The Anh*@
+
+@using (Html.BeginForm("Dang_Nhap", "Members", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <section class="margin-top-30">
+        <div class="wrap_ padding_mobile">
+            <div class="row">
+                <div class="section_maps">
+                    <div class="container max767 title_head margin-bottom-20">
+                        <div class="page_title page__ ">
+                            <h1 class="title_page_h1"><span>Đăng nhập thành viên</span></h1>
+                        </div>
+                    </div>
+                    <div class="container contact contact-owf">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="page-login page_cotact">
+                                    <div id="pagelogin">
+                                        <div class="contact-form">
+                                            <div style="padding: 10px 10px 10px 10px; color:red">@ViewBag.ThongBao</div>
+                                            <div class="form-signup clearfix">
+                                                <div class="group_contact row">
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_username"): </label>
+                                                        <div class="TextBox">
+                                                            @Html.TextBox("txttendangnhap", "", new { placeholder = @Commond.label("emalphone") })
+                                                        </div>
+                                                        <p style="color:red;" id="TB_TenKH"></p>
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("lt_password"):</label>
+                                                        <div class="TextBox">
+                                                            @Html.Password("txtmatkhau", "", new { placeholder = @Commond.label("lt_password") })
+                                                        </div>
+                                                        <p style="color:red;" id="TB_Email"></p>
+                                                    </fieldset>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
+                                                        <input type="submit" value="Đăng nhập" onclick="return DangNhapThanhVien();" class="btnmvc" />
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
+                                                        <div><a href="/Dang-ky.html" style="color:#0296cd; font-size:12px;">@Commond.label("taotkmoi")</a> </div>
+                                                        <div> <a href="/Quen-mat-khau.html" style="color:#0296cd; font-size:12px;">@Commond.label("Quenmk")?</a></div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

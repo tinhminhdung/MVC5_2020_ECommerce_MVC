@@ -1,0 +1,137 @@
+﻿@using VS.ECommerce_MVC
+@*Đang sử dụng linq*@
+@model product
+
+@*Nếu truy vấn bằng sql thuần thì dùng kiểu này nhé*@
+@*@model Entity.Products*@
+@{
+    Layout = "~/Views/Shared/_Layout_Products.cshtml";
+}
+@section jsFooter{
+    @*cái này để cho js xuất hiện dưới foooter của control chính*@
+    @*bắt buộc phải có để chạy Ajax jquery-ui.js*@
+    @*<script src="/Resources/scripMvc/jquery-ui.js"></script>*@
+    <script src="~/Resources/scripMvc/DetailProduts.js"></script>
+}
+
+@using (Html.BeginForm("DatHangNhanh", "Ajax", FormMethod.Post))
+{
+    <link href="/cms/Display/Products/Resources/Style.css" rel="stylesheet" type="text/css" />
+    <section id="main_product" class="details-product  col-lg-9 col-md-9 col-sm-12 col-lg-push-3 col-md-push-3">
+        <div class="details">
+            <div class="rows">
+                <div class="product-detail-left product-images col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="row">
+                        <div class="sp-loading">
+                            <img src="/Resources/images/sp-loading.gif" alt=""><br>
+                            LOADING IMAGES
+                        </div>
+                        <div class="sp-wrap">
+                            @Html.Raw(ViewBag.Showimages)
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 details-pro">
+                    <div class="title_pr">
+                        <h1 class="title-product" itemprop="name">
+                            @Model.Name
+                           
+                        </h1>
+                    </div>
+                    <div class="price-box" itemscope="" itemtype="http://schema.org/Offer">
+                        <span class="old-price">
+                            <span class="price product-price sale" itemprop="priceSpecification">
+                                @AllQuery.MorePro.FormatMoney_Full_lh(Model.Price)
+                            </span>
+                            <meta itemprop="priceCurrency" content="VND">
+                        </span>
+                        <!-- Giá gốc -->
+                        <span class="special-price">
+                            <span class="price product-price-old" itemprop="price">
+                                @AllQuery.MorePro.FormatMoney_VND(Model.OldPrice);
+                            </span>
+                            <meta itemprop="priceCurrency" content="VND">
+                        </span>
+                        <!-- Giá Khuyến mại -->
+                    </div>
+                    <div class="vender_">
+                        @Html.Raw(Model.Brief)
+                    </div>
+
+                    @*Cách 1 xử dụng Ajax với sự kiện btnUpdate*@
+                    <div>
+                        @Html.Hidden("Hidden_ipid", @Model.ipid)
+                        <input type="text" class="txtQuantity" id="@Model.ipid" value="1" />
+                        <button id="btnUpdate" class="btn">Mua Hàng theo số lượng</button>
+                    </div>
+
+                    <div style=" clear:both"></div>
+                    @*Cách 2 hay , xử dụng from ở trên đầu trang @using (Html.BeginForm("DatHangNhanh", "Ajax", FormMethod.Post))*@
+                    <div class="input-group">
+                        <input id="hdipid" name="hdipid" type="hidden" value="@Model.ipid" />
+
+                        <div class="SoLuongNews">
+                            <button onclick="var result = document.getElementById('qtyItemct'); var qtyItemct = result.value; if( !isNaN( qtyItemct ) &amp;&amp; qtyItemct > 1 ) result.value--;return false;" class="Tangiam" type="button">–</button>
+                            <input name="txtQuantitys" id="qtyItemct" class="qtyItemct"  type="text" value="1">
+                            <button onclick="var result = document.getElementById('qtyItemct'); var qtyItemct = result.value; if( !isNaN( qtyItemct )) result.value++;return false;" class="Tangiam" type="button">+</button>
+                        </div>
+                        <span class="input-group-btn">
+                            <input type="submit" name="dathang" value="Đặt Hàng" id="dathang" class="btn icon-fallback-text">
+                        </span>
+                    </div>
+                    <div style=" clear:both"></div>
+
+                </div>
+                <div class="tabss">
+                    <div class="row margin-top-30 xs-margin-top-15 margin-bottom-40">
+                        <div class="col-xs-12 col-lg-12 col-sm-12 col-md-12">
+                            <!-- Nav tabs -->
+                            <div class="product-tab e-tabs">
+                                <ul class="tabs tabs-title clearfix">
+                                    <li class="tab-link current" data-tab="tab-1">
+                                        <h3>
+                                            <span>Thông tin sản phẩm</span>
+                                        </h3>
+                                    </li>
+
+                                </ul>
+                                <div id="tab-1" class="tab-content current">
+                                    <div class="News-content">
+                                        <br>
+                                     @Html.Raw(Model.Contents)
+                                    </div>
+                                    @if (Commond.Setting("Commentsp") == "1")
+                                    {
+                                        <div class="shares">
+                                            <div class="fb-comments" data-href="@MoreAll.MoreAll.RequestUrl(Request.Url.ToString())" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <section class="awe-section-2">
+                    <section class="section_product_loopp loop_one">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9 col-sm-12  col-xs-12  dear_title">
+                                    <h2 class="title_head_ border_content">
+                                        <a>Sản phẩm khác</a>
+                                    </h2>
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-12  col-xs-12  wrap_owl_product_ margin-top-30">
+                                    @Html.Raw(ViewBag.Other)
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </section>
+
+}

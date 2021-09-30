@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "AddCampaignStep1";
+    Layout = "";
+}
+
+
+
+@*<script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CKEDITOR.replace('ckeditor');
+    });
+</script>
+@Html.TextArea("", new { @class = "ckeditor" })
+
+<script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CKEDITOR.replace('ckeditor');
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    
+    
+
+@Html.TextArea("aaa", new { @class = "ckeditor" })
+
+}*@

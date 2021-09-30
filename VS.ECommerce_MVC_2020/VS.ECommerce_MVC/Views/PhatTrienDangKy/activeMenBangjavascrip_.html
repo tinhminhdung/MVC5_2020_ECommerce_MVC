@@ -1,0 +1,43 @@
+﻿ https://vking.vn/
+ 
+ // muốn chạy thử thì phải có đưa vào web thật để nó còn requet url nhé.
+ //F:\CongtyGooDeign\Nam2021\Thang05\topbietthu.vn_vking.vn\VS.ECommerce_MVC\Views\My_Partialview
+ //topbietthu.vn
+ 
+<ul class="nav-menu" id="menuBox">
+@{Html.RenderAction("MenuTopNews", "Menu");}
+</ul>
+<script type="text/javascript">
+//Script đánh dấu menu hiện tại theo modul (chỉ đúng cho trường hợp menu dẫn tới trang chính modul)
+var cRewrite = "";
+var cHrefInUrl = XuLyLink(document.URL);
+jQuery("#menuBox li").removeClass("active");
+jQuery("#menuBox li a").each(function () {
+var href = jQuery(this).attr("href");
+if (href) {
+    href = XuLyLink(href);
+    if (href === cHrefInUrl || href === cRewrite) {
+        jQuery(this).parent("li").addClass("active");
+        jQuery(this).parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent().parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent().parent().parent().parent().parent("li").addClass("active");
+        jQuery(this).parent().parent().parent().parent().parent().parent().parent().parent().parent("li").addClass("active");
+    }
+}
+});
+
+function XuLyLink(href) {
+if (href.lastIndexOf("/") > -1)
+    href = href.substring(href.lastIndexOf("/") + 1);
+
+if (href.lastIndexOf(".") > -1)
+    href = href.substring(0, href.lastIndexOf("."));
+if (href === "/") href = "";
+
+return href;
+}
+</script>

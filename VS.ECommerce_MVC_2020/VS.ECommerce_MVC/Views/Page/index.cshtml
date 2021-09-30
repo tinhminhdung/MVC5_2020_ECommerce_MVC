@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="News-content">
+    <div class="title"><h1>@ViewBag.Name</h1></div>
+    <div class="contents">@Html.Raw(ViewBag.Description)</div>
+</div>

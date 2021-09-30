@@ -1,0 +1,34 @@
+.menutrai.menutrai-show{max-height:2000px;opacity:1;padding:0px; margin:0px}
+.menutrai.one-page{position:fixed;top:50px;right:5%;max-width:200px;}
+.menutrai li{font-size:100%;position:relative;overflow:hidden; }
+.menutrai li a{position:relative;display:block;padding:12px;z-index:2;overflow:hidden;color:#000;border-bottom:1px solid #f0eef1;}
+.menutrai li ul{width:100%;padding:0px; margin:0px}
+.menutrai li ul li{font-size:100%;position:relative;overflow:hidden;}
+.menutrai li ul.menutrai-show li{overflow:visible;}
+.menutrai li ul li a{display:block;}
+.menutrai ul li ul li a{background:#bfbfbc;}
+.menutrai ul li ul li ul li a{background:#cbcbc9;}
+.menutrai .touch-button{position:absolute;z-index:999;top:0;width:50px;height: 41px;display:inline-block;text-align:center;right:0;border-left: 1px solid #d7d7d7d7;}
+.menutrai .touch-button:hover{cursor:pointer;}
+.menutrai .touch-button .navicon{position:relative;top: 12px;font-size: 14px;color:#ff9511;}
+.menu-button{position:relative;display:block;padding:1em;cursor:pointer; background:#fd7603}
+.menu-button.one-page{position:fixed;top:0;right:5%;padding-right:45px;}
+.menu-button .touch-button{background:transparent;position:absolute;z-index:999;top:0;right:0;width:50px;height:50px;display:inline-block;text-align:center; display:none}
+.menu-button .touch-button .navicon{font-size:16px;position:relative;top:1em;color:#666;}
+.menutrai i.fa.fa-angle-down { margin-top: 12px; font-size: 21px; color: rgba(25, 1, 1, 0.27); }
+.oldie body.one-page{padding-top:70px;}
+.oldie .menutrai{overflow:visible;}
+.oldie .menutrai.one-page{top:0;right:auto;max-width:1080px;}
+.oldie .menutrai li{position:relative;list-style:none;float:left;display:block;background-color:#a6a6a2;width:20%;min-height:50px;overflow:visible;}
+.oldie .menutrai li:hover > ul{display:block;width:100%;overflow:visible;}
+.oldie .menutrai li:hover > ul li{width:100%;float:none;}
+.oldie .menutrai li a{border-left:1px solid #acaca1;border-bottom:none;overflow:visible;}
+.oldie .menutrai li > ul{background:#acaca1;position:absolute;top:auto;left:0;display:none;z-index:1;overflow:visible;}
+.oldie .menutrai li ul li ul{top:0;}
+.oldie .menutrai li ul li a{border-bottom:none;}
+.oldie .menutrai li ul.open{display:block;width:100%;overflow:visible;}
+.oldie .menutrai li ul.open li{width:100%;}
+.oldie .menutrai li ul.open ul.open{margin-left:100%;top:0;display:block;width:100%;overflow:visible;}
+.oldie .menutrai ul li:hover ul{margin-left:100%;top:0;}
+.oldie .menu-button{display:none;}
+.oldie.ie7 .menutrai li{width:19.9%;}

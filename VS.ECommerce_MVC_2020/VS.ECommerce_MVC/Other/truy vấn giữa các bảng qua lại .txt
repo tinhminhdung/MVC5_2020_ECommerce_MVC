@@ -1,0 +1,29 @@
+﻿  //string trss = "";
+// nếu dùng cách truy vấn sql thông thường thì phải có  virtual  ở 2 bảng, và tạo ra Entity.Products dùng chung các trường với nhau
+ 
+ public virtual Menu Menu { set; get; }
+        public virtual ICollection<Products> Products { set; get; }
+
+            //List<Entity.Products> dt = SProducts.GetByAll(language);
+            //if (dt.Count > 0)
+            //{
+            //    foreach (Entity.Products item in dt)
+            //    {
+            //        trss +=  item.Menu.Name.ToString() + " - " + item.Name.ToString() + "<br />";
+            //    }
+            //}
+          
+
+// Hay nhất
+trường Hợp này chỉ cần tạo khóa chính và khóa phụ giữa 2 bảng và kéo vào nhau rồi đẩy lên Datalinq.dbml là có thể dùng dc luôn, ko rắc rối như sql cũ
+
+            //List<product> table = db.products.ToList();
+            //if (table.Count >= 1)
+            //{
+            //    foreach (var item in table)
+            //    {
+            //        trss += item.Menu.ID.ToString() + " - " + item.Menu.Name.ToString() + " - " + item.Name.ToString() + "<br />";
+            //    }
+
+            //}
+            ViewBag.show111 = trss;

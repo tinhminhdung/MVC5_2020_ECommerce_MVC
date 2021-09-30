@@ -1,0 +1,13 @@
+
+string mang = "0,0,0,1630,0,0,1221,0";
+string[] strArray = mang.ToString().Split(new char[] { ',' });
+var b = strArray.Distinct();
+var c = b.ToList();
+string chuoi = "0";
+foreach (var item in c)
+{
+chuoi += "," + item;
+}
+chuoi = chuoi.Replace(",0,", ",") + ",0";
+chuoi = chuoi.Replace(",,", ",");
+Response.Write(chuoi);

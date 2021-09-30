@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    @if ((Request.QueryString["duyet"] != null) && (Request.QueryString["duyet"] != ""))
+    {
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $.toast({ heading: 'Thông báo duyệt đơn hàng', text: 'Duyệt đơn thành công', showHideTransition: 'fade', icon: 'success' })
+                var uri = window.location.toString();
+                if (uri.indexOf("?") > 0) {
+                    var clean_uri = uri.substring(0, uri.indexOf("?"));
+                    window.history.replaceState({}, document.title, clean_uri);
+                }
+            });
+
+        </script>
+    }
+    @if ((Request.QueryString["huydon"] != null) && (Request.QueryString["huydon"] != ""))
+    {
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                // hàm thônng báo bằng toast
+                $.toast({ heading: 'Thông báo hủy đơn hàng', text: 'Hủy đơn thành công', showHideTransition: 'fade', icon: 'error' })
+
+                //Cách xóa chuỗi truy vấn khỏi URL bằng JQuery
+                // hàm trả lại link gốc sau khi truyền xong thông báo//?huydon=thanhcong
+                var uri = window.location.toString();
+                if (uri.indexOf("?") > 0) {
+                    var clean_uri = uri.substring(0, uri.indexOf("?"));// doạn này sa khi chạy xong nó sẽ hủy cái url này đi ?huydon=thanhcong
+                    window.history.replaceState({}, document.title, clean_uri);
+                }
+            });
+        
+        </script>
+    }
+}
+
+
+@using (Html.BeginForm("DuyetDonSinhHoaHong", "Ajax", FormMethod.Post, new { @class = "DuyetDonSinhHoaHong" }))
+{
+<input id="hdIDCart" name="hdIDCart" type="hidden" value="@ViewBag.ltmadonhang" />
+<input id="hdtongtien" name="hdtongtien" type="hidden" value="@ViewBag.Vtongtien" />
+<input type="submit" value="Duyệt đơn" class="duyetdon" id="btnDuyetDonSinhHoaHong" />
+}
+
+
+
+        [HttpPost]
+        public ActionResult DuyetDonSinhHoaHong(string hdtongtien, string hdIDCart)
+        {
+            if (MoreAll.MoreAll.GetCookies("MembersID").ToString() != "")
+            {
+                string TienDauVao = hdtongtien;
+                string IDCart = hdIDCart;
+                SinhHoaHong.SinhHH(TienDauVao, MoreAll.MoreAll.GetCookies("MembersID").ToString(), IDCart);
+                Response.Redirect("/orders-cua-hang-ban-ra/" + hdIDCart + "?duyet=thanhcong");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult HuyDonTraLaiKho(string hdIDCart)
+        {
+            if (MoreAll.MoreAll.GetCookies("MembersID").ToString() != "")
+            {
+                string IDCart = hdIDCart;
+                SinhHoaHong.HuyDon(IDCart);
+                Response.Redirect("/orders-cua-hang-ban-ra/" + hdIDCart + "?huydon=thanhcong");
+            }
+            return View();
+        }
+		
+		tài liệu
+		
+		https://www.itsolutionstuff.com/post/how-to-remove-query-string-from-urlexample.html
+		
+		
+		
+		F:\AGVietNam\VS.TamGiacGiang_Ag\VS.ECommerce_MVC\Controllers
+		
+		http://bigstore.shopping/

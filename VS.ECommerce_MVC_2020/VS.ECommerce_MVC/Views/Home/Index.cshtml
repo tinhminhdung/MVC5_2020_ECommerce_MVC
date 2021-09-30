@@ -1,0 +1,197 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+Cach goi bang js thong qua ShowHome.cshtml
+luu y: chi ap dung cho nhung trang ko js load trang chu
+vd: owl-carousel se ko chay dc
+<div id="bodyhienthi"></div>
+<script type="text/javascript">
+window.onload = function () {
+    debugger;
+    setTimeout(function () {
+        $.ajax({
+            url: "/Home/ShowHome",
+            success: function (data) {
+                $("#bodyhienthi").append(data);
+            }
+        });
+    }, 1000);
+};
+</script>*@
+@*Hoăcj*@
+@*<div id="ShowHome">
+
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        debugger;
+        setTimeout(function () {
+            ShowHome();
+        }, 1000);
+    };
+</script>*@
+
+@*<div id="AutoRefreshCart">
+    @Html.Partial("AutoRefreshCart")
+</div>*@
+
+
+
+
+
+<a onclick="return ShowCart()" class="evo-header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
+    <span class="acc-text">aaaaaaaaâ</span>
+</a>
+
+
+<script>
+    function ShowCart() {
+        $.ajax({
+            url: '/Ajax/ShowCart',
+            success: function (data) {
+                $("#cartContent")[0].innerHTML = data;
+                // $("#cartContent").append(data);
+            },
+            error: function (response) {
+                // alert(response.responseText);
+            },
+            failure: function (response) {
+                // alert(response.responseText);
+            }
+        });
+    }
+
+</script>
+<div class="blog_index_top margin-bottom-15">
+    <div class="container">
+        <div class="row">
+            <div class="list_menu_header col-lg-3 col-md-3">
+                <ul class="ul_menu">
+                    @Html.Raw(ViewBag.ShowMenuPro)
+                </ul>
+            </div>
+            <!-- blog -->
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 blog_main_ margin-top-15">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 article_large">
+                        @Html.Raw(ViewBag.ShowBanerLoadNews)
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_list_right">
+                        @Html.Raw(ViewBag.ShowCanhBanerLoadNews)
+                    </div>
+                </div>
+            </div>
+            <!-- endblog -->
+        </div>
+    </div>
+</div>
+
+<section class="awe-section-1">
+    <section class="section_category_collections">
+        <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 wrap_owl_category">
+                    <div class="owl_cate_ owl-carousel" data-nav="true" data-lg-items="5" data-md-items="4" data-height="true" data-xs-items="2" data-sm-items="2" data-margin="15">
+                        @Html.Raw(ViewBag.NhomSlideDuoiBanner)
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 banner_">
+                    @Html.Raw(ViewBag.babner)
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+@Html.Raw(ViewBag.nhomsanpham)
+
+<section class="awe-section-6">
+    <section class="section_blog_main_index">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dear_title margin-bottom-30">
+                    <h2 class="title_center_">
+                        <a href="/tin-tuc.html" title="Tin tức">Tin tức</a>
+                    </h2>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog_owl_main">
+                    <div class="owl_blog_main_ owl-carousel" data-nav="false" data-dot="true" data-lg-items="3" data-md-items="3" data-height="false" data-xs-items="1" data-sm-items="2" data-margin="15">
+                        @Html.Raw(ViewBag.News)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="awe-section-8">
+    <section class="section_two_banner">
+        <div class="container">
+            <div class="row">
+                @Html.Raw(ViewBag.QuangcaoDuoitintuctrangchu)
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<section class="awe-section-9">
+    <section class="section_product_end no_loop">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="dear_title">
+                        <h2 class="title_head_ border_content">
+                            <a href="/san-pham-ban-chay.html" title="Sản phẩm bán chạy">Sản phẩm bán chạy</a>
+                        </h2>
+                    </div>
+                    <div class="product_col">
+                        <div class="owl_col_section owl-carousel owl-theme" data-nav="true" data-lg-items="1" data-md-items="1" data-height="false" data-xs-items="1" data-sm-items="1" data-margin="15">
+                            @Html.Raw(ViewBag.ShowBanChay)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="dear_title">
+                        <h2 class="title_head_ border_content">
+                            <a href="/san-pham-moi-nhat.html" title="Sản phẩm mới nhất">Sản phẩm mới nhất</a>
+                        </h2>
+                    </div>
+                    <div class="product_col">
+                        <div class="owl_col_section owl-carousel owl-theme" data-nav="true" data-lg-items="1" data-md-items="1" data-height="false" data-xs-items="1" data-sm-items="1" data-margin="15">
+                            @Html.Raw(ViewBag.SanPhamMoi)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="dear_title">
+                        <h2 class="title_head_ border_content">
+                            <a href="/san-pham-xem-nhieu.html" title="Xem nhiều nhất">Xem nhiều nhất </a>
+                        </h2>
+                    </div>
+                    <div class="product_col">
+                        <div class="owl_col_section owl-carousel owl-theme" data-nav="true" data-lg-items="1" data-md-items="1" data-height="false" data-xs-items="1" data-sm-items="1" data-margin="15">
+                            @Html.Raw(ViewBag.SanPhamXemNhieu)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="awe-section-10">
+    <section class="section_service_index_end no_loop">
+        <div class="container">
+            <div class="wrab">
+                <div class="row">
+                   @Html.Raw(ViewBag.phuongthucvanchuyen);
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+@Html.Raw(ViewBag.show);
+                        
+   

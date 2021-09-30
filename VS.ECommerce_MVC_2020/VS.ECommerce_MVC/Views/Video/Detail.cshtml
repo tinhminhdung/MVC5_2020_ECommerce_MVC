@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<section id="blog_content" class="right-content col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-pull-3 col-md-pull-3">
+    <div class="page_title page__ col-lg-12 col-md-12 col-sm-12 no-padding">
+        <h1 class="title_page_h1"><span> @ViewBag.Name</span>	</h1>
+    </div>
+    <section class="list-blogs blog-main col-lg-12 col-md-12 col-xs-12 col-sm-12 no-padding">
+        <div class="">
+            <section class="list-blogs blog-main">
+                <div class="">
+                    <div class="News-content">
+                        <div class="title">
+                            <h1>
+                                @ViewBag.lttitle
+                            </h1>
+                        </div>
+                        <div class="contents">
+                            @Html.Raw(ViewBag.ltdesc)
+                        </div>
+                        <div class="contents">
+                            @Html.Raw(ViewBag.ltyoutube)
+                        </div>
+                        <div class="contents">
+                            @Html.Raw(ViewBag.ltcontent)
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 20px"></div>
+                    <div class="Chitietsp">Các  Video khác</div>
+                    <div class="dangky">
+                        <div class="trai"></div>
+                        <div class="phai"></div>
+                    </div>
+
+                    <div style="clear: both"></div>
+                    <div class="clear"></div>
+                    <div class="MVideo">
+                        <div class="row">
+                            @Html.Raw(ViewBag.Other)
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </section>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "";
+}
+@using VS.ECommerce_MVC
+@model VanChuyen.Root
+@Model.message <br />
+@Model.code <br />
+@{
+    foreach (var item in Model.data)
+    {
+        @item.id <br />
+        @item.to_time <br />
+        @item.title <br />
+    }
+}
+
+
+
+@*@using VS.ECommerce_MVC
+    @model List<VanChuyen.Root>
+    @{
+       foreach (var item in Model)
+                                                                {
+            @item.message <br />
+            @item.code <br />
+             @item.data <br />
+        }
+    }*@
+

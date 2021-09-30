@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Entity.Products>
+@{
+    Layout = null;
+}
+https://www.c-sharpcorner.com/article/asp-net-web-api-using-mvc-entity-framework-and-jquery-for-post-data-with-valida/
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+@*Dùng trực tiếp Api để thêm mới và cập nhật nhé.*@
+<form action="/api/product/Save" method="post">
+    <section class="margin-top-30">
+        <div class="wrap_ padding_mobile">
+            <div class="row">
+                <div class="section_maps">
+                    <div class="container contact contact-owf">
+                        <div class="row">
+                            <div class="info_width margin-top-20 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="page-login page_cotact">
+                                    <div id="pagelogin">
+                                        <div class="contact-form">
+                                            @if (TempData["AlertMessage"] != null)
+                                            {
+                                                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                                                    @TempData["AlertMessage"]
+                                                </div>
+                                            }
+
+                                            <div>@Html.Raw(ViewBag.ThongBao)</div>
+                                            <div class="form-signup clearfix">
+                                                <div class="group_contact row">
+                                                    <input id="dcreatedate" name="dcreatedate" type="hidden" value="@DateTime.Now" />
+                                                    <input id="istatus" name="istatus" type="hidden" value="0" />
+                                                    <input id="lang" name="lang" type="hidden" value="VIE" />
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_name"): <span style="color:red;" id="TB_TenKH"></span></label>
+                                                        @Html.TextBox("vname", "", new { placeholder = @Commond.label("l_name"), @class = "textlienhe", @onkeypress = "document.getElementById('txtHoTen').style.border = '1px solid #ebebeb',document.getElementById('TB_TenKH').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">Email: <span style="color:red;" id="TB_Email"></span></label>
+                                                        @Html.TextBox("vemail", "", new { placeholder = "Email", @class = "textlienhe", @onkeypress = "document.getElementById('txtemail').style.border = '1px solid #ebebeb',document.getElementById('TB_Email').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">Phone: <span style="color:red;" id="TB_SoDienThoai"></span></label>
+                                                        @Html.TextBox("vphone", "", new { placeholder = "Phone", @class = "textlienhe", @onkeypress = "document.getElementById('txtphone').style.border = '1px solid #ebebeb',document.getElementById('TB_SoDienThoai').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_address"): <span style="color:red;" id="TB_DiaChi"></span></label>
+                                                        @Html.TextBox("vaddress", "", new { placeholder = @Commond.label("l_address"), @class = "textlienhe", @onkeypress = "document.getElementById('txtaddress').style.border = '1px solid #ebebeb',document.getElementById('TB_DiaChi').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_title"):</label>
+                                                        @Html.TextBox("vtitle", "", new { placeholder = @Commond.label("l_title"), @class = "textlienhe" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <label class="">Nội dung:</label>
+                                                        @Html.TextArea("vcontent", new { @cols = "20", @rows = "5", @class = "textlienheconten" })
+                                                    </fieldset>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
+                                                        <input type="submit" value="@Commond.label("lbsentlienhe")" onclick="return LienHe();" class="btnmvc" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 850 }, 'slow');
+    });
+</script>

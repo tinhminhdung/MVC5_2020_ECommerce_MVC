@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Entity.Products> 
+@{
+    Layout = null;
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<div id="updatePanel" style="width:90%; padding:10px; margin:0 auto;">
+    <table class="table table-responsive table-striped table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: Yellow;color: blue">Name</th>
+                <th style="background-color: Yellow;color: blue">Price</th>
+                <th style="background-color: Yellow;color: blue">Brief</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@Html.Raw(item.Brief)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>  

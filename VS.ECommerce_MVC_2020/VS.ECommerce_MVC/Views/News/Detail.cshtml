@@ -1,0 +1,60 @@
+﻿@using VS.ECommerce_MVC
+@model New
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<section id="blog_content" class="right-content col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-pull-3 col-md-pull-3">
+    <div class="page_title page__ col-lg-12 col-md-12 col-sm-12 no-padding">
+        <h1 class="title_page_h1"><span> @ViewBag.Name</span>	</h1>
+    </div>
+    <section class="list-blogs blog-main col-lg-12 col-md-12 col-xs-12 col-sm-12 no-padding">
+        <div class="">
+            <div class="News-content">
+                <div class="title"><h1>@Model.Title</h1></div>
+                <div>@ViewBag.Facebook</div>
+                <div class="des-news">@Model.Brief</div>
+                <div class="contents">
+                    @Html.Raw(Model.Contents)
+                    <div style=" height:10px"></div>
+                    @{
+                        if (Commond.Setting("Comment") == "1")
+                        {
+                            <div class="shares">
+                                <div class="fb-comments" data-href="@MoreAll.MoreAll.RequestUrl(Request.Url.ToString())" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+                            </div>
+                        }
+                    }
+                    <div style=" height:10px"></div>
+                    <div class="list-more-news">
+                        @{
+                            List<Entity.Category_News> Otherss = ViewBag.Other2 as List<Entity.Category_News>;
+                            if (Otherss!=null)
+                            {
+                                <div class="title-more-news">Các tin tiếp trước</div>
+                                foreach (var item in Otherss)
+                                {
+                                    string link = "/tin-tuc/" + item.TangName + ".html";
+                                    <div><a href="@link" title="@item.Title">@AllQuery.MoreNews.Substring_Title(item.Title)</a></div>
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="list-more-news">
+                        @{
+                            List<Entity.Category_News> Others = ViewBag.Other1 as List<Entity.Category_News>;
+                            if (Others != null)
+                            {
+                                <div class="title-more-news">Các tin tiếp theo</div>
+                                foreach (var item in Others)
+                                {
+                                   string link = "/tin-tuc/" + item.TangName + ".html";
+                                    <div><a href="@link" title="@item.Title">@AllQuery.MoreNews.Substring_Title(item.Title)</a></div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

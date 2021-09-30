@@ -1,0 +1,232 @@
+﻿@{
+    string ssl = "http://";
+    string hp = "";
+    string language = MoreAll.Captionlanguage.SetLanguage();
+    //string bc = Request.Url.Authority + Request.RawUrl.ToString();//"localhost:63136/danh-muc/noi-that-phong-khach"
+    //string Url = Request.Url.ToString();//"http://localhost:63136/danh-muc/noi-that-phong-khach"
+    //string Host = Request.Url.Authority + Request.Url.Host.ToString();//"localhost:63136localhost"
+    string RawUrl = Request.RawUrl.ToString();//"/danh-muc/noi-that-phong-khach"
+    hp = Removelink.RemoveUrl(RawUrl);
+    if (Commond.Setting("SSL").Equals("1"))
+    {
+        ssl = "https://";
+    }
+    // Nếu là trang chủ
+    if (hp == "/")
+    {
+        ViewBag.Title = MoreAll.MoreAll.GetCache("Title", System.Web.HttpContext.Current.Cache["Title"] != null ? "" : VS.ECommerce_MVC.App.Template.WebTitle(RawUrl));
+    }
+    else
+    {
+        ViewBag.Title = VS.ECommerce_MVC.App.Template.WebTitle(RawUrl);
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @{
+        if (hp == "/")
+        {
+            @Html.Raw(MoreAll.MoreAll.GetCache("Header", System.Web.HttpContext.Current.Cache["Header"] != null ? "" : Home.Header(ssl, Request.Url.Host, hp, Commond.RequestMenu(hp), Request.RawUrl)));
+        }
+        else
+        {
+            @Html.Raw(Home.Header(ssl, Request.Url.Host, RawUrl, Commond.RequestMenu(hp), Request.RawUrl))
+        }
+    }
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	 
+	 
+    @*nén css thành 1 file*@
+    @Styles.Render("~/Content/css");
+    <script src='/Resources/abc/jquery-2.2.3.min7f30.js' type='text/javascript'></script>
+	@Styles.Render("~/Content/DevExtremeBundle")
+	
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/Scripts/DevExtremeBundle")
+
+</head>
+<body class="loadings">
+
+    <a href="javascript:void(0)" class="evo-header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
+        <span class="acc-text">Giỏ hàng</span>
+    </a>
+
+<i class="fa fa-bars"></i>
+
+    @{Html.RenderAction("Cart_sidebar", "Cart");}
+
+    @*@Html.Partial("~/Views/AllPage/Box_lang.cshtml")*@
+    @Html.Partial("~/Views/Members/XinChao.cshtml")
+    @Html.Raw(Home.Body(ssl, language))
+    @{Html.RenderAction("Header", "My_Partialview");}
+    @RenderBody()
+
+    @{Html.RenderAction("Footer", "My_Partialview");}
+
+  @Html.Raw(Commond.Setting("Livechat"))
+    @if (Request.RawUrl.ToString() == "/")
+    {
+       <h1 style="display: none">@Commond.Setting("webname")</h1>
+    }
+
+    @*Nén js thành 1 file*@
+        @*@Styles.Render("~/bundles/js");*@
+
+        <link href='/Resources/abc/bpr-products-module7f30.css' rel='stylesheet' type='text/css' media='all' />
+        <div class="bizweb-product-reviews-module"></div>
+        <!-- Syntax Highlighter -->
+          <script src="/Resources/Responsive/js/jquery.flexnav.js" type="text/javascript"></script>
+   <script type="text/javascript">
+       jQuery(document).ready(function ($) {
+           $(".flexnav").flexNav();
+       });
+       function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+       function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+    </script>
+        <!-- ShopCart -->
+        <link href="/Resources/ShopCart/css/popup.css" rel="stylesheet" type="text/css" />
+        <script src="/Resources/ShopCart/js/popup.js" type="text/javascript"></script>
+        <link href="/Resources/ShopCart/css/Stylecart.css" rel="stylesheet" type="text/css" />
+        <!-- ShopCart -->
+        <!-- Zoom Products -->
+        <script type="text/javascript" src="/Resources/js/smoothproducts.min.js"></script>
+        <script type="text/javascript">
+            $('.sp-wrap').smoothproducts();
+        </script>
+
+        <script src='/Resources/abc/option-selectors7f30.js' type='text/javascript'></script>
+        <script src='/Resources/abc/api.jquery.js' type='text/javascript'></script>
+        <script src='/Resources/abc/owl.carousel.min7f30.js' type='text/javascript'></script>
+        <script src='/Resources/abc/double_tab_togo7f30.js' type='text/javascript'></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        @*<script src='/Resources/abc/cs.script7f30.js' type='text/javascript'></script>*@
+        <script src='/Resources/abc/appear7f30.js' type='text/javascript'></script>
+        <script src='/Resources/abc/main7f30.js' type='text/javascript'></script>
+        @*<script type="text/javascript" src="/Resources/js/lazyload_News.js"></script>*@
+        <!-- Popup Shopcart Products -->
+        <div id="jName" style="margin-bottom: 25px; text-align: center; background: #fff8d1 none repeat scroll 0 0; border: 1px solid #fcab0f; border-radius: 3px; bottom: 15px; color: #000; display: none; padding: 10px; position: fixed; right: 0; width: 300px; z-index: 9999;"></div>
+        @*<%-- Ajaxloading--%>*@
+        <div id="Ajaxloading">
+                <div class="inner">
+                    <img src="/Resources/ShopCart/images/ajax-loader_2.gif"><p>Đang xử lý...</p>
+                </div>
+            </div>
+        @*<%-- Ajaxloading--%>
+            <%-- popupbox--%>*@
+        <div class="popupbox3" id="popuprel3">
+                <div class="closes">
+                    <img src="/Resources/ShopCart/images/b_close.png" />
+                </div>
+                <div id="intabdiv3">
+                    <div id="scollssss">
+                        <div id="cartContent"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" id="fade"></div>
+        @*<%-- popupbox--%>
+            <%--lazyload_News Load ảnh và iframe sau khi load web xong -- và js auto height--%>*@
+        <script src="/Resources/js/equalheight.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(window).load(function () {
+                equalheight('.oother');
+            });
+            $(window).resize(function () {
+                equalheight('.oother');
+            });
+        </script>
+
+
+        @*
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)*@
+        @RenderSection("jsFooter", required: false)
+
+        <script>
+
+            var resource4 = document.createElement('link');
+            resource4.setAttribute("rel", "stylesheet");
+            resource4.setAttribute("href", "http://fonts.googleapis.com/css?family=Roboto:400,700");
+            resource4.setAttribute("type", "text/css");
+            var headc = document.getElementsByTagName('head')[0];
+            headc.appendChild(resource4);
+
+
+            var resource5 = document.createElement('link');
+            resource5.setAttribute("rel", "stylesheet");
+            resource5.setAttribute("href", "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;subset=vietnamese");
+            resource5.setAttribute("type", "text/css");
+            var headc = document.getElementsByTagName('head')[0];
+            headc.appendChild(resource5);
+
+
+            var resource6 = document.createElement('link');
+            resource6.setAttribute("rel", "stylesheet");
+            resource6.setAttribute("href", "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=vietnamese");
+            resource6.setAttribute("type", "text/css");
+            var headc = document.getElementsByTagName('head')[0];
+            headc.appendChild(resource6);
+
+
+            var resource7 = document.createElement('link');
+            resource7.setAttribute("rel", "stylesheet");
+            resource7.setAttribute("href", "http://fonts.googleapis.com/css?family=Poppins:300,400,500");
+            resource7.setAttribute("type", "text/css");
+            var headc = document.getElementsByTagName('head')[0];
+            headc.appendChild(resource7);
+
+
+            var resource1 = document.createElement('link');
+            resource1.setAttribute("rel", "stylesheet");
+            resource1.setAttribute("href", "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+            resource1.setAttribute("type", "text/css");
+            var headx = document.getElementsByTagName('head')[0];
+            headx.appendChild(resource1);
+
+            var resource2 = document.createElement('link');
+            resource2.setAttribute("rel", "stylesheet");
+            resource2.setAttribute("href", "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+            resource2.setAttribute("type", "text/css");
+            var heads = document.getElementsByTagName('head')[0];
+            heads.appendChild(resource2);
+
+            var resource3 = document.createElement('link');
+            resource3.setAttribute("rel", "stylesheet");
+            resource3.setAttribute("href", "https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css");
+            resource3.setAttribute("type", "text/css");
+            var headc = document.getElementsByTagName('head')[0];
+            headc.appendChild(resource3);
+
+        </script>
+
+    <script src="/Resources/js/jquery.devrama.lazyload.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.DrLazyload({ effect: "fadeIn" }); //Yes! that's it!
+        });
+    </script>
+
+
+	<div id="jPopUp" class="jPopUp">
+            <div class="Thooat" id="Thooat"><img src="~/Resources/images/b_close.png" /></div>
+            <a href="@Html.Raw(Commond.Setting("linkpop"))"><img src="@Html.Raw(Commond.Setting("ImagesPopUp"))" border="0" style="width: 100%;height: auto;" title="Thông báo" alt="Thông báo"></a>
+        </div>
+        <div id="overlay" class="overlay"></div>
+        <script type="text/javascript">
+            $('#Thooat').click(function () {
+                $('.jPopUp').removeClass('hienthijpop');
+                $('.overlay').removeClass('overlayjpop'); $('#overlay').fadeOut();
+                return false;
+            });
+    </script>
+
+
+   
+  
+    </body>
+</html>

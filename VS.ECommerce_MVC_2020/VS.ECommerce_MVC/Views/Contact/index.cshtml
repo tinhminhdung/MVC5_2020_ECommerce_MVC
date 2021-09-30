@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    @*cái này để cho js xuất hiện dưới foooter của control chính*@
+    @*bắt buộc phải có để chạy Ajax jquery-ui.js*@
+    @*<script src="/Resources/scripMvc/jquery-ui.js"></script>*@
+    <script src="~/Resources/scripMvc/LienHe.js"></script>
+    <script src="/Resources/ScripMvc/ThongBao.js"></script>
+}
+@using (Html.BeginForm())
+{
+    <section class="margin-top-30">
+        <div class="wrap_ padding_mobile">
+            <div class="row">
+                <div class="section_maps">
+
+                    <div class="container max767 title_head margin-bottom-20">
+                        <div class="page_title page__ ">
+                            <h1 class="title_page_h1"><span>@Commond.label("l_contact") </span></h1>
+                        </div>
+                        <div class="box-maps">
+                            <div class="Anhmap">
+                                @Html.Raw(Commond.Setting("txtbando"))
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container contact contact-owf">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 des_contact margin-top-20 ">
+                                @Html.Raw(Commond.Setting("LienHe"))
+                            </div>
+                            <div class="info_width margin-top-20 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="page-login page_cotact">
+                                    <div id="pagelogin">
+                                        <div class="contact-form">
+                                            @if (TempData["AlertMessage"] != null)
+                                            {
+                                                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                                                    @TempData["AlertMessage"]
+                                                </div>
+                                            }
+                                          
+                                            <div>@Html.Raw(ViewBag.ThongBao)</div>
+                                            <div class="form-signup clearfix">
+                                                <div class="group_contact row">
+                                                    @*<fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">Tên của bạn:</label>
+                                                       @Html.Raw(ViewBag.ShowDropdowlist)
+                                                    </fieldset>*@
+                                                    @*Muốn hiển thị dữ liệu của thành viên lên txt thì sang giỏ hàng xem*@
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_name"): <span style="color:red;" id="TB_TenKH"></span></label>
+                                                        @*@onkeypress = "document.getElementById('TB_TenKH').innerHTML=''"*@ 
+                                                        @Html.TextBox("txtHoTen", "", new { placeholder = @Commond.label("l_name"), @class = "textlienhe", @onkeypress = "document.getElementById('txtHoTen').style.border = '1px solid #ebebeb',document.getElementById('TB_TenKH').innerHTML=''" }) 
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">Email: <span style="color:red;" id="TB_Email"></span></label>
+                                                        @Html.TextBox("txtemail", "", new { placeholder = "Email", @class = "textlienhe", @onkeypress = "document.getElementById('txtemail').style.border = '1px solid #ebebeb',document.getElementById('TB_Email').innerHTML=''" }) 
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">Phone: <span style="color:red;" id="TB_SoDienThoai"></span></label>
+                                                        @Html.TextBox("txtphone", "", new { placeholder = "Phone", @class = "textlienhe", @onkeypress = "document.getElementById('txtphone').style.border = '1px solid #ebebeb',document.getElementById('TB_SoDienThoai').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_address"): <span style="color:red;" id="TB_DiaChi"></span></label>
+                                                        @Html.TextBox("txtaddress", "", new { placeholder = @Commond.label("l_address"), @class = "textlienhe", @onkeypress = "document.getElementById('txtaddress').style.border = '1px solid #ebebeb',document.getElementById('TB_DiaChi').innerHTML=''" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
+                                                        <label class="">@Commond.label("l_title"):</label>
+                                                        @Html.TextBox("txttieude", "", new { placeholder = @Commond.label("l_title"), @class = "textlienhe" })
+                                                    </fieldset>
+                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <label class="">Nội dung:</label>
+                                                        @Html.TextArea("txtcontent", new { @cols = "20", @rows = "5", @class = "textlienheconten" })
+                                                    </fieldset>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
+                                                        <input type="submit" value="@Commond.label("lbsentlienhe")" onclick="return LienHe();" class="btnmvc" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<script>
+    $(document).ready(function() {
+            $('html, body').animate({scrollTop:850}, 'slow');
+        });
+</script>

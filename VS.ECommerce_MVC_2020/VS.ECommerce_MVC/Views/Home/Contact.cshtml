@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+<script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+<div id="header"></div>
+@*<script type="text/javascript">
+    window.onload = function () {
+        debugger;
+        setTimeout(function () {
+            $.ajax({
+                url: "/Ajax/LoadAjaxActionLink",
+                success: function (data) {
+                    $("#header").append(data);
+                }
+            });
+        }, 1000);
+    };
+</script>*@
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        debugger;
+        setTimeout(function () {
+            $.ajax({
+                url: "/Home/Index",
+                success: function (data) {
+                    $("#header").append(data);
+                }
+            });
+        }, 1000);
+    };
+</script>
+<h1 style="color:red;"> @ViewBag.ThongBao</h1>
+        @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>SContacts</h4>
+                    <hr />
+                    @DateTime.Now;
+                    <br />
+                    @ViewBag.Message
+                    @Html.ValidationSummary(true)
+                    <h1 style="color:red;"> @ViewBag.ThongBao</h1>
+                    @Html.TextBox("vtitle", "", new { maxlength = "20", placeholder = "Họ và tên" })<br />
+                    @Html.TextBox("vname", "", new { maxlength = "20", placeholder = "Họ và tên" })<br />
+                    @Html.TextArea("vaddress", new { @cols = "20", @rows = "5" })<br />
+                    @Html.TextArea("vemail", new { @cols = "20", @rows = "5" })<br />
+                    @Html.TextArea("vphone", new { @cols = "20", @rows = "5" })<br />
+                    @Html.TextArea("vcontent", new { @cols = "20", @rows = "5" })<br />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }

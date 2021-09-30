@@ -1,0 +1,4 @@
+https://web.postman.co/collections/3529474-77dbbb76-f212-9cfc-a243-99f29684429d?workspace=b4727823-1e8b-4265-8069-d67c1e06a240
+
+https://stackoverflow.com/questions/36975619/how-to-call-a-rest-web-service-api-from-javascript/51854096
+

@@ -1,0 +1,34 @@
+﻿@using VS.ECommerce_MVC
+@model Member
+@{
+    Layout = "";
+}
+
+@if (MoreAll.MoreAll.GetCookies("Members").ToString() == "")
+{
+    <form method="post" id="form1" class="login-panel">
+        <a href="/Dang-nhap.html?ReturnUrl=@Request.RawUrl.ToString()">Đăng nhập</a> |
+        <a href="/Dang-ky.html">Đăng ký</a>
+    </form>
+}
+else
+{
+    <div class="thanhvien">
+        <ul>
+            <li style="top: 8px;">
+                <a href="/ho-so-thanh-vien.html" style="float: left; height: 26px;">Xin chào, @MoreAll.MoreAll.GetCookies("Members").ToString()-@MoreAll.MoreAll.GetCookies("MembersID").ToString()</a>
+                <ul>
+                    <li><a href="/lich-su-mua-hang.html"><i class="fa fa-caret-right"></i>Lịch sử mua hàng</a></li>
+                    <li><a href="/ho-so-thanh-vien.html"><i class="fa fa-caret-right"></i>Hồ sơ thành viên</a></li>
+                    <li><a href="/doi-mat-khau.html"><i class="fa fa-caret-right"></i>Đổi mật khẩu</a></li>
+                    <li>
+                    <li><a href="/Members/Thoat">[Thoát]</a></li>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+
+

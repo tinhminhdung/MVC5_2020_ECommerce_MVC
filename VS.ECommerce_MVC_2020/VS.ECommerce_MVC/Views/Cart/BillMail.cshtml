@@ -1,0 +1,177 @@
+﻿@{
+    Layout = "";
+}
+<h1>Panda Shop new bill</h1>
+<table>
+    @*<tr>
+            <td>Customer Name</td>
+            <td>@Model.CustomerName</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@Model.CustomerAddress</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>@Model.CustomerMobile</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>@Model.DateCreated.ToString("dd/MM/yyyy hh:mm")</td>
+        </tr>*@
+    <tr>
+        <td>Details</td>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Session["cart"] != null)
+                        {
+                            System.Data.DataTable dtcart = (System.Data.DataTable)Session["cart"];
+                            if (dtcart.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < dtcart.Rows.Count; i++)
+                                {
+                                    <tr style="text-align:center">
+                                        <td height="30" align="center" class="TitleItem">
+                                            <asp:Label ID="lb_tt" runat="server"></asp:Label>
+                                        </td>
+                                        <td align="left" class="TitleItem">
+                                            <img src="@Html.Raw(dtcart.Rows[i]["vimg"].ToString())" style="width: 77px; height: auto; border: solid 1px #d7d7d7" />
+                                            @*<%#Mausac(Eval("Mausac").ToString())%><%#Kichthuoc(Eval("Kichco").ToString())%>*@
+                                        </td>
+                                        <td align="center" class="TitleItem"><strong>@dtcart.Rows[i]["Name"].ToString()</strong></td>
+                                        <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Price"].ToString()) </td>
+                                        <td align="center" class="TitleItem" style="text-align:center">
+                                            @Html.Hidden("Hidden_ipid", @dtcart.Rows[i]["PID"].ToString())
+                                            <input class="form-control input-sm txtQuantity" data-id="@dtcart.Rows[i]["PID"].ToString()" style="margin: auto !important; width: 50px; padding: 0px; margin: 0px; text-align: center; " type="text" value="@dtcart.Rows[i]["Quantity"].ToString()">
+                                        </td>
+                                        <td align="center" class="TitleItem">@AllQuery.MorePro.FormatMoney_Cart(dtcart.Rows[i]["Money"].ToString()) </td>
+                                        <td align="center">
+                                            <a class="xoasanpham" onclick="return confirm('Bạn muốn xóa sản phẩm ?')" href="/Cart/XoaGioHang/@dtcart.Rows[i]["PID"].ToString()">[Xóa]</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Total:
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tbody>
+        <tr>
+            <td width="150">
+                <b>Họ và tên:</b>
+            </td>
+            <td>
+                Dũng Tịnh Minh
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Điện thoại:</b>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Email:</b>
+            </td>
+            <td>
+                <a href="mailto:nguyenvietdung1109@gmail.com" target="_blank">nguyenvietdung1109@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Ngày đặt <span class="il">hàng</span>:</b>
+            </td>
+            <td>
+                8:33 SA ngày 13/02/2020
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="color:rgb(0,0,0);font-family:&quot;Times New Roman&quot;;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:normal;letter-spacing:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;text-decoration-style:initial;text-decoration-color:initial;border-collapse:collapse;width:569pt" width="758">
+    <tbody>
+
+
+        <tr height="32" style="height:24pt">
+            <td colspan="7" height="32" style="white-space:nowrap;text-align:center;height:24pt"></td>
+        </tr>
+        <tr height="32" style="height:24pt">
+            <td colspan="7" height="32" style="border-style:none;border-color:inherit;border-width:medium;padding:0px;color:black;font-size:12pt;font-weight:700;font-style:normal;text-decoration:none;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;vertical-align:middle;white-space:nowrap;text-align:center;height:24pt">BẢNG CHI TIẾT <span class="il">ĐƠN</span> <span class="il">HÀNG</span> - MÃ <span class="il">ĐƠN</span> <span class="il">HÀNG</span> #192 </td>
+        </tr>
+        <tr height="32" style="height:24pt">
+            <td colspan="7" height="32" style="border-style:none;border-color:inherit;border-width:medium;padding:0px;color:black;font-size:12pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:left;height:24pt"><b>Website</b>: <span style="color:red">localhost:41625</span><br></td>
+        </tr>
+        <tr>
+            <td >Khách hàng: Nguyễn việt dũng</td>
+        </tr>
+        <tr>
+            <td><p>Địa chỉ</p>: Ha Nội</td>
+        </tr>
+        <tr>
+            <td ><b>Điện thoại</b>: 0987654321</td>
+        </tr>
+        <tr>
+            <td ><b>Email</b>: <a href="mailto:nvietdung1109@gmail.com" target="_blank">nvietdung1109@gmail.com</a></td>
+        </tr>
+        <tr>
+            <td ><b>Nội dung</b> : </td>
+        </tr>
+        <tr>
+            <td colspan="7" height="26" style="border-style:none;border-color:inherit;border-width:medium;padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:left;height:19.5pt;color:red;font-weight:bold;text-transform:uppercase">Thông tin <span class="il">đơn</span> <span class="il">hàng</span>:</td>
+        </tr>
+        <tr height="45" style="height:33.75pt">
+            <td height="45" style="border-style:solid;border-color:windowtext;border-width:1pt 0.5pt 1pt 1pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center;height:33.75pt">STT</td>
+            <td style="border-style:solid none;border-top-color:windowtext;border-right-color:inherit;border-bottom-color:windowtext;border-left-color:inherit;border-width:1pt medium;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">Mã SP</td>
+            <td style="border-style:solid none solid solid;border-top-color:windowtext;border-right-color:inherit;border-bottom-color:windowtext;border-left-color:windowtext;border-width:1pt medium 1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:210pt" width="280">Tên sản phẩm</td>
+            <td style="border-style:solid;border-color:windowtext;border-width:1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:100px" width="53">Số lượng</td>
+            <td style="border-style:solid;border-color:windowtext;border-width:1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:100px" width="50">Đ.Vtính</td>
+            <td style="border-style:solid;border-color:windowtext;border-width:1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:100px" width="65"><span class="il">Đơn</span> giá</td>
+            <td style="border-style:solid;border-color:windowtext;border-width:1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:100px" width="65">Điểm thanh toán</td>
+            <td style="border-style:solid;border-color:windowtext;border-width:1pt 1pt 1pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:150pt">Thành tiền</td>
+        </tr>
+        <tr height="28" style="height:21pt">
+            <td height="28" style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center;height:21pt">1</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">bg</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:left">Bàn ghế sofa 2 demo thôi nhé ko đùa</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">2</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">VNĐ</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:49pt" width="65">199,990</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:10pt;font-weight:400;font-style:normal;text-decoration:none;vertical-align:middle;white-space:normal;text-align:center;width:49pt" width="65">199.99</td>
+            <td style="border:1px solid rgb(0,0,0);padding:0px;color:black;font-size:11pt;font-weight:400;font-style:normal;text-decoration:none;font-family:Calibri,sans-serif;vertical-align:bottom;white-space:nowrap;text-align:center" width="76">399,980</td>
+        </tr>
+        <tr height="33" style="height:24.75pt">
+            <td height="33" style="border-style:solid none solid solid;border-top-color:windowtext;border-right-color:inherit;border-bottom-color:windowtext;border-left-color:windowtext;border-width:0.5pt medium 0.5pt 1pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center;height:24.75pt">&nbsp;</td>
+            <td colspan="2" style="border:1px solid rgb(0,0,0);font-size:10pt;font-weight:700;font-style:normal;text-align:center">Tổng cộng</td>
+            <td style="border:0.5pt solid windowtext;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">2</td>
+            <td colspan="3" style="border:0.5pt solid windowtext;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">&nbsp;</td>
+            <td colspan="1" style="border-style:solid;border-color:windowtext;border-width:0.5pt 1px 0.5pt 0.5pt;padding:0px;color:black;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;vertical-align:middle;white-space:nowrap;text-align:center">399,980 VNĐ</td>
+        </tr>
+        <tr height="39" style="height:29.25pt">
+            <td colspan="8" style="font-size:10pt;font-weight:700;font-style:normal;border:1px solid rgb(0,0,0);text-align:center;color:red">Tổng số tiền (viết bằng chữ): Ba trăm chín mươi chín nghìn chín trăm tám mươi đồng chẵn..</td>
+        </tr>
+    </tbody>
+</table>

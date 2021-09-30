@@ -1,0 +1,351 @@
+﻿var news = (from p in db.News where p.lang == language orderby p.Create_Date descending select p).ToList();
+var s = (from p in db.products where p.Status == 1 && p.lang == language orderby p.Create_Date descending select p).ToList();
+
+
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        private string lang = "VIE";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+		update News set Chekdata=@Chekdata,Create_Date=@Create_Date,Modified_Date=@Modified_Date where inid= @inid
+		select * from News  where icid in (" + icid + ")  and lang='" + lang + "'
+		SELECT * FROM News WHERE Title LIKE N'" + Exec(keyWord) + "'
+		DELETE FROM News WHERE icid in (" + icid + ")
+		select top 5 * from tbProduct order by proId desc
+select  top 5 * from tbProduct order by proId desc
+		
+		 // if (Page.IsValid)
+       // {
+            //Insert
+            //YahooMessenger obj = new YahooMessenger();
+            //obj.Title = "1111111";
+            //obj.Nick = "ddd";
+            //obj.Phone = "7777";
+            //obj.Status = 1;
+            //obj.Email = "";
+            //db.YahooMessengers.InsertOnSubmit(obj);
+            //db.SubmitChanges();
+            ////Update
+
+            //YahooMessenger abc = db.YahooMessengers.SingleOrDefault(p => p.inick == 30);
+            //abc.inick = 30;
+            //abc.Title = "---------";
+            //abc.Nick = "ddd";
+            //abc.Phone = "7777";
+            //abc.Status = 1;
+            //abc.Email = "";
+            //db.SubmitChanges();
+			//}
+
+        }
+        public void abc()
+        {
+
+        }
+        public static List<New> LoadAllANew(DataClasses1DataContext db, string lang)
+        {
+		// var res = (from s in db.Histories where s.StaffID == int.Parse(hd_StaffID.Text) select new { s.FromDate }).ToList();
+		// List<Staff> list = db.Staffs.Where(o => o.StaffCode.StartsWith(txtManhanvien) && o.StaffCode.EndsWith(txtManhanvien)).ToList<Staff>();
+		// user its = db.users.SingleOrDefault(p => p.vuserun == Session["Members"].ToString() && p.istatus.ToString() == "1");// lay ra 1 bai viet
+
+//History list = db.Histories.Where(s => s.StaffID == ID).OrderByDescending(s => s.HistoryID).FirstOrDefault(); lấy ra ID cuối cùng
+            List<New> list = (from p in db.News where p.lang == lang orderby p.Create_Date descending select p).ToList();
+			
+			
+			      List<Luutamgiohang> del = db.Luutamgiohangs.Where(s => s.cus_id == int.Parse("0")).ToList();
+				  
+				  
+				  
+            return list;
+            // KQ Goi ham List<New> list = LoadAllANew(db, lang);
+        }
+		public string Diploma(string id)// lay ra 1 bai viet
+        {
+            string Chuoi = "";
+            if (id != null)
+            {
+                Diploma list = db.Diplomas.SingleOrDefault(p => p.DiplomaID == int.Parse(id));
+                if (list!=null)
+                {
+                    Chuoi += list.DiplomaName.ToString();
+                }
+            }
+            return Chuoi;
+        }
+        protected string MenuPro()
+        {
+            string str = "";
+            List<New> list = GetNewWithOption(db).ToList();
+            // List<New> list = LoadAllANew(db, lang);
+            // List<New> list = (from p in db.News where p.lang == lang orderby p.Create_Date descending select p).ToList();
+            if (list.Count > 0)
+            {
+                foreach (New item in list)
+                {
+                    str += item.Title.ToString();
+                }
+            }
+            return str.ToString();
+        }
+
+        protected string Menu_Pro()
+        {
+            string str = "";
+            var cc = from p in db.News select p;
+            foreach (New item in cc)
+            {
+                str += item.Title.ToString();
+            }
+            return str.ToString();
+        }
+
+        protected string KieuIntrongsql()
+        {
+            string str = "";
+            //where multiple id linq
+            // cách so 1:
+            var cc = from News in db.News where (new int[] { 336 }).Contains(News.icid.GetValueOrDefault()) select News;
+            // cách so 2:
+            //IEnumerable<int> list = new List<int>() { 336 };
+            //List<New> cc = (from e in db.News where list.Contains(e.icid.GetValueOrDefault()) select e).ToList();
+            foreach (var item in cc)
+            {
+                str += item.Title.ToString() + "</br>--";
+            }
+            return str.ToString();
+        }
+
+        protected string Danhsachtin()
+        {
+            string str = "";
+            var cc = from News in db.News
+                     where (new int[] { 336 }).Contains(News.icid.GetValueOrDefault()) && News.lang == "VIE" && News.Status == 1 && (News.Create_Date <= DateTime.Now && DateTime.Now <= News.Modified_Date)
+                     orderby News.Create_Date descending
+                     select News;
+            foreach (var item in cc)
+            {
+                str += item.Title.ToString() + "</br>-==-";
+            }
+            return str.ToString();
+        }
+
+        public void DeleteNews()
+        {
+		 NganHangMaThe del = db.NganHangMaThes.Where(s => s.ID == int.Parse(Id)).FirstOrDefault();// xóa 1
+                        db.NganHangMaThes.DeleteOnSubmit(del);
+                        db.SubmitChanges();
+						
+						
+            List<Luutamgiohang> del = db.Luutamgiohangs.Where(s => s.cus_id == int.Parse("0")).ToList();// xóa nhiều
+            db.Luutamgiohangs.DeleteAllOnSubmit(del);
+            db.SubmitChanges();
+			
+			
+						
+            //var queryNews = from News in db.News where (new int[] { 1 }).Contains(News.inid)  select News;
+            //foreach (var del in queryNews)
+            //{
+            //    db.News.DeleteOnSubmit(del);
+            //}
+            //db.SubmitChanges();
+
+            //updateNew
+            var queryNews = from News in db.News where News.inid == 0 select News;
+            foreach (var News in queryNews)
+            {
+                News.Status = (System.Byte?)1;
+            }
+            db.SubmitChanges();
+
+            // NEWS_OTHERFIRST
+            (from News in db.News where News.Create_Date > ((from News0 in db.News where News0.inid == 00 select new { News0.Create_Date }).First().Create_Date) && News.lang == "VIE" && News.icid == 00 && (News.Create_Date <= DateTime.Now && DateTime.Now <= News.Modified_Date) orderby News.Create_Date descending select News).Take(11);
+
+        }
+
+        public static IEnumerable<New> GetNewWithOption(DataClasses1DataContext db)
+        {
+            string comand = "Select * from News";
+			
+            return db.ExecuteQuery<New>(@"" + comand + ""); 
+			hoặc 
+			return db.ExecuteQuery<New>(@"" + comand + "").ToList();
+			
+            // KQ Goi ham List<New> list = GetNewWithOption(db).ToList();
+        }
+		
+		// List<Ship> list = (from p in db.Ships where p.Quocgia == ship orderby p.ID descending select p).ToList();
+       // IEnumerable<Ship> list = (from p in db.Ships where p.Quocgia == ship orderby p.ID descending select p).ToList();
+       // IEnumerable<Ship> list = db.ExecuteQuery<Ship>(@"select * from Ship");
+	   
+	    List<CommonDic> list = db.ExecuteQuery<CommonDic>(@"select Description0, Description1 from CommonDic where CommonDicType='PARAMATER' and CommonDicCode= 'LBC_TRANINGPOLICY'").ToList();
+            if (list.Count() > 0)
+            {
+                txtOther.Text = list[0].Description0;
+                txtOther1.Text = list[0].Description1;
+            }
+}
+
+  protected IEnumerable<tbNew> NewCate(string icid)
+        {
+            string comand = "select top 2 * from  tbNews where newActive=0 and grnID in (" + icid + ")  and newLang ='" + lang + "' order by newDate desc";
+            return db.ExecuteQuery<tbNew>(@"" + comand + "");
+        }
+        protected IEnumerable<tbNew> NewIn(string icid)
+        {
+            string comand = "SELECT * FROM (select top 5 row_number() OVER (order by newDate desc) AS rowindex ,* from tbNews  WHERE grnID in (" + icid + ") and newLang='" + lang + "')    As A where A.rowindex > 2";
+            return db.ExecuteQuery<tbNew>(@"" + comand + "");
+        }
+\\\\
+
+     protected IEnumerable<tbNew> NewCate(string icid)
+        {
+            string comand = "select top 2 * from  tbNews where newActive=0 and grnID in (" + icid + ")  and newLang =" + lang + " order by newDate desc";
+            return db.ExecuteQuery<tbNew>(@"" + comand + "");
+        }
+
+    //
+public string Famyly(object id)// <%#Famyly(Eval("id"))%>
+{
+	string Chuoi = "";
+	if (id != null)
+	{
+		var list = db.Famyly_Relation_GetInfo(int.Parse(id.ToString())).ToList();
+		if (list.Count() > 0)
+		{
+			Chuoi += list[1].Description0.ToString();
+		}
+	}
+	return Chuoi;
+}
+
+// dau vao vidu: 009-999-9987-099// se dung doan code nay de cat chuoi
+string Search = txtTenNV.Text;
+    string[] idSearch = Search.Split('-');
+    sqlsearch += "  AND Staff.FullName LIKE N'%" + Search[1].ToString() + "%'";//lay thu tu so 2
+
+if (txtSearch.Text != "")
+{
+    string Search = txtSearch.Text;
+    string[] idSearch = Search.Split('-');
+    list = list.Where(s => s.FullName.ToLower().Contains(idSearch[0].ToString().ToLower()));//lay thu tu so 1
+
+			
+//	bắt lỗi DropDownList	
+<asp:DropDownList ID="ddkynang" class="form-control input-sm"  style="border-radius: 0px !important" runat="server"></asp:DropDownList>
+<asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ErrorMessage="*" Text="*" InitialValue="0" ControlToValidate="ddkynang" ValidationGroup="GInfo"></asp:RequiredFieldValidator> 
+					 
+						
+//cách lấy dữ liệu từ 1 bảng khác			 
+if (list[0].ManagerID != 0)
+{
+Staff d = db.Staffs.FirstOrDefault(l => l.ManagerID == list[0].ManagerID);
+if (d != null) txtngxacnhan.Text = d.FullName;
+}
+
+//                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="GInfo" ControlToValidate="txttungay" ErrorMessage="*" ></asp:RequiredFieldValidator>
+
+//daus . vaf ,
+
+<%@ Register TagPrefix="ajaxToolkit" Namespace="AjaxControlToolkit"  Assembly="AjaxControlToolkit" %>
+ <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server" TargetControlID="txtInsuranceSalary"    FilterType="Custom, Numbers" ValidChars="+-=/*()." />
+     
+Response.Write("<script type=\"text/javascript\">alert('Đăng ký nghỉ thành công'); window.location.href='" + href + "'</script>");
+
+ <iframe width=960px height=250px style=" overflow:hidden" scrolling=no  frameborder=no src="<%=WebURL %>Banner/Home/index.html" marginheight=0 marginwidth=0></iframe>
+
+ <iframe width=960px height=250px style=" overflow:hidden" scrolling=no  frameborder=no src="<%=WebURL %>Banner/Home/index.html?ip=<%#Eval("id")%>" marginheight=0 marginwidth=0></iframe>
+
+ <div class=\"cat-calendar\"><span class=\"cat-thang\">" + MyWeb.Global.GetLangKey("Thang") +" "+ DateTime.Parse(list[i].newDate.ToString()).Month + "</span><span class=\"cat-ngay\">" + DateTime.Parse(list[i].newDate.ToString()).Day + "</span><span class=\"cat-nam\">" + DateTime.Parse(list[i].newDate.ToString()).Year + "</span></div>
+ 
+  <iframe width=100% height=100% style=" overflow:hidden" scrolling=no  frameborder=no src="http://hatinhplus.vn/" marginheight=0 marginwidth=0></iframe>
+
+ 
+ // cap nhật ảnh bị chết trong menu
+ 
+protected void lbtDelimg_Click(object sender, EventArgs e)
+{
+    tbPage abc = db.tbPages.SingleOrDefault(p => p.pagId == int.Parse(HidId.Value));
+    abc.pagImage = "";
+    db.SubmitChanges();
+    lbtDelimg.Visible = false;
+    lblImg.ImageUrl = "";
+    ltrImg.Text = "";
+}
+	
+	
+
+
+
+chữ chạy:
+<marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" scrollamount="3"><%=GlobalClass.conContact%></marquee>
+	
+placeholder="Search"  thay bằng ---> txtSearch.Attributes.Add("placeholder", MyWeb.Global.GetLangKey("search_text"));
+
+txtSearch.Attributes.Add("placeholder", MyWeb.Global.GetLangKey("search_text"));
+
+//css chống coppy  http://www.ducanhplus.com/2013/07/code-chong-copy-va-click-chuot-phai-song-kiem-hop-bich-css-va-javascript/
+
+body{ -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; }
+
+Response.Write("<script type=\"text/javascript\">alert('Đăng ký nghỉ thành công'); window.location.href='" + href + "'</script>");
+
+<script>
+$(document).ready( function() {
+ $("[src='http://vmms.vn/Designedby_vmms_moi.png']").parent().parent().remove();
+});
+</script>
+
+
+
+
+// chuỗi @
+string htmlbodystr = @"<body style='margin: 0px;'>
+<div style='width: 500px; height:100px; padding:10px; border-radius: 5px; border:solid 1px #C0C0C0;'>
+   <span>Name: </span>
+   <span>" + nametex.Text + @"</span><br />
+   <span>Email:</span>
+   <span>" + emailtex.Text + @"</span><br />
+   <span>Mobile:</span>
+   <span>" + mobiletex.Text + @"</span><br /><br />
+   <span>Message:</span><br />
+   <span>" + messagetex.Text + @"</span>
+</div>";
+
+
+
+
+@Html.Raw(TempData["Message"])
+TempData["Message"] = " <script type=\"text/javascript\">jQuery(document).ready(function ($) { $.toast({ heading: 'Thông báo', text: 'Trong giỏ hàng chỉ được phép mua sản phẩm của 1 cửa hàng. vui lòng chọn đúng cửa hàng mà bạn đang mua.', showHideTransition: 'fade', icon: 'error' })}); </script>";
+
+
+
+
+//F:\AGVietNam\VS.TamGiacGiang_Ag_bigstore.shopping\VS.ECommerce_MVC\Application
+// F:\AGVietNam\Aggroupusa.com_News
+string TuNgay = "";
+string DenNgay = "";
+string loc = "";
+if ((Request.QueryString["TuNgay"] != null) && (Request.QueryString["TuNgay"] != ""))
+{
+    TuNgay = Request.QueryString["TuNgay"].Trim();
+    loc += "&TuNgay=" + TuNgay + "";
+}
+if ((Request.QueryString["DenNgay"] != null) && (Request.QueryString["DenNgay"] != ""))
+{
+    DenNgay = Request.QueryString["DenNgay"].Trim();
+    loc += "&DenNgay=" + DenNgay + "";
+}
+
+string sql = "";
+if (TuNgay != "" && DenNgay != "")
+{
+    sql += " AND NgayTao IS NOT NULL AND ((DATEADD(dd,-31,NgayTao)>='" + Commond.FormatDate(Commond.ConvertStringToDate(TuNgay, "dd/MM/yyyy").Date) + " 00:00:00.000' OR NgayTao>='" + Commond.FormatDate(Commond.ConvertStringToDate(TuNgay, "dd/MM/yyyy").Date) + " 00:00:00.000') AND NgayTao <='" + Commond.FormatDate(Commond.ConvertStringToDate(DenNgay, "dd/MM/yyyy").Date) + " 23:59:59.999')";
+}
+else if (TuNgay == "" && DenNgay != "")
+{
+    sql += " AND NgayTao IS NOT NULL AND NgayTao <='" + Commond.FormatDate(Commond.ConvertStringToDate(DenNgay, "dd/MM/yyyy").Date) + " 23:59:59.999'";
+}
+else if (TuNgay != "" && DenNgay == "")
+{
+    sql += " AND NgayTao IS NOT NULL AND (DATEADD(dd,-31,NgayTao)>='" + Commond.FormatDate(Commond.ConvertStringToDate(TuNgay, "dd/MM/yyyy").Date) + " 00:00:00.000' OR NgayTao>='" + Commond.FormatDate(Commond.ConvertStringToDate(TuNgay, "dd/MM/yyyy").Date) + " 00:00:00.000')";
+}
+

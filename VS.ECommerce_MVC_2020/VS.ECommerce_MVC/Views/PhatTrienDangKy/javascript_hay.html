@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title></title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.easy-confirm-dialog.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!--1*: Bạn Có Chắc Chắn Muốn Thoát Khỏi Trang Web Không-->
+        <script language="JavaScript" type="text/javascript">
+            window.onbeforeunload = confirmExit;
+            function confirmExit() {
+                return "Bạn Có Chắc Chắn Muốn Thoát Khỏi Trang Web Không?";
+            }
+        </script>
+
+
+        <!--2*: Chạy js ở trên nữa mới dc (jquery-ui.js , jquery.easy-confirm-dialog.js)-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".yesno").easyconfirm({
+                    locale: { title: 'Xóa thành viên', button: ['Không', 'Có'] }
+                });
+            })
+        </script>
+        <button type="submit" class="yesno">Xóa nhiều</button>
+
+        <!--3*: 1 số trang MVC muốn load lại trang thì cho js này vào , ví dụ  lọc theo ngày tháng, tìm kiếm, dạng dropp-->
+        <select name="Category" id="Category" class="txt">
+            <option selected="selected" value="0">Tất cả loại Hoa Hồng</option>
+            <option value="1">Tặng Tiền</option>
+            <option value="2">Trực Tiếp</option>
+            <option value="3">Leader</option>
+            <option value="4">Đồng Hưởng</option>
+            <option value="5">BIG SALES</option>
+            <option value="6">Tri Ân</option>
+            <option value="7">Tặng tiền cửa hàng</option>
+        </select>
+        <input class="form-control" id="TuNgay" name="TuNgay" placeholder="Từ Ngày/Tháng/Năm" type="text" value="06/05/2021">
+        <input class="form-control" id="DenNgay" name="DenNgay" placeholder="Đến Ngày/Tháng/Năm" type="text" value="06/05/2021">
+        <script type="text/javascript">
+            $(function () {
+                $('#Category').change(function () {
+                    this.form.submit();
+                });
+                $('#TuNgay').change(function () {
+                    this.form.submit();
+                });
+                $('#DenNgay').change(function () {
+                    this.form.submit();
+                });
+            });
+        </script>
+
+        <!--4*: Reset ô tìm kiếm-->
+        <input type="search" name="txtkeyword" id="txtkeyword" value="" placeholder="Tìm sản phẩm" />
+        <script type="text/javascript">
+            $(function () {
+                $('#txtkeyword').focus(function () {
+                    $(this).val('');
+                });
+            });
+        </script>
+
+    </form>
+</body>
+</html>
+
+

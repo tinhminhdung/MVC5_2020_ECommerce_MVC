@@ -1,0 +1,174 @@
+﻿@*
+    Ví dụ mốn ẩn hiện theo div hay style thì làm như : trang sơn thế anh, tháng 2/2020
+    @{
+    string div = "";
+    if (Request.RawUrl.ToString() == "/")
+    {
+        div = "header_index";
+    }
+    else if (Request.RawUrl.Contains("/san-pham/"))
+    {
+        div = "";
+    }
+    else
+    {
+        div = "header_index";
+    }
+}
+<header class="header @div ">*@
+    
+    <div class="header_top_bar hidden-xs hidden-sm">
+        <div class="container">
+            <div class="rowx">
+                <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs top_content_">
+                    <ul class="contact_top">
+                        <li class="li_contact">
+                            <span>
+                                <span class="ti ti-headphone-alt"></span>Hotline:<a href="callto:@Commond.Setting("Hotline")">@Commond.Setting("Hotline")</a>
+                            </span>
+                        </li>
+                        <li class="li_contact">
+                            <span>
+                                <span class="ti ti-email"></span>Email:<a href="mailto:nvietdung1109@gmail.com">nvietdung1109@gmail.com</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs top_content_">
+                    <ul class="contact_top right">
+                        <li class="li_contact">Bạn có bất kỳ câu hỏi nào? Hãy gọi: (024)3.791.2521</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap_header_top">
+        <div class="header_top">
+            <div class="topbar_wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="head_content col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="menu-bar hidden-md hidden-lg">
+                                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+                                        <img src="/Resources/abc/menu-bar7f30.png" alt="menu bar">
+                                    </span>
+                                </div>
+                                <div class="logo_top col-lg-2 col-md-2">
+                                    @Html.Raw(AllQuery.Banner.Banners())
+                                </div>
+                                <div class="search_header col-lg-8 col-md-8 col-sm-12 hidden-xs">
+                                    @Html.Partial("~/Views/AllPage/Box_TimKiem.cshtml")
+                                </div>
+                                <div class="header_top_cart col-lg-2 col-md-3 col-sm-2">
+                                    <div class="search-cart ">
+                                        <div class="top-cart-contain">
+                                            <div class="mini-cart cart_hover text-xs-center">
+                                                <div class="heading-cart">
+                                                    <a href="/gio-hang.html">
+                                                        <span class="cart_num_x hidden-lg">
+                                                            <span class="cartCount  count_item_pr">@Services.SessionCarts.LoadCart()</span>
+                                                        </span>
+                                                    </a>
+                                                    <span class="ti_cart ti_ ti-bag"></span>
+                                                    <a class="mr_top" href="/gio-hang.html">
+                                                        <span class="background_cart">Giỏ hàng</span>
+                                                        <span class="cart_num">
+                                                            
+                                                            <div id="AutoRefreshHeaderCart">
+                                                                @Html.Partial("AutoRefreshHeaderCart")
+                                                            </div>
+                                                            
+                                                            <span class="color_">
+                                                                <span class="cartCount  count_item_pr"></span>sản phẩm
+                                                            </span><span class="price_total_"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="top-cart-contain f-right hidden-lg hidden-md hidden">
+                                            <div class="mini-cart text-xs-center">
+                                                <div class="heading-cart">
+                                                    <a href="/gio-hang.html">
+                                                        <span class="background_cart">
+                                                            <i class="fa fa-shopping-cart fa-flip-horizontal"></i>
+                                                        </span>
+                                                        <span class="cart_num">
+                                                            <span class="cartCount  count_item_pr">(<div id="AutoRefreshHeaderCart"> @Html.Partial("AutoRefreshHeaderCart") </div>)</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            
+                                            @*<script type="text/javascript">
+                                                function AutoRefreshHeaderCart() {
+                                                    $("#AutoRefreshHeaderCart").load("/My_Partialview/AutoRefreshHeaderCart");
+                                                }
+                                                //$(function () {
+                                                //    setInterval(function () { loadHeaderCart() },1000);
+                                                //});
+                                            </script>*@
+                                            @*<div class="mini-cart text-xs-center">
+                                                <div class="heading-cart">
+                                                    <a href="/gio-hang.html">
+                                                        <span class="background_cart">
+                                                            <i class="fa fa-shopping-cart fa-flip-horizontal"></i>
+                                                        </span>
+                                                        <span class="cart_num">
+                                                            <span class="cartCount  count_item_pr">(@Services.SessionCarts.LoadCart())</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header_search_ col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm">
+                            <div class="search_full">
+                                <div class="form_search">
+                                    <span class="input-group-btn">
+                                        <input name="Header1$txtkeyword" type="text" value="Tìm kiếm..." id="Header1_txtkeyword" class="input_search" onfocus="if (this.value=='Tìm kiếm...') this.value='';" onblur="if (this.value=='') this.value='Tìm kiếm...';">
+                                        <a id="Header1_lnksearch" class="btn icon-fallback-text" href="javascript:__doPostBack('Header1$lnksearch','')">
+                                            <i class="icon-magnifier icons"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="site_menu_main ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 hidden-sm hidden-xs menu_vertical">
+                    <div class="menu_ lineheight55">
+                        <div class="title_menu">
+                            <span class="title_">Danh mục sản phẩm</span>
+                            <span class="nav_button">
+                                <span class="ti-align-right"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 hidden-sm hidden-xs menu_main_">
+                    <nav class="hidden-sm hidden-xs nav-main lineheight55 nav-widths">
+                        <div class="menu_hed head_1">
+                            <div class="Menu">
+                                <ul>
+                                    @{Html.RenderAction("MenuTop", "Menu");}
+                                    @*@Html.Raw(Commond.MenuTop())*@
+                                    @*@Html.Partial("~/Views/Menu/MenuTop.cshtml")*@
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>

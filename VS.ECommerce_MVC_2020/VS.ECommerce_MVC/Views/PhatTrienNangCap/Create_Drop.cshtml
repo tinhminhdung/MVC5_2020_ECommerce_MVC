@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create_Drop</title>
+</head>
+<body>
+    <div> 
+        <select id="ddlDanhMuc" name="ddlDanhMuc">
+            <option value="0">== Chọn chuyên mục ==</option>
+            @Html.Raw(ViewBag.ShowDanhMuc)
+        </select>
+        <br /><br />
+      
+        @Html.Raw(ViewBag.ShowDropdowlist)
+
+        <br /><br />
+        @Html.DropDownList("ddlnhomsp", " === Nhóm sản phẩm ===")
+    </div>
+</body>
+</html>

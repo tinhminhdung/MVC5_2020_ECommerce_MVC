@@ -1,0 +1,11 @@
+﻿@using (Html.BeginForm("Box_TimKiem", "Ajax", new { }, FormMethod.Post, new { @class = "input-group search-bar" }))
+{
+    <div class="header_searchs">
+        <div class="input-group search-bar">
+            <input name="txtkeyword" type="text" value="Tìm kiếm..." id="txtkeyword" class="input-group-field st-default-search-input search-text" onfocus="if (this.value=='Tìm kiếm...') this.value='';" onblur="if (this.value=='') this.value='Tìm kiếm...';">
+            <span class="input-group-btn">
+                <input type="submit" name="lnksearch" value="Tìm kiếm" id="lnksearch" class="btn icon-fallback-text">
+            </span>
+        </div>
+    </div>
+}
