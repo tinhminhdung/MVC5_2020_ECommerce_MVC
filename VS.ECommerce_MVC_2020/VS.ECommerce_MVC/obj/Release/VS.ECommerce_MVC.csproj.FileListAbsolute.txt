@@ -149,6 +149,8 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\EntityFramework.SqlServer.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Facebook.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Framework.dll
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\HtmlRenderer.dll
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\HtmlRenderer.PdfSharp.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.AspNet.Identity.Core.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -163,7 +165,6 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.Owin.Security.Twitter.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.Web.Infrastructure.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\MoreAll.dll
-F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Newtonsoft.Json.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Owin.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Services.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Net.Http.Formatting.dll
@@ -176,12 +177,15 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.Deployment.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.Razor.dll
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\WebActivatorEx.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\WebGrease.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Entity.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Framework.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\MoreAll.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Services.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Facebook.xml
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\HtmlRenderer.pdb
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\HtmlRenderer.PdfSharp.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.Helpers.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.Mvc.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.Optimization.xml
@@ -189,7 +193,6 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.Deployment.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.WebPages.Razor.xml
-F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Newtonsoft.Json.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Antlr3.Runtime.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Net.Http.Formatting.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\System.Web.Http.xml
@@ -208,6 +211,8 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.Owin.Security.Google.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.Owin.Security.Twitter.xml
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.csprojResolveAssemblyReference.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.csproj.AssemblyReference.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.csproj.CoreCompileInputs.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.csproj.CopyComplete
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\VS.ECommerce_MVC\obj\Release\VS.ECommerce_MVC.pdb

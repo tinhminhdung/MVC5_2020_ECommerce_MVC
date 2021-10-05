@@ -1,0 +1,6 @@
+select FORMAT(Create_Date ,'dd-MM-yyyy') as ToDate from News 
+--convert sang dinh dang dd-MM-yyyy
+select convert(varchar,Create_Date, 103) as [Expected Receipt Date] from News
+--convert sang dinh dang (/) Ví dụ : 15/01/2020
+select ISNULL(REPLACE(CONVERT(varchar(200), (CAST(PR_Qtty AS int)), 1), '', ''),0) as PR_Qtty,PR_Qtty from Demo
+--convert những trường nul thành số 0

@@ -90,6 +90,8 @@ F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.EComm
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\bin\Release\Entity.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\bin\Release\Framework.pdb
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\bin\Release\Services.pdb
-F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.csprojResolveAssemblyReference.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.csproj.AssemblyReference.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.csproj.CoreCompileInputs.cache
+F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.csproj.CopyComplete
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.dll
 F:\Code_Phat_Trien_Chuan\Code Gốc 2021_______\MVC5_2020_ECommerce_MVC\VS.ECommerce_MVC_2020\MoreAll\obj\Release\MoreAll.pdb

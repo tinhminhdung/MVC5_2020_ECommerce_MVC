@@ -22,7 +22,7 @@
 
                // document.cookie = 'aff=Flavio; domain=unica.vn;'
                 window.location.href = "https://unica.vn/?aff=777777777";
-               // window.location.href = "https://dantri.com.vn/";
+            
             }
 </script>--%>
 

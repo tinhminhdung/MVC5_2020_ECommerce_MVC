@@ -31,8 +31,18 @@ namespace VS.ECommerce_MVC.Controllers
 
             // Kiểu 3
             ViewBag.ShowDanhMuc = ShowDanhMuc("");// show lên html Dropdowlist
+
+            ViewBag.ShowDanhMucNews = ShowDanhMucNews("");// show lên html Dropdowlist
+
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create_Drop(string IDNhom)
+        {
+            return View();
+        }
+
         public ActionResult Edit_Drop(int ID = 794)
         {
             List<Entity.Menu> dt = SMenu.Name_Text("SELECT * FROM [Menu]  where capp='PR'    and Status=1 order by level,Orders asc");
@@ -51,6 +61,8 @@ namespace VS.ECommerce_MVC.Controllers
             // Kiểu 3
 
             ViewBag.ShowDanhMuc = ShowDanhMuc(ID.ToString());// show lên html Dropdowlist
+            ViewBag.ShowDanhMucNews = ShowDanhMucNews(ID.ToString());// show lên html Dropdowlist
+
             return View();
         }
 
@@ -131,7 +143,31 @@ namespace VS.ECommerce_MVC.Controllers
             }
             list.Clear();
             return str;
-        } 
+        }
+
+        protected string ShowDanhMucNews(string IDActive)
+        {
+            string Chuoi = "";
+            string str = "";
+            List<Entity.Menu> list = SMenu.Name_Text("SELECT * FROM Menu WHERE capp='PR'  order by level,Orders asc");
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Chuoi = "";
+                    for (int j = 1; j < list[i].Level.Length / 5; j++)
+                    {
+                        Chuoi = Chuoi + " ---";
+                    }
+                    if (list[i].ID.ToString() == IDActive)
+                        str += "<option  selected=\"selected\" data-value=\"" + list[i].ID.ToString() + "\">" + Chuoi + list[i].Name.ToString() + "</option>";
+                    else
+                        str += "<option data-value=\"" + list[i].ID.ToString() + "\">" + Chuoi + list[i].Name.ToString() + "</option>";
+                }
+            }
+            list.Clear();
+            return str;
+        }
 
         #endregion
 

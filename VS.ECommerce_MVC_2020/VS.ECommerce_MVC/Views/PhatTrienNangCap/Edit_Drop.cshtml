@@ -9,10 +9,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create_Drop</title>
+    <script src="~/Resources/js/jquery-1.9.1.js"></script>
 </head>
 <body>
     <div> 
+        @*Kiểu datalist này chỉ để lọc tìm kiếm chứ ko dùng dc cho dạng active trạng thái*@
+        <input list="countries" type='text' placeholder="Select Type" id='country' />
+        <datalist id="countries">
+            <option data-value='1' value='India'></option>
+            @Html.Raw(ViewBag.ShowDanhMucNews)
+        </datalist>
 
+
+        <script>
+            $('[name="countries"]').val();
+        </script>
         <select id="ddlDanhMuc" name="ddlDanhMuc">
             @Html.Raw(ViewBag.ShowDanhMuc)
         </select>

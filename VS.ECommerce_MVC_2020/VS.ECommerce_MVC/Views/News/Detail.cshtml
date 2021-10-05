@@ -29,7 +29,7 @@
                     <div class="list-more-news">
                         @{
                             List<Entity.Category_News> Otherss = ViewBag.Other2 as List<Entity.Category_News>;
-                            if (Otherss!=null)
+                            if (Otherss != null)
                             {
                                 <div class="title-more-news">Các tin tiếp trước</div>
                                 foreach (var item in Otherss)
@@ -42,13 +42,12 @@
                     </div>
                     <div class="list-more-news">
                         @{
-                            List<Entity.Category_News> Others = ViewBag.Other1 as List<Entity.Category_News>;
-                            if (Others != null)
+                            if (ViewBag.Other1 != null)
                             {
                                 <div class="title-more-news">Các tin tiếp theo</div>
-                                foreach (var item in Others)
+                                foreach (Entity.Category_News item in (List<Entity.Category_News>)ViewBag.Other1)
                                 {
-                                   string link = "/tin-tuc/" + item.TangName + ".html";
+                                    string link = "/tin-tuc/" + item.TangName + ".html";
                                     <div><a href="@link" title="@item.Title">@AllQuery.MoreNews.Substring_Title(item.Title)</a></div>
                                 }
                             }
