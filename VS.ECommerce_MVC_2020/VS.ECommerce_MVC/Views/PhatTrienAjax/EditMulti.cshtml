@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+    var list_LienHe = (List<Entity.Contacts>)ViewBag.list_LienHe;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAddMuitiInput</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+    <link href="~/Resources/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+
+        <br />
+        <div style="color:red" id="target"></div>
+        <div class="col-md-12">
+            <h5>
+                Gửi nhiều liên hệ cùng 1 lúc
+            </h5>
+        </div>
+        <div class="box_tab_6">
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-bordered" id="table_LienHe">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Tiêu đề
+                                </th>
+                                <th scope="col">
+                                    Họ và tên
+                                </th>
+                                <th scope="col" style="width: 26%;">
+                                    Địa chỉ
+                                </th>
+                                <th scope="col">
+                                    Điện thoại
+                                </th>
+                                <th scope="col">
+                                    Email
+                                </th>
+                                <th scope="col">Thêm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.list_LienHe != null)
+                            {
+                                var cus_i = 0;
+                                foreach (Entity.Contacts box in (List<Entity.Contacts>)ViewBag.list_LienHe)
+                                {
+                                    cus_i++;
+                                    <tr id="row_@cus_i">
+                                        <td scope="row" style="text-align: center;"><input type="text" name="vtitle" value="@box.vtitle" id="vtitle_@cus_i" class="form-control" list="cusbonus_datalist" placeholder="--- Chọn nội dung---" /></td>
+                                        <td><input type="text" name="vname" id="vname_@cus_i" class="form-control" value="@box.vname" /></td>
+                                        <td><input type="text" name="vaddress" id="vaddress_@cus_i" class="form-control" value="@box.vaddress" /></td>
+                                        <td><input type="number" name="vphone" id="vphone_@cus_i" class="form-control" value="@box.vphone" /></td>
+                                        <td><input type="text" name="vemail" id="vemail_@cus_i" class="form-control" value="@box.vemail" /></td>
+                                        <td style="text-align:center;width: 115px;" class="btn_add"><a href="javascript:void(0);" onclick="deleteRowLienHe(this);" class="btn_add"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a onclick="ThemMoi()">Lưu và kết thúc</a>
+    <br />
+    <script>
+        // js load giao diện lên
+        var i = 0;
+        $(function () {
+            js_addLienHe();
+        });
+        function js_addLienHe(r) {
+            i++;
+            var chuoi = "";
+            var j = i - 1;
+            $("#row" + j + " .btn_add").empty();
+            $("#row" + j + " .btn_add").html('<a href="javascript:void(0);" onclick="deleteRowLienHe(this);" class="btn_add"><i class="fa fa-trash" aria-hidden="true"></i></a>');
+            chuoi += '<tr id="row' + i + '">';
+            chuoi += '<td><input  type="text" name="vtitle" id="vtitle' + i + '" placeholder="Tiêu đề" class="form-control" /></td>';
+            chuoi += '<td><input  type="text" name="vname" id="vname' + i + '" placeholder="Họ và tên" class="form-control" /></td>';
+            chuoi += '<td><input  type="text" name="vaddress" id="vaddress' + i + '" placeholder="Địa chỉ" class="form-control" /></td>';
+            chuoi += '<td><input  type="number" name="vphone" id="vphone' + i + '" placeholder="Điện thoại" class="form-control" /></td>';
+            chuoi += '<td><input  type="text" name="vemail" id="vemail' + i + '" placeholder="Email" class="form-control" /></td>';
+            chuoi += '<td style="text-align:center" class="btn_add"><a href="javascript:void(0)" onclick="js_addLienHe(' + i + ');"><i class="fa fa-plus" aria-hidden="true"></i></a></td></tr > ';
+            $("#table_LienHe tbody").append(chuoi);
+        }
+        function deleteRowLienHe(r) {
+            var ri = r.parentNode.parentNode.rowIndex;
+            document.getElementById("table_LienHe").deleteRow(ri);
+        }
+    </script>
+    <script>
+        // Js thêm mới
+        // có thể thêm nhiều bảng cùng 1 lúc được nhé, như code BiBomart
+        //F:\BIBoMart\CodeMVC\Views\TradingTermVendor
+        var SourceLienHe = [];
+        function ThemMoi() {
+            debugger;
+            getTableDataLenHe();
+            //getTableDataLeaderTime();
+            var obj = {};
+            //  obj.SourceLeaderTime = JSON.stringify(SourceLeaderTime);
+            obj.SourceLienHe = JSON.stringify(SourceLienHe);
+            if (SourceLienHe.length > 0) {
+                $.ajax({
+                    url: '/PhatTrienAjax/UpdateMuitilRequest',
+                    type: 'POST',
+                    data: JSON.stringify(obj),
+                    contentType: 'application/json, charset=utf-8',
+                    success: function (data) {
+                        $('#target').html(data.msg);
+                        location.reload();
+                    }
+                });
+            }
+        }
+        function getTableDataLenHe() {
+            debugger;
+            SourceLienHe = [];
+            let trs = $("#table_LienHe tbody tr");
+            if (trs.length) {
+                trs.each(function (index, tr) {
+                    let vtitle = String($('#' + tr.id + ' input[name="vtitle"]').val()).trim();
+                    let vname = String($('#' + tr.id + ' input[name="vname"]').val()).trim();
+                    let vaddress = String($('#' + tr.id + ' input[name="vaddress"]').val()).trim();
+                    let vphone = String($('#' + tr.id + ' input[name="vphone"]').val()).trim();
+                    let vemail = String($('#' + tr.id + ' input[name="vemail"]').val()).trim();
+                    if (vtitle.length > 0 && vname.length > 0 && vaddress.length > 0 && vphone.length > 0) {
+                        SourceLienHe.push({
+                            "vtitle": vtitle,
+                            "vname": vname,
+                            "vaddress": vaddress,
+                            "vphone": vphone,
+                            'vemail': vemail
+                        });
+                    }
+                });
+            }
+        };
+    </script>
+
+</body>
+</html>

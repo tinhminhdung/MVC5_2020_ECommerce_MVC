@@ -1396,6 +1396,7 @@
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\API_ProdutcsController.cs" />
     <Compile Include="Controllers\PhanMemBanHangController.cs" />
+    <Compile Include="Controllers\PhatTrienAjaxController.cs" />
     <Compile Include="Controllers\PhatTrienDangKyController.cs" />
     <Compile Include="Controllers\VanChuyen.cs" />
     <Compile Include="Controllers\PhatTrienNangCapController.cs" />
@@ -3163,6 +3164,9 @@
     <Content Include="Views\PhatTrienNangCap\UploadFileMau1.cshtml" />
     <Content Include="Views\PhatTrienNangCap\Create_Drop.cshtml" />
     <Content Include="Views\PhatTrienNangCap\Edit_Drop.cshtml" />
+    <Content Include="Views\PhatTrienAjax\PostAjaxJson.cshtml" />
+    <Content Include="Views\PhatTrienAjax\CreateMulti.cshtml" />
+    <Content Include="Views\PhatTrienAjax\EditMulti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\ckfinder\help\en\files\" />

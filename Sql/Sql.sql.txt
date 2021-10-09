@@ -4,3 +4,39 @@ select convert(varchar,Create_Date, 103) as [Expected Receipt Date] from News
 --convert sang dinh dang (/) Ví dụ : 15/01/2020
 select ISNULL(REPLACE(CONVERT(varchar(200), (CAST(PR_Qtty AS int)), 1), '', ''),0) as PR_Qtty,PR_Qtty from Demo
 --convert những trường nul thành số 0
+
+SELECT  
+(CASE Status
+WHEN 1 THEN N'Đã Duyệt'
+WHEN 2 THEN N'Chưa duyệt'
+WHEN 3 THEN N'Đã Hủy'
+ELSE N'Mới thêm vào'
+END) AS Chuyenmuc
+FROM Demo
+ORDER BY Status
+
+-- convert những giá trị trong Status thành kiểu nội dung, thay dạng conver fomat ở code C# 
+
+
+
+
+
+
+
+
+----------CREATE Demo ---
+CREATE TABLE [dbo].[Demo](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[PR_Qtty] [varchar](200) NULL,
+	[Name] [varchar](200) NULL,
+	[Status] [int] NULL,
+ CONSTRAINT [PK_Demo] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO

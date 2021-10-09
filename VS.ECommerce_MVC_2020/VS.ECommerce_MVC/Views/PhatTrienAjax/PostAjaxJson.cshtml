@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PostAjaxJson</title>
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+    <div> 
+        <div id="target"></div>
+        <div><input type="text" name="id-name" id="id-name" placeholder="Họ và tên..."></div>
+        <div><input type="text" name="id-address" id="id-address" placeholder="Địa chỉ..."></div>
+        <div><input type="number" name="id-phone" id="id-phone" placeholder="phone..."></div>
+        <div><a  onclick="send()">Gửi liên hệ</a></div>
+        <script type="text/javascript">
+            function send() {
+                debugger;
+                var person = {
+                    //Chú ý các trường  vname ,vaddress,vphone phải truyền đúng như đã khai báo trong Entity.Contacts 
+                    vname: $("#id-name").val(),
+                    vaddress: $("#id-address").val(),
+                    vphone: $("#id-phone").val()
+                }
+                $('#target').html('sending.. Vui lòng đợi hệ thống đang gửi dữ liệu');
+                $.ajax({
+                    url: '/PhatTrienAjax/PostAjaxJson',
+                    type: 'post',
+                    dataType: 'json',
+                    data: JSON.stringify(person),
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $('#target').html(data.msg);
+                    }
+                });
+            }
+        </script>
+
+    </div>
+</body>
+</html>
