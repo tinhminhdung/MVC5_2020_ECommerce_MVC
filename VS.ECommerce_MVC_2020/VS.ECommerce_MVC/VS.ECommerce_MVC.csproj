@@ -303,6 +303,7 @@
     <Compile Include="Application\GiaoHangTietKiemWebFrom.cs" />
     <Compile Include="Application\GiaoHangTietKiem.cs" />
     <Compile Include="Application\Home.cs" />
+    <Compile Include="Application\LogBuild.cs" />
     <Compile Include="Application\MailHelper.cs" />
     <Compile Include="Application\NumberHelper.cs" />
     <Compile Include="Application\ReportHelper.cs" />
@@ -3167,6 +3168,8 @@
     <Content Include="Views\PhatTrienAjax\PostAjaxJson.cshtml" />
     <Content Include="Views\PhatTrienAjax\CreateMulti.cshtml" />
     <Content Include="Views\PhatTrienAjax\EditMulti.cshtml" />
+    <Content Include="Views\PhatTrienAjax\CreateMulti_News.cshtml" />
+    <Content Include="Views\PhatTrienAjax\EditMulti_News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\ckfinder\help\en\files\" />

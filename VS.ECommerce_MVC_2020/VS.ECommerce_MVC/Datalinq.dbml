@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VS.E_Commerce_MVCOk" Class="DatalinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-MJAA1Q3\SQLEXPRESS;Initial Catalog=VS.E_Commerce_MVCOk;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VS_E_Commerce_MVCOkConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=VIETDUNG\SQLEXPRESS;Initial Catalog=VS.E_Commerce_MVCOk;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VS_E_Commerce_MVCOkConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AdminUser" Member="AdminUsers">
     <Type Name="AdminUser">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -521,6 +521,20 @@
       <Column Name="NamSao" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestMuiltiInPut" Member="TestMuiltiInPuts">
+    <Type Name="TestMuiltiInPut">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDNhom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhomCung" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhomInput" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDNhomCungInput" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Images" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KieuSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

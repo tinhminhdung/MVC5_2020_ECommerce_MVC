@@ -45,8 +45,8 @@ public class Commond
         return Commond.Setting("HomePage");
     }
     #endregion
-	
-	 public static string GiamgiaNews(string Price, string OldPrice)
+
+    public static string GiamgiaNews(string Price, string OldPrice)
     {
         string Width = "";
         if (Price.ToString() != "" && OldPrice.ToString() != "")
@@ -506,6 +506,20 @@ public class Commond
     #endregion
 
     #region All Tổng hợp
+    public static string ShowActive(string id)
+    {
+        List<Entity.Menu> dt = SMenu.Detail(id);
+        if (dt.Count > 0)
+        {
+            return dt[0].ID + " - " + dt[0].Name;
+        }
+        return "";
+    }
+
+    public static string DateTime(object date)
+    {
+        return (Convert.ToDateTime(date).ToString("yyyy-MM-dd"));
+    }
     public static string ShowSumRank(string proRateSum, string proRateCount)
     {
         float result = 0;
@@ -599,4 +613,6 @@ public class Commond
         return Captionlanguage.GetLabel(id, language);
     }
     #endregion
+
+
 }

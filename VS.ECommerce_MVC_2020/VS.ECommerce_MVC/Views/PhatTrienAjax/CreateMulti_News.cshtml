@@ -1,0 +1,218 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAddMuitiInput</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+    <link href="~/Resources/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <datalist id="ListNhomSanPham_datalist">
+            @foreach (Entity.Menu box in (List<Entity.Menu>)Services.SMenu.LOAD_CATESPARENT_ID(MoreAll.More.PR, "VIE", "-1", "1"))
+            {
+                @*<option value="@box.ID">@box.Name</option>*@
+                <option value="@box.ID - @box.Name" />
+            }
+        </datalist>
+        <br />
+        <div style="color:red" id="target"></div>
+        <div class="col-md-12">
+            <h5>
+                Gửi nhiều liên hệ cùng 1 lúc
+            </h5>
+        </div>
+        <div class="box_tab_12">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered" id="table_News">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Menu
+                                </th>
+                                <th scope="col">
+                                    Trạng thái
+                                </th>
+                                <th scope="col">
+                                    Menu  2
+                                </th>
+                                <th scope="col">
+                                    Trạng thái 2
+                                </th>
+                                <th scope="col">
+                                    Check status
+                                </th>
+                                <th scope="col">
+                                    Name
+                                </th>
+                                <th scope="col">
+                                    Images
+                                </th>
+                                <th scope="col">
+                                    NgayTao
+                                </th>
+                                <th scope="col">
+                                    Tổng tiền
+                                </th>
+                                <th scope="col">Thêm</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a onclick="ThemMoi()">Lưu và kết thúc</a>
+    <br />
+    <script>
+        // js load giao diện lên
+        var i = 0;
+        $(function () {
+            js_addNews();
+        });
+        function js_addNews(r) {
+            i++;
+            js_ShowNhom(i);// mỗi lần thêm mới 1 hàng thì sẽ gọi lại hàm show menu ra nhé đổ vào select
+            var chuoi = "";
+            var j = i - 1;
+            $("#row" + j + " .btn_add").empty();
+            $("#row" + j + " .btn_add").html('<a href="javascript:void(0);" onclick="deleteRowNews(this);" class="btn_add"><i class="fa fa-trash" aria-hidden="true"></i></a>');
+            chuoi += '<tr id="row' + i + '">';
+            
+            chuoi += '<td><select  class="form-control" name="IDNhom" id="IDNhom_' + i + '"><option value="">--Chọn Nhóm sp--</option></select></td>';
+            chuoi += '<td><select class="form-control" id="IDNhomCung' + i + '" name="IDNhomCung"> <option value="1">Cơ bản</option> <option value="2">Khai trương</option> <option value="3">Hàng mới</option> </select></td>';
+
+            chuoi += '<td><input type="search" name="IDNhomInput" id="IDNhomInput' + i + '" class="form-control" list="ListNhomSanPham_datalist" placeholder="--- Chọn Nhom ---"></td>';
+            chuoi += '<td><input type="search" name="IDNhomCungInput" id="IDNhomCungInput' + i + '" class="form-control" list="IDNhomCungInput_datalist" placeholder="--- Chọn Nhom inut ---"><datalist id="IDNhomCungInput_datalist"> <option value="Cơ bản">Cơ bản</option> <option value="Khai trương">Khai trương</option> <option value="Hàng mới">Hàng mới</option> </datalist></td>';
+
+            chuoi += '<td><input type="checkbox" class="form-check-input" name="checkStatus" id="checkStatus' + i + '" ></td>';
+
+            chuoi += '<td><input  type="text" name="Name" id="Name' + i + '" placeholder="Name" class="form-control" /></td>';
+            chuoi += '<td><input  type="text" name="Images" id="Images' + i + '" placeholder="Images" class="form-control" /></td>';
+            chuoi += '<td><input  type="date" name="NgayTao" id="NgayTao' + i + '" placeholder="Ngày" class="form-control" /></td>';
+            chuoi += '<td><input  type="number" name="KieuSo" id="KieuSo' + i + '" placeholder="Tổng tiền" class="form-control" /></td>';
+            chuoi += '<td style="text-align:center" class="btn_add"><a href="javascript:void(0)" onclick="js_addNews(' + i + ');"><i class="fa fa-plus" aria-hidden="true"></i></a></td></tr > ';
+            $("#table_News tbody").append(chuoi);
+       
+        }
+        function deleteRowNews(r) {
+            var ri = r.parentNode.parentNode.rowIndex;
+            document.getElementById("table_News").deleteRow(ri);
+        }
+        //function js_ShowNhom() {
+        //    debugger;
+        //    $.ajax({
+        //        url: '/PhatTrienAjax/GetListMenu',
+        //        type: 'POST',
+        //        // data: JSON.stringify({ itemNo: item[0] }),
+        //        contentType: 'application/json, charset=utf-8',
+        //        success: function (data) {
+        //           // alert(data);
+        //            var rowss = JSON.parse(data);
+        //            $('#IDNhom').empty();
+        //            for (k in rowss) {
+        //              $('#IDNhom').append('<option value="' + rowss[k].ID + '">' + rowss[k].Name + '</option>');
+        //            }
+        //        }
+        //    });
+        //}
+        function js_ShowNhom(r) {
+          // js_ShowNhom(r) phải tuyền vào thứ tự của row
+          //  debugger;
+            let nameMenu = String($('#row' + r + ' select[name="IDNhom"]').val()).trim();
+            var item = nameMenu.split(" - ");
+            $.ajax({
+                url: '/PhatTrienAjax/GetListMenu',
+                type: 'POST',
+                //data: JSON.stringify({ itemNo: item[0] }),
+                contentType: 'application/json, charset=utf-8',
+                success: function (data) {
+                    var row = JSON.parse(data);
+                    $('#IDNhom_' + r).empty();
+                    for (k in row) {
+                        $('#IDNhom_' + r).append('<option value="' + row[k].ID + '">' + row[k].Name + '</option>');
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        // Js thêm mới
+        // có thể thêm nhiều bảng cùng 1 lúc được nhé, như code BiBomart
+        //F:\BIBoMart\CodeMVC\Views\TradingTermVendor
+        var SourceNew = [];
+        function ThemMoi() {
+         debugger;
+            getTableDataNews();
+            //getTableDataLeaderTime();
+            var obj = {};
+            //  obj.SourceLeaderTime = JSON.stringify(SourceLeaderTime);
+            obj.SourceNew = JSON.stringify(SourceNew);
+           // alert(obj);
+            if (SourceNew.length > 0) {
+                $.ajax({
+                    url: '/PhatTrienAjax/PostMuitilRequest_News',
+                    type: 'POST',
+                    data: JSON.stringify(obj),
+                    contentType: 'application/json, charset=utf-8',
+                    success: function (data) {
+                        $('#target').html(data.msg);
+                    }
+                });
+            }
+        }
+        function getTableDataNews() {
+           // debugger;
+            SourceNew = [];
+            let trs = $("#table_News tbody tr");
+            if (trs.length) {
+                trs.each(function (index, tr) {
+                  
+                    let IDNhom = String($('#' + tr.id + ' select[name="IDNhom"]').val()).trim();
+                    let IDNhomCung = String($('#' + tr.id + ' select[name="IDNhomCung"]').val()).trim();
+                    let IDNhomInput = String($('#' + tr.id + ' input[name="IDNhomInput"]').val()).trim();
+                    var arrNhomMenu = IDNhomInput.split(" - ");
+
+                    let IDNhomCungInput = String($('#' + tr.id + ' input[name="IDNhomCungInput"]').val()).trim();
+                    let Name = String($('#' + tr.id + ' input[name="Name"]').val()).trim();
+                    let Images = String($('#' + tr.id + ' input[name="Images"]').val()).trim();
+                    let NgayTao = String($('#' + tr.id + ' input[name="NgayTao"]').val()).trim();
+                    let KieuSo = String($('#' + tr.id + ' input[name="KieuSo"]').val()).trim();
+
+                    let Status = $('#' + tr.id + ' input[name="checkStatus"]:checked').val();
+                    let check = $('#' + tr.id + ' input[name="checkStatus"]:checked').length > 0;
+
+                   // alert(IDNhom + "-" + IDNhomCung + "-" + arrNhomMenu[0] + "-" + IDNhomCungInput + "-" + Name + "-" + Images + "-" + NgayTao + "-" + KieuSo + "-" + Status);
+                    let Trangthai = 0;
+                    if (check == true) {
+                        Trangthai = 1;
+                    }
+                    if (IDNhom.length > 0 && IDNhomCung.length > 0 && arrNhomMenu.length > 0 && IDNhomCungInput.length > 0 && Name.length > 0 && Images.length > 0 && KieuSo.length > 0) {
+                        SourceNew.push({
+                            "IDNhom": IDNhom,
+                            "IDNhomCung": IDNhomCung,
+                            "IDNhomInput": arrNhomMenu[0],// 0 là lấy ra cột đầu tiên là ID, 1 là lấy ra tên menu
+                            "IDNhomCungInput": IDNhomCungInput,
+                            "Name": Name,
+                            "Images": Images,
+                            "NgayTao": NgayTao,
+                            "KieuSo": KieuSo,
+                            'Status': Trangthai
+                        });
+                    }
+                });
+            }
+        };
+    </script>
+
+</body>
+</html>
