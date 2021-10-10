@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 21, 26.75" name="Datalinq">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24, 26.75" name="Datalinq">
   <DataContextMoniker Name="/DatalinqDataContext" />
   <nestedChildShapes>
     <classShape Id="2de48d24-bd7a-4de5-bdc9-3689391039ba" absoluteBounds="0.75, 3.75, 2, 2.1554996744791666">
@@ -167,13 +167,13 @@
     <classShape Id="33a87248-38dd-4197-a7c1-330373eee913" absoluteBounds="3.5, 0.875, 2, 1.3862939453124987">
       <DataClassMoniker Name="/DatalinqDataContext/Tes2" />
       <nestedChildShapes>
-        <elementListCompartment Id="9af21abe-7a61-40d4-8bc8-afc3be084f54" absoluteBounds="3.5150000000000006, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9af21abe-7a61-40d4-8bc8-afc3be084f54" absoluteBounds="3.5150000005960464, 1.3350000008940697, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="5c4bf802-b3e2-45b4-9e53-a4b5078e0bf0" absoluteBounds="0.75, 1, 2, 1.1939925130208346">
       <DataClassMoniker Name="/DatalinqDataContext/Tes1" />
       <nestedChildShapes>
-        <elementListCompartment Id="8b6bc6e9-0566-45f1-85e6-9241be852ae6" absoluteBounds="0.76500000000000057, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8b6bc6e9-0566-45f1-85e6-9241be852ae6" absoluteBounds="0.76500000059604645, 1.4600000008940697, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 1.59699625651042); (3.5 : 1.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
@@ -189,10 +189,16 @@
         <elementListCompartment Id="f71d7b89-840b-4cff-9089-5cc672d205da" absoluteBounds="18.765, 18.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="59c0318c-c25c-4948-bfd6-e6bd880a42a5" absoluteBounds="9.875, 19.25, 2, 2.7324039713541666">
+    <classShape Id="59c0318c-c25c-4948-bfd6-e6bd880a42a5" absoluteBounds="9.75, 20.75, 2, 2.7324039713541666">
       <DataClassMoniker Name="/DatalinqDataContext/TestMuiltiInPut" />
       <nestedChildShapes>
-        <elementListCompartment Id="66dbe018-086b-4688-939d-0982c6d17be7" absoluteBounds="9.89, 19.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="66dbe018-086b-4688-939d-0982c6d17be7" absoluteBounds="9.765, 21.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="354d568f-20f0-422c-8fc8-becfd0476daf" absoluteBounds="21.75, 0.75, 2, 7.5399397786458318">
+      <DataClassMoniker Name="/DatalinqDataContext/Tinhthanh" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae9443b6-2feb-48e6-9de7-c923dd8c912e" absoluteBounds="21.765, 1.21, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -4,15 +4,52 @@ using Newtonsoft.Json.Linq;
 using Services;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace VS.ECommerce_MVC.Controllers
 {
     public class PhatTrienAjaxController : Controller
     {
         DatalinqDataContext db = new DatalinqDataContext();
+
+        public ActionResult DemoJson()
+        {
+            //Khóa học trên tedu https://www.youtube.com/watch?v=vALwIgRTFP8 
+
+
+            //1:  Object db to string json
+            List<Entity.Contacts> list = SContacts.Name_Text("select * from Contacts  order by dcreatedate desc");
+            var Json = JsonConvert.SerializeObject(list);// Chuyển đổi từ db lên json cho Ajax dùng
+            ViewBag.Hienthi = Json;
+
+
+            // 2: Json to Object
+            // Chuyển đổi từ json trên Ajax về để thành dạng Obj Của C#
+            string input = "[{\"ino\":331,\"vtitle\":\"1\",\"vname\":\"3\",\"vaddress\":\"4\",\"vphone\":\"5\",\"vemail\":\"5\",\"vcontent\":\"PostMuitilRequest\",\"dcreatedate\":\"2021-10-09T09:23:17.39\",\"lang\":\"VIE \",\"istatus\":0},{\"ino\":329,\"vtitle\":\"A\",\"vname\":\"Nguyễn\",\"vaddress\":\"11\",\"vphone\":\"0987654322\",\"vemail\":\"435345\",\"vcontent\":\"PostMuitilRequest\",\"dcreatedate\":\"2021-10-09T09:23:17.387\",\"lang\":\"VIE \",\"istatus\":0},{\"ino\":330,\"vtitle\":\"333\",\"vname\":\"Dthaung\",\"vaddress\":\"33\",\"vphone\":\"098765454\",\"vemail\":\"324\",\"vcontent\":\"PostMuitilRequest\",\"dcreatedate\":\"2021-10-09T09:23:17.387\",\"lang\":\"VIE \",\"istatus\":0}]";
+            List<Entity.Contacts> obj = new JavaScriptSerializer().Deserialize<List<Entity.Contacts>>(input);
+            // Hoặc
+            // List<Entity.Contacts> obj = new JavaScriptSerializer().Deserialize<List<Entity.Contacts>>(Json);
+            string chuoi = "";
+            foreach (var item in obj)
+            {
+                chuoi += item.vname + "<br>";
+            }
+            ViewBag.Hienthi2 = chuoi;
+
+
+
+            //3: Object to string json
+            // Chuyển đổi từ json  lên json cho Ajax dùng
+            ViewBag.Hienthi3 = JsonConvert.SerializeObject(obj);
+
+            return View();
+        }
 
         #region AjaxJson 1
         public ActionResult PostAjaxJson()
@@ -206,6 +243,8 @@ namespace VS.ECommerce_MVC.Controllers
         }
 
         #endregion
+
+        #region Multi_News
 
         public ActionResult CreateMulti_News()
         {
@@ -407,9 +446,47 @@ namespace VS.ECommerce_MVC.Controllers
         //)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
         //) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-        //GO
+        //GO 
+        #endregion
 
+        #region Tỉnh thành
+        public ActionResult TinhThanh()
+        {
+            return View();
+        }
 
+        /// Hàm lấy danh sách Country
+        public JsonResult GetAllCountries()
+        {
+            List<Tinhthanh> data = db.ExecuteQuery<Tinhthanh>(@"SELECT * FROM Tinhthanh where Parent_ID=-1 and capp='TT' order by Create_Date desc").ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
 
+        /// Hàm lấy danh sách tỉnh thành theo CountryId. 
+        /// Id = 237 là của Việt Nam. Do database mình quy định vậy
+        /// <param name="id">Id của country</param>
+        public JsonResult GetAllProvinceByCountryId(int? id = 237)
+        {
+            var data = db.Tinhthanhs.Where(x => x.Parent_ID == id).OrderBy(x => x.Name).ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        /// Hàm lấy tất cả danh sách quận huyện
+        /// Id = 1 là Hà Nội, do database mình quy định vậy
+        /// <param name="id">Id = ProvinceId</param>
+        
+        public JsonResult GetAllDistrictByProvinceId(int? id = 1)
+        {
+            var data = db.Tinhthanhs.Where(x => x.Parent_ID == id).OrderBy(x => x.Name).ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        /// Hàm lấy danh sách xã phường theo quận huyện
+        /// Id= 1 là Ba Đình. Do database quy định
+        /// <param name="id"></param>
+        public JsonResult GetAllWardByDistrictId(int? id = 1)
+        {
+            var data = db.Tinhthanhs.Where(x => x.Parent_ID == id).OrderBy(x => x.Name).ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

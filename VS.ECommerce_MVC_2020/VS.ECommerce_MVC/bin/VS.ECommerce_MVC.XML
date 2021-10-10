@@ -18731,6 +18731,24 @@
         <member name="M:VS.ECommerce_MVC.Controllers.PhanMemBanHangController.DeleteProduct">
             api/Category/DeleteProduct
         </member>
+        <member name="M:VS.ECommerce_MVC.Controllers.PhatTrienAjaxController.GetAllCountries">
+            Hàm lấy danh sách Country
+        </member>
+        <member name="M:VS.ECommerce_MVC.Controllers.PhatTrienAjaxController.GetAllProvinceByCountryId(System.Nullable{System.Int32})">
+            Hàm lấy danh sách tỉnh thành theo CountryId. 
+            Id = 237 là của Việt Nam. Do database mình quy định vậy
+            <param name="id">Id của country</param>
+        </member>
+        <member name="M:VS.ECommerce_MVC.Controllers.PhatTrienAjaxController.GetAllDistrictByProvinceId(System.Nullable{System.Int32})">
+            Hàm lấy tất cả danh sách quận huyện
+            Id = 1 là Hà Nội, do database mình quy định vậy
+            <param name="id">Id = ProvinceId</param>
+        </member>
+        <member name="M:VS.ECommerce_MVC.Controllers.PhatTrienAjaxController.GetAllWardByDistrictId(System.Nullable{System.Int32})">
+            Hàm lấy danh sách xã phường theo quận huyện
+            Id= 1 là Ba Đình. Do database quy định
+            <param name="id"></param>
+        </member>
         <member name="F:VS.ECommerce_MVC.DanhMucMenu.form1">
             <summary>
             form1 control.

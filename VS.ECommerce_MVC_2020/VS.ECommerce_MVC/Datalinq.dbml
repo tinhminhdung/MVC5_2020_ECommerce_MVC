@@ -537,4 +537,43 @@
       <Column Name="KieuSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Tinhthanh" Member="Tinhthanhs">
+    <Type Name="Tinhthanh">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Parent_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="capp" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lang" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Url_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Styleshow" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Equals" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Images" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShowID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orders" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="News" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="page_Home" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Titleseo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Meta" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Keyword" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Check_01" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Check_02" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Check_03" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Check_04" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Check_05" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Noidung1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Noidung2" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Noidung3" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Noidung4" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Noidung5" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Module" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TangName" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

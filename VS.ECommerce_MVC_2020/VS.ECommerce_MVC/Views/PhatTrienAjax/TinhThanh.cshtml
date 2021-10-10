@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Resources/js/jquery-1.7.1.min.js"></script>
+    <link href="~/Resources/css/bootstrap.min.css" rel="stylesheet" />
+    <title>TinhThanh</title>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1>Tỉnh thành </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="ddlCountry">Quốc gia</label>
+                        <select id="ddlCountry" class="form-control">
+                            <option value="">--Không chọn--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ddlProvince">Tỉnh thành</label>
+                        <select id="ddlProvince" class="form-control">
+                            <option value="">--Không chọn--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ddlDistrict">Quận huyện</label>
+                        <select id="ddlDistrict" class="form-control">
+                            <option value="">--Không chọn--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ddlWard">Xã phường</label>
+                        <select id="ddlWard" class="form-control">
+                            <option value="">--Không chọn--</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1>OK, chúng ta đã có giao diện rồi. Giờ code thôi</h1>
+                <div style="color:green; font-size:22px">
+                    Bạn đang ở khu vực: <div id="divResult"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Resources/js/ServiceTinhThanh.js"></script>
+</body>
+</html>

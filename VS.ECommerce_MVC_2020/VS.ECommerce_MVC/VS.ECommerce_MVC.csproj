@@ -1999,6 +1999,7 @@
     <Content Include="Resources\images\i4.png" />
     <Content Include="Resources\images\searchicon.png" />
     <Content Include="Resources\images\widget_star.gif" />
+    <Content Include="Resources\js\ServiceTinhThanh.js" />
     <Content Include="Resources\js\jquery.validate.min.js" />
     <Content Include="Resources\js\rating.js" />
     <Content Include="Resources\PopUp.html" />
@@ -2219,6 +2220,7 @@
     <Content Include="Views\CodeMau\lienhe\1.png" />
     <Content Include="Views\CodeMau\lienhe\2.png" />
     <Content Include="Views\CodeMau\lienhe\3.png" />
+    <Content Include="Views\PhatTrienAjax\SqlTinhThanh.sql" />
     <Content Include="Views\PhatTrienDangKy\activeMenBangjavascrip_.html" />
     <Content Include="Views\PhatTrienDangKy\BoIDTrungNhauTrongMang\tt.txt" />
     <Content Include="Views\PhatTrienDangKy\FromDangKy_required_javascrip.htm" />
@@ -3170,6 +3172,8 @@
     <Content Include="Views\PhatTrienAjax\EditMulti.cshtml" />
     <Content Include="Views\PhatTrienAjax\CreateMulti_News.cshtml" />
     <Content Include="Views\PhatTrienAjax\EditMulti_News.cshtml" />
+    <Content Include="Views\PhatTrienAjax\TinhThanh.cshtml" />
+    <Content Include="Views\PhatTrienAjax\DemoJson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\ckfinder\help\en\files\" />
