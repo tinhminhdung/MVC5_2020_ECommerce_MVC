@@ -52,7 +52,7 @@ function _getCountries() {
 }
 // truyền id của country vào
 function _getProvince(id) {
-    $.get(provinceUrl + "/"+id, function (data) {
+    $.get(provinceUrl + "/" + id, function (data) {
         if (data != null && data != undefined && data.length) {
             var html = '';
             html += '<option value="">--Không chọn--</option>';

@@ -1,0 +1,55 @@
+﻿   // truy vấn lồng 2 bảng lấy ra danh sách học viên đã tham giá khóa học
+            //SELECT *
+            //FROM users a
+            //LEFT JOIN
+            //(
+            //SELECT   ROW_NUMBER() OVER (PARTITION BY IDThanhVien ORDER BY NgayMua DESC) AS RowNumber
+            //,IDThanhVien
+            //FROM KhoaHocThanhVien
+            //) b
+            //ON a.iuser_id = b.IDThanhVien
+            //WHERE b.RowNumber = 1
+
+
+
+SELECT *
+FROM
+(SELECT *, ROW_NUMBER() OVER (PARTITION BY Division ORDER BY CreateDate DESC) AS rn FROM dbo.tbl_ManageSales_WholeSales) AS t
+WHERE t.rn = 1
+
+
+
+
+
+
+with temp as (
+    select MaHang, row_number() over (PARTITION BY MaHang ORDER BY CreateDate DESC) as rownum
+    from dbo.tbl_ManageSales_WholeSales 
+)
+select rownum,MaHang,b.name from temp as a
+LEFT JOIN tbl_ProductTool_Magento_Product as b
+ON b.sku = a.MaHang
+
+ where rownum=1  and b.name IS not NULL
+
+
+
+
+
+
+SELECT *
+FROM
+(SELECT *, ROW_NUMBER() OVER (PARTITION BY Division ORDER BY CreateDate DESC) AS rn FROM dbo.tbl_ManageSales_WholeSales) AS t
+WHERE t.rn = 1
+
+
+
+
+
+
+https://stackoverflow.com/questions/49310127/left-join-to-a-subquery-where-row-number-1
+
+https://www.it-swarm-vi.com/vi/sql/lam-cach-nao-de-su-dung-row-number/957595455/
+
+
+
