@@ -40,3 +40,21 @@ GO
 
 SET ANSI_PADDING OFF
 GO
+
+
+
+
+
+
+
+
+
+----------spit sql ---
+
+
+select FunctionCode,substring(FunctionCode,1,6),substring(FunctionCode,10,len(FunctionCode)) as 'name' from tbl_BBS_NewProduct;
+
+update tbl_BBS_NewProduct set FunctionName = substring(FunctionCode,10,len(FunctionCode)) ;
+update tbl_BBS_NewProduct set FunctionCode = substring(FunctionCode,1,6) ;
+
+select * from tbl_BBS_NewProduct
