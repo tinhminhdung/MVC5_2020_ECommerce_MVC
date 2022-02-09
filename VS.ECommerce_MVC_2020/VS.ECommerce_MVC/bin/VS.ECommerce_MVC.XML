@@ -19181,15 +19181,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:VS.ECommerce_MVC.Test.form1">
-            <summary>
-            form1 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:VS.ECommerce_MVC.Views.PhatTrienDangKy.ImportExel.form1">
             <summary>
             form1 control.

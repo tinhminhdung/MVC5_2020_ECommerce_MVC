@@ -21,12 +21,6 @@ namespace OAuthTokenBasedRestService
                 .EnableSwagger(c =>
                 {
                     c.SingleApiVersion("v1", "Shop ECommerce");
-                    c.OperationFilter<AddRequiredAuthorizationHeaderParameter>();
-
-                    //          c.ApiKey("Token")
-                    //.Description("Filling bearer token here")
-                    //.Name("Authorization")
-                    //.In("header");
 
                     c.IncludeXmlComments(GetXmlCommentsPath(thisAssembly.GetName().Name));
                     c.IncludeXmlComments(GetXmlCommentsPath("VS.ECommerce_MVC"));
@@ -34,8 +28,7 @@ namespace OAuthTokenBasedRestService
                 })
                 .EnableSwaggerUi(c =>
                 {
-                    c.EnableApiKeySupport("apiKey", "header");
-                    // c.EnableApiKeySupport("Authorization", "header");
+                    c.EnableApiKeySupport("Authorization", "header");
                 });
         }
         protected static string GetXmlCommentsPath(string name)
@@ -49,28 +42,5 @@ namespace OAuthTokenBasedRestService
         }
     }
 
-    public class AddRequiredAuthorizationHeaderParameter : IOperationFilter
-    {
-        public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
-        {
-            if (operation.parameters == null)
-                operation.parameters = new List<Parameter>();
-
-            operation.parameters.Add(new Parameter
-            {
-                //name = "Authorization",
-                //@in = "header",
-                //type = "string",
-                //required = true,
-                //description = "access token"
-
-                name = "Authorization",
-                @in = "header",
-                type = "string",
-                required = false,
-                @default = "Bearer"
-            });
-        }
-    }
 
 }

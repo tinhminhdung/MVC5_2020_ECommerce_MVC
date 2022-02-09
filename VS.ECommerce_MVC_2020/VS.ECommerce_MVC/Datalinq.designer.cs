@@ -129,7 +129,7 @@ namespace VS.ECommerce_MVC
     #endregion
 		
 		public DatalinqDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["VS_E_Commerce_MVCOkConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

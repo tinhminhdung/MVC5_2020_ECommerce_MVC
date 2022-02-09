@@ -12,6 +12,8 @@ using System.Net.Http;
 using System.IO;
 using Services;
 using MoreAll;
+using System.Text;
+using System.Drawing;
 
 namespace VS.ECommerce_MVC.Controllers
 {
@@ -270,5 +272,75 @@ namespace VS.ECommerce_MVC.Controllers
             return new EmptyResult();
         }
 
+
+        //PhatTrienNangCap/ExportExel
+
+        public void ExportExel()
+        {
+            string Namefile = "Danhsachdondathang";
+            Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.AddHeader("content-disposition", "attachment;filename=" + Namefile + ".xls");
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // "application/ms-excel";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
+            Response.Charset = "utf-8";
+            Response.ContentEncoding = System.Text.Encoding.GetEncoding("utf-8");
+            Response.BinaryWrite(System.Text.Encoding.UTF8.GetPreamble());
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
+            sb.Append("<table border='1' bgcolor='#ffffff' bordercolor='#dedede' cellspacing='0' cellpadding='0' style='font-size:12px; font-family:Arial; background:white;'>");
+            sb.Append("<tr>");
+            sb.Append("  <th style=\"width:50px; vertical-align:middle; height: 22px;\">");
+            sb.Append("    <b>STT</b>");
+            sb.Append("  </th>");
+            sb.Append("  <th style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("    <b>Họ và tên</b>");
+            sb.Append("  </th>");
+            sb.Append("  <th style=\"width:400px; vertical-align:middle;\">");
+            sb.Append("    <b>Địa chỉ</b>");
+            sb.Append("  </th>");
+            sb.Append("  <th style=\"width:250px; vertical-align:middle;\">");
+            sb.Append("    <b>Điện thoại</b>");
+            sb.Append("  </th>");
+            sb.Append("  <th style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("    <b>Email</b>");
+            sb.Append("  </th>");
+            sb.Append("  <th style=\"width:520px; vertical-align:middle;\">");
+            sb.Append("    <b>Ghi chú</b>");
+            sb.Append("  </th>");
+            sb.Append("  </tr>");
+
+            sb.Append("<tr style=\"height: 70px;\">");
+            sb.Append("  <td style=\"width:50px; vertical-align:middle; height: 22px;\">");
+            sb.Append("    <b>STT</b>");
+            sb.Append("  </td>");
+            sb.Append("  <td style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("    <b>Họ và tên</b>");
+            sb.Append("  </td>");
+            sb.Append("  <td style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("<img height=\"32\" src=\"" + ("http://localhost:63137/uploads/Files/636358866065201657.jpg") + "\" v:shapes=\"Picture_x0020_1\" width=\"32\" />");
+            sb.Append("  </td>");
+            sb.Append("  <td style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("<img height=\"32\" src=\"\" v:shapes=\"Picture_x0020_1\" width=\"32\" />");
+            sb.Append("  </td>");
+            sb.Append("  <td style=\"width:150px; vertical-align:middle;\">");
+            sb.Append("<img height=\"32\" src=\"https://linhkienchatluong.vn/Uploads/pic/prods/---Cac-loai-khac/637512287278835418small.png\" v:shapes=\"Picture_x0020_1\" width=\"32\" />");
+            sb.Append("  </td>");
+            sb.Append("  <td style=\"width:520px; vertical-align:middle;\">");
+            sb.Append("    <b><img  style=\"width: 60px; height: 60px; display: inline;\" border=\"0\" src=\"https://linhkienchatluong.vn/Uploads/pic/prods/---Cac-loai-khac/637512287278835418small.png\"></b>");
+            sb.Append("  </td>");
+            sb.Append("  </tr>");
+
+            sb.Append("</table>");
+            Response.Write(sb.ToString());
+            Response.Flush();
+            Response.End();
+            //PhatTrienNangCap/ExportExel
+
+          
+        }
+
+       
     }
 }

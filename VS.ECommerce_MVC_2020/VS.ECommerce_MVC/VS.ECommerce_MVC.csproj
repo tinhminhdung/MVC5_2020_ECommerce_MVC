@@ -290,6 +290,7 @@
     <Compile Include="Api\Default1Controller.cs" />
     <Compile Include="Api\MemberController.cs" />
     <Compile Include="Api\MenuController.cs" />
+    <Compile Include="Api\MauController.cs" />
     <Compile Include="Api\NewsController.cs" />
     <Compile Include="Api\DemoProductController.cs" />
     <Compile Include="Api\OrderController.cs" />
@@ -1411,6 +1412,7 @@
     <Compile Include="DanhMucMenu.aspx.designer.cs">
       <DependentUpon>DanhMucMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="Datalinq.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1457,6 +1459,8 @@
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AlbumViewModel.cs" />
+    <Compile Include="Models\API\API_Contact.cs" />
+    <Compile Include="Models\API\API_News.cs" />
     <Compile Include="Models\CartsViewModel.cs" />
     <Compile Include="Models\GiaoHangTietKiems\DatHang.cs" />
     <Compile Include="Models\GiaoHangTietKiems\DauVaoDatHang.cs" />
@@ -2232,6 +2236,33 @@
     <Content Include="Views\PhatTrienDangKy\js\jquery-ui.js" />
     <Content Include="Views\PhatTrienDangKy\js\jquery.easy-confirm-dialog.js" />
     <Content Include="Views\PhatTrienDangKy\PopUp.html" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\1.html" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\a.html" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\bootstrap.min.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\bootstrap.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery-ui.min.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery-ui.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery-ui.popup.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery-ui.popup.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery.alerts.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery.easing.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\jquery.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\sp-close.png" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\Barcode\zxing.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\BarcodeReader\New Text Document.txt" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\a.html" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\bootstrap.min.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\bootstrap.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery-ui.min.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery-ui.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery-ui.popup.css" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery-ui.popup.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery.alerts.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery.easing.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\jquery.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\sp-close.png" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\Barcode\zxing.min.js" />
+    <Content Include="Views\PhatTrienDangKy\Quet QR Code\QRCodeReader\New Text Document.txt" />
     <Content Include="Views\PhatTrienDangKy\Readmore_XemThem_RutGon_News\ajax-demo.html" />
     <Content Include="Views\PhatTrienDangKy\Readmore_XemThem_RutGon_News\readmore.js" />
     <Content Include="Views\PhatTrienDangKy\scroll_href.html" />

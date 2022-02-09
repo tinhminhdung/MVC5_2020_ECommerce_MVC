@@ -25,6 +25,42 @@ namespace VS.ECommerce_MVC.Api
     {
         DatalinqDataContext db = new DatalinqDataContext();
 
+        [Route("News/GetDetail/id")]
+        public async Task<IHttpActionResult> GetDetail(string id)
+        {
+            #region CheckAuthorization
+            var re = Request;
+            var headers = re.Headers;
+            string f_token = "";
+            if (headers.Contains("Authorization"))
+            {
+                f_token = headers.GetValues("Authorization").First();
+            }
+            else
+            {
+                return BadRequest("Không tìm thấy token");
+            }
+            //check format Auth
+            if (!f_token.Contains("Bearer"))
+            {
+                return BadRequest("Authorization không đúng định dạng");
+            }
+            if (f_token != "Bearer q9a2rWAxkQ1fwAM0EcdWj5FbyemqY9AMx3qQKY9Srm46i8Y80BsvWFSvyGy9os9ENLJTS")
+            {
+                return BadRequest("Token ko đúng Authorization Bearer");
+            }
+            #endregion
+
+            var list = DataAccess.Sget_New_Detail(id);
+            if (list.Count > 0)
+            {
+                return Ok(list);
+                // return Ok(JsonConvert.SerializeObject(list));
+            }
+            return Ok(new { Status = 0, message = "Lỗi" });
+        }
+
+
         #region Code Cũ vẫn chạy được nhé.
         // GET api/default1
         //DatalinqDataContext db = new DatalinqDataContext();

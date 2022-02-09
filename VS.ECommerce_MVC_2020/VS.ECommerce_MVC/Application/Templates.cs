@@ -90,7 +90,7 @@ namespace VS.ECommerce_MVC.App
             //        return dt.Title;
             //    }
             //}
-            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-anh/") || hp.Contains("/page/"))
+            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-tuyen-dung/") || hp.Contains("/page/"))
             {
                 hp = Removelink.RemoveUrl(hp);
                 if (hp != "")
@@ -169,7 +169,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Keyword;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             else if (hp.Contains("/tin-tuc/"))
@@ -182,7 +182,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Keyword;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             //else if (Modul == "4")
@@ -207,7 +207,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Keyword;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             else if (hp.Contains("/video/"))
@@ -220,7 +220,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Keyword;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             //else if (Modul == "11")
@@ -235,7 +235,7 @@ namespace VS.ECommerce_MVC.App
             //        return dt.Brief;
             //    }
             //}
-            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-anh/") || hp.Contains("/page/"))
+            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-tuyen-dung/") || hp.Contains("/page/"))
             {
                 hp = Removelink.RemoveUrl(hp);
                 if (hp != "")
@@ -314,7 +314,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Meta;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             else if (hp.Contains("/tin-tuc/"))
@@ -327,7 +327,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Meta;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             //else if (Modul == "4")
@@ -352,7 +352,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Meta;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             else if (hp.Contains("/video/"))
@@ -365,7 +365,7 @@ namespace VS.ECommerce_MVC.App
                     {
                         return dt.Meta;
                     }
-                    return dt.Brief;
+                    return MoreAll.MoreAll.RemoveHTMLTags(dt.Brief);
                 }
             }
             //else if (Modul == "11")
@@ -380,7 +380,7 @@ namespace VS.ECommerce_MVC.App
             //        return dt.Brief;
             //    }
             //}
-            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-anh/") || hp.Contains("/page/"))
+            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-tuyen-dung/") || hp.Contains("/page/"))
             {
                 hp = Removelink.RemoveUrl(hp);
                 if (hp != "")
@@ -600,7 +600,7 @@ namespace VS.ECommerce_MVC.App
                 }
                 return str.ToString();
             }
-            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-anh/"))
+            else if (hp.Contains("/danh-muc-tin/") || hp.Contains("/danh-muc/") || hp.Contains("/danh-muc-video/") || hp.Contains("/danh-muc-tuyen-dung/"))
             {
                 hp = Removelink.RemoveUrl(hp);
                 StringBuilder str = new StringBuilder();

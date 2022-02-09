@@ -1,0 +1,138 @@
+
+
+<link href="./Barcode/jquery-ui.min.css" rel="stylesheet" />
+<link href="./Barcode/jquery-ui.popup.css" rel="stylesheet" />
+
+<script src="./Barcode/jquery.min.js"></script>
+<script src="./Barcode/jquery.easing.min.js"></script>
+
+<script src="./Barcode/jquery-ui.min.js"></script>
+<script src="./Barcode/jquery-ui.popup.js"></script>
+<script src="./Barcode/jquery.alerts.min.js"></script>
+<script src="./Barcode/zxing.min.js"></script>
+
+<div class="over-popup"></div>
+<div id="barcode_popup" class="main-popup auto-resize">
+    <div class="container-popup">
+        <div class="title-popup">
+            <h2>Quét Barcode<span onclick="js_ClosePopup('barcode_popup'); js_CloseCamera();"></span></h2>
+        </div>
+        <div class="content-popup">
+            <table class="table" cellspacing="0" cellpadding="0">
+                <tr >
+                    <td>
+                        <div id="barcode_camera_panel">
+                            <label for="barcode_camera_opt">Chọn camera: </label>
+                            <select id="barcode_camera_opt" class="form-control form-control-sm"></select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <video id="barcode_video" width="100%" height="300" style="background-color: black; border: 0.0625rem solid gray" class="col-12"></video>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                       <button id="barcode_get_camera" class="btn btn-primary">Bắt đầu</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    //// open popup camera
+    js_ShowPopup('barcode_popup');
+    
+    //var decodeReader = new ZXing.BrowserQRCodeReader();
+    var decodeReader = new ZXing.BrowserBarcodeReader();
+    //var decodeReader = new ZXing.BrowserMultiFormatReader();
+
+    $(function () {
+
+        js_QrInitializeReader(decodeReader, 'barcode_camera_panel', 'barcode_camera_opt', 'barcode_get_camera', 'barcode_video', 'barcode_popup');
+
+    });
+
+    function js_QrInitializeReader(decodeReader, selectCameraPanelId, selectCameraOptionId, buttonGetCameraId, videoTagId, closePopupId) {
+        try {
+            decodeReader.getVideoInputDevices()
+                .then((videoInputDevices) => {
+                    let selectedDeviceId;
+                    const sourceSelect = document.getElementById(selectCameraOptionId);
+                    if (videoInputDevices.length >= 1) {
+                        selectedDeviceId = videoInputDevices[0].deviceId;
+                        videoInputDevices.forEach((element) => {
+                            const sourceOption = document.createElement('option')
+                            sourceOption.text = element.label
+                            sourceOption.value = element.deviceId
+                            sourceSelect.appendChild(sourceOption)
+                        });
+                        sourceSelect.onchange = () => {
+                            selectedDeviceId = sourceSelect.value;
+                        };
+                        const sourceSelectPanel = document.getElementById(selectCameraPanelId);
+                        sourceSelectPanel.style.display = 'block';
+                    } else {
+                        const sourceOption = document.createElement('option');
+                        sourceOption.text = 'NO_CAMERA_FOUND';
+                        sourceOption.value = 'NO_CAMERA_FOUND';
+                        sourceSelect.appendChild(sourceOption);
+                    }
+                    document.getElementById(buttonGetCameraId).addEventListener('click', () => {
+                        // if you provide 'undefined' for the device id parameter,
+                        // the library will automatically choose the camera,
+                        // preferring the main (environment facing) camera.
+                        js_QrDecodeOnce(decodeReader, undefined, videoTagId, closePopupId);
+                    })
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        } catch (e) {
+            console.error(e.toString());
+        }
+    }
+    function js_QrDecodeOnce(decodeReader, selectedDeviceId, videoTagId, closePopupId) {
+        try {
+            decodeReader.decodeFromInputVideoDevice(selectedDeviceId, videoTagId).then((result) => {
+                decodeReader.reset();
+                js_ClosePopup(closePopupId);
+				alert(result.text);
+                //------------------------//
+                //$('#Barcode').val(result.text);
+               // getTenhang();
+                //fnRedi();
+                //------------------------//
+            }).catch((err) => {
+                decodeReader.reset();
+                console.error(err);
+            });
+        } catch (e) {
+            console.log(e.toString());
+        }
+    }
+    function js_CloseCamera() {
+        try {
+            if (typeof decodeReader !== 'undefined')
+                decodeReader.reset();
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+</script>
+
+
+<!--<script type="text/javascript">
+    $(document).ready(function(){ 
+        $('#barcode_get_camera').trigger('click'); 
+    });
+    
+</script>-->
