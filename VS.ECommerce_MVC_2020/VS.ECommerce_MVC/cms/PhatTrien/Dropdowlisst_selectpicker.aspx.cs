@@ -16,7 +16,7 @@ namespace VS.ECommerce_MVC.cms.PhatTrien
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Literal1.Text += "";
+            Literal1.Text = "";
             Literal1.Text += "<br />Tỉnh thành:" + hdddlCountry.Value;
             Literal1.Text += "<br />Quận huyện :" + hdddlProvince.Value;
             Literal1.Text += "<br />Phường xã:" + hdddlDistrict.Value;

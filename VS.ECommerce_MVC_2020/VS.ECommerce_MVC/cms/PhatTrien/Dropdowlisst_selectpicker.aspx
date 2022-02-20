@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dropdowlisst_selectpicker.aspx.cs"  ValidateRequest="false" EnableEventValidation="false" ViewStateEncryptionMode="Never" EnableViewStateMac="false" Inherits="VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dropdowlisst_selectpicker.aspx.cs" ValidateRequest="false" EnableEventValidation="false" ViewStateEncryptionMode="Never" EnableViewStateMac="false" Inherits="VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker" %>
 
 <!DOCTYPE html>
 
@@ -38,14 +38,14 @@
                                 <asp:DropDownList ID="ddlProvince" class="form-control selectpicker" runat="server" data-live-search="true">
                                     <asp:ListItem Value="" Selected="True">-- chọn Tỉnh thành --</asp:ListItem>
                                 </asp:DropDownList>
-                                   <asp:HiddenField ID="hdddlProvince" runat="server" />
+                                <asp:HiddenField ID="hdddlProvince" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label for="ddlDistrict">Quận huyện</label>
                                 <asp:DropDownList ID="ddlDistrict" class="form-control selectpicker" runat="server" data-live-search="true">
                                     <asp:ListItem Value="" Selected="True">-- chọn quận huyện --</asp:ListItem>
                                 </asp:DropDownList>
-                                 <asp:HiddenField ID="hdddlDistrict" runat="server" />
+                                <asp:HiddenField ID="hdddlDistrict" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label for="ddlWard">Xã phường</label>
@@ -56,8 +56,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                         <asp:Button ID="Button2" runat="server"  Text="Hiên th111111ị"/>
-                        <asp:Button ID="Button1" runat="server"  Text="Hiên thị" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Hiên th111111ị" />
+                        <asp:Button ID="Button1" runat="server" Text="Hiên thị" OnClick="Button1_Click" />
                         <br />
                         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                         <h1>OK, chúng ta đã có giao diện rồi. Giờ code thôi</h1>
@@ -73,11 +73,8 @@
                 $("#ddlCountry").on('change', function () {
                     var countryText = $("#ddlCountry option:selected").text();
                     $("#hdddlCountry").val(countryText);
-
-                    // làm thêm cách lấy dc giá trị rồi thì trả lại cho ddlCountry
-                    $("#ddlCountry").val('1'); 
-                    $('#ddlCountry').selectpicker('refresh');
                 });
+
                 $("#ddlProvince").on('change', function () {
                     var countryText = $("#ddlProvince option:selected").text();
                     $("#hdddlProvince").val(countryText);
@@ -90,6 +87,58 @@
                     var countryText = $("#ddlWard option:selected").text();
                     $("#hdddlWard").val(countryText);
                 });
+
+                /// load lại các control
+                var Tinhthanh = $("#hdddlCountry").val();
+                if (Tinhthanh.length > 0) {
+                    _getProvince(Tinhthanh);
+                }
+                var Province = $("#hdddlProvince").val();
+                if (Province.length > 0) {
+                    _getDistrict(Province);
+                }
+                var District = $("#hdddlDistrict").val();
+                if (District.length > 0) {
+                    _getWard(District);
+                }
+
+                // Active
+                setTimeout(function () {
+                    var Tinhthanh = $("#hdddlCountry").val();
+                    if (Tinhthanh.length > 0) {
+                        // _getProvince(Tinhthanh);
+                        $("#ddlCountry").val(Tinhthanh);
+                        $('#ddlCountry').selectpicker('refresh');
+                    }
+                    var Province = $("#hdddlProvince").val();
+                    if (Province.length > 0) {
+                        // _getDistrict(Province);
+                        $("#ddlProvince").val(Province);
+                        $('#ddlProvince').selectpicker('refresh');
+                    }
+
+                    var District = $("#hdddlDistrict").val();
+                    if (District.length > 0) {
+                        // _getWard(District);
+                        $("#ddlDistrict").val(District);
+                        $('#ddlDistrict').selectpicker('refresh');
+                    }
+                    var Ward = $("#hdddlWard").val();
+                    if (Ward.length > 0) {
+                        $("#ddlWard").val(Ward);
+                        $('#ddlWard').selectpicker('refresh');
+                    }
+                }, 1000);
+
+
+                function fomart_split(input, number) {
+                    var value = input;
+                    if (value != null && !value.length < 1) {
+                        return value.split(" - ")[number];
+                    } else {
+                        return "";
+                    }
+                }
             </script>
         </div>
     </form>

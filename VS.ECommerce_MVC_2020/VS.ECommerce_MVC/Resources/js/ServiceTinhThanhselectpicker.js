@@ -44,7 +44,7 @@ function _getCountries() {
             var html = '';
             html += '<option value="">--Không chọn--</option>';
             $.each(data, function (key, item) {
-                html += '<option value=' + item.ID + '>' + item.Name + '</option>';
+                html += '<option value="' + item.ID + ' - ' + item.Name + '">' + item.ID + ' - ' + item.Name + '</option>';
             });
             $("#ddlCountry").html(html);
         }
@@ -53,12 +53,12 @@ function _getCountries() {
 }
 // truyền id của country vào
 function _getProvince(id) {
-    $.get(provinceUrl + "/" + id, function (data) {
+    $.get(provinceUrl + "/" + fomart_split(id, 0), function (data) {
         if (data != null && data != undefined && data.length) {
             var html = '';
             html += '<option value="">--Không chọn--</option>';
             $.each(data, function (key, item) {
-                html += '<option value=' + item.ID + '>' + item.Name + '</option>';
+                html += '<option value="' + item.ID + ' - ' + item.Name + '">' + item.ID + ' - ' + item.Name + '</option>';
             });
             $("#ddlProvince").html(html);
         }
@@ -67,12 +67,12 @@ function _getProvince(id) {
 }
 // truyền id của province vào
 function _getDistrict(id) {
-    $.get(districtUrl + "/" + id, function (data) {
+    $.get(districtUrl + "/" + fomart_split(id, 0), function (data) {
         if (data != null && data != undefined && data.length) {
             var html = '';
             html += '<option value="">--Không chọn--</option>';
             $.each(data, function (key, item) {
-                html += '<option value=' + item.ID + '>' + item.Name + '</option>';
+                html += '<option value="' + item.ID + ' - ' + item.Name + '">' + item.ID + ' - ' + item.Name + '</option>';
             });
             $("#ddlDistrict").html(html);
         }
@@ -81,15 +81,24 @@ function _getDistrict(id) {
 }
 // truyền id của district vào
 function _getWard(id) {
-    $.get(wardUrl + "/" + id, function (data) {
+    $.get(wardUrl + "/" + fomart_split(id, 0), function (data) {
         if (data != null && data != undefined && data.length) {
             var html = '';
             html += '<option value="">--Không chọn--</option>';
             $.each(data, function (key, item) {
-                html += '<option value=' + item.ID + '>' + item.Name + '</option>';
+                html += '<option value="' + item.ID + ' - ' + item.Name + '">' + item.ID + ' - ' + item.Name + '</option>';
             });
             $("#ddlWard").html(html);
         }
         $('#ddlWard').selectpicker('refresh');
     });
+}
+
+function fomart_split(input, number) {
+    var value = input;
+    if (value != null && !value.length < 1) {
+        return value.split(" - ")[number];
+    } else {
+        return "";
+    }
 }
