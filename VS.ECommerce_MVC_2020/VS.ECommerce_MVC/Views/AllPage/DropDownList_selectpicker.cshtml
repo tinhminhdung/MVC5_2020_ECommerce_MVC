@@ -1,0 +1,69 @@
+﻿<script src="Resources/js/jquery-1.9.1.js"></script>
+
+            <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--%>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+            <script>
+                $(function () {
+                    $('.selectpicker').selectpicker();
+                });
+            </script>
+            <div>Link thư viện</div>
+           <%-- https://stackoverflow.com/questions/36005249/adding-search-functionality-in-select-options-using-bootstrap--%>
+
+            <div style=" width:200px">
+            <div>ASP</div>
+            <asp:DropDownList ID="DropDownList1" class="form-control selectpicker" runat="server" data-live-search="true">
+                <asp:ListItem Selected="True" Value="Create_Date">S.xếp:Ngày cập nhật</asp:ListItem>
+                <asp:ListItem Value="Modified_Date">S.xếp:Ngày hết hạn -111111111-222222222</asp:ListItem>
+                <asp:ListItem Value="Price">S.xếp:Theo giá hiện tại -111111111-222222222</asp:ListItem>
+                <asp:ListItem Value="Views">S.xếp:Lần xem -111111111-222222222</asp:ListItem>
+                <asp:ListItem Value="Name">S.xếp:Tiêu đề (ABC)</asp:ListItem>
+            </asp:DropDownList>
+
+
+
+            <div>MVC</div>
+            <select class="form-control selectpicker" id="select-country" data-live-search="true">
+                <option data-tokens="china">China</option>
+                <option data-tokens="malayasia -111111111-222222222">Malayasia -111111111-222222222</option>
+                <option data-tokens="singapore -111111111-222222222">Singapore -111111111-222222222</option>
+            </select>
+			
+			
+			-- js nếu cần xem code bibo
+			 <script>
+                    function getPositionlist() {
+                        var lst_division = $("#Division").val();
+                        var lst_Department = $("#Department").val();
+
+                        $("#Postision").val('');
+                        $('#Postision').selectpicker().empty();
+                        option = document.createElement('option');
+                        option.text = '--Chọn chức danh--';
+                        option.value = '';
+                        $('#Postision').selectpicker().append(option);
+
+                        $.ajax({
+                            url: '/ManagerUser/getPositionList',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                Department: lst_Department, Division_Code: lst_division
+                            }),
+
+                            contentType: 'application/json, charset=utf-8',
+                            success: function (data) {
+                                $.each(data, (index, value) => {
+                                    option = document.createElement('option');
+                                option.text = value.Code + ' - ' + value.PositionName;
+                                option.value = value.Code;
+                                $('#Postision').selectpicker().append(option);
+                            });
+                        $('#Postision').selectpicker('refresh');
+                    }
+                    });
+
+                    }
+                </script>

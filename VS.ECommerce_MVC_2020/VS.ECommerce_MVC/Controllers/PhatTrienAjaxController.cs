@@ -454,11 +454,14 @@ namespace VS.ECommerce_MVC.Controllers
         {
             return View();
         }
-     
+        public ActionResult TinhThanh_selectpicker()
+        {
+            return View();
+        }
         /// Hàm lấy danh sách Country
         public JsonResult GetAllCountries()
         {
-            List<Tinhthanh> data = db.ExecuteQuery<Tinhthanh>(@"SELECT * FROM Tinhthanh where Parent_ID=-1 and capp='TT' order by Create_Date desc").ToList();
+            List<Tinhthanh> data = db.ExecuteQuery<Tinhthanh>(@"SELECT * FROM Tinhthanh where Parent_ID=-1 and capp='TT' order by ID asc").ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 

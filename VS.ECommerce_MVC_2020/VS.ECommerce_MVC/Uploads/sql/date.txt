@@ -1,0 +1,2 @@
+AND (@fromDate = '1900-01-01' OR CAST(ladi.createDate AS DATE) >= @fromDate)
+  AND (@toDate = '1900-01-01' OR CAST(ladi.createDate AS DATE) <= @toDate)

@@ -1372,6 +1372,13 @@
     <Compile Include="cms\Display\Videos\Index.ascx.designer.cs">
       <DependentUpon>Index.ascx</DependentUpon>
     </Compile>
+    <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx.cs">
+      <DependentUpon>Dropdowlisst_selectpicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx.designer.cs">
+      <DependentUpon>Dropdowlisst_selectpicker.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cms\View\ExecuteSQL.aspx.cs">
       <DependentUpon>ExecuteSQL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1734,6 +1741,7 @@
     <Content Include="cms\Display\Videos\Category.ascx" />
     <Content Include="cms\Display\Videos\Detail.ascx" />
     <Content Include="cms\Display\Videos\Index.ascx" />
+    <Content Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx" />
     <Content Include="cms\View\ExecuteSQL.aspx" />
     <Content Include="cms\View\info.txt" />
     <Content Include="DanhMucMenu.aspx" />
@@ -2003,6 +2011,7 @@
     <Content Include="Resources\images\i4.png" />
     <Content Include="Resources\images\searchicon.png" />
     <Content Include="Resources\images\widget_star.gif" />
+    <Content Include="Resources\js\ServiceTinhThanhselectpicker.js" />
     <Content Include="Resources\js\ServiceTinhThanh.js" />
     <Content Include="Resources\js\jquery.validate.min.js" />
     <Content Include="Resources\js\rating.js" />
@@ -3205,6 +3214,8 @@
     <Content Include="Views\PhatTrienAjax\EditMulti_News.cshtml" />
     <Content Include="Views\PhatTrienAjax\TinhThanh.cshtml" />
     <Content Include="Views\PhatTrienAjax\DemoJson.cshtml" />
+    <Content Include="Views\PhatTrienAjax\TinhThanh_selectpicker.cshtml" />
+    <Content Include="Views\AllPage\DropDownList_selectpicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\ckfinder\help\en\files\" />
