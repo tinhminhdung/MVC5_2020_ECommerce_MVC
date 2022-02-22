@@ -288,6 +288,7 @@
     <Compile Include="Api\ApiControllerBase.cs" />
     <Compile Include="Api\Contacts.cs" />
     <Compile Include="Api\Default1Controller.cs" />
+    <Compile Include="Api\KhuyenMaiController.cs" />
     <Compile Include="Api\MemberController.cs" />
     <Compile Include="Api\MenuController.cs" />
     <Compile Include="Api\MauController.cs" />
@@ -1466,6 +1467,7 @@
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AlbumViewModel.cs" />
+    <Compile Include="Models\API\API_KhuyenMai.cs" />
     <Compile Include="Models\API\API_Contact.cs" />
     <Compile Include="Models\API\API_News.cs" />
     <Compile Include="Models\CartsViewModel.cs" />
@@ -3240,6 +3242,7 @@
     <Folder Include="Uploads\_thumbs\Images\" />
     <Folder Include="Uploads\_thumbs\News\" />
     <Folder Include="Uploads\_thumbs\Products\" />
+    <Folder Include="Views\KhuyenMai\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

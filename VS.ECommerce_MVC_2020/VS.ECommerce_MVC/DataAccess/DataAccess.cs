@@ -52,4 +52,44 @@ public class DataAccess
             }
         }
     }
+
+    public static List<KhuyenMai.NewKhuyenKhai> Sget_New_All()
+    {
+        List<KhuyenMai.NewKhuyenKhai> it_r = new List<KhuyenMai.NewKhuyenKhai>();
+        using (var con = new SqlConnection(strConn))
+        {
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from News ", con);
+                cmd.CommandType = CommandType.Text;
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    KhuyenMai.NewKhuyenKhai it = new KhuyenMai.NewKhuyenKhai
+                    {
+                        inid = Convert.ToInt32(reader["inid"].ToString()),
+                        icid = Convert.ToInt32(reader["icid"].ToString()),
+                        Title = reader["Title"].ToString(),
+                        Brief = reader["Brief"].ToString(),
+                        Images = reader["Images"].ToString(),
+                        ImagesSmall = reader["ImagesSmall"].ToString(),
+                        Create_Date = reader["Create_Date"].ToString(),
+                        Views = Convert.ToInt32(reader["Views"].ToString()),
+                        Contents = reader["Contents"].ToString(),
+                    };
+                    it_r.Add(it);
+                }
+                con.Close();
+                return it_r;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                LogBuild.CreateLogger(JsonConvert.SerializeObject(ex), "Sget_New_Detail");
+                return it_r;
+            }
+        }
+    }
 }
