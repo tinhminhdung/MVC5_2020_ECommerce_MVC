@@ -49,6 +49,24 @@ namespace VS.ECommerce_MVC {
         protected global::System.Web.UI.WebControls.Button resto;
         
         /// <summary>
+        /// sqlExel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sqlExel;
+        
+        /// <summary>
+        /// Xuatexel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Xuatexel;
+        
+        /// <summary>
         /// lblAlert control.
         /// </summary>
         /// <remarks>

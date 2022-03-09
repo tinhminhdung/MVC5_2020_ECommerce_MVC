@@ -11,6 +11,8 @@ using System.Data;
 using System.Configuration;
 using System.IO;
 using System.Text;
+using ClosedXML.Excel;
+using System.Diagnostics;
 
 namespace VS.ECommerce_MVC.cms.View
 {
@@ -428,6 +430,47 @@ namespace VS.ECommerce_MVC.cms.View
                 {
                     lblAlert.Text = "Lỗi.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
                 }
+            }
+        }
+
+        protected void Xuatexel_Click(object sender, EventArgs e)
+        {
+            if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
+            {
+                string filePath = Server.MapPath("~/Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx");
+                string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sqlExel.Text))
+                    {
+                        using (SqlDataAdapter sda = new SqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                using (XLWorkbook wb = new XLWorkbook())
+                                {
+                                    wb.Worksheets.Add(dt, "Sheet1");
+                                    using (MemoryStream ms = new MemoryStream())
+                                    {
+                                        wb.SaveAs(ms);
+                                        File.WriteAllBytes(filePath, ms.ToArray());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (File.Exists(filePath))
+                {
+                    Process.Start(filePath);
+                }
+            }
+            else
+            {
+                lblAlert.Text = "Vui lòng đăng nhập trước khi hành động";
             }
         }
     }

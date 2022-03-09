@@ -52,26 +52,7 @@ namespace VS.ECommerce_MVC.Api
             }
             #endregion
             List<KhuyenMai.NewKhuyenKhai> list = DataAccess.Sget_New_All();
-            var a = new KhuyenMai.NewKhuyenKhai();
-            {
-                ite
-            }
-            if (list.Count > 0)
-            {
-                RootKM.result = null;
-                //RootKM.result = list;
-                RootKM.success = true;
-                RootKM.error = null;
-                RootKM.unAuthorizedRequest = false;
-                return Ok(RootKM);
-            }
-            RootKM.result = null;
-            RootKM.success = false;
-            RootKM.error = null;
-            RootKM.unAuthorizedRequest = false;
-
-           // return Ok(new { result = "", success = false, error = null, unAuthorizedRequest = false });
-            return Ok(new {  });
+            return Ok(list);
         }
 
     }

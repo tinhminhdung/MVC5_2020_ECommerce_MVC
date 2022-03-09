@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace VS.ECommerce_MVC.Api
 {
@@ -45,21 +46,5 @@ namespace VS.ECommerce_MVC.Api
             }
             return response;
         }
-
-        //private void LogError(Exception ex)
-        //{
-        //    try
-        //    {
-        //        Error error = new Error();
-        //        error.CreatedDate = DateTime.Now;
-        //        error.Message = ex.Message;
-        //        error.StackTrace = ex.StackTrace;
-        //        _errorService.Create(error);
-        //        _errorService.Save();
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
     }
 }

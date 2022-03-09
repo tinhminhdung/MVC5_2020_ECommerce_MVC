@@ -11,6 +11,8 @@ using System.Data;
 using System.Configuration;
 using System.IO;
 using System.Text;
+using ClosedXML.Excel;
+using System.Diagnostics;
 
 namespace VS.ECommerce_MVC
 {
@@ -22,6 +24,8 @@ namespace VS.ECommerce_MVC
         {
             if (!IsPostBack)
             {
+
+
                 if (HttpContext.Current.Cache["MenuBottom"] != null)
                 {
                     ltketqua.Text += "MenuBottom------>" + HttpContext.Current.Cache["MenuBottom"].ToString();
@@ -81,7 +85,7 @@ namespace VS.ECommerce_MVC
             lblAlert.Text = "Đã backup cơ sở dữ liệu";
 
         }
-       
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string sql = "";
@@ -114,60 +118,66 @@ namespace VS.ECommerce_MVC
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
-            List<Entity.VideoClip> dt = SVideoClip.GET_BY_ALL("VIE");
-            if (dt.Count > 0)
+            if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
             {
-                for (int i = 0; i < dt.Count; i++)
+                List<Entity.VideoClip> dt = SVideoClip.GET_BY_ALL("VIE");
+                if (dt.Count > 0)
                 {
-                    SVideoClip.Name_Text("UPDATE [VideoClip] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt[i].Title) + "' where ID=" + dt[i].ID.ToString() + "");
+                    for (int i = 0; i < dt.Count; i++)
+                    {
+                        SVideoClip.Name_Text("UPDATE [VideoClip] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt[i].Title) + "' where ID=" + dt[i].ID.ToString() + "");
+                    }
                 }
-            }
 
-            List<Entity.Album> dt2 = SAlbum.GET_GY_ALL("VIE");
-            if (dt2.Count > 0)
+                List<Entity.Album> dt2 = SAlbum.GET_GY_ALL("VIE");
+                if (dt2.Count > 0)
+                {
+                    for (int i = 0; i < dt2.Count; i++)
+                    {
+                        SAlbum.Name_Text("UPDATE [Album] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt2[i].Title) + "' where ID=" + dt2[i].ID.ToString() + "");
+                    }
+                }
+
+                List<Entity.Gioithieu> dt3 = SGioithieu.GET_BY_ALL("VIE");
+                if (dt3.Count > 0)
+                {
+                    for (int i = 0; i < dt3.Count; i++)
+                    {
+                        SGioithieu.Name_Text("UPDATE [Gioithieu] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt3[i].Title) + "' where ID=" + dt3[i].ID.ToString() + "");
+                    }
+                }
+
+                List<Entity.Faq> dt4 = SFaq.GETBYALL("VIE");
+                if (dt4.Count > 0)
+                {
+                    for (int i = 0; i < dt4.Count; i++)
+                    {
+                        SFaq.Name_Text("UPDATE [Faq] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt4[i].Title) + "' where inid=" + dt4[i].inid.ToString() + "");
+                    }
+                }
+
+                List<Entity.Download> dt5 = SDownload.GET_BY_ALL("VIE");
+                if (dt5.Count > 0)
+                {
+                    for (int i = 0; i < dt5.Count; i++)
+                    {
+                        SDownload.Name_Text("UPDATE [Download] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt5[i].Title) + "' where ID=" + dt5[i].ID.ToString() + "");
+                    }
+                }
+                List<Entity.Dichvu> dt6 = SDichvu.GET_BY_ALL("VIE");
+                if (dt6.Count > 0)
+                {
+                    for (int i = 0; i < dt6.Count; i++)
+                    {
+                        SDichvu.Name_Text("UPDATE [Dichvu] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt6[i].Title) + "' where ID=" + dt6[i].ID.ToString() + "");
+                    }
+                }
+
+            }
+            else
             {
-                for (int i = 0; i < dt2.Count; i++)
-                {
-                    SAlbum.Name_Text("UPDATE [Album] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt2[i].Title) + "' where ID=" + dt2[i].ID.ToString() + "");
-                }
+                lblAlert.Text = "Vui lòng đăng nhập trước khi hành động";
             }
-
-            List<Entity.Gioithieu> dt3 = SGioithieu.GET_BY_ALL("VIE");
-            if (dt3.Count > 0)
-            {
-                for (int i = 0; i < dt3.Count; i++)
-                {
-                    SGioithieu.Name_Text("UPDATE [Gioithieu] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt3[i].Title) + "' where ID=" + dt3[i].ID.ToString() + "");
-                }
-            }
-
-            List<Entity.Faq> dt4 = SFaq.GETBYALL("VIE");
-            if (dt4.Count > 0)
-            {
-                for (int i = 0; i < dt4.Count; i++)
-                {
-                    SFaq.Name_Text("UPDATE [Faq] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt4[i].Title) + "' where inid=" + dt4[i].inid.ToString() + "");
-                }
-            }
-
-            List<Entity.Download> dt5 = SDownload.GET_BY_ALL("VIE");
-            if (dt5.Count > 0)
-            {
-                for (int i = 0; i < dt5.Count; i++)
-                {
-                    SDownload.Name_Text("UPDATE [Download] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt5[i].Title) + "' where ID=" + dt5[i].ID.ToString() + "");
-                }
-            }
-            List<Entity.Dichvu> dt6 = SDichvu.GET_BY_ALL("VIE");
-            if (dt6.Count > 0)
-            {
-                for (int i = 0; i < dt6.Count; i++)
-                {
-                    SDichvu.Name_Text("UPDATE [Dichvu] SET  TangName=N'" + MoreAll.AddURL.SeoURL(dt6[i].Title) + "' where ID=" + dt6[i].ID.ToString() + "");
-                }
-            }
-
-
         }
         protected void rp_pagelist_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -250,14 +260,14 @@ namespace VS.ECommerce_MVC
                     List<Entity.News> table = SNews.Name_Text("SELECT * FROM News WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                     rpNews.DataSource = table;
                     rpNews.DataBind();
-                   // Response.Write("SELECT * FROM Menu WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
+                    // Response.Write("SELECT * FROM Menu WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                 }
                 if (Request["keyword"] != null && !Request["keyword"].Equals(""))
                 {
                     List<Entity.Products> table = SProducts.Name_Text("SELECT * FROM Products WHERE  dbo.fuConvertToUnsign(Name)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                     rpPro.DataSource = table;
                     rpPro.DataBind();
-                   // Response.Write("SELECT * FROM Menu WHERE  dbo.fuConvertToUnsign(Name)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
+                    // Response.Write("SELECT * FROM Menu WHERE  dbo.fuConvertToUnsign(Name)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                 }
                 if (Request["keyword"] != null && !Request["keyword"].Equals(""))
                 {
@@ -272,7 +282,7 @@ namespace VS.ECommerce_MVC
                     List<Entity.Album> table = SAlbum.Name_Text("SELECT * FROM Album WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                     rpalbum.DataSource = table;
                     rpalbum.DataBind();
-                   // Response.Write("SELECT * FROM Album WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
+                    // Response.Write("SELECT * FROM Album WHERE  dbo.fuConvertToUnsign(Title)  LIKE N'" + SearchApproximate.Exec(ConvertVN.Convert(txttimkiem.Text)) + "' ");
                 }
             }
         }
@@ -394,6 +404,47 @@ namespace VS.ECommerce_MVC
             {
                 System.Web.HttpContext.Current.Session["XoaDelete"] = "XoaDelete";
                 base.Response.Redirect((base.Request.Url.ToString().Trim()));
+            }
+        }
+
+        protected void Xuatexel_Click(object sender, EventArgs e)
+        {
+            if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
+            {
+                string filePath = Server.MapPath("~/Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx");
+                string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sqlExel.Text))
+                    {
+                        using (SqlDataAdapter sda = new SqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                using (XLWorkbook wb = new XLWorkbook())
+                                {
+                                    wb.Worksheets.Add(dt, "Sheet1");
+                                    using (MemoryStream ms = new MemoryStream())
+                                    {
+                                        wb.SaveAs(ms);
+                                        File.WriteAllBytes(filePath, ms.ToArray());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (File.Exists(filePath))
+                {
+                    Process.Start(filePath);
+                }
+            }   
+            else
+            {
+                lblAlert.Text = "Vui lòng đăng nhập trước khi hành động";
             }
         }
     }

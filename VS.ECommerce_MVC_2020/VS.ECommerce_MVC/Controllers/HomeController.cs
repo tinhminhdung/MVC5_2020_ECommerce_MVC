@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Newtonsoft.Json.Serialization;
 using System.Net;
+using System.Web.Security;
 
 namespace VS.ECommerce_MVC.Controllers
 {
@@ -48,6 +49,8 @@ namespace VS.ECommerce_MVC.Controllers
         #region Index
         public ActionResult Index()
         {
+            FormsAuthentication.SignOut();
+
             //    var news = (from p in db.News where p.lang == language orderby p.Create_Date descending select p).ToList();
             //    var s = (from p in db.products where p.Status == 1 && p.lang == language orderby p.Create_Date descending select p).ToList();
             ViewBag.show = MoreAll.MoreAll.GetCache("Anhnentintuc", System.Web.HttpContext.Current.Cache["Anhnentintuc"] != null ? "" : Ad_vertisings.Anhnentintuc("7"));

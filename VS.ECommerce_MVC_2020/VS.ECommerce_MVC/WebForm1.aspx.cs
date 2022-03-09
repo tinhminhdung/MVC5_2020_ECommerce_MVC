@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
@@ -17,6 +18,7 @@ namespace VS.ECommerce_MVC
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+  
         DatalinqDataContext db = new DatalinqDataContext();
         //public static string getOrderTracesByJson(string requestData, string urlStr, string method)
         //{

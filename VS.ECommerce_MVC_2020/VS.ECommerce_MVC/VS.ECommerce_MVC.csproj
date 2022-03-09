@@ -82,6 +82,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\CKFinder_Watermark.dll</HintPath>
     </Reference>
+    <Reference Include="ClosedXML, Version=0.69.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ClosedXML.dll</HintPath>
+    </Reference>
     <Reference Include="CollectionPager, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\CollectionPager.dll</HintPath>
@@ -89,6 +93,10 @@
     <Reference Include="Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Database.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -286,12 +294,14 @@
     </Compile>
     <Compile Include="Api\AlbumController.cs" />
     <Compile Include="Api\ApiControllerBase.cs" />
+    <Compile Include="Api\BaseController.cs" />
     <Compile Include="Api\Contacts.cs" />
     <Compile Include="Api\Default1Controller.cs" />
     <Compile Include="Api\KhuyenMaiController.cs" />
     <Compile Include="Api\MemberController.cs" />
     <Compile Include="Api\MenuController.cs" />
     <Compile Include="Api\MauController.cs" />
+    <Compile Include="Api\TinTuc.cs" />
     <Compile Include="Api\NewsController.cs" />
     <Compile Include="Api\DemoProductController.cs" />
     <Compile Include="Api\OrderController.cs" />
@@ -1554,10 +1564,12 @@
     <Content Include="bin\CKFinder_FileEditor.dll" />
     <Content Include="bin\CKFinder_ImageResize.dll" />
     <Content Include="bin\CKFinder_Watermark.dll" />
+    <Content Include="bin\ClosedXML.dll" />
     <Content Include="bin\CollectionPager.dll" />
     <Content Include="bin\CollectionPagerExample.dll" />
     <Content Include="bin\Combres.dll" />
     <Content Include="bin\Database.dll" />
+    <Content Include="bin\DocumentFormat.OpenXml.dll" />
     <Content Include="bin\Entity.dll" />
     <Content Include="bin\Entity.pdb" />
     <Content Include="bin\EPPlus.dll" />
