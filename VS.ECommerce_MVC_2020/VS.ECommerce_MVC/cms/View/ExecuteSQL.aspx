@@ -20,13 +20,16 @@
             </div>
          <br />
             <br />
-                Truy vấn bảng cần xuất exel để pass vào bảng db localhost khi cần:
-             <asp:TextBox ID="sqlExel" runat="server" style="height: 54px;width: 100%;"  TextMode="MultiLine"></asp:TextBox><br />
+               Truy vấn bảng cần xuất exel để pass vào bảng db localhost khi cần:
+             <asp:TextBox ID="sqlExel" runat="server" style="height: 200px;width: 100%;"  TextMode="MultiLine"></asp:TextBox><br />
                  <asp:Button ID="Xuatexel" runat="server" Text="Xuất exel" OnClick="Xuatexel_Click" />
+             <asp:Button ID="RunSQlText" runat="server" Text="Run SQl Text" OnLoad="Sql_Load" OnClick="RunSQlText_Click" />
              <br />
 
-          <%--  sau khi xuất xong thì coppy rồi đè vào bảng mình cần vì 1 số server có db phiên bản cao hơn lên mình ko xem dc db trên live --%>
-
+          <%--  sau khi xuất xong thì coppy rồi đè vào bảng mình cần vì 1 số server có db phiên bản cao hơn lên mình ko xem dc db trên live 
+		  <br />
+		  Lưu ý khi pass vào bảng bỏ khóa chính đi và bỏ phần cho sinh id tự động đi nhé
+		  --%>
             <asp:Button ID="Button1" runat="server" Text="Run SQl" OnLoad="Sql_Load" OnClick="Button1_Click" />
             <asp:Button ID="Button2" runat="server" Text="Update TangName" OnLoad="TangName_Load" OnClick="Button2_Click" />
             <br />

@@ -412,6 +412,7 @@ namespace VS.ECommerce_MVC
             if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
             {
                 string filePath = Server.MapPath("~/Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx");
+				 lblAlert.Text = "Link tải File nếu lỗi Access is denied:==>>> /Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx";
                 string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
@@ -437,11 +438,46 @@ namespace VS.ECommerce_MVC
                         }
                     }
                 }
-                if (File.Exists(filePath))
+                try
                 {
-                    Process.Start(filePath);
+                    if (File.Exists(filePath))
+                    {
+                        Process.Start(filePath);
+                    }
                 }
+                catch (Exception)
+                { }
             }   
+            else
+            {
+                lblAlert.Text = "Vui lòng đăng nhập trước khi hành động";
+            }
+        }
+
+        protected void RunSQlText_Click(object sender, EventArgs e)
+        {
+            if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
+            {
+                string sql = "";
+                try
+                {
+                    sql = MoreAll.MoreAll.RunScriptFile_New(sqlExel.Text, false);
+                    if (sql == "ERROR")
+                    {
+                        sql = "Không tồn tại file script hoặc thư mục sql";
+                    }
+
+                    lblAlert.Text = "<b style=\"color:red;\">Cập nhật CSDL Thành công</b>OK<br/>" + sql;
+                }
+                catch (Exception ex)
+                {
+                    if (sql == "ERROR")
+                    {
+                        sql = "Không tồn tại file script hoặc thư mục sql ";
+                    }
+                    lblAlert.Text = "Lỗi khi Cập nhật CSDL <br/>" + Environment.NewLine + ex.Message + Environment.NewLine + ex.StackTrace + "<br/>" + sql;
+                }
+            }
             else
             {
                 lblAlert.Text = "Vui lòng đăng nhập trước khi hành động";

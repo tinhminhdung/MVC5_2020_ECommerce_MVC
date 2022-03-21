@@ -251,6 +251,25 @@ namespace MoreAll
             SSetting.UPDATE(obj);
             return "";
         }
+        public static string RunScriptFile_New(string fileName, bool blnShowMsg = true)
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                //chi chay file script co duoi .txt, cac file co duoi sql va gan ma version duoc chay trong phan Upgrade Version
+                return "ERROR";
+            }
+            using (SqlConnection dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                SqlCommand dbCmd = new SqlCommand();
+                dbCmd.CommandType = CommandType.Text;
+                dbCmd.Connection = dbConn;
+                dbConn.Open();
+                dbCmd.CommandText = fileName.ToString().Replace("\r\n\t", "").Replace("\r", "").Replace("\n", "").Replace("\t", "");
+                dbCmd.ExecuteNonQuery();
+                dbConn.Close();
+            }
+            return "";
+        }
         public static string RunScriptFile(string fileName, bool blnShowMsg = true)
         {
             if (string.IsNullOrEmpty(fileName))
