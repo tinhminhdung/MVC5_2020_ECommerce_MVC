@@ -412,7 +412,7 @@ namespace VS.ECommerce_MVC
             if (MoreAll.MoreAll.GetCookies("XoaDelete").ToString() != null)
             {
                 string filePath = Server.MapPath("~/Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx");
-				 lblAlert.Text = "Link tải File nếu lỗi Access is denied:==>>> /Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx";
+				  lblAlert.Text = " <a href=\"/Uploads/excel/SqlExport_" + DateTime.Now.ToString("yyyMMddhhss") + ".xlsx\" target=\"_blank\">Link tải File nếu lỗi Access is denied</a>";
                 string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {

@@ -18604,6 +18604,33 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.View.ExecuteSQL.sqlExel">
+            <summary>
+            sqlExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.View.ExecuteSQL.Xuatexel">
+            <summary>
+            Xuatexel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.View.ExecuteSQL.RunSQlText">
+            <summary>
+            RunSQlText control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.View.ExecuteSQL.Button1">
             <summary>
             Button1 control.
@@ -18977,6 +19004,33 @@
         <member name="F:VS.ECommerce_MVC.ExecuteSQL.resto">
             <summary>
             resto control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.ExecuteSQL.sqlExel">
+            <summary>
+            sqlExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.ExecuteSQL.Xuatexel">
+            <summary>
+            Xuatexel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.ExecuteSQL.RunSQlText">
+            <summary>
+            RunSQlText control.
             </summary>
             <remarks>
             Auto-generated field.

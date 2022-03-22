@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "";
+}
+<script src="~/Resources/js/jquery-1.9.1.js"></script>
+
+@{
+    if (MoreAll.MoreAll.GetCookies("UName") != "")
+    {
+        <div class="col-md-8" id="UpFile">
+            <div id="ShowFilelink" style=" color:red"></div>
+            <div id="ShowFile" style=" color:red"></div>
+            <input class="form-control" type="hidden" id="imgLink" value="">
+            <div id="wp_thum_img">
+                <div class="img_src"><img id="thum_img" for="fileUpload" src="" /><p></p></div>
+            </div>
+            <input type="file" style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;" name="fileUpload" id="fileUpload" class="inputfile">
+            <label class="btn btn-success fileUploadsss" for="fileUpload" style="width: 100%;margin: 10px 0px;font-size: 12px;background: #0c1998 !important;color: #fff;padding: 11px;"><i class="fa fa-upload" aria-hidden="true"></i> Upload pdf</label>
+        </div>
+    }
+    else
+    {
+        <div>Vui lòng đăng nhập bằng tài khoản admin </div>
+    }
+}
+
+
+<br />
+<div><a href="/Home/ExecuteSQL">Load lại trang </a></div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#fileUpload").change(function () {
+            var vtrUpload = $("#fileUpload").val().toLowerCase();
+            //var regexVTRUpload = new RegExp("(.*?)\.(png|jpg|jpeg|rar)$");//png|jpg|jpeg
+            //if (!(regexVTRUpload.test(vtrUpload))) {
+            //    $("#fileUpload").val("");
+            //    alert("File không đúng định dạng. Vui lòng kiểm tra lại.");
+            //} else {
+            //    UploadFile();
+            //}
+            UploadFile();
+
+        });
+    });
+    function UploadFile() {
+        //debugger;
+        var data = new FormData();
+        var files = $("#fileUpload").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+        $.ajax({
+            //url: "/Home/UploadFileVS",
+            url: "/Ajax/UploadFile_SQL",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            async: true,
+            success: function (data) {
+                // alert(data.link  );
+                $("#ShowFilelink").html(data.link);
+                $("#ShowFile").html(data.code);
+            },
+            error: function (er) {
+                alert("Thiết bị không hỗ trợ up ảnh từ camera. Chọn file từ bộ nhớ thiết bị!");
+            }
+        });
+    }
+</script>

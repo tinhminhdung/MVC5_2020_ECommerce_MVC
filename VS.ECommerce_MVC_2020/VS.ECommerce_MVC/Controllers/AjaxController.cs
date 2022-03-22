@@ -12,6 +12,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using VS.ECommerce_MVC.Models;
@@ -306,6 +307,110 @@ namespace VS.ECommerce_MVC.Controllers
         }
         #endregion
 
+        
+        [HttpPost]
+        public ActionResult UploadFile_BIBO()
+        {
+            try
+            {
+                var file = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                string filename = Regex.Replace(Path.GetFileName(Server.MapPath(file.FileName)), @"[^0-9a-zA-Z:,.-]+", "");
+                string str_dir = HttpContext.Server.MapPath("~/Uploads/Test/") + DateTime.Now.ToString("yyyy") + @"\" + DateTime.Now.ToString("MM");
+                if (!Directory.Exists(str_dir))
+                {
+                    Directory.CreateDirectory(str_dir);
+                }
+
+                #region save raw
+                string link = str_dir + @"/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_imp_" + filename;
+                file.SaveAs(link);
+                #endregion
+
+                var matP = Regex.Split(link.Replace("\\", "/"), "Uploads");
+                // return Json(new { code = 1, link = "/Images/" + matP[1] });
+                return Json(new { code = 1, link = "/Uploads/Test/" + matP[1], showfie = "/image/iconpdf.png" });
+            }
+            catch (Exception ex)
+            {
+                return Json(@"{""code"":""0"",""link"":""""}");
+            }
+        }
+        [HttpPost]
+        public ActionResult UploadFiles_FileNang()
+        {
+            try
+            {
+                //Fetch the File.
+                HttpPostedFile postedFile = System.Web.HttpContext.Current.Request.Files[0];
+                //Create the Directory.
+                string path = HttpContext.Server.MapPath("~/Uploads/Test/") + DateTime.Now.ToString("yyyy") + @"\" + DateTime.Now.ToString("MM");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                //Fetch the File Name.
+                string fileName = postedFile.FileName;
+                string link = path + @"/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_imp_" + fileName;
+                //Save the File.
+                postedFile.SaveAs(link);
+                var matP = Regex.Split(link.Replace("\\", "/"), "Uploads");
+                //Send OK Response to Client.
+                return Json(new { code = 1, link = "/Uploads/Test/" + matP[1] });
+            }
+            catch (Exception ex)
+            {
+                return Json(@"{""code"":""0"",""link"":""""}");
+            }
+
+        }
+        [HttpPost]
+        public ActionResult UploadFile_SQL()
+        {
+            try
+            {
+                var file = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                string filename = Regex.Replace(Path.GetFileName(Server.MapPath(file.FileName)), @"[^0-9a-zA-Z:,.-]+", "");
+                string str_dir = HttpContext.Server.MapPath("~/Uploads/sql/");
+                if (!Directory.Exists(str_dir))
+                {
+                    Directory.CreateDirectory(str_dir);
+                }
+                #region save raw
+                string c = filename;
+                string link = str_dir + @"" + c.Replace(c.ToString(), "SQLQuery.sql");
+                System.IO.File.Delete(link);
+                file.SaveAs(link);
+                #endregion
+                var matP = Regex.Split(link.Replace("\\", "/"), "Uploads");
+                string sql = "";
+                string lblAlert = "";
+                try
+                {
+                    sql = MoreAll.MoreAll.RunScriptFile("SQLQuery.sql", false);
+                    if (sql == "ERROR")
+                    {
+                        sql = "Không tồn tại file script hoặc thư mục sql";
+                    }
+
+                    lblAlert = "<b style=\"color:red;\">Cập nhật CSDL Thành công</b>OK<br/>" + sql;
+                }
+                catch (Exception ex)
+                {
+                    if (sql == "ERROR")
+                    {
+                        sql = "Không tồn tại file script hoặc thư mục sql ";
+                    }
+                    lblAlert = "Lỗi khi Cập nhật CSDL <br/>" + Environment.NewLine + ex.Message + Environment.NewLine + ex.StackTrace + "<br/>" + sql;
+                }
+
+
+                return Json(new { code = lblAlert, link = "/Uploads/sql/" + matP[1] });
+            }
+            catch (Exception ex)
+            {
+                return Json(@"{""code"":""0"",""link"":""""}");
+            }
+        }
 
         [HttpGet]
         public ActionResult AddToCart(string ipid)

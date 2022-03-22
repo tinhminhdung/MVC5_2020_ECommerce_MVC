@@ -125,6 +125,17 @@ namespace VS.ECommerce_MVC.cms.Display.Products
             {
                 pages = Convert.ToInt16(Request.QueryString["page"].Trim());
             }
+
+            //with CTE_R as
+            //(
+            //    select value  from  STRING_SPLIT('1,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45,2,3,4,5,6,2,3,23,4,5,46,7,1,2,34,12,45,45',',')
+            //)
+            //select * from 
+            //(
+            //    select * from TestA  h
+            //    inner join (select distinct value FROM CTE_R ) A on h.ID = a.value
+            //) as v
+
             List<Entity.Category_Product> dt = SProducts.CATEGORY_PHANTRANG(Commond.SubMenu(More.PR, More.TangNameicid(hp)), language, "1", (pages - 1), ref Tongsobanghi, Tongsotrang);
             if (dt.Count >= 1)
             {

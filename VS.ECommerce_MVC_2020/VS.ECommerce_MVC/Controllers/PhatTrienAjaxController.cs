@@ -17,7 +17,14 @@ namespace VS.ECommerce_MVC.Controllers
     public class PhatTrienAjaxController : Controller
     {
         DatalinqDataContext db = new DatalinqDataContext();
-
+        public ActionResult fileUpload_FileNang()
+        {
+            return View();
+        }
+        public ActionResult fileUpload_Bibo()
+        {
+            return View();
+        }
         public ActionResult DemoJson()
         {
             //Khóa học trên tedu https://www.youtube.com/watch?v=vALwIgRTFP8 

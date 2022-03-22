@@ -23,6 +23,7 @@
              <asp:TextBox ID="sqlExel" runat="server" style="height: 200px;width: 100%;"  TextMode="MultiLine"></asp:TextBox><br />
                  <asp:Button ID="Xuatexel" runat="server" Text="Xuất exel" OnClick="Xuatexel_Click" />
              <asp:Button ID="RunSQlText" runat="server" Text="Run SQl Text" OnLoad="Sql_Load" OnClick="RunSQlText_Click" />
+            <div><a href="/Home/ExecuteSQL">Load lại trang </a></div>
              <br />
 
           <%--  sau khi xuất xong thì coppy rồi đè vào bảng mình cần vì 1 số server có db phiên bản cao hơn lên mình ko xem dc db trên live --%>

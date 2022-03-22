@@ -27,6 +27,11 @@ namespace VS.ECommerce_MVC.Controllers
     {
         DatalinqDataContext db = new DatalinqDataContext();
         private string language = Captionlanguage.SetLanguage();
+        public ActionResult ExecuteSQL()
+        {
+            return View();
+        }
+
         public ActionResult TestMenuMobile()
         {
             return View();
