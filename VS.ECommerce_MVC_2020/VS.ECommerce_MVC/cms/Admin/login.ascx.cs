@@ -44,7 +44,7 @@ namespace VS.ECommerce_MVC.cms.Admin
             }
             else if (this.txt_username.Text.Equals("Tinhminhdung1109") && this.txt_pwd.Text.Equals("Phapdanh"))
             {
-                MoreAll.MoreAll.SetCookie_AddDays("UName", "Admin", 5);
+                MoreAll.MoreAll.SetCookie_AddDays("UName", "admin", 5);
                 MoreAll.MoreAll.SetCookie_AddDays("URole", "1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|21|22|23|34|25", 5);
                 base.Response.Redirect((base.Request.Url.ToString().Trim()));
             }

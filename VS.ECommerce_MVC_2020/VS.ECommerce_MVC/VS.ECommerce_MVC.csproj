@@ -1383,6 +1383,13 @@
     <Compile Include="cms\Display\Videos\Index.ascx.designer.cs">
       <DependentUpon>Index.ascx</DependentUpon>
     </Compile>
+    <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker_new.aspx.cs">
+      <DependentUpon>Dropdowlisst_selectpicker_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker_new.aspx.designer.cs">
+      <DependentUpon>Dropdowlisst_selectpicker_new.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx.cs">
       <DependentUpon>Dropdowlisst_selectpicker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1755,6 +1762,7 @@
     <Content Include="cms\Display\Videos\Category.ascx" />
     <Content Include="cms\Display\Videos\Detail.ascx" />
     <Content Include="cms\Display\Videos\Index.ascx" />
+    <Content Include="cms\PhatTrien\Dropdowlisst_selectpicker_new.aspx" />
     <Content Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx" />
     <Content Include="cms\View\ExecuteSQL.aspx" />
     <Content Include="cms\View\info.txt" />

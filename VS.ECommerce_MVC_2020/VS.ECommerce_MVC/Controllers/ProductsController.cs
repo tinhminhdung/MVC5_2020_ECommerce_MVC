@@ -136,6 +136,22 @@ namespace VS.ECommerce_MVC.Controllers
             //    inner join (select distinct value FROM CTE_R ) A on h.ID = a.value
             //) as v
 
+
+
+//22222
+//truy vấn kiểu in (1,2,3,4,5,6,7)
+//@ls_phone =(1,2,3,4,5,6,7,8,9,0);
+
+
+//WITH tblphone AS (select value AS phone from STRING_SPLIT(@ls_phone,','))
+//select A.phone
+//from tbl_AppMobile_Customer_Login A with(nolock)
+//LEFT JOIN tblphone B ON A.phone = B.phone
+//LEFT JOIN tblphone C ON A.accountNo = C.phone
+//WHERE status=1
+//AND (B.phone IS NOT NULL OR C.phone IS NOT NULL
+
+
             #region Category
             int Tongsobanghi = 0;
             Int16 pages = 1;

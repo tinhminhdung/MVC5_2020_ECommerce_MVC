@@ -18451,6 +18451,33 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker_new.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker_new.Literal1">
+            <summary>
+            Literal1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker_new.drpCountry">
+            <summary>
+            drpCountry control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker.form1">
             <summary>
             form1 control.
