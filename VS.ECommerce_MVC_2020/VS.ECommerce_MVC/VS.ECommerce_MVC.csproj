@@ -1383,6 +1383,13 @@
     <Compile Include="cms\Display\Videos\Index.ascx.designer.cs">
       <DependentUpon>Index.ascx</DependentUpon>
     </Compile>
+    <Compile Include="cms\PhatTrien\TinhThanh_Aspx.aspx.cs">
+      <DependentUpon>TinhThanh_Aspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\PhatTrien\TinhThanh_Aspx.aspx.designer.cs">
+      <DependentUpon>TinhThanh_Aspx.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cms\PhatTrien\Dropdowlisst_selectpicker_new.aspx.cs">
       <DependentUpon>Dropdowlisst_selectpicker_new.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1762,6 +1769,7 @@
     <Content Include="cms\Display\Videos\Category.ascx" />
     <Content Include="cms\Display\Videos\Detail.ascx" />
     <Content Include="cms\Display\Videos\Index.ascx" />
+    <Content Include="cms\PhatTrien\TinhThanh_Aspx.aspx" />
     <Content Include="cms\PhatTrien\Dropdowlisst_selectpicker_new.aspx" />
     <Content Include="cms\PhatTrien\Dropdowlisst_selectpicker.aspx" />
     <Content Include="cms\View\ExecuteSQL.aspx" />
@@ -2030,13 +2038,24 @@
     <Content Include="Resources\css\Css_All.css" />
     <Content Include="Resources\font-awesome\font-awesome.min.css" />
     <Content Include="Resources\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resources\images\b_close.png" />
+    <Content Include="Resources\images\cart-2.png" />
     <Content Include="Resources\images\i4.png" />
+    <Content Include="Resources\images\icon-messager.png" />
+    <Content Include="Resources\images\icon-phone.png" />
+    <Content Include="Resources\images\icon-zalo.png" />
     <Content Include="Resources\images\searchicon.png" />
     <Content Include="Resources\images\widget_star.gif" />
+    <Content Include="Resources\js\Readmore.js" />
+    <Content Include="Resources\js\ServiceTinhThanhAspx.js" />
     <Content Include="Resources\js\ServiceTinhThanhselectpicker.js" />
     <Content Include="Resources\js\ServiceTinhThanh.js" />
     <Content Include="Resources\js\jquery.validate.min.js" />
     <Content Include="Resources\js\rating.js" />
+    <Content Include="Resources\languages\ENG.gif" />
+    <Content Include="Resources\languages\ENG.png" />
+    <Content Include="Resources\languages\VIE.gif" />
+    <Content Include="Resources\languages\VIE.png" />
     <Content Include="Resources\PopUp.html" />
     <Content Include="Resources\Responsive\css\flexnav.css" />
     <Content Include="Resources\Responsive\css\Menutrai.css" />
@@ -2133,53 +2152,8 @@
     <Content Include="Resources\languages\vie.jpg" />
     <Content Include="Resources\LibraryAlbum\css\photoswipe.css" />
     <Content Include="Resources\LibraryAlbum\css\styles.css" />
-    <Content Include="Resources\LibraryAlbum\images\blogicon.png" />
-    <Content Include="Resources\LibraryAlbum\images\codecomputerlovelogo.gif" />
-    <Content Include="Resources\LibraryAlbum\images\facebookicon.png" />
-    <Content Include="Resources\LibraryAlbum\images\flickricon.png" />
-    <Content Include="Resources\LibraryAlbum\images\full\001.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\002.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\003.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\004.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\005.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\006.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\007.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\008.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\009.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\010.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\011.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\012.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\013.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\014.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\015.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\016.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\017.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\018.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\019.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\full\020.jpg" />
     <Content Include="Resources\LibraryAlbum\images\icons%402x.png" />
     <Content Include="Resources\LibraryAlbum\images\icons.png" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\001.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\002.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\003.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\004.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\005.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\006.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\007.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\008.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\009.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\010.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\011.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\012.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\013.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\014.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\015.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\016.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\017.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\018.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\019.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\thumb\020.jpg" />
-    <Content Include="Resources\LibraryAlbum\images\twittericon.png" />
     <Content Include="Resources\LibraryAlbum\js\code.photoswipe-3.0.5.min.js" />
     <Content Include="Resources\LibraryAlbum\js\klass.min.js" />
     <Content Include="Resources\ScripMvc\Register_Email.js" />

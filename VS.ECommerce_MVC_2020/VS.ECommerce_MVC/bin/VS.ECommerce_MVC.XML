@@ -18451,6 +18451,114 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.ddlCountry">
+            <summary>
+            ddlCountry control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.hdddlCountry">
+            <summary>
+            hdddlCountry control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.ddlProvince">
+            <summary>
+            ddlProvince control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.hdddlProvince">
+            <summary>
+            hdddlProvince control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.ddlDistrict">
+            <summary>
+            ddlDistrict control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.hdddlDistrict">
+            <summary>
+            hdddlDistrict control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.ddlWard">
+            <summary>
+            ddlWard control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.hdddlWard">
+            <summary>
+            hdddlWard control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.Button2">
+            <summary>
+            Button2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.Button1">
+            <summary>
+            Button1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.PhatTrien.TinhThanh_Aspx.Literal1">
+            <summary>
+            Literal1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.PhatTrien.Dropdowlisst_selectpicker_new.form1">
             <summary>
             form1 control.
