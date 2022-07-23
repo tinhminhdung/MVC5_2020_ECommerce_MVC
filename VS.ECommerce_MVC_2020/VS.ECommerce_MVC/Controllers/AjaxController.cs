@@ -13,6 +13,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using VS.ECommerce_MVC.Models;
@@ -363,6 +364,39 @@ namespace VS.ECommerce_MVC.Controllers
             }
 
         }
+
+        [HttpPost]
+        async public Task<ActionResult> UploadFile_Multiple(string foldername)
+        {
+            string path = "";
+            string Link = "";
+            string UrlImages = "";
+            HttpFileCollectionBase files = Request.Files;
+            for (var i = 0; i < files.Count; i++)
+            {
+                HttpPostedFileBase file = files[i];
+
+                string filename = Regex.Replace(Path.GetFileName(Server.MapPath(file.FileName)), @"[^0-9a-zA-Z:,.-]+", "");
+                string str_dir = HttpContext.Server.MapPath("~/Uploads/Test/") + DateTime.Now.ToString("yyyy") + @"\" + DateTime.Now.ToString("MM");
+                if (!Directory.Exists(str_dir))
+                {
+                    Directory.CreateDirectory(str_dir);
+                }
+
+                #region save raw
+                path = str_dir + @"/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_imp_" + filename;
+                file.SaveAs(path);
+                var matP = Regex.Split(path.Replace("\\", "/"), "Uploads");
+                #endregion
+                UrlImages += matP[1] + ",";
+                Link += "<img src=\"/Uploads" + matP[1] + "\" style=\" width:200px\" />";
+            }
+            ViewBag.ShowImg = path;
+            return Json(new { code = 1, Images = Link, UrlImages = "/Uploads" + UrlImages });
+        }
+
+
+
         [HttpPost]
         public ActionResult UploadFile_SQL()
         {

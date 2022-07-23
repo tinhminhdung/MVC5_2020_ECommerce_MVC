@@ -7,7 +7,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -483,7 +486,7 @@ namespace VS.ECommerce_MVC.Controllers
         /// Hàm lấy tất cả danh sách quận huyện
         /// Id = 1 là Hà Nội, do database mình quy định vậy
         /// <param name="id">Id = ProvinceId</param>
-        
+
         public JsonResult GetAllDistrictByProvinceId(int? id = 1)
         {
             var data = db.Tinhthanhs.Where(x => x.Parent_ID == id).OrderBy(x => x.Name).ToList();
@@ -496,6 +499,45 @@ namespace VS.ECommerce_MVC.Controllers
         {
             var data = db.Tinhthanhs.Where(x => x.Parent_ID == id).OrderBy(x => x.Name).ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+
+        #region MultipleUploadFile
+        public ActionResult MultipleUploadFile()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        async public Task<ActionResult> UploadFile_Multiple(string foldername)
+        {
+            string path = "";
+            string Link = "";
+            string UrlImages = "";
+            HttpFileCollectionBase files = Request.Files;
+            for (var i = 0; i < files.Count; i++)
+            {
+                HttpPostedFileBase file = files[i];
+
+                string filename = Regex.Replace(Path.GetFileName(Server.MapPath(file.FileName)), @"[^0-9a-zA-Z:,.-]+", "");
+                string str_dir = HttpContext.Server.MapPath("~/Uploads/Test/") + DateTime.Now.ToString("yyyy") + @"\" + DateTime.Now.ToString("MM");
+                if (!Directory.Exists(str_dir))
+                {
+                    Directory.CreateDirectory(str_dir);
+                }
+
+                #region save raw
+                path = str_dir + @"/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_imp_" + filename;
+                file.SaveAs(path);
+                var matP = Regex.Split(path.Replace("\\", "/"), "Uploads");
+                #endregion
+                UrlImages += matP[1] + ",";
+                Link += "<img src=\"/Uploads" + matP[1] + "\" style=\" width:200px\" />";
+            }
+            ViewBag.ShowImg = path;
+            return Json(new { code = 1, Images = Link, UrlImages = "/Uploads" + UrlImages });
         }
         #endregion
     }

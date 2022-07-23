@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "";
+}
+<script src="~/Resources/js/jquery-1.9.1.js"></script>
+
+
+<input type="file" multiple="multiple" style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;" name="fileUpload" id="fileUpload" class="inputfile">
+<label class="btn btn-success" for="fileUpload" style="width:100%;margin: 10px 0px;font-size:12px"><i class="fa fa-upload" aria-hidden="true"></i>upload</label>
+<div id="ShowImg"></div>
+
+<input type="text" name="UrlImages" id="UrlImages" value=" " />
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#fileUpload").change(function () {
+            var vtrUpload = $("#fileUpload").val().toLowerCase();
+            var regexVTRUpload = new RegExp("(.*?)\.(png|jpg|jpeg)$");
+            if (!(regexVTRUpload.test(vtrUpload))) {
+                $("#fileUpload").val("");
+                alert("File không đúng định dạng. Vui lòng kiểm tra lại.");
+            } else {
+                UploadMultiple();
+            }
+        });
+    });
+
+    function UploadMultiple() {
+        var data = new FormData(); //FormData object
+        var fileInput = document.getElementById('fileUpload');
+        for (i = 0; i < fileInput.files.length; i++) {
+            data.append(fileInput.files[i].name, fileInput.files[i]);
+        }
+        data.append("foldername", 'Test');
+        $.ajax({
+            url: '@Url.Action("UploadFile_Multiple", "Ajax")',
+            type: 'POST',
+            data: data,
+            //async: true,
+            beforeSend: function () {
+               // js_Loading(true, 0);
+            },
+            success: function (data) {
+                //if (data.code == 1) {
+                //    // img_link = data.link;
+                //    $('#imgLink').val();
+                //    $('.img_src p').hide();
+                //    $('#thum_img').css({ "width": "100%", "margin-top": "0px", "height": "70px", "object-fit": "contain" });
+                //    $('#thum_img').attr("src", data.showfie);
+                //    $('#real_img').attr("onclick", "fn_detail('" + data.link + "')");
+                //    // $('#TaiFile').html("<a id=\"Link\" href=\"" + data.link + "\" style=\"color: #fff;width: 100%;margin: 17px 4px;font-size: 12px;background: #e6472e !important;padding: 6px 42px 6px 36px;\" target=\"_blank\">Tải File pdf</a>");
+                //}
+                $('#ShowImg').html(data.Images);
+                $('#UrlImages').val(data.UrlImages);
+                
+                // alert(data.link);
+               // js_Loading(false, 0);
+            },
+            error: function () {
+               // js_Loading(false, 0);
+                alert("Thiết bị không hỗ trợ up ảnh từ camera. Chọn file từ bộ nhớ thiết bị!");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    }
+
+</script>
