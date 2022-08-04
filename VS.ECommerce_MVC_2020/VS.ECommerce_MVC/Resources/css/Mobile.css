@@ -21,7 +21,7 @@
 }
 @media screen and (min-width:1px) and (max-width:1000px)
 {
-img{border:medium none;height:auto;line-height:normal;margin:0;max-width:100% !important;padding:0;vertical-align:middle;width:auto;transition:all 0.2s ease-in;}
+img{border:medium none;height:auto!important;line-height:normal;margin:0;max-width:100% !important;padding:0;vertical-align:middle;width:auto;transition:all 0.2s ease-in;}
 body{width:100%;}
 *{padding:0px; margin:0px;}
 #divAdvLeft{ display:none}

@@ -388,11 +388,20 @@ namespace VS.ECommerce_MVC.Controllers
                 file.SaveAs(path);
                 var matP = Regex.Split(path.Replace("\\", "/"), "Uploads");
                 #endregion
-                UrlImages += matP[1] + ",";
-                Link += "<img src=\"/Uploads" + matP[1] + "\" style=\" width:200px\" />";
+
+                if (files.Count == 1)
+                {
+                    UrlImages += "/Uploads" + matP[1];
+                    Link += "<img src=\"/Uploads" + matP[1] + "\" class='imgFull' />";
+                }
+                else
+                {
+                    UrlImages += "/Uploads" + matP[1] + ",";
+                    Link += "<img src=\"/Uploads" + matP[1] + "\" style=\" width:200px\" />";
+                }
             }
             ViewBag.ShowImg = path;
-            return Json(new { code = 1, Images = Link, UrlImages = "/Uploads" + UrlImages });
+            return Json(new { code = 1, Images = Link, ImagesUrl = UrlImages.TrimEnd(',') });
         }
 
 

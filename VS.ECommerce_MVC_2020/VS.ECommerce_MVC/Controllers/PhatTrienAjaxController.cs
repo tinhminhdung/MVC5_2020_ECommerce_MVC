@@ -506,6 +506,7 @@ namespace VS.ECommerce_MVC.Controllers
         #region MultipleUploadFile
         public ActionResult MultipleUploadFile()
         {
+            ViewBag.ShowEditImg = "https://media.bibomart.net/file/Test/3-8-2022-18262864470.jpg,https://media.bibomart.net/file/Test/3-8-2022-182628645c5.jpg,https://media.bibomart.net/file/Test/3-8-2022-18262864759.jpg";
             return View();
         }
 

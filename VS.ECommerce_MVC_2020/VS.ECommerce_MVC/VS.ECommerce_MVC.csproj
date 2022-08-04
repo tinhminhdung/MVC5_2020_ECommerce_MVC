@@ -2056,6 +2056,10 @@
     <Content Include="Resources\languages\ENG.png" />
     <Content Include="Resources\languages\VIE.gif" />
     <Content Include="Resources\languages\VIE.png" />
+    <Content Include="Resources\LoadjsPage\aa.html" />
+    <Content Include="Resources\LoadjsPage\jquery-1.7.1.min.js" />
+    <Content Include="Resources\LoadjsPage\StyleSheet1.css" />
+    <Content Include="Resources\LoadjsPage\system.general.js" />
     <Content Include="Resources\PopUp.html" />
     <Content Include="Resources\Responsive\css\flexnav.css" />
     <Content Include="Resources\Responsive\css\Menutrai.css" />
@@ -2229,6 +2233,10 @@
     <Content Include="Views\CodeMau\lienhe\1.png" />
     <Content Include="Views\CodeMau\lienhe\2.png" />
     <Content Include="Views\CodeMau\lienhe\3.png" />
+    <Content Include="Views\PhatTrienAjax\LoadjsPage\aa.html" />
+    <Content Include="Views\PhatTrienAjax\LoadjsPage\jquery-1.7.1.min.js" />
+    <Content Include="Views\PhatTrienAjax\LoadjsPage\StyleSheet1.css" />
+    <Content Include="Views\PhatTrienAjax\LoadjsPage\system.general.js" />
     <Content Include="Views\PhatTrienAjax\SqlTinhThanh.sql" />
     <Content Include="Views\PhatTrienDangKy\activeMenBangjavascrip_.html" />
     <Content Include="Views\PhatTrienDangKy\BoIDTrungNhauTrongMang\tt.txt" />
