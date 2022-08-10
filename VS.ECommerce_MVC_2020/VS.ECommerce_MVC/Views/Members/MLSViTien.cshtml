@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+@using VS.ECommerce_MVC
+@model HoaHong
+
+
+<div class="content-wrapper">
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div id="div-content">
+                    <form class="mh-advanced-search mh-no-margin-bottom" action="/lich-su-vi-tien.html" method="GET">
+                        <div class="content_search">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box_with">
+                                        <div class="form-group row">
+                                            <label for="vendorName" class="col-sm-4 col-form-label">Từ ngày</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" name="TuNgay" id="TuNgay" value="@ViewBag.TuNgays" class="form-control timkiemNew" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="vendorName" class="col-sm-4 col-form-label">Loại HH</label>
+                                            <div class="col-sm-8">
+                                                <select name="Category" id="Category" class="form-control">
+                                                    <option selected="selected" value="0">Tất cả </option>
+                                                    <option value="RutTien">Rút tiền</option>
+                                                    <option value="HoaHong">Hoa hồng</option>
+                                                    <option value="ChuyenVi">Chuyển ví</option>
+                                                    <option value="MuaHang">Mua hàng</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box_with">
+                                        <div class="form-group row">
+                                            <label for="Ngay" class="col-sm-4 col-form-label">Đến ngày</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" name="DenNgay" id="DenNgay" value="@ViewBag.DenNgays" class="form-control timkiemNew" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="text-align:center;">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-secondary px-5 btgetw" type="submit"><i class="fa fa-search" aria-hidden="true" style="margin-top: 3px; margin-right: 3px;"></i> Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div style="clear: both; height: 5px"></div>
+                    <div class="table-responsive tab-all" style="overflow-x: auto;">
+                        <div class="list_item">
+                            <table id="tbl_Item" class="table table-bordered" style=" width:100%">
+                                <tbody>
+                                    <tr class="trHeader" style="height: 25px">
+                                        <th style="width: 4%; font-weight: bold;" align="center" class="contentadmin" rowspan="">
+                                            STT
+                                        </th>
+                                        <th style="font-weight: bold; width: 200px" class="tenhoahong">Loại HH </th>
+                                        <th style="font-weight: bold; text-align: center">Số tiền</th>
+                                        <th style="font-weight: bold; text-align: center">Ngày tạo</th>
+                                    </tr>
+                                    @{
+                                        int k = 1;
+                                        List<LichSuViGiaoDich> items = ViewBag.Show as List<LichSuViGiaoDich>;
+                                        if (items != null)
+                                        {
+                                            foreach (var item in items)
+                                            {
+                                                <tr>
+                                                    <td style="text-align: center;">
+                                                        @k
+                                                    </td>
+                                                    <td style="text-align: center; width: 200px; " class="tenhoahong">
+                                                        @item.KieuText
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(AllQuery.MorePro.Detail_Price(item.TongTien.ToString()))
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(MoreAll.FormatDateTime.FormatDate_Brithday(item.NgayTao.ToString()))
+                                                    </td>
+                                                </tr>
+                                                k++;
+
+                                            }
+                                        }
+                                    }
+                            </table>
+                        </div>
+                    </div>
+                    <div style="color: red; text-align: right; padding-top: 7px; font-weight: 600">
+                        Tổng cộng: @Html.Raw(ViewBag.ltCoin)
+                    </div>
+                    <div class="pager">
+                        @Html.Raw(ViewBag.Phantrang)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Danh sách lịch sử ví tiền");
+    });
+</script>

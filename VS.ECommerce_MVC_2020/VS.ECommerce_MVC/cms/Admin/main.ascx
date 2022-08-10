@@ -31,8 +31,24 @@
                         <li id="AdminUser" runat="server">
                             <a class="LinkButton" href="/admin.aspx?u=AdminUser"><span class="SubMenuText">Thành viên quản trị</span></a>
                         </li>
-                        <li id="Thanhvien" runat="server">
+                          <li id="Thanhvien" runat="server">
                             <a class="LinkButton" href="/admin.aspx?u=Thanhvien"><span class="SubMenuText">Thành viên đăng ký</span></a>
+                        </li>
+
+                         <li id="Danhsachloinhuan" runat="server">
+                            <a class="LinkButton" href="/admin.aspx?u=Danhsachloinhuan"><span class="SubMenuText">Danh sách lợi nhuận</span></a>
+                        </li>
+                          <li id="Li2" runat="server">
+                            <a class="LinkButton" href="/admin.aspx?u=LichSuViGiaoDich"><span class="SubMenuText">Danh sách LS ví tiền</span></a>
+                        </li>
+                        <li id="Danhsachhoahong" runat="server">
+                            <a class="LinkButton" href="/admin.aspx?u=Danhsachhoahong"><span class="SubMenuText">Danh sách hoa hồng</span></a>
+                        </li>
+                        <li id="LichSuThanhToan" runat="server">
+                            <a class="LinkButton" href="/admin.aspx?u=LichSuThanhToan"><span class="SubMenuText">Danh sách thanh toán</span></a>
+                        </li>
+                           <li id="CauHinhHH" runat="server">
+                            <a class="LinkButton" href="/admin.aspx?u=CauHinhHH"><span class="SubMenuText">Cấu hình hoa hồng</span></a>
                         </li>
                     </ul>
                 </li>

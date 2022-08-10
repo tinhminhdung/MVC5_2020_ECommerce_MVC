@@ -1,0 +1,57 @@
+﻿<header class="header">
+    <div class="page-brand">
+        <a class="link" href="/">
+            <span class="brand">
+                ĐẠI LÝ
+                @*<span class="brand-tip">CAST</span>*@
+            </span>
+            <span class="brand-mini">DL</span>
+        </a>
+    </div>
+    <style>
+        #txtHead {
+            font-size: 22px;
+            font-weight: normal;
+            color: #253544;
+            text-align: center;
+            margin-bottom: 0px;
+            margin-top: 11px;
+            text-transform: uppercase;
+            font-family: 'Rift-Bold';
+        }
+    </style>
+    <div class="flexbox flex-1">
+        <!-- START TOP-LEFT TOOLBAR-->
+        <ul class="nav navbar-toolbar">
+            <li class="Mobile">
+                <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
+            </li>
+
+            <li>
+            <a class="nav-link " href="/" ><i class="ti-home"></i></a>
+        </li>
+           
+        </ul>
+        <ul>
+            <div id="txtHead"></div>
+        </ul>
+        
+        <ul class="nav navbar-toolbar">
+           
+            <li class="dropdown dropdown-user">
+                @if (Session["MembersUser"] != null)
+                {
+                    <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                        <img src="/Resources/assets/img/admin-avatar.png" />
+                        <span></span> <p style="padding-top: 13px; ">@Session["MembersUser"]</p> <i class="fa fa-angle-down m-l-5"></i>
+                    </a>
+                }
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/Members/Thoat"><i class="fa fa-power-off"></i>Logout</a>
+                </ul>
+            </li>
+        </ul>
+        <!-- END TOP-RIGHT TOOLBAR-->
+    </div>
+</header>
+

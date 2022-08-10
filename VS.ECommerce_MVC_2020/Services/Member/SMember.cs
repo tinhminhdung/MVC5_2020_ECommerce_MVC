@@ -10,7 +10,16 @@ namespace Services
     public class SMember
     {
         private static FMember db = new FMember();
-
+        #region ThanhVien
+        public static List<Member> ThanhVien_PHANTRANG2(string GioiThieu, string Status, int PageIndex, int Tongpage)
+        {
+            return db.ThanhVien_PHANTRANG2C(GioiThieu, Status, PageIndex, Tongpage);
+        }
+        public static List<Member> ThanhVien_PHANTRANG1(string GioiThieu, string Status)
+        {
+            return db.ThanhVien_PHANTRANG1C(GioiThieu, Status);
+        }
+        #endregion
         #region CATEGORY_PHANTRANG
         public static List<Member> CATEGORY_PHANTRANG2(string IDThanhVien, string keyword, string Status, int PageIndex, int Tongpage)
         {

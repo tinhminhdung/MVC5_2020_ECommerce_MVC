@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24, 26.75" name="Datalinq">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24, 30.25" name="Datalinq">
   <DataContextMoniker Name="/DatalinqDataContext" />
   <nestedChildShapes>
     <classShape Id="2de48d24-bd7a-4de5-bdc9-3689391039ba" absoluteBounds="0.75, 3.75, 2, 2.1554996744791666">
@@ -146,12 +146,6 @@
         <elementListCompartment Id="b74c14c5-b669-405d-9e1f-b725e606d3d0" absoluteBounds="3.7650000000000006, 19.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f190bcbc-01a2-4d12-957d-2a150c9d2bee" absoluteBounds="18.75, 6.75, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/DatalinqDataContext/Member" />
-      <nestedChildShapes>
-        <elementListCompartment Id="697543d4-a8a5-4a98-b914-7fb031686a80" absoluteBounds="18.765, 7.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="a8eef53c-dff7-456a-a5fc-17db9981863f" absoluteBounds="6.75, 18.75, 2, 3.5016097005208309">
       <DataClassMoniker Name="/DatalinqDataContext/LCart" />
       <nestedChildShapes>
@@ -199,6 +193,36 @@
       <DataClassMoniker Name="/DatalinqDataContext/Tinhthanh" />
       <nestedChildShapes>
         <elementListCompartment Id="ae9443b6-2feb-48e6-9de7-c923dd8c912e" absoluteBounds="21.765, 1.21, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abc3aa09-5ee7-478b-8a12-c34f0971ae25" absoluteBounds="3.75, 7.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DatalinqDataContext/LoiNhuanMuaBan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c86e97c-b587-49d7-9fdb-260b15f1a276" absoluteBounds="3.765, 8.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acf2ab4e-e800-4a76-8085-29caa943030f" absoluteBounds="9.75, 15.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DatalinqDataContext/LichSuViGiaoDich" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1aad7d8b-a61d-4355-b81e-2fc639583282" absoluteBounds="9.765, 16.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf981f83-7ca7-4867-85da-834d8c27470a" absoluteBounds="18.75, 6.75, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/DatalinqDataContext/LichSuRutTien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="336f6710-fe13-4b5b-966d-9d39bbc62ae3" absoluteBounds="18.765, 7.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32ca7eb9-9259-4588-a90d-ca1c465208f5" absoluteBounds="12.75, 20.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DatalinqDataContext/HoaHong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c8733c9-f07a-4e26-9d62-ac9d0154c4bd" absoluteBounds="12.765, 21.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5fa9906-b481-4858-858b-61d16461d4ed" absoluteBounds="0.75, 21.75, 2, 8.3091455078125023">
+      <DataClassMoniker Name="/DatalinqDataContext/Member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dad110c-793d-440d-bca0-285580109e4f" absoluteBounds="0.765, 22.21, 1.9700000000000002, 7.7491455078125009" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

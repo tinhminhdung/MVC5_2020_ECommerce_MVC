@@ -19,6 +19,7 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
     {
         private string status = "1";
         public int i = 1;
+        DateTime fDate, tDate;
         private string lang = Captionlanguage.Language;
         DatalinqDataContext db = new DatalinqDataContext();
         protected void Page_Load(object sender, EventArgs e)
@@ -39,10 +40,18 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
                 {
                     ddlstatus.SelectedValue = Request["st"];
                 }
+                if (Request["Tu"] != null && !Request["Tu"].Equals(""))
+                {
+                    txtNgayThangNam.Text = Request["Tu"];
+                }
+                if (Request["Den"] != null && !Request["Den"].Equals(""))
+                {
+                    txtDenNgayThangNam.Text = Request["Den"];
+                }
                 this.MultiView1.ActiveViewIndex = 0;
-				 this.ShowProducts();
+                this.ShowProducts();
             }
-           
+
         }
 
         //private void ShowProducts()
@@ -73,13 +82,30 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
         public void ShowProducts()
         {
             string sql = "";
+            if (Commond.Check(txtNgayThangNam.Text))
+                fDate = Commond.ConvertStringToDate(txtNgayThangNam.Text, "dd/MM/yyyy");
+            if (Commond.Check(txtDenNgayThangNam.Text))
+                tDate = Commond.ConvertStringToDate(txtDenNgayThangNam.Text, "dd/MM/yyyy");
+
+            if (txtNgayThangNam.Text != "" && txtDenNgayThangNam.Text != "")
+            {
+                sql += " AND (CAST([Create_Date] AS DATE) >= '" + Commond.FormatDate(fDate.Date) + "' ) AND (CAST([Create_Date] AS DATE) <= '" + Commond.FormatDate(tDate.Date) + "' )  ";
+            }
+            else if (txtNgayThangNam.Text == "" && txtDenNgayThangNam.Text != "")
+            {
+                sql += " AND (CAST([Create_Date] AS DATE) <= '" + Commond.FormatDate(tDate.Date) + "' ) ";
+            }
+            else if (txtNgayThangNam.Text != "" && txtDenNgayThangNam.Text == "")
+            {
+                sql += " AND (CAST([Create_Date] AS DATE) >= '" + Commond.FormatDate(fDate.Date) + "' ) ";
+            }
             if (!ddlstatus.SelectedValue.Equals("-1"))
             {
                 sql += " and Status=" + ddlstatus.SelectedValue + " ";
             }
             if (txtkeyword.Text.Length > 0)
             {
-                sql += " and (dbo.fuConvertToUnsign(Name) LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Address LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Phone LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Email LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Money LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "') ";
+                sql += " and (dbo.fuConvertToUnsign(Name) LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Address LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Phone LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR Email LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "' OR ID LIKE N'" + Framwork.FCarts.SearchApproximate.Exec(Framwork.FCarts.ConvertVN.Convert(txtkeyword.Text)) + "') ";
             }
             int Tongsobanghi = 0;
             Int16 pages = 1;
@@ -111,8 +137,20 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
             {
                 Tongsobanghi = Tongsobanghi / Tongsotrang;
             }
-            ltpage.Text = Commond.PhantrangAdmin("/admin.aspx?u=carts", Tongsobanghi, pages);
+            ltpage.Text = Commond.PhantrangAdmin("/admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "&Tu=" + txtNgayThangNam.Text + "&Den=" + txtDenNgayThangNam.Text + "", Tongsobanghi, pages);
         }
+        protected void txtNgayThangNam_TextChanged(object sender, EventArgs e)
+        {
+            ShowProducts();
+            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "&Tu=" + txtNgayThangNam.Text + "&Den=" + txtDenNgayThangNam.Text + "");
+        }
+
+        protected void txtDenNgayThangNam_TextChanged(object sender, EventArgs e)
+        {
+            ShowProducts();
+            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "&Tu=" + txtNgayThangNam.Text + "&Den=" + txtDenNgayThangNam.Text + "");
+        }
+
         protected void btncancel_Click(object sender, EventArgs e)
         {
             this.MultiView1.ActiveViewIndex = 0;
@@ -154,7 +192,8 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
         }
         protected void btnshow_Click(object sender, EventArgs e)
         {
-            this.ShowProducts();
+            ShowProducts();
+            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "&Tu=" + txtNgayThangNam.Text + "&Den=" + txtDenNgayThangNam.Text + "");
         }
 
         protected void Delete_Load(object sender, EventArgs e)
@@ -302,7 +341,7 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
 
             }
             this.ShowProducts();
-            
+
         }
 
         protected void UnPass_Load(object sender, EventArgs e)
@@ -359,33 +398,9 @@ namespace VS.ECommerce_MVC.cms.Admin.Products
         protected void ddlstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowProducts();
-            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "");
+            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "&Tu=" + txtNgayThangNam.Text + "&Den=" + txtDenNgayThangNam.Text + "");
         }
-        protected void ddltrangthai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList ddltrangthai = (DropDownList)sender;
-            var id = (HiddenField)ddltrangthai.FindControl("hiID");
-            List<Entity.Carts> list = SCarts.Name_Text("select * from Carts where id=" + id.Value + "  ");
-            if (list.Count > 0)
-            {
-                SCarts.UpdateStatus(id.Value, ddltrangthai.SelectedValue);
-            }
-            ShowProducts();
-            lblmsg.Text = "Cập nhật cấp nhóm sản phẩm thành công !!";
-            Response.Redirect("admin.aspx?u=pro&su=carts&st=" + ddlstatus.SelectedValue + "");
-        }
-        protected void rp_items_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                DropDownList ddltrangthai = (e.Item.FindControl("ddltrangthai") as DropDownList);
-                HiddenField id = (e.Item.FindControl("hdStatus") as HiddenField);
-                if (id.Value != "")
-                {
-                    ddltrangthai.SelectedValue = id.Value;
-                }
-            }
-        }
+
         protected void Export_Click(object sender, EventArgs e)
         {
             string Namefile = "Danhsachdondathang";

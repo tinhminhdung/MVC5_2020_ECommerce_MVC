@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+    string language = MoreAll.Captionlanguage.SetLanguage();
+}
+@section jsFooter{
+    <script src="~/Resources/ScripMvc/ThanhToan.js"></script>
+}
+@using (Html.BeginForm())
+{
+    <div class="content-wrapper" id="nhanTuVan">
+        <div class="page-content fade-in-up">
+            <div class="ibox">
+                <div class="ibox-head">
+                    <div class="ibox-title">Rút tiền</div>
+                    <div class="ibox-tools">
+                        <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+                <div class="ibox-body">
+                    <div style="padding: 10px 10px 10px 10px; color:red">
+                        @Html.Raw(ViewBag.ltmsg)
+                        @Html.Raw(ViewBag.ThongBao)
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tổng tiền trong ví</label>
+                        <div class="col-sm-10">
+                            Tổng tiền trong ví: @Html.Raw(ViewBag.lttongtien) VNĐ
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Số tiền cần rút <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtsotiencanrut", (string)ViewBag.ViBayMuoiPT, new { placeholder = "", @class = "form-control form-control-lg required txt" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tên ngân hàng <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txttennganhang", (string)ViewBag.TenNganHang, new { placeholder = "", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Họ và tên <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txthovaten", (string)ViewBag.SoTaiKhoan, new { placeholder = "", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Số tài khoản <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtsotaikhoan", (string)ViewBag.ChuTaiKhoan, new { placeholder = "", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+                    @*<div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Chi nhánh <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtchinhanh", (string)ViewBag.ChiNhanh, new { placeholder = "", @class = "form-control form-control-lg required" })
+
+                        </div>
+                    </div>*@
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nội dung <span style=" color:red">*</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtnoidungchuyentien", "", new { placeholder = "", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-10 ml-sm-auto">
+
+                            <div style="">
+                                <div style="padding: 10px 10px 10px 10px; color:red">@Html.Raw(ViewBag.ThongBao)</div>
+                            </div><input type="submit" value="Thanh toán" onclick="return SendTuVan();" class="btn btn-info" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@Html.Raw(ViewBag.ltmsg)
+<script type="text/javascript">
+    var submit1 = 0;
+    function SendTuVan() {
+        var obError = undefined;
+        $("#nhanTuVan .required").each(function () {
+            $(this).removeClass("boxFocus");
+            if (obError == undefined && $(this).val() === '') {
+                obError = $(this);
+                return false;
+            }
+        });
+        if (obError != undefined) {
+            obError.focus();
+            obError.addClass("boxFocus");
+            alert("Vui lòng nhập đầy đủ thông tin trong các ô có dấu * trước khi gửi");
+            return false;
+        }
+        if (++submit1 > 1) {
+            alert('Hệ thống đang xử lý. Vui lòng đợi, Không kích nhiều lần');
+            return false;
+        }
+    };
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Rút tiền ");
+    });
+</script>
+
+<script>
+    $('form').submit(function () {
+        $(':submit', this).click(function () {
+            return false;
+        });
+    });
+</script>
+<script>
+
+    function fomart_split(input, number) { try { var value = input; if (value != null && !value.length < 1) { return value.split(" - ")[number]; } else { return ""; } } catch (e) { } }
+    jQuery(document).ready(function ($) { $(".txt").on('keyup', function () { var n = parseInt($(this).val().replace(/\D/g, ''), 10); $(this).val(n.toLocaleString().replaceAll(".", ",").replaceAll("NaN", "")); }); $(".txt").load('keyup', function () { var n = parseInt($(this).val().replace(/\D/g, ''), 10); if (n.toLocaleString() != 'NaN') { $(this).val(n.toLocaleString().replaceAll(".", ",").replaceAll("NaN", "")); } }); }); $('body').on('keyup', '.txt', function (e) { var n = parseInt($(this).val().replace(/\D/g, ''), 10); if (n.toLocaleString() != 'NaN') { $(this).val(n.toLocaleString().replaceAll(".", ",").replaceAll("NaN", "")); } });
+</script>

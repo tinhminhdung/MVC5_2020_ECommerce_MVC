@@ -50,6 +50,8 @@
     <Compile Include="AdminUser\FAdminUser.cs" />
     <Compile Include="Dichvu\FDichvu.cs" />
     <Compile Include="FDanhGiaSao\FDanhGiaSao.cs" />
+    <Compile Include="FLichSuRutTien\FLichSuRutTien.cs" />
+    <Compile Include="FLoiNhuanMuaBan\FLoiNhuanMuaBan.cs" />
     <Compile Include="Gioithieu\FGioithieu.cs" />
     <Compile Include="ModulControls\FModulControls.cs" />
     <Compile Include="Nfooter\FNfooter.cs" />

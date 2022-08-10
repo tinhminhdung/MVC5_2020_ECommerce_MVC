@@ -1,77 +1,108 @@
 ﻿@model PagedList.IPagedList<LCart>
 @using PagedList.Mvc
 @{
-    ViewBag.Title = "LichSuMuaHang";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
 }
-
-<section class="margin-top-30">
-    <div class="wrap_ padding_mobile">
-        <div class="row">
-            <div class="section_maps">
-                <div class="container max767 title_head margin-bottom-20">
-                    <div class="page_title page__ ">
-                        <h1 class="title_page_h1"><span>Lịch sử mua hàng</span></h1>
+<div class="content-wrapper">
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            @*<div class="ibox-head">
+                    <div class="ibox-title">Lịch sử mua hàng</div>
+                    <div class="ibox-tools">
+                        <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                     </div>
+                </div>*@
+            <div class="ibox-body ">
 
-                </div>
-                <div class="container contact contact-owf">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="page-login page_cotact">
-                                <div id="pagelogin">
+                <div class="">
+                    <div class="table-responsive tab-all" style="overflow-x: auto;">
 
+                        <div class="list_item">
+                            <table id="tbl_Item" class="table table-bordered" style=" width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Đơn hàng</th>
+                                        <th>Ngày</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Hình thức TT</th>
+                                        <th>Giá trị đơn hàng</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int k = 1;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr class="first odd">
+                                                <td style="text-align: center;">
+                                                    @k
+                                                </td>
+                                                <td style="text-align: center; color:red"><a style=" color:red" title="Xem chi tiết đơn hàng" href="/account/orders/@item.ID">@item.ID</a></td>
+                                                <td style="text-align: center">@MoreAll.MoreAll.FormatDate(item.Create_Date.ToString())</td>
+                                                <td style="text-align: center">@item.Address </td>
+                                                <td style="text-align: center">@item.Phuongthucthanhtoan </td>
 
-                                    <div class="my-account">
-                                        <div class="dashboard">
-                                            <div class="recent-orders">
-                                                <div class="table-responsive tab-all" style="overflow-x: auto;">
-                                                    <table class="table table-cart lichsumuahang">
-                                                        <thead class="thead-default">
-                                                            <tr>
-                                                                <th>Đơn hàng</th>
-                                                                <th>Ngày</th>
-                                                                <th>Địa chỉ</th>
-                                                                <th>Giá trị đơn hàng</th>
-                                                                <th>Trạng thái</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                            @foreach (var item in Model)
-                                                            {
-                                                            <tr class="first odd">
-                                                            <td style="text-align: center; color:red"><a style=" color:red" title="Xem chi tiết đơn hàng" href="/account/orders/@item.ID">#@item.ID</a></td>
-                                                            <td style="text-align: center">@MoreAll.MoreAll.FormatDate(item.Create_Date.ToString())</td>
-                                                            <td style="text-align: center">@item.Address </td>
-                                                            <td style="text-align: center"><span class="price">@AllQuery.MorePro.Detail_Price(item.Money.ToString())₫</span></td>
-                                                            <td style="text-align: center">
-                                                            @AllQuery.MorePro.ShowTrangThai(item.Status.ToString())
-                                                            </td>
-                                                            </tr>
-                                                            }
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="text-xs-right">
-                                                </div>
-                                                <div class="phantrang" style="">
-                                                    @Html.PagedListPager(Model, page => Url.Action("LichSuMuaHang", new { page }))
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-                            </div>
+                                                <td style="text-align: center"><span class="price">@AllQuery.MorePro.Detail_Price(item.Money.ToString())₫</span></td>
+                                                <td style="text-align: center">
+                                                    @AllQuery.MorePro.ShowTrangThai(item.Status.ToString())
+                                                </td>
+                                            </tr>
+                                            k++;
+                                        }
+                                        }
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                    <div class="text-xs-right">
+                    </div>
+                    <div class="phantrang" style="">
+                        @Html.PagedListPager(Model, page => Url.Action("LichSuMuaHang", new { page }))
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Lịch sử mua hàng");
+    });
+</script>
+
+
+<style>
+    .pagination {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+        .pagination .active {
+            padding: 0px;
+            line-height: 12px;
+            height: 11px;
+            text-decoration: none;
+            color: #ed1c24;
+            width: 8px;
+            display: inline-table;
+        }
+
+        .pagination a {
+            font-size: 14px;
+            padding: 9px;
+            line-height: 14px;
+            height: 11px;
+            color: #666;
+            text-decoration: none;
+            display: inline-table;
+        }
+
+            .pagination a:hover {
+                text-decoration: none;
+                color: #ed1c24 !important;
+            }
+</style>

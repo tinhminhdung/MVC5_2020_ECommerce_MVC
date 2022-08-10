@@ -1,133 +1,264 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
 }
-
 @section jsFooter{
-<script src="~/Resources/js/jquery-1.9.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-<script src="/Resources/ScripMvc/ThongBao.js"></script>
+    <script src="/Resources/ScripMvc/ThongBao.js"></script>
+    <script src="~/Resources/js/ServiceTinhThanh.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                $('#ddlCountry').val(@ViewBag.TinhThanh);
+                _getProvince(@ViewBag.TinhThanh)
+            }, 1000);
+            setTimeout(function () {
+                $('#ddlProvince').val(@ViewBag.QuanHuyen);
+                _getDistrict(@ViewBag.QuanHuyen)
+            }, 2000);
+
+            setTimeout(function () {
+                $('#ddlDistrict').val(@ViewBag.PhuongXa);
+            }, 3000);
+        });
+    </script>
+
 }
 
-@{Html.RenderAction("Nav_conten", "My_Partialview");}
 @using (Html.BeginForm("HoSoThanhVien", "Members", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="container">
-        <h1 class="title-head"><span>Hồ sơ thành viên</span></h1>
-        <div class="row">
-            <div class="col-lg-6 coldangky">
-                <div class="page-login margin-bottom-30">
-                    <div id="login">
-                        <span>
-                            Cập nhật thông tin hồ sơ của bạn
-                        </span>
-                        <div id="pagelogin">
-                            <div class="group_contact">
-                                @*<div style="padding: 10px 10px 10px 10px; color:red">@ViewData["Greeting"]</div>*@
-                                @if (TempData["AlertMessage"] != null)
-                                {
-                                    <div id="AlertBox" class="alert @TempData["AlertType"] Xoa">
-                                        @TempData["AlertMessage"]
-                                    </div>
-                                }
-                                <div style="padding: 10px 10px 10px 10px; color:red">@Html.Raw(ViewBag.ThongBao)</div>
-                                <div class="form-signup clearfix">
-                                    <div class="group_contact row">
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <label class="">@Commond.label("l_name"): </label>
-                                            <div class="TextBox">
-                                                @Html.TextBox("txtHoTen", (string)ViewBag.Name, new { placeholder = "Họ và tên", @class = "form-control form-control-lg" })
-                                            </div>
-                                            <p style="color:red;" id="TB_TenKH"></p>
-                                        </fieldset>
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <label class="">Email:</label>
-                                            <div class="TextBox">
-                                                @Html.TextBox("txtemail", (string)ViewBag.Email, new { placeholder ="Email", @class = "form-control form-control-lg" })
-                                            </div>
-                                            <p style="color:red;" id="TB_Email"></p>
-                                        </fieldset>
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <label class="">Phone:</label>
-                                            <div class="TextBox">
-                                                @Html.TextBox("txtphone", (string)ViewBag.Phone, new { placeholder = "Điện thoại", @class = "form-control form-control-lg" })
-                                            </div>
-                                            <p style="color:red;" id="TB_SoDienThoai"></p>
-                                        </fieldset>
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <label class="">@Commond.label("lt_birthday"):</label>
-                                            <div class="TextBox">
-                                                @*@Html.TextBox("txtngaysinh", (string)ViewBag.NgaySinh, new { placeholder = "Ngày sinh", @class = "date form-control form-control-lg" })*@
+    <div class="content-wrapper">
+        <div class="page-content fade-in-up">
+            <div class="ibox">
+                <div class="ibox-head">
+                    <div class="ibox-title">Hồ sơ thành viên</div>
+                    <div class="ibox-tools">
+                        <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+
+                <div class="ibox-body" id="nhanTuVan">
+                    <div class="alert alert-warning">
+                        <strong>Cảnh báo!</strong> Quý khách hàng lưu ý : Vui lòng điền thông tin chính xác , sau khi điền xong hệ thống sẽ khóa lại không cho phép chỉnh sửa nữa.
+                    </div>
+
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] Xoa">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Họ và tên <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtHoTen", (string)ViewBag.Name, new { placeholder = "Họ và tên", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+                    @*<div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Email <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtemail", (string)ViewBag.Email, new { placeholder = "Email", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>*@
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Điện thoại <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtphone", (string)ViewBag.Phone, new { placeholder = "Điện thoại", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+                    @*<div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Ngày sinh <span style=" color:red">(*)</span></label>
+                            <div class="col-sm-10">
+                                <input class="form-control required" id="txtngaysinh" name="txtngaysinh" type="date" value="@ViewBag.txtngaysinh">
+                            </div>
+                        </div>*@
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tỉnh thành <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            <select id="ddlCountry" name="ddlCountry" class="form-control required">
+                                <option value="">--Chọn Tỉnh thành--</option>
+                            </select>
+                        </div>
+                    </div>
 
 
-                                                <div id="date" class="input-group date" data-date-format="dd/mm/yyyy">
-                                                    @Html.TextBox("txtngaysinh", (string)ViewBag.NgaySinh, new { placeholder = "Ngày/Tháng/Năm", @class = "form-control" }) <span class="input-group-addon"></span>
-                                                </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Quận huyện <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-5">
+                            <select id="ddlProvince" name="ddlProvince" class="form-control ">
+                                <option value="">--Chọn Quận huyện--</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5 row paddingMB" >
+                            <label class="col-sm-4 col-form-label">Phường xã <span style=" color:red">(*)</span></label>
+                            <div class="col-sm-8 paddingMB">
+                                <select id="ddlDistrict" name="ddlDistrict" class="form-control required">
+                                    <option value="">--Chọn Phường xã--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Địa chỉ nhận hàng<span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("txtaddress", (string)ViewBag.Address, new { placeholder = "Địa chỉ", @class = "date form-control form-control-lg required" })
+                        </div>
+                    </div>
 
-                                            </div>
-                                            <p style="color:red;" id="TB_MatKhau"></p>
-                                        </fieldset>
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <label class="">@Commond.label("l_address"):</label>
-                                            <div class="TextBox">
-                                                @Html.TextBox("txtaddress", (string)ViewBag.Address, new { placeholder = "Địa chỉ", @class = "date form-control form-control-lg" })
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tên ngân hàng <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("TenNganHang", (string)ViewBag.TenNganHang, new { placeholder = "Tên ngân hàng", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Chủ tài khoản <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("SoTaiKhoan", (string)ViewBag.SoTaiKhoan, new { placeholder = "Chủ tài khoản", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Số tài khoản <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("ChuTaiKhoan", (string)ViewBag.ChuTaiKhoan, new { placeholder = "Số tài khoản", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>
 
-                                                @* @Html.TextBox("txtaddress", (string)ViewBag.Address)*@
-                                            </div>
-                                            <p style="color:red;" id="TB_DiaChi"></p>
-                                        </fieldset>
-                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots" style=" display:none">
-                                            <label class="">Ảnh đại diện:</label>
-                                            <div class="TextBox">
-                                                @Html.TextBox("file", "", new { type = "file" }) <br />
-                                                <input id="HiddenAnhDaiDien" name="HiddenAnhDaiDien" type="hidden" value="@ViewBag.AnhDaiDiens" />
-                                            </div>
-                                            <div class="Avata">@Html.Raw(ViewBag.Avata)</div>
-                                            <p style="color:red;" id="TB_DiaChi"></p>
-                                        </fieldset>
-                                        <div style=" clear:both"></div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cancots">
-                                            <input type="submit" value="@Commond.label("l_update")" onclick="return DangKyThanhVien();" class="btnmvc" />
-                                        </div>
-                                    </div>
+                    @*<div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Chi nhánh <span style=" color:red">(*)</span></label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("ChiNhanh", (string)ViewBag.ChiNhanh, new { placeholder = "Chi nhánh", @class = "form-control form-control-lg required" })
+                        </div>
+                    </div>*@
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-sm-10">
+                            @*<div class="TextBox">
+                                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                                    <input id="HiddenAnhDaiDien" name="HiddenAnhDaiDien" type="hidden" value="@ViewBag.AnhDaiDiens" />
+                                </div>
+                                <div class="Avata">@Html.Raw(ViewBag.Avata)</div>
+                                <p style="color:red;" id="TB_DiaChi"></p>*@
+
+                            <div id="UpFile">
+                                <div id="ShowCMTAT">
+                                    <input class="form-control requiredAnh" type="hidden" id="CMTAT" name="CMTAT" value="@ViewBag.Avata">
+                                    <img id="CMTAT1" class="" style="width: 300px;" for="fileUploadCMTAT" src="@ViewBag.Avata" />
+                                </div>
+                                <div style=" clear:both"></div>
+                                <div>
+                                    <input type="file" style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;" name="fileUploadCMTAT" id="fileUploadCMTAT" class="inputfile">
+                                    <label class="btn btn-success fileUploadCMTAT" for="fileUploadCMTAT" style="margin: 10px 0px; font-size: 12px; background: #253544 !important; color: #fff; padding: 7px; border-radius: 3px; text-align: left; "><i class="fa fa-upload" aria-hidden="true"></i> Upload ảnh đại diện</label>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                    </div>
-                    @*<div class="social-login" style="margin-top: 30px; clear: both;">
-                    <p>
-                        Đăng nhập với Facebook và Google
-                    </p>
-                    <div class="button-social">
-                        <button type="button" class="btsocialloginfb">Facebook</button>
-                    </div>
-                    <div class="button-social">
-                        <button type="button" class="btsociallogingg">Google</button>
-                    </div>
-                </div>*@
+                    @{
+                            if (ViewBag.GioiTinh == 0)
+                            {
+                                <div class="form-group row">
+                                    <div class="col-sm-10 ml-sm-auto">
+                                        <input type="submit" value="Cập nhật hồ sơ" onclick="return SendTuVan(); DangKyThanhVien();" class="btn btn-info" />
+                                    </div>
+                                </div>
+                            }
+                        }
+
                 </div>
-            </div>
-            <div class="clearfix">
             </div>
         </div>
     </div>
     @Html.Raw(ViewBag.style)
 }
 
+<style>
+    select.form-control:not([size]):not([multiple]) {
+        height: auto;
+    }
 
-<link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
+    .form-control-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+        font-size: 14px;
+    }
+</style>
 <script type="text/javascript">
     $(function () {
-        $("#datepicker").datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        $('.date').datepicker({
-            autoclose: true,
-            todayHighlight: true
+        $('#txtHead').html("Cập nhật hồ sơ thành viên");
+    });
+    function affiliate_url_copy() {
+        var copyText = document.getElementById("linkgioithieu");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        alert("Coppy link thành công: " + copyText.value);
+    }
+
+    $(document).ready(function () {
+
+        $("#fileUploadCMTAT").change(function () {
+            var vtrUpload = $("#fileUploadCMTAT").val().toLowerCase();
+            var regexVTRUpload = new RegExp("(.*?)\.(png|jpg|jpeg|rar)$");//png|jpg|jpeg
+            if (!(regexVTRUpload.test(vtrUpload))) {
+                $("#fileUploadCMTAT").val("");
+                alert("File không đúng định dạng. Vui lòng kiểm tra lại.");
+            } else {
+                UploadCMTAT();
+            }
+            UploadCMTAT();
+
         });
     });
-    $('#Category').val(@ViewBag.Categorys).change();
+
+    function UploadCMTAT() {
+        //debugger;
+        var data = new FormData();
+        var files = $("#fileUploadCMTAT").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+        $.ajax({
+            url: "/Ajax/UpFileChungMinhThu",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            async: true,
+            success: function (data) {
+                // alert(data.link  );
+                $("#CMTAT").val(data.link);
+                $('#CMTAT1').attr("src", data.link);
+                $('#ShowCMTAT').show();
+            },
+            error: function (er) {
+                alert("Thiết bị không hỗ trợ up ảnh từ camera. Chọn file từ bộ nhớ thiết bị!");
+            }
+        });
+    }
+
+</script>
+
+<script type="text/javascript">
+    function SendTuVan() {
+        var obError = undefined;
+        $("#nhanTuVan .required").each(function () {
+            $(this).removeClass("boxFocus");
+            if (obError == undefined && $(this).val() === '') {
+                obError = $(this);
+                return false;
+            }
+        });
+        if (obError != undefined) {
+            obError.focus();
+            obError.addClass("boxFocus");
+            alert("Vui lòng nhập đầy đủ thông tin trong các ô có dấu * trước khi gửi");
+            return false;
+        }
+        if ($(".requiredAnh").val() == '') {
+            alert("Vui lòng Upload ảnh đại diện");
+            return false;
+        }
+
+    };
 </script>

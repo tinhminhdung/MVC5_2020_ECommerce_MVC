@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Cart.ascx.cs" Inherits="VS.ECommerce_MVC.cms.Admin.Products.Cart" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <script src="/Scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
 <%@ Register TagPrefix="cc1" Namespace="SiteUtils" Assembly="CollectionPager" %>
@@ -30,15 +31,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="span6">
+                            <div class="span12">
                                 <div class="dataTables_filter" id="sample_1_filter">
                                     <asp:DropDownList ID="ddlstatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlstatus_SelectedIndexChanged" Width="144px">
                                         <asp:ListItem Value="-1" Selected="True">Tất cả các mục</asp:ListItem>
                                         <asp:ListItem Value="1">Đơn hàng đã duyệt</asp:ListItem>
                                         <asp:ListItem Value="0">Đơn hàng chưa duyệt</asp:ListItem>
-                                        <asp:ListItem Value="2">Đơn hàng đang chờ xử lý</asp:ListItem>
-                                        <asp:ListItem Value="3">Đơn hàng đang vận chuyển</asp:ListItem>
                                     </asp:DropDownList>
+                                        <asp:TextBox Style="width: 200px;" ID="txtNgayThangNam" placeholder="Tìm kiếm từ ngày/tháng/năm" AutoPostBack="true" OnTextChanged="txtNgayThangNam_TextChanged" runat="server" CssClass="txt_csssearch" Width="200px"></asp:TextBox>
+                                        <cc1:CalendarExtender ID="CalendarExtender1" Format="dd/MM/yyyy" runat="server" TargetControlID="txtNgayThangNam"></cc1:CalendarExtender>
+                                        <asp:TextBox Style="width: 200px;" ID="txtDenNgayThangNam" placeholder="Tìm kiếm đến ngày/tháng/năm" AutoPostBack="true" OnTextChanged="txtDenNgayThangNam_TextChanged" runat="server" CssClass="txt_csssearch" Width="200px"></asp:TextBox>
+                                        <cc1:CalendarExtender ID="CalendarExtender2" Format="dd/MM/yyyy" runat="server" TargetControlID="txtDenNgayThangNam"></cc1:CalendarExtender>
+
+
                                     <asp:TextBox ID="txtkeyword" runat="server" CssClass="txt_csssearch"></asp:TextBox>
                                     <asp:Button ID="btnshow" runat="server" Text="Hiển thị" OnClick="btnshow_Click" CssClass="vadd toolbar btn btn-info"></asp:Button>
                                     <asp:Button ID="btxoa" runat="server" OnClick="btxoa_Click" OnClientClick=" return confirmDelete(this);" Text="Xóa" ToolTip="Xóa những lựa chọn !" CssClass="vadd toolbar btn btn-info" />
@@ -47,7 +52,7 @@
                             </div>
                         </div>
                         <div class="list_item">
-                            <asp:Repeater ID="rp_items" runat="server" OnItemCommand="rp_items_ItemCommand" OnItemDataBound="rp_items_ItemDataBound">
+                            <asp:Repeater ID="rp_items" runat="server" OnItemCommand="rp_items_ItemCommand" >
                                 <ItemTemplate>
                                     <tr height="40">
                                         <td style="text-align: center;">
@@ -55,12 +60,11 @@
                                         </td>
                                         <td align="left" style="padding-left: 10px; line-height: 22px; color: #646465" width="500px">
                                            <span style="color: #444444; padding-left:0px; font-weight: bold; color:red">Mã đơn hàng: #<%#DataBinder.Eval(Container.DataItem, "ID")%></span><br />
-                                             Họ và tên:<span style="color: #444444; padding-left: 27px; font-weight: bold"><%#DataBinder.Eval(Container.DataItem, "Name")%></span><br />
+                                             Họ và tên:<span style="color: #444444; padding-left: 27px; font-weight: bold">  <a target="_blank" href="/admin.aspx?u=Thanhvien&IDThanhVien=<%# Eval("IDThanhVien") %>"><%#DataBinder.Eval(Container.DataItem, "Name")%></a></span><br />
                                             Địa chỉ:<span style="color: #444444; padding-left: 40px; font-weight: bold"><%#DataBinder.Eval(Container.DataItem, "Address")%></span><br />
                                             Điện thoại:<span style="color: #444444; padding-left: 22px; font-weight: bold"><%#DataBinder.Eval(Container.DataItem, "Phone")%></span><br />
                                             Email:<span style="color: #444444; padding-left: 15px; font-weight: bold"><%#DataBinder.Eval(Container.DataItem, "Email")%></span><br />
-                                          <%--  <div>Hình thức thanh toán: <span style="color: #fff; padding: 3px; font-weight: bold; background: #1a8506; border-radius: 5px; width: 250px"><%#DataBinder.Eval(Container.DataItem, "Phuongthucthanhtoan")%></span></div>
-                                            <div>Phương thức vận chuyển: <span style="<%#Thanhtoan(Eval("ID").ToString())%>"><%#DataBinder.Eval(Container.DataItem, "Hinhthucvanchuyen")%></span></div>--%>
+                                       <%-- <div>Hình thức thanh toán: <span style="color: #fff; padding: 3px; font-weight: bold; background: #1a8506; border-radius: 5px; width: 250px"><%#DataBinder.Eval(Container.DataItem, "Phuongthucthanhtoan")%></span></div>--%>
                                         </td>
                                         <td style="text-align: center;">
                                             <%#AllQuery.MorePro.FormatMoney(Eval("Money").ToString())%>
@@ -69,23 +73,17 @@
                                             <%#MoreAll.MoreAll.FormatDate(DataBinder.Eval(Container.DataItem, "Create_Date").ToString())%>
                                         </td>
                                         <td style="text-align: center;">
-                                            <asp:DropDownList ID="ddltrangthai" runat="server" OnSelectedIndexChanged="ddltrangthai_SelectedIndexChanged" AutoPostBack="true">
-                                                <asp:ListItem Value="1">Đơn hàng đã duyệt</asp:ListItem>
-                                                <asp:ListItem Value="0">Đơn hàng chưa duyệt</asp:ListItem>
-                                                <asp:ListItem Value="2">Đơn hàng đang chờ xử lý</asp:ListItem>
-                                                <asp:ListItem Value="3">Đơn hàng đang vận chuyển</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <asp:HiddenField ID="hdStatus" Value='<%#Eval("Status") %>' runat="server" />
+                                            <%#MoreAll.MoreAll.TinhTrangDonHang(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                         </td>
                                         
-                                        <td style="text-align: center;">
+                                     <%--   <td style="text-align: center;">
                                             <asp:LinkButton ID="LinkButton5" CommandName="SendMail" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"ID")%>' runat="server"><img src="Resources/admin/images/email.png" border=0 /></asp:LinkButton>
                                         </td>
                                         <td style="text-align: center;">
                                             <a target="_blank" class="active action-link-button"  href="/cms/admin/products/Cartdetail.aspx?ID_Cart=<%#DataBinder.Eval(Container.DataItem,"ID")%>"><img src="/Resources/Admins/images/print.png" /></a>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <asp:LinkButton ID="LinkButton1" CommandName="Detail" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"ID")%>' runat="server"><img src="/Resources/admin/images/chitiet.png" border=0 /></asp:LinkButton>
+                                        </td>--%>
+                                           <td style="text-align: center;">
+                                            <a href="/admin.aspx?u=ChitietDonHang&ID=<%#DataBinder.Eval(Container.DataItem,"ID")%>"><img src="/Resources/admin/images/chitiet.png" border="0"></a>
                                         </td>
                                         <td style="text-align: center;">
                                                 <asp:LinkButton CssClass="active action-link-button" ID="LinkButton2" OnLoad="Delete_Load" CommandName="Delete" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"ID")%>' runat="server"><i class="icon-trash"></i></asp:LinkButton>
@@ -102,8 +100,8 @@
                                             <td class="header" style="text-align: center;">Tổng tiền</td>
                                             <td class="header" style="text-align: center;">Ngày gửi</td>
                                             <td class="header" style="text-align: center;">Tình trạng đơn hàng</td>
-                                              <td class="header" style="text-align: center;">Gửi mail</td>
-                                            <td class="header" style="text-align: center;">Print</td>
+                                     <%--         <td class="header" style="text-align: center;">Gửi mail</td>
+                                            <td class="header" style="text-align: center;">Print</td>--%>
                                           <td class="header" style="text-align: center;">Xem chi tiết</td>
                                             <td class="header">Xóa</td>
                                         </tr>

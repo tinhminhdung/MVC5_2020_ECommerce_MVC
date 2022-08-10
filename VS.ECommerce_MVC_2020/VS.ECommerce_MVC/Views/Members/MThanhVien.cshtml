@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+<div class="content-wrapper">
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div id="div-content">
+                    <div style="clear: both; height:5px"></div>
+                    <div style="padding: 10px 10px 10px 10px; color:red">@Html.Raw(ViewBag.ThongBao)</div>
+                    @*<div class="phanmucc"><b>phân mục cấp:</b> @Html.Raw(ViewBag.ltphanmuc)</div>
+                        <div style="clear: both; height:5px"></div>*@
+
+                    <div class="table-responsive tab-all" style="overflow-x: auto;">
+
+                        <div class="list_item">
+                            <table id="tbl_Item" class="table table-bordered" style=" width:100%">
+                                <thead class="thead-default">
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Thành viên</th>
+                                        <th style=" width: 200px; ">Địa chỉ</th>
+                                        <th style=" width: 200px; ">Điện thoại</th>
+                                        <th>Ngày đăng ký</th>
+                                        @*<th>Tổng doanh số</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int k = 1;
+                                        List<Member> items = ViewBag.Show as List<Member>;
+                                        if (items != null)
+                                        {
+                                            foreach (var item in items)
+                                            {
+                                                <tr>
+                                                    <td style="text-align: center;">
+                                                        @k
+                                                    </td>
+                                                    <td style="text-align: left; width: 200px" class="tenhoahong">
+                                                        @item.HoVaTen
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @item.DiaChi
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @item.DienThoai
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @item.NgayTao
+                                                    </td>
+                                                    @*<td style="text-align: center;">
+                                                            @Commond.TongDoanhSo_ThanhVien_Tree(item.ID.ToString())
+                                                        </td>*@
+
+                                                    @*<td style="text-align: center">
+                                                            <a style="color:red" href="/danh-sach-thanh-vien.html?ID=@item.ID">[Chi tiết]</a>
+                                                        </td>*@
+                                                </tr>
+                                                k++;
+                                            }
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="text-xs-right">
+                    </div>
+                    @Html.Raw(ViewBag.ltShow)
+                    <div style="clear: both;"></div>
+                    <div class="pager">
+                        @Html.Raw(ViewBag.ltpage)
+                    </div>
+
+                    <input id="hd_id" type="hidden" size="1" name="Hidden2" runat="server">
+                    <asp:HiddenField ID="hdid" runat="server" />
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Danh sách thành viên");
+    });
+</script>

@@ -1,63 +1,54 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
 }
-@*@section jsFooter{
-   <script src="/Resources/ScripMvc/ThongBao.js"></script>
-}*@
 @using (Html.BeginForm())
 {
-    <section class="margin-top-30">
-        <div class="wrap_ padding_mobile">
-            <div class="row">
-                <div class="section_maps">
-                    <div class="container max767 title_head margin-bottom-20">
-                        <div class="page_title page__ ">
-                            <h1 class="title_page_h1"><span>@Commond.label("lt_changepassword")</span></h1>
+    
+    <div class="content-wrapper">
+            <div class="page-content fade-in-up">
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Đổi mật khẩu</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                         </div>
                     </div>
-                    <div class="container contact contact-owf">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="page-login page_cotact">
-                                    <div id="pagelogin">
-                                        <div class="contact-form">
-                                          <div>@Html.Raw(ViewBag.ThongBao)</div>
-                                                <div class="form-signup clearfix">
-                                                    <div class="group_contact row">
-                                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                            <label class="">@Commond.label("lt_oldpassword"): <span style="color:red;" id="TB_TenKH"></span></label>
-                                                            <div class="TextBox">
-                                                                @Html.TextBox("txtmatkhaumoicu", "", new { placeholder = @Commond.label("lt_oldpassword") })
-                                                            </div>
-                                                           
-                                                        </fieldset>
-                                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                            <label class="">@Commond.label("lt_newpassword"):<span style="color:red;" id="TB_Email"></span></label>
-                                                            <div class="TextBox">
-                                                                @Html.Password("txtmatkhaumoi", "", new { placeholder = @Commond.label("lt_newpassword") })
-                                                            </div>
-                                                        </fieldset>
-                                                        <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                            <label class="">@Commond.label("lt_checkpassword") :<span style="color:red;" id="TB_Email"></span></label>
-                                                            <div class="TextBox">
-                                                                @Html.Password("txtmatkhauxacnhan", "", new { placeholder = @Commond.label("lt_checkpassword") })
-                                                            </div>
-                                                          
-                                                        </fieldset>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
-                                                            <input type="submit" value="@Commond.label("lt_changepassword")" class="btnmvc" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
+                    <div class="ibox-body">
+                        <div>@Html.Raw(ViewBag.ThongBao)</div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Mật khẩu cũ</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="txtmatkhaumoicu" id="txtmatkhaumoicu">
+
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Mật khẩu mới</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="txtmatkhaumoi" id="txtmatkhaumoi">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Xác nhận mật khẩu</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="txtmatkhauxacnhan" id="txtmatkhauxacnhan">
+                                </div>
+                            </div>
+                           
+                            <div class="form-group row">
+                                <div class="col-sm-10 ml-sm-auto">
+                                    <input type="submit" value="@Commond.label("lt_changepassword")" class="btn btn-info" />
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    
 }
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Đổi mật khẩu thành viên");
+    });
+</script>

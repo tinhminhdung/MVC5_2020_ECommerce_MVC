@@ -25,22 +25,15 @@ namespace Framework
         }
         #endregion
 
-
-        #region Admin
-        
-        public List<Member> CATEGORY_PHANTRANG1(string IDThanhVien, string keyword, string Status)
+        #region Danhsachthanhvien
+        public List<Member> ThanhVien_PHANTRANG1C(string GioiThieu, string Status)
         {
             string sql1 = "";
             if (!Status.Equals("-1"))
             {
                 sql1 += " and TrangThai=" + Status + " ";
             }
-            if (!IDThanhVien.Equals("0"))
-            {
-                sql1 += " and ID=" + IDThanhVien + " ";
-            }
-
-            string sql = @"SELECT * FROM  Members  where (HoVaTen like N'%" + keyword + "%'  or DiaChi like N'%" + keyword + "%' or DienThoai like '%" + keyword + "%' or Email like '%" + keyword + "%')   " + sql1 + " ";
+            string sql = @" SELECT * FROM  Members  where GioiThieu=" + GioiThieu + " " + sql1 + " ";
             SqlConnection conn = Database.Connection();
             SqlCommand comm = new SqlCommand(sql, conn);
             comm.CommandType = CommandType.Text;
@@ -57,7 +50,69 @@ namespace Framework
                 conn.Close();
             }
         }
-        public List<Member> CATEGORY_PHANTRANG2(string IDThanhVien, string keyword, string Status, int PageIndex, int Tongpage)
+        public List<Member> ThanhVien_PHANTRANG2C(string GioiThieu, string Status, int PageIndex, int Tongpage)
+        {
+            int StartRecord = PageIndex * Tongpage;
+            int EndRecord = StartRecord + Tongpage + 1;
+            string sql1 = "";
+            //if (!Status.Equals("-1"))
+            //{
+            //    sql1 += " and TrangThai=" + Status + " ";
+            //}
+            string sql = @"SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY ID DESC) AS rowindex ,* 
+                                FROM  Members
+        		                 where GioiThieu=" + GioiThieu + " " + sql1 + " ";
+            sql += ") AS A WHERE  ( A.rowindex >  " + StartRecord.ToString() + " AND A.rowindex < " + EndRecord + ")";
+            SqlConnection conn = Database.Connection();
+            SqlCommand comm = new SqlCommand(sql, conn);
+            comm.CommandType = CommandType.Text;
+            try
+            {
+                return Database.Bind_List_Reader<Member>(comm);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        #endregion
+
+
+
+        #region Admin
+
+        public List<Member> CATEGORY_PHANTRANG1(string sql2, string keyword, string Status)
+        {
+            string sql1 = "";
+            if (!Status.Equals("-1"))
+            {
+                sql1 += " and TrangThai=" + Status + " ";
+            }
+
+
+            string sql = @"SELECT * FROM  Members  where (HoVaTen like N'%" + keyword + "%'  or DiaChi like N'%" + keyword + "%' or DienThoai like '%" + keyword + "%' or Email like '%" + keyword + "%')   " + sql1 + "  " + sql2 + "  ";
+            SqlConnection conn = Database.Connection();
+            SqlCommand comm = new SqlCommand(sql, conn);
+            comm.CommandType = CommandType.Text;
+            try
+            {
+                return Database.Bind_List_Reader<Member>(comm);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public List<Member> CATEGORY_PHANTRANG2(string sql2, string keyword, string Status, int PageIndex, int Tongpage)
         {
             int StartRecord = PageIndex * Tongpage;
             int EndRecord = StartRecord + Tongpage + 1;
@@ -66,13 +121,10 @@ namespace Framework
             {
                 sql1 += " and TrangThai=" + Status + " ";
             }
-            if (!IDThanhVien.Equals("0"))
-            {
-                sql1 += " and ID=" + IDThanhVien + " ";
-            }
+
             string sql = @"SELECT *  FROM  (SELECT ROW_NUMBER() OVER (ORDER BY ID DESC) AS rowindex ,* 
                                 FROM  Members
-        		                 where (HoVaTen like N'%" + keyword + "%'  or DiaChi like N'%" + keyword + "%' or DienThoai like '%" + keyword + "%' or Email like '%" + keyword + "%')  " + sql1 + " ";
+        		                 where (HoVaTen like N'%" + keyword + "%'  or DiaChi like N'%" + keyword + "%' or DienThoai like '%" + keyword + "%' or Email like '%" + keyword + "%')  " + sql1 + " " + sql2 + " ";
             sql += ") AS A WHERE  ( A.rowindex >  " + StartRecord.ToString() + " AND A.rowindex < " + EndRecord + ")";
             SqlConnection conn = Database.Connection();
             SqlCommand comm = new SqlCommand(sql, conn);

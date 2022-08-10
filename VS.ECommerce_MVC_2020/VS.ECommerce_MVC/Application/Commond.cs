@@ -23,6 +23,290 @@ public class Commond
 
     public const string SessionCart = "SessionCart";
 
+    #region Thành viên
+    public static string ShowAnhDaiDien(string status)
+    {
+        if (status.Length > 3)
+        {
+            return "<img src=\"" + status + "\" width=\"105px\" />";
+        }
+        return "";
+    }
+
+    public static string ShowCapbac(string status)
+    {
+        if (status.Equals("1"))
+        {
+            return "<span class='ShowCapbac1'>Đại lý Cấp 1</span>";
+        }
+        else if (status.Equals("2"))
+        {
+            return "<span class='ShowCapbac2'>TN Kinh Doanh</span>";
+        }
+        else if (status.Equals("3"))
+        {
+            return "<span class='ShowCapbac3'>TP Kinh Doanh</span>";
+        }
+        else if (status.Equals("4"))
+        {
+            return "<span class='ShowCapbac4'>GĐ Kinh Doanh</span>";
+        }
+        else if (status.Equals("5"))
+        {
+            return "<span class='ShowCapbac5'>GĐ Vùng</span>";
+        }
+        else if (status.Equals("6"))
+        {
+            return "<span class='ShowCapbac6'>GĐ Miền</span>";
+        }
+        return "<span class='ShowCapbac0'>Thành viên</span>";
+    }
+    public static string TrangThaiThamGiaCoDong(string status)
+    {
+        if (status.Equals("1"))
+        {
+            return "<span class='ShowCapbac3'>Tham gia gói cổ đông</span>";
+        }
+        return "<span class='ShowCapbac0'>Chưa tham gia</span>";
+    }
+    public static string TrangThaiMuaHang(string status)
+    {
+        if (status.Equals("1"))
+        {
+            return "<span class='ShowCapbac3'>Đã mua hàng</span>";
+        }
+        return "<span class='ShowCapbac0'>Chưa mua hàng</span>";
+    }
+
+    public static string TrangThaiThamGiaCoDongMTRe(string status)
+    {
+        if (status.Equals("1"))
+        {
+            return "<span class='ShowCapbac3'>Tham gia gói cổ đông</span>";
+        }
+        return "";
+    }
+    public static string ShowTinhthanh(string id)
+    {
+        try
+        {
+            DatalinqDataContext db = new DatalinqDataContext();
+            List<Tinhthanh> data = db.ExecuteQuery<Tinhthanh>(@"SELECT * FROM Tinhthanh where id=" + id + " order by ID asc").ToList();
+            if (data.Count > 0)
+            {
+                return data[0].Name;
+            }
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+
+    public static string SumTongF1ThangTruoc(string id)
+    {
+        DatalinqDataContext db = new DatalinqDataContext();
+        string str = "0";
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("SELECT * FROM [dbo].[Members] WHERE GioiThieu =" + id + "    and month(NgayTao)=  MONTH(dateadd (month,-1, GETDATE()))  and year(NgayTao)= YEAR(dateadd (YEAR,0, GETDATE()-30 )) ");
+            return dt.Count.ToString();
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+    public static string SumTongF1ThangNay(string id)
+    {
+        DatalinqDataContext db = new DatalinqDataContext();
+        string str = "0";
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("SELECT * FROM [dbo].[Members] WHERE GioiThieu=" + id + "   and  month(NgayTao)=  MONTH(dateadd (month,0, GETDATE()))  and year(NgayTao)= YEAR(dateadd (YEAR,0, GETDATE())) ");
+            return dt.Count.ToString();
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+    public static string SumTongCDuoiThangNay(string id)
+    {
+        DatalinqDataContext db = new DatalinqDataContext();
+        string str = "0";
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("SELECT * FROM [dbo].[Members] WHERE  (([MTree] LIKE N'%|" + id + "|%')) and ID!=" + id + "   and  month(NgayTao)=  MONTH(dateadd (month,0, GETDATE()))  and year(NgayTao)= YEAR(dateadd (YEAR,0, GETDATE())) ");
+            return dt.Count.ToString();
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+    public static string SumTongTVHeThong(string id)
+    {
+        DatalinqDataContext db = new DatalinqDataContext();
+        string str = "0";
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("SELECT * FROM [dbo].[Members] WHERE  (([MTree] LIKE N'%|" + id + "|%')) and ID!=" + id + "  ");
+            return dt.Count.ToString();
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+    public static string SumThanhVienCapDuoiF1(string id)
+    {
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("select * from [Members]  where GioiThieu =" + id + "");
+            return dt.Count().ToString();
+        }
+        catch (Exception)
+        {
+        }
+        return "0";
+    }
+    public static string SumThanhVienCapDuoi(string id)
+    {
+        DatalinqDataContext db = new DatalinqDataContext();
+        string str = "0";
+        try
+        {
+            List<Entity.Member> dt = SMember.Name_Text("SELECT * FROM [dbo].[Members] WHERE(([MTree] LIKE N'%|" + id + "|%')) and ID!=" + id + "  and TrangThai=1");
+            return dt.Count.ToString();
+        }
+        catch (Exception)
+        { }
+        return "0";
+    }
+    public static string SumSoTienHopDongToanHeT(string id)
+    {
+        try
+        {
+            DatalinqDataContext db = new DatalinqDataContext();
+            var dt = db.Show_TongDoanhSo(id).ToList();
+            return dt[0].TongTien.ToString();
+        }
+        catch (Exception)
+        {
+        }
+        return "0";
+    }
+
+    public static string FormatDate_IDQR(object date)
+    {
+        return (Convert.ToDateTime(date).ToString("MMddyyhhmmss"));
+    }
+    public static bool Check(object String)
+    {
+        return ((String != null) && (String.ToString().Trim().Length > 0));
+    }
+    public static DateTime ConvertStringToDate(string Date, string FromFormat)
+    {
+        return DateTime.ParseExact(Date, FromFormat, null);
+    }
+    public static string FormatDate(object date)
+    {
+        if (date != null)
+        {
+            if (date.ToString().Trim().Length > 0 && date != null)
+            {
+                if (DateTime.Parse(date.ToString()).Year != 1900)
+                {
+                    DateTime dNgay = Convert.ToDateTime(date.ToString());
+                    return ((DateTime)dNgay).ToString("yyyy-MM-dd");
+                }
+            }
+
+        }
+        return "";
+    }
+    public static string TachMtre(string MTRee)
+    {
+        return MTRee.Replace("|", " |");
+    }
+    public static string ShowThanhVien_Display(string id)
+    {
+        string str = "";
+        List<Entity.Member> dt = SMember.GET_BY_ID(id);
+        if (dt.Count >= 1)
+        {
+            str += dt[0].HoVaTen + " - " + dt[0].DienThoai;
+        }
+        return str;
+    }
+    public static string ShowThanhVienEXel(string id)
+    {
+        string str = "";
+        List<Entity.Member> dt = SMember.GET_BY_ID(id);
+        if (dt.Count >= 1)
+        {
+            str += dt[0].HoVaTen + " - " + dt[0].DienThoai;
+        }
+        else
+        {
+            str = "Không tìm thấy thành viên";
+        }
+        return str;
+    }
+    public static string ShowMTree(string id)
+    {
+        string str = "";
+        try
+        {
+            if (id != "0" || id != "")
+            {
+                List<Entity.Member> dt = SMember.GET_BY_ID(id);
+                if (dt.Count >= 1)
+                {
+                    str = dt[0].MTRee;
+                }
+            }
+        }
+        catch (Exception)
+        { }
+        return str;
+    }
+    public static string SearchThanhVien(string keyword)
+    {
+        string str = "0";
+        List<Entity.Member> dt = SMember.Name_Text("select * from Members where (HoVaTen like N'%" + keyword + "%' or DienThoai like N'%" + keyword + "%')");
+        if (dt.Count >= 1)
+        {
+            for (int i = 0; i < dt.Count; i++)
+            {
+                str = str + "," + dt[i].ID.ToString();
+            }
+        }
+        return str.Replace("0,", "");
+    }
+
+    public static string ShowThanhVien(string id)
+    {
+        string str = "";
+        List<Entity.Member> dt = SMember.GET_BY_ID(id);
+        if (dt.Count >= 1)
+        {
+            str += "<span id=" + dt[0].ID.ToString() + " style=\" color:red\">";
+            if (dt[0].HoVaTen.ToString().Length > 0)
+            {
+                str += "<a target=\"_blank\" href=\"/admin.aspx?u=Thanhvien&IDThanhVien=" + dt[0].ID.ToString() + "\"><span style='color:red'>" + dt[0].HoVaTen + " [Level " + dt[0].CapBac + "]</span></a>";
+            }
+            str += "</span> - ";
+            if (dt[0].DienThoai.ToString().Length > 0)
+            {
+                str += dt[0].DienThoai;
+            }
+        }
+        else
+        {
+            str = "Không tìm thấy thành viên";
+        }
+        return str;
+    }
+
+    #endregion
+
     #region Modul Product
     public static string ShowNamePro(string ID)
     {
@@ -392,6 +676,29 @@ public class Commond
     #endregion
 
     #region Phân trang
+    public static string Phantrang_loc(string Url, string UrlLoc, int Tongsobanghi, Int16 pages)
+    {
+        // Bổ xung id vào để phục vụ phần lọc js,  theo mầu , kích thước, giá, ... ko bị lỗi
+        string str = "<div class='Phantrang'>";
+        if (Tongsobanghi > 1)
+        {
+            str += "<a id=\"1\" href='" + Url + "?page=1" + UrlLoc + "'><< Trang đầu</a>";
+            for (int i = 1; i <= Tongsobanghi; i++)
+            {
+                if (i == pages)
+                {
+                    str += "<a class='pageactive' id=\"" + i + "\" href=\"" + Url + "?page=" + i + "" + UrlLoc + "\">" + i + "</a>";
+                }
+                else
+                {
+                    str += "<a class='page' id=\"" + i + "\" href=\"" + Url + "?page=" + i + "" + UrlLoc + "\">" + i + "</a>";
+                }
+            }
+            str += "<a id=\"" + Tongsobanghi + "\" href='" + Url + "?page=" + Tongsobanghi + "" + UrlLoc + "'>Cuối cùng >></a>";
+        }
+        str += "</div>";
+        return str;
+    }
     //Old
     //public static string Phantrang(string Url, int Tongsobanghi, Int16 pages)
     //{
@@ -516,7 +823,7 @@ public class Commond
         return "";
     }
 
-    public static string DateTime(object date)
+    public static string DateTime_All(object date)
     {
         return (Convert.ToDateTime(date).ToString("yyyy-MM-dd"));
     }

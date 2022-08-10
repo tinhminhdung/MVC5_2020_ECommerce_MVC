@@ -22,6 +22,14 @@ namespace VS.ECommerce_MVC
             routes.MapRoute(name: "Members-Quen-mat-khau", url: "Quen-mat-khau.html", defaults: new { controller = "Members", action = "QuenMatKhau" });
             routes.MapRoute(name: "Members-lich-su-mua-hang", url: "lich-su-mua-hang.html", defaults: new { controller = "Members", action = "LichSuMuaHang" });
             routes.MapRoute("Members-chi-tiet-lich-su-mua-hang", "account/orders/{id}/{*catchall}", new { controller = "Members", action = "ChiTietDonHang", id = UrlParameter.Optional }, new { controller = "^M.*", action = "^ChiTietDonHang" });
+            routes.MapRoute(name: "ViDiem", url: "wallet.html", defaults: new { controller = "Members", action = "ViDiem" });
+
+            routes.MapRoute(name: "LinkGioiThieu", url: "link-affiliate.html", defaults: new { controller = "Members", action = "LinkGioiThieu" });
+            routes.MapRoute(name: "danh-sach-thanh-vien", url: "danh-sach-thanh-vien.html", defaults: new { controller = "Members", action = "MThanhVien" });
+            routes.MapRoute(name: "lich-su-hoa-hong", url: "lich-su-hoa-hong.html", defaults: new { controller = "Members", action = "MHoaHong" });
+            routes.MapRoute(name: "thanh-toan", url: "rut-tien.html", defaults: new { controller = "Members", action = "ThanhToan" });
+            routes.MapRoute(name: "Thanh-Toan-LS", url: "lich-su-thanh-toan.html", defaults: new { controller = "Members", action = "MLichSuThanhToan" });
+            routes.MapRoute(name: "MLSViTien", url: "lich-su-vi-tien.html", defaults: new { controller = "Members", action = "MLSViTien" });
 
             //Page404
             routes.MapRoute(name: "Page404", url: "page-404.html", defaults: new { controller = "AllPage", action = "NotFound" });

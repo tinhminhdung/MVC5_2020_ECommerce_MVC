@@ -60,7 +60,7 @@ namespace Framwork
         #region Insert
         public static int Insert(string Name, string Address, string Phone, string Email, string Contents, string Money, string lang, string Status, string Phuongthucthanhtoan, string Hinhthucvanchuyen, string StatusGiaoDich, string IDThanhVien)
         {
-            using (SqlCommand dbCmd = new SqlCommand("insert Carts values(@Name,@Address,@Phone,@Email,@Contents,getdate(),@Money,@lang,@Status,@Phuongthucthanhtoan,@Hinhthucvanchuyen,@StatusGiaoDich,@IDThanhVien)", Database.Connection()))
+            using (SqlCommand dbCmd = new SqlCommand("insert Carts values(@Name,@Address,@Phone,@Email,@Contents,getdate(),@Money,@lang,@Status,@Phuongthucthanhtoan,@Hinhthucvanchuyen,@StatusGiaoDich,@IDThanhVien,'')", Database.Connection()))
             {
                 dbCmd.CommandType = CommandType.Text;
                 dbCmd.Parameters.Add(new SqlParameter("@Name", Name));

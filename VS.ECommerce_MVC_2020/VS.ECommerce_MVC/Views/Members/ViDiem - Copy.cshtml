@@ -1,0 +1,256 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+
+}
+
+<div class="content-wrapper">
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+
+
+                <div class="content_search">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="box_with">
+                                <div class="form-group row">
+                                    <label for="vendorName" class="col-sm-4 col-form-label">Miền</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectpicker" id="Mien" data-live-search="true" onchange="js_searchbox();">
+                                            <option value="">---Chọn Miền---</option>
+                                            <option value="MB">MB - Miền Bắc</option>
+                                            <option value="MN">MN - Miền Nam</option>
+                                            <option value="MT">MT - Miền Trung</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="textMien" class="col-sm-4 col-form-label">Tỉnh thành</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectpicker" id="TinhThanh" data-live-search="true" onchange="js_searchbox();">
+                                            <option value="">---Chọn Tỉnh/Thành---</option>
+                                            <option value="BGI">BGI - Bắc Giang</option>
+                                            <option value="BNI">BNI - Bắc Ninh</option>
+                                            <option value="BDU">BDU - B&#236;nh Dương</option>
+                                            <option value="BPH">BPH - B&#236;nh Phước</option>
+                                            <option value="BTH">BTH - B&#236;nh Thuận</option>
+                                            <option value="CTH">CTH - Cần Thơ</option>
+                                            <option value="DAN">DAN - Đ&#224; Nẵng</option>
+                                            <option value="DON">DON - Đồng Nai</option>
+                                            <option value="HNO">HNO - H&#224; Nội</option>
+                                            <option value="HPH">HPH - Hải Ph&#242;ng</option>
+                                            <option value="HCM">HCM - Hồ Ch&#237; Minh</option>
+                                            <option value="KHO">KHO - Kh&#225;nh H&#242;a</option>
+                                            <option value="LDO">LDO - L&#226;m Đồng</option>
+                                            <option value="LAN">LAN - Long An</option>
+                                            <option value="NDI">NDI - Nam Định</option>
+                                            <option value="NAN">NAN - Nghệ An</option>
+                                            <option value="NBI">NBI - Ninh B&#236;nh</option>
+                                            <option value="NTH">NTH - Ninh Thuận</option>
+                                            <option value="PTH">PTH - Ph&#250; Thọ</option>
+                                            <option value="QNI">QNI - Quảng Ninh</option>
+                                            <option value="TNI">TNI - T&#226;y Ninh</option>
+                                            <option value="TNG">TNG - Th&#225;i Nguy&#234;n</option>
+                                            <option value="THO">THO - Thanh H&#243;a</option>
+                                            <option value="TTH">TTH - Thừa Thi&#234;n Huế</option>
+                                            <option value="TQU">TQU - Tuy&#234;n Quang</option>
+                                            <option value="VLO">VLO - Vĩnh Long</option>
+                                            <option value="VTU">VTU - Vũng T&#224;u</option>
+                                            <option value="YBA">YBA - Y&#234;n B&#225;i</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="textMien" class="col-sm-4 col-form-label">Kho trả</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectpicker" id="KhoTra" data-live-search="true" onchange="js_searchbox();">
+                                            <option value="">---Chọn cửa hàng ---</option>
+                                            <option value="70024">70024 - 02 Thoại Ngọc Hầu 2, HCM</option>
+                                            <option value="10033">10033 - 1 Ch&#249;a Th&#244;ng, Thị x&#227; Sơn T&#226;y, HN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box_with">
+                                <div class="form-group row">
+                                    <label for="Ngay" class="col-sm-4 col-form-label">Ngày</label>
+                                    <div class="col-sm-8" ondblclick="$('#Ngay').val('').trigger('change');">
+                                        <input type="date" id="Ngay" onchange="js_searchbox();" class="form-control" placeholder="Ngày">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="textStatus" class="col-sm-4 col-form-label">Tình trạng</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectpicker" id="TinhTrang" data-live-search="true" onchange="js_searchbox()">
+                                            <option value="">Chọn tình trạng</option>
+                                            <option value="Cận date">Cận date</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="textStatus" class="col-sm-4 col-form-label">Trạng thái</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectpicker" id="TrangThai" data-live-search="true" onchange="js_searchbox()">
+                                            <option value="">Chọn trạng thái</option>
+                                            <option value="0">Chưa xác nhận</option>
+                                            <option value="1">Đã xác nhận</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="text-align:center;">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <a href="#" class="btn btn-secondary px-5 btgetw" id="btnGetChecks">
+                                        <i class="fa fa-search" aria-hidden="true" style="margin-top: 3px; margin-right: 3px;"></i> Tìm kiếm
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <a id="btntuchoi" onclick="js_saveCheck();" class="btn btn-success px-5 rounded-0 btgetw" style=" color:#fff">
+                                        <i class="fa fa-save" aria-hidden="true" style="margin-top: 3px; margin-right: 3px;"></i> Xác nhận
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="div-content">
+                    <div class="table-responsive">
+                        <table id="tbl_Item" class="table table-bordered" style=" width:100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="text-align: left; width: 85px; max-width: 85px; ">
+                                        Miền
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 80px; max-width: 80px; ">
+                                        Tỉnh thành
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 70px; max-width: 70px; ">
+                                        Mã CH/Kho
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 200px; max-width: 200px; ">
+                                        Tên CH/Kho
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 55px; max-width: 55px; ">
+                                        Mã hàng
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 200px; max-width: 200px; ">
+                                        Tên hàng
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 50px; max-width: 50px; ">
+                                        SL <br />trả lại
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 80px; max-width: 80px; ">
+                                        Tình trạng
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 40px; max-width: 40px; ">
+                                        Ngày hết hạn
+                                    </th>
+                                    <th scope="col" style="text-align: left; width: 100px; max-width: 100px; ">
+                                        Hạn báo date
+                                    </th>
+                                    <th scope="col" style="text-align: center; width: 120px; max-width: 120px; ">
+                                        Trạng thái
+                                    </th>
+                                    <th scope="col" style="text-align: center; width: 80px; max-width: 80px; ">
+                                        Xác nhận
+                                        <span style="text-align:center !important">
+                                            <input type="checkbox" style="text-align: center; width: 100%; " id="checkall" onchange="checkall();">
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <style>
+                        NgayTraHang input[type=date] {
+                            text-align: left;
+                            padding: 4px 2px;
+                        }
+                    </style>
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#txtHead').html("Danh sách hàng trả lại");
+        $('#f_dev').html("Dữ liệu khai báo Trading Term");
+        $('#f_header').html("");
+        $('#v_review').hide();
+        $('#v_view').hide();
+        $('#v_approve').hide();
+        js_GetList();
+    });
+    function js_searchbox() {
+        js_GetList();
+    }
+    function js_ReloadTable() {
+        $('#tbl_Item').DataTable({
+            lengthMenu: [[200, 50, 70, 100, -1], [200, 50, 70, 100]],
+            //columnDefs: [
+            //    //{ 'targets': 0, 'searchable': false, 'orderable': false },
+            //    { 'targets': 9, 'searchable': false, 'orderable': false },
+            //    { 'targets': 10, 'searchable': false, 'orderable': false },
+            //    { 'targets': 11, 'searchable': false, 'orderable': false },
+            //    { 'targets': 12, 'searchable': false, 'orderable': false },
+            //    { 'targets': 13, 'searchable': false, 'orderable': false },
+            //    { 'targets': 14, 'searchable': false, 'orderable': false },
+            //    { 'targets': 15, 'searchable': false, 'orderable': false },
+            //],
+            //"order": [[0, "desc"]],
+            columnDefs: [
+                { 'targets': 7, 'orderable': false }
+            ],
+            "searching": false,
+            // fixedHeader: true,
+            //fixedHeader: {
+            //    headerOffset: 170
+            //},
+            autoWidth: false,
+            "language": {
+                "emptyTable": "Không có dữ liệu !"
+            }
+        });
+    }
+
+    function js_GetList() {
+        var Mien = $("#Mien").val();
+        var Tinh = $("#TinhThanh").val();
+        var Kho = $("#KhoTra").val();
+        var Ngay = $("#Ngay").val();
+        var TinhTrang = $("#TinhTrang").val();
+        var TrangThai = $("#TrangThai").val();
+
+        $.ajax({
+            url: '/Order/GetList_ReturnedGoods',//SP_GetWay_QLHH_getlstCH_NCC
+            type: 'POST',
+            data: JSON.stringify({ Mien: Mien, Tinh: Tinh, Kho: Kho, Ngay: Ngay, TinhTrang: TinhTrang, TrangThai: TrangThai }),
+            contentType: 'application/json, charset=utf-8',
+            beforeSend: function () {
+                js_Loading(true, 1);
+            },
+            success: function (data) {
+                $("#div-content").find('tbody').empty();
+                $('#div-content').html(data);
+                js_ReloadTable();
+                js_Loading(false, 1);
+            },
+            error: function () {
+                js_Loading(false, 1);
+            }
+        });
+    }
+</script>

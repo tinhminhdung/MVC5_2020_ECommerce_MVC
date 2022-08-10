@@ -1,54 +1,56 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 @section jsFooter{
     <script src="/Resources/ScripMvc/ThongBao.js"></script>
 }
-@using (Html.BeginForm())
-{
-    <section class="margin-top-30">
-        <div class="wrap_ padding_mobile">
-            <div class="row">
-                <div class="section_maps">
-                    <div class="container max767 title_head margin-bottom-20">
-                        <div class="page_title page__ ">
-                            <h1 class="title_page_h1"><span>Đổi mật khẩu</span></h1>
+<div style=" height:120px"></div>
+<section class="ftco-section">
+    <div class="container">
+        @*<div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Quên mật khẩu</h2>
+            </div>
+        </div>*@
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+              
+                <div class="login-wrap p-0">
+                 
+
+                    @*<h3 class="mb-4 text-center">Have an account?</h3>*@
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
                         </div>
-                    </div>
-                    <div class="container contact contact-owf">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="page-login page_cotact">
-                                    <div id="pagelogin">
-                                        <div class="contact-form">
-                                            @if (TempData["AlertMessage"] != null)
-                                            {
-                                                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
-                                                    @TempData["AlertMessage"]
-                                                </div>
-                                            }
-                                            <div class="form-signup clearfix">
-                                                <div class="group_contact row">
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">Email của bạn: </label>
-                                                        <div class="TextBox">
-                                                            @Html.TextBox("txtemail", "", new { placeholder = "Nhập email của bạn" })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_TenKH"></p>
-                                                    </fieldset>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
-                                                        <input type="submit" value="Lấy lại mật khẩu" class="btnmvc" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    }
+                    @using (Html.BeginForm("QuenMatKhau", "Members", new { returnUrl = @ViewBag.ReturnUrl, @class = "" }, FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <input type="text" id="txtemail" name="txtemail" class="form-control" placeholder="Nhập Email" required>
                         </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Lấy mật khẩu</button>
+                        </div>
+                    }
+                    <p class="w-100 text-center">&mdash; Đăng nhập hoặc đăng ký &mdash;</p>
+                    <div class="social d-flex text-center">
+                        <a href="/Dang-ky.html" class="px-2 py-2 mr-md-1 rounded">Đăng ký</a>
+                        <a href="/Dang-nhap.html" class="px-2 py-2 mr-md-1 rounded"> Đăng nhập</a>
+                        <a href="/" class="px-2 py-2 ml-md-1 rounded">Trang chủ</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-}
+    </div>
+</section>
+
+
+
+
+
+
+

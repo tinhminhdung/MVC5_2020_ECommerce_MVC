@@ -44,10 +44,40 @@ namespace MoreAll
         {
             return Convert.ToDateTime(date).ToString("dd-MM-yyyy");
         }
+        public static string FormatDate_Member(object date)
+        {
+            try
+            {
+                if (date.ToString().Length > 5)
+                {
+                    return "<span class=\"ShowCapbac2\">" + Convert.ToDateTime(date).ToString("MM/dd/yyyy").Replace("01/01/0001", "") + "</span>";
+                }
+                return "";
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
 
+        public static string FormatDate_MemberFull(object date)
+        {
+            try
+            {
+                if (date.ToString().Length > 5)
+                {
+                    return "<span class=\"ShowCapbac2\">" + Convert.ToDateTime(date).ToString("MM/dd/yyyy hh:mm:ss").Replace("01/01/0001", "") + "</span>";
+                }
+                return "";
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
         public static string FormatDate_Brithday(object date)
         {
-            return Convert.ToDateTime(date).ToString("MM/dd/yyyy");
+            return Convert.ToDateTime(date).ToString("dd/MM/yyyy hh:mm:ss");
         }
 
         public static string FormatDate_Longdate(string lang)

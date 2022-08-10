@@ -4,30 +4,46 @@
     Layout = "";
 }
 
+
 @if (MoreAll.MoreAll.GetCookies("Members").ToString() == "")
 {
-    <form method="post" id="form1" class="login-panel">
-        <a href="/Dang-nhap.html?ReturnUrl=@Request.RawUrl.ToString()">Đăng nhập</a> |
-        <a href="/Dang-ky.html">Đăng ký</a>
-    </form>
+    <div class="user-login">
+        <a class="btn-user" href="Dang-nhap.html?ReturnUrl=@Request.RawUrl.ToString()" title="Login / Register">Login / Register</a>
+</div>
 }
 else
 {
-    <div class="thanhvien">
+     <div class="user-login">
+         <a class="btn-user" href="/wallet.html" title="Login / Register">Login / Register</a>
+                </div>
+    
+    @*<div class="thanhvien">
         <ul>
             <li style="top: 8px;">
-                <a href="/ho-so-thanh-vien.html" style="float: left; height: 26px;">Xin chào, @MoreAll.MoreAll.GetCookies("Members").ToString()-@MoreAll.MoreAll.GetCookies("MembersID").ToString()</a>
+               
+
+
+
+                <a href="/ho-so-thanh-vien.html" style="float: left; height: 26px;">Xin chào, @MoreAll.MoreAll.GetCookies("MembersUser").ToString()</a>
                 <ul>
-                    <li><a href="/lich-su-mua-hang.html"><i class="fa fa-caret-right"></i>Lịch sử mua hàng</a></li>
-                    <li><a href="/ho-so-thanh-vien.html"><i class="fa fa-caret-right"></i>Hồ sơ thành viên</a></li>
-                    <li><a href="/doi-mat-khau.html"><i class="fa fa-caret-right"></i>Đổi mật khẩu</a></li>
-                    <li>
+                    <li><a href="/wallet.html"><i style="color: #ff1a1a; " class="fa fa-credit-card"></i> Ví tiền</a></li>
+                    <li><a href="/dau-tu.html"><i style="color: #ff1a1a" class="far fa-edit"></i>  Đầu tư</a></li>
+                    <li><a href="/lich-su-dau-tu.html"><i style="color: #ff1a1a" class="far fa-edit"></i> Danh sách Đầu tư</a></li>
+                    <li><a href="/lich-su-hoa-hong.html"><i style="color: #ff1a1a" class="fa fa-plus-circle"></i> Lịch sử hoa hồng</a></li>
+                    <li><a href="/rut-tien.html"><i style="color: #ff1a1a" class="fa fa-plus-circle"></i> Thanh toán</a></li>
+                    <li><a href="/lich-su-thanh-toan.html"><i style="color: #ff1a1a" class="fa fa-plus-circle"></i> Lịch sử thanh toán</a></li>
+
+                    <li><a href="/link-affiliate.html"><i style="color: #ff1a1a" class="fa fa-share-alt"></i> link Affiliate</a></li>
+                    <li><a href="/dang-tin.html"><i style="color: #ff1a1a" class="far fa-edit"></i>  Đăng tin</a></li>
+                    <li><a href="/danh-sach-tin-dang.html"><i style="color: #ff1a1a" class="far fa-list"></i> Danh sách tin đăng</a></li>
+                    <li><a href="/danh-sach-thanh-vien.html"><i style="color: #ff1a1a" class="fa fa-plus-circle"></i> Danh sách thành viên</a></li>
+                    <li><a href="/ho-so-thanh-vien.html"><i style="color: #ff1a1a" class="fa fa-user"></i> Hồ sơ thành viên</a></li>
+                    <li><a href="/doi-mat-khau.html"><i style="color: #ff1a1a" class="far fa-lock"></i> Đổi mật khẩu</a></li>
                     <li><a href="/Members/Thoat">[Thoát]</a></li>
-                    </li>
                 </ul>
             </li>
         </ul>
-    </div>
+    </div>*@
 }
 
 

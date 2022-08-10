@@ -76,6 +76,51 @@ namespace VS.ECommerce_MVC.cms.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Thanhvien;
         
         /// <summary>
+        /// Danhsachloinhuan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Danhsachloinhuan;
+        
+        /// <summary>
+        /// Li2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
+        
+        /// <summary>
+        /// Danhsachhoahong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Danhsachhoahong;
+        
+        /// <summary>
+        /// LichSuThanhToan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LichSuThanhToan;
+        
+        /// <summary>
+        /// CauHinhHH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CauHinhHH;
+        
+        /// <summary>
         /// Danhmuc control.
         /// </summary>
         /// <remarks>

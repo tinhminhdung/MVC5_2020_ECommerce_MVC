@@ -52,6 +52,8 @@
     <Compile Include="Dichvu\Dichvu.cs" />
     <Compile Include="EDanhGiaSao\DanhGiaSao.cs" />
     <Compile Include="GioiThieu\GioiThieu.cs" />
+    <Compile Include="LichSuRutTien\LichSuRutTien.cs" />
+    <Compile Include="LoiNhuanMuaBan\LoiNhuanMuaBan.cs" />
     <Compile Include="ModulControls\ModulControls.cs" />
     <Compile Include="Nfooter\News.cs" />
     <Compile Include="Faq\Faq.cs" />

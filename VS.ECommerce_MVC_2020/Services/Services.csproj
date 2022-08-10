@@ -58,6 +58,7 @@
     <Compile Include="Dichvu\SDichvu.cs" />
     <Compile Include="FProducts\SoSanhCarts.cs" />
     <Compile Include="Gioithieu\SGioithieu.cs" />
+    <Compile Include="LoiNhuanMuaBan\SLoiNhuanMuaBan.cs" />
     <Compile Include="ModulControls\SModulControls.cs" />
     <Compile Include="Nfooter\SNfooter.cs" />
     <Compile Include="Faq\SFaq.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="News\SComments.cs" />
     <Compile Include="Contacts\SContacts.cs" />
     <Compile Include="SDanhGiaSao\SDanhGiaSao.cs" />
+    <Compile Include="SLichSuRutTien\SLichSuRutTien.cs" />
     <Compile Include="Thuvien\SDownload.cs" />
     <Compile Include="Lang\SLang.cs" />
     <Compile Include="Marketting\SMarketing.cs" />

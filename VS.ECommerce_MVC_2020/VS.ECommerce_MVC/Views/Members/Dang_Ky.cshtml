@@ -1,94 +1,78 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
     string language = MoreAll.Captionlanguage.SetLanguage();
 }
 @section jsFooter{
     <script src="~/Resources/ScripMvc/DangKy.js"></script>
 }
-@*đăng ký đăng nhập hay có cả ảnh đại diện , thì lấy code ở trang 3mpic.vn/ 02/2020 The Anh*@
+<div style=" height:120px"></div>
+<section class="ftco-section">
+    <div class="container">
+        @*<div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Đăng ký thành viên</h2>
+            </div>
+        </div>*@
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="login-wrap p-0">
+                    @using (Html.BeginForm("Dang_Ky", "Members", new { returnUrl = @ViewBag.ReturnUrl, @class = "" }, FormMethod.Post))
+                    {
+                        if (Session["err"] != null)
+                        {
+                            <p style="color:#e9b41e; text-align:center">@Session["err"].ToString()</p>
+                        }
 
-@using (Html.BeginForm())
-{
-    <section class="margin-top-30">
-        <div class="wrap_ padding_mobile">
-            <div class="row">
-                <div class="section_maps">
-                    <div class="container max767 title_head margin-bottom-20">
-                        <div class="page_title page__ ">
-                            <h1 class="title_page_h1"><span>Đăng ký thành viên</span></h1>
+                        <div class="form-group">
+                            @Html.TextBox("txtHoTen", "", new { placeholder = @Commond.label("l_name"), @class = "form-control" })
+                            <p style="color:#e9b41e;" id="TB_TenKH"></p>
+                        </div>
+                        @*<div class="form-group">
+                            @Html.TextBox("txtemail", "", new { placeholder = "Email", @class = "form-control" })
+                            <p style="color:#e9b41e;" id="TB_Email"></p>
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.TextBox("txtphone", "", new { placeholder = "Phone", @class = "form-control" })
+                            <p style="color:#e9b41e;" id="TB_SoDienThoai"></p>
+                        </div>
+                        <div class="form-group">
+                            @Html.Password("txtmatkhau", "", new { placeholder = @Commond.label("lt_password"), @class = "form-control" })
+                            <p style="color:#e9b41e;" id="TB_MatKhau"></p>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBox("txtaddress", "", new { placeholder = @Commond.label("l_address"), @class = "form-control" })
+                            <p style="color:#e9b41e;" id="TB_DiaChi"></p>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBox("txtnguoigioithieu", (string)ViewBag.txtnguoigioithieu, new { placeholder = "Mã người giới thiệu", @class = "form-control form-control-lg nguoigioithieu" })
+                            <span style=" color:#e9b41e">@Html.Raw(ViewBag.ltgoithieu)</span>
+                            <p style="color:#e9b41e;" id="TB_DiaChi"></p>
+                        </div>
+                        @**@
+                        <div class="form-group">
+                            <input id="hdlanguage" name="hdlanguage" type="hidden" value="@language" />
+                            <input type="submit" value="@Commond.label("l_register")" class="form-control btn btn-primary submit px-3" onclick="return DangKyThanhVien();" />
+                            @*<button type="submit" class="form-control btn btn-primary submit px-3" onclick="return DangKyThanhVien();">Đăng ký</button>*@
                         </div>
 
-                    </div>
-                    <div class="container contact contact-owf">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="page-login page_cotact">
-                                    <div id="pagelogin">
-                                        <div class="contact-form">
-										 <div id="ThongBao">@Html.Raw(TempData["ThongBao"])</div>
-                                            <div style="padding: 10px 10px 10px 10px; color:red">@ViewBag.ThongBao</div>
-                                            <div class="form-signup clearfix">
-                                                <div class="group_contact row">
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">@Commond.label("l_name"): </label>
-                                                        <div class="TextBox">
-                                                            @Html.TextBox("txtHoTen", "", new { placeholder = @Commond.label("l_name") })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_TenKH"></p>
-                                                    </fieldset>
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">Email:</label>
-                                                        <div class="TextBox">
-                                                            @Html.TextBox("txtemail", "", new { placeholder = "Email" })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_Email"></p>
-                                                    </fieldset>
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">Phone:</label>
-                                                        <div class="TextBox">
-                                                            @Html.TextBox("txtphone", "", new { placeholder = "Phone" })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_SoDienThoai"></p>
-                                                    </fieldset>
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">@Commond.label("lt_password"):</label>
-                                                        <div class="TextBox">
-                                                            @Html.Password("txtmatkhau", "", new { placeholder = @Commond.label("lt_password") })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_MatKhau"></p>
-                                                    </fieldset>
-                                                    <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 cancot">
-                                                        <label class="">@Commond.label("l_address"):</label>
-                                                        <div class="TextBox">
-                                                            @Html.TextBox("txtaddress", "", new { placeholder = @Commond.label("l_address") })
-                                                        </div>
-                                                        <p style="color:red;" id="TB_DiaChi"></p>
-                                                    </fieldset>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-left">
-                                                        <input id="hdlanguage" name="hdlanguage" type="hidden" value="@language" />
-                                                        <input type="submit" value="@Commond.label("l_register")" onclick="return DangKyThanhVien();" class="btnmvc" />
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="col-md-offset-2 col-md-10">
-                                                            <input type="submit" value="Đăng nhập" class="btn btn-default" />
-                                                            <a class="btn btn-facebook" href="/Members/LoginFacebook">
-                                                                <i class="fa fa-facebook"></i>
-                                                                Đăng nhập bằng Facebook
-                                                            </a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    }
+                    <p class="w-100 text-center">&mdash; Đăng nhập hoặc quên mật khẩu &mdash;</p>
+                    <div class="social d-flex text-center">
+                        <a href="/Dang-nhap.html" class="px-2 py-2 mr-md-1 rounded"> Đăng nhập</a>
+                        <a href="/Quen-mat-khau.html" class="px-2 py-2 ml-md-1 rounded"> Quên mật khẩu</a>
+                        <a href="/" class="px-2 py-2 ml-md-1 rounded">Trang chủ</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-}
+    </div>
+</section>
+@Html.Raw(ViewBag.style)
+<style>
+    fieldset.form-group.col-lg-12.col-md-12.col-sm-12.col-xs-12.cancot {
+        width: 100%;
+        float: left;
+        display: grid;
+    }
+</style>

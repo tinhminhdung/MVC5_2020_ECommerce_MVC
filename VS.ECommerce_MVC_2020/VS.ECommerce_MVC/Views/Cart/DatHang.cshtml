@@ -9,7 +9,7 @@
     <script src="~/Resources/scripMvc/DatHang.js"></script>
     @*<script src="~/Resources/scripMvc/shoppingCart.js"></script>*@
 }
-
+@*Dạng giao diện Mobile ở trang F:\CongtyGooDeign\Nam2021\Thang05\NangCap_topbietthu.vn_Thanh_nhacsohanoi.vn*@
 @{Html.RenderAction("Nav_conten", "My_Partialview");}
 <div class="container">
     <div class="">
@@ -83,6 +83,10 @@
                 <input id="hdIDThanhVien" name="hdIDThanhVien" type="hidden" value="@ViewBag.IDThanhVien" />
                 <div class="frm-contact">
                     <div style="width: 100%">
+                        @if (Session["err1"] != null)
+                        {
+                            <p style="color:red; text-align:center">@Session["err1"].ToString()</p>
+                        }
                         <div>@ViewBag.ThongBao</div>
                         <div style="float: left; width: 100%">
                             <div class="labelll">

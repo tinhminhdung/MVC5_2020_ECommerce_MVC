@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+<div class="content-wrapper">
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div id="div-content">
+
+                    <form class="mh-advanced-search mh-no-margin-bottom" action="/lich-su-thanh-toan.html" method="GET">
+                        <div class="content_search">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box_with">
+                                        <div class="form-group row">
+                                            <label for="vendorName" class="col-sm-4 col-form-label">Từ ngày</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" name="TuNgay" id="TuNgay" value="@ViewBag.TuNgays" class="form-control timkiemNew" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box_with">
+                                        <div class="form-group row">
+                                            <label for="Ngay" class="col-sm-4 col-form-label">Đến ngày</label>
+                                            <div class="col-sm-8" >
+                                                <input type="date" name="DenNgay" id="DenNgay" value="@ViewBag.DenNgays" class="form-control timkiemNew" />
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="text-align:center;">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                                <button class="btn btn-secondary px-5 btgetw" type="submit"><i class="fa fa-search" aria-hidden="true" style="margin-top: 3px; margin-right: 3px;"></i> Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div style="clear: both; height: 5px"></div>
+                    <div class="table-responsive tab-all" style="overflow-x: auto;">
+                        <div class="list_item">
+                            <div class="table-responsive tab-all" style="overflow-x: auto;">
+                                <table id="tbl_Item" class="table table-bordered" style=" width:100%">
+                                    <tr class="trHeader" style="height: 25px">
+                                        <th style="width: 4%; font-weight: bold;text-align:center" class="contentadmin">STT</th>
+                                        <th style="font-weight: bold;">Thông tin thành viên</th>
+                                        <th style="font-weight: bold; text-align:center">Số tiền cần rút</th>
+                                        <th style="font-weight: bold; text-align:center">Số tiền còn lại</th>
+                                        <th style="font-weight: bold; text-align:center">Ngày tạo</th>
+                                        <th style="font-weight: bold; text-align:center; width:150px">Trạng thái</th>
+                                    </tr>
+
+                                    @{
+                                        int k = 1;
+                                        List<LichSuRutTien> items = ViewBag.Show as List<LichSuRutTien>;
+                                        if (items != null)
+                                        {
+                                            foreach (var item in items)
+                                            {
+                                                <tr>
+                                                    <td style="text-align: center;">
+                                                        @k
+                                                    </td>
+                                                    <td align="left" style="padding-left: 10px; line-height: 22px; color: #646465" width="300px">
+                                                        Họ và tên:<span style="color: #444444; padding-left: 27px; font-weight: bold">
+                                                            @Html.Raw(Commond.ShowThanhVienEXel(item.IDThanhVien.ToString()))
+                                                        </span><br />
+                                                        Tên ngân hàng:<span style="color: #444444; padding-left: 40px; font-weight: bold"> @Html.Raw(item.TenNganHang)</span><br />
+                                                        Số tài khoản:<span style="color: #444444; padding-left: 40px; font-weight: bold"> @Html.Raw(item.SoTaiKHoan)</span><br />
+                                                        @*Chi nhánh:<span style="color: #444444; padding-left: 22px; font-weight: bold"> @Html.Raw(item.ChiNhanh)</span><br />*@
+                                                        Nội dung chuyển tiền:<span style="color: #444444; padding-left: 15px; font-weight: bold"> @Html.Raw(item.NoiDungChuyenTien)</span><br />
+                                                        Ghi chú:<span style="color: #444444; padding-left: 15px; font-weight: bold"> @Html.Raw(item.GhiChu)</span><br />
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(AllQuery.MorePro.Detail_Price(item.SoTienCanRut))
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(item.SoCoin)
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(MoreAll.FormatDateTime.FormatDate_Brithday(item.NgayTao))
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        @Html.Raw(MoreAll.MoreAll.TrangThaiEnableRut(item.TrangThai.ToString()))
+                                                    </td>
+                                                </tr>
+                                                k++;
+                                            }
+                                        }
+                                    }
+
+                                </table>
+                                <div style="color: red; text-align: right; padding-top: 7px; font-weight: 600">
+                                    Tổng cộng: @Html.Raw(ViewBag.ltCoin)
+                                </div>
+                                <div class="pager">
+                                    @Html.Raw(ViewBag.Phantrang)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              
+                
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#txtHead').html("Lịch sử thanh toán");
+    });
+</script>

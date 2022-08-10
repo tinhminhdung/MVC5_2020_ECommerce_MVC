@@ -242,6 +242,26 @@ namespace MoreAll
     #region MoreAll
     public class MoreAll
     {
+        public static string TinhTrangDonHang(string enable)
+        {
+            if (enable.Trim().Equals("0"))
+            {
+                return "<span class='Chuaxuly'>Chưa duyệt</span>";
+            }
+            return "<span class='Daxuly'>Đã Duyệt</span>";
+        }
+        public static string TrangThaiEnableRut(string enable)
+        {
+            if (enable.Trim().Equals("0"))
+            {
+                return "<span style='font-size:12px; background:red;padding: 4px;margin-right:3px;margin-left:5px;color:#fff;border-radius: 3px;font-weight: 600;'>Chưa duyệt</span>";
+            }
+            else if (enable.Trim().Equals("1"))
+            {
+                return "<span style='font-size:12px; background:#00a9d2;padding: 4px;margin-right:3px;margin-left:5px;color:#fff;border-radius: 3px;font-weight: 600;'>Đã duyệt</span>";
+            }
+            return "<span style='font-size:12px; background:red;padding: 4px;margin-right:3px;margin-left:5px;color:#fff;border-radius: 3px;font-weight: 600;'>Đã Hủy</span>";
+        }
         public static string Update_setting(string str, string Value)
         {
             Entity.Setting obj = new Entity.Setting();

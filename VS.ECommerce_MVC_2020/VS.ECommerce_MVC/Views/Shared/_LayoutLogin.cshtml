@@ -1,0 +1,54 @@
+﻿@{
+    string ssl = "http://";
+    string hp = "";
+    string language = MoreAll.Captionlanguage.SetLanguage();
+    //string bc = Request.Url.Authority + Request.RawUrl.ToString();//"localhost:63136/danh-muc/noi-that-phong-khach"
+    //string Url = Request.Url.ToString();//"http://localhost:63136/danh-muc/noi-that-phong-khach"
+    //string Host = Request.Url.Authority + Request.Url.Host.ToString();//"localhost:63136localhost"
+    string RawUrl = Request.RawUrl.ToString();//"/danh-muc/noi-that-phong-khach"
+    hp = Removelink.RemoveUrl(RawUrl);
+    if (Commond.Setting("SSL").Equals("1"))
+    {
+        ssl = "https://";
+    }
+    // Nếu là trang chủ
+    if (hp == "/")
+    {
+        ViewBag.Title = MoreAll.MoreAll.GetCache("Title", System.Web.HttpContext.Current.Cache["Title"] != null ? "" : VS.ECommerce_MVC.App.Template.WebTitle(RawUrl));
+    }
+    else
+    {
+        ViewBag.Title = VS.ECommerce_MVC.App.Template.WebTitle(RawUrl);
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @{
+        if (hp == "/")
+        {
+            @Html.Raw(MoreAll.MoreAll.GetCache("Header", System.Web.HttpContext.Current.Cache["Header"] != null ? "" : Home.Header(ssl, Request.Url.Host, hp, Commond.RequestMenu(hp), Request.RawUrl)));
+        }
+        else
+        {
+            @Html.Raw(Home.Header(ssl, Request.Url.Host, RawUrl, Commond.RequestMenu(hp), Request.RawUrl))
+        }
+    }
+
+    <script src="~/Resources/js/jquery-1.9.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Resources/Login/css/style.css" rel="stylesheet" /> 
+    <link href="~/Resources/css/Mobile.css" rel="stylesheet" />
+</head>
+<body class="img js-fullheight Nendangky" style=" background-color: #36b46a">
+    @RenderBody()
+    @*<script src="/Resources/Login/js/jquery.min.js"></script>
+        <script src="~/Resources/Login/js/popper.js"></script>*@
+    @RenderSection("jsFooter", required: false)
+
+</body>
+</html>

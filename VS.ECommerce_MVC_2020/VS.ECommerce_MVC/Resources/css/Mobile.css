@@ -3,6 +3,62 @@
 .MenuMobile{ display:none}
 .Mobile{ display:none}
 .Destop{ display:block}
+.col-lg-3.col-md-6.chiavi {
+    width: 33%;
+    max-width: 33%;
+    flex: 0 0 33%;
+}
+
+.inloc {
+    margin: 4px;
+}
+.inlocsubmits {
+    margin: -1px;
+    margin-top: 5px;
+    background: #119b48;
+    border: none;
+    color: #fff;
+}
+.paddingMB{padding:0px}
+
+.pager{text-align:center;padding-top:20px;padding-bottom:20px;margin:auto;width:100%}
+.pager a{padding:3px;margin-left:3px;text-decoration:none;color:#999;font-weight:700}
+.pager a.current{color:red}
+.pager a:hover{color:red;text-decoration:underline}
+.pager b{color:red}
+.Phantrang{margin:auto;width:100%;text-align:center}
+.Phantrang .pageactive{padding:4px;line-height:12px;height:10px;text-decoration:none;color:#ed1c24;width:8px;display:inline-table}
+.Phantrang a{font-size:12px;padding:4px;line-height:12px;height:10px;color:#666;text-decoration:none;display:inline-table}
+.Phantrang a:hover{text-decoration:none;color:#ed1c24!important}
+.chieucaos {
+    height: 479px;
+}
+.chieucaostrong{
+    height: 70px;
+}
+@media screen and  (min-width:2699px) and (max-width:4000px){
+    .Nendangky {
+        background-image: url(../Login/images/bxx.jpg);
+       background-size: 85%;
+    background-position: center -109px;
+    }
+}
+@media screen and  (min-width:1901px) and (max-width:2700px){
+    .Nendangky {
+        background-image: url(../Login/images/bxx.jpg);
+        background-size: cover;
+        background-position: 0px -83px;
+    }
+}
+@media screen and  (min-width:1600px) and (max-width:1900px){
+    .Nendangky {
+        background-image: url(../Login/images/bxx.jpg);
+        background-size: cover;
+        background-position: 0 -54px;
+    }
+}
+
+
 
 @media screen and (min-width:768px) and (max-width:1000px)
 {
@@ -21,13 +77,36 @@
 }
 @media screen and (min-width:1px) and (max-width:1000px)
 {
-img{border:medium none;height:auto!important;line-height:normal;margin:0;max-width:100% !important;padding:0;vertical-align:middle;width:auto;transition:all 0.2s ease-in;}
+img{border:medium none;height:auto !important;line-height:normal;margin:0;max-width:100% !important;padding:0;vertical-align:middle;width:auto;transition:all 0.2s ease-in;}
 body{width:100%;}
 *{padding:0px; margin:0px;}
 #divAdvLeft{ display:none}
 #divAdvRight{ display:none}
 #col-left{ display:none}
   
+.input-group.date.ngaycoth1 {
+    width: 100% !important;
+    display: grid !important;
+}
+.inloc {
+    margin: 4px;
+     width: 100% !important;
+}
+.inlocsubmits {
+    margin: 4px;
+    margin-top: 5px;
+    background: #119b48;
+    border: none;
+    color: #fff;
+     width: 100% !important;
+         height: 34px;
+}
+.chieucaos {
+    height: auto;
+}
+.chieucaostrong{
+    height: 10px;
+}
 .guithongntin  table tr td input{ width:275px !important;border:1px solid #d7d7d7; border-radius:3px; height:20px}
 .guithongntin  table tr td textarea { width:275px !important;border:1px solid #d7d7d7; border-radius:3px;} 
 .contact-button{ height:35px!important;}
@@ -119,7 +198,125 @@ body{width:100%;}
 .ccccbbb img{ height:auto;}
 
 
+    .woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product {
+        width: 50% !important;
+    }
 
+    .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+    padding: 0.5em 0 !important;
+    margin: 0;
+    font-size: 13px !important;
+}
+    span.woocommerce-Price-amount.amount {
+    font-size: 14px;
+}
+    a.button.product_type_simple.add_to_cart_button {
+    font-size: 12px;
+}
+
+    .product-page ul.products li .button {
+    letter-spacing: 0px
+    }
+    .product-page ul.products li {
+    padding: 0 4px 26px !important;
+}
+    .product-page ul.products {
+    margin: 0 -13px;
+}
+.row-page-title .page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+}
+
+.btnadd {
+    border-radius: 5px!important;
+    padding: 0px;
+    border: none;
+    text-transform: uppercase;
+    background: none repeat scroll 0 0 #005d22!important;
+    color: #FFF;
+    margin-bottom: 7px;
+    height: 34px!important;
+    font-size: 13px!important;
+    font-weight: 700;
+    margin-right: 10px;
+    width: 100%!important;
+    font-family: arial;
+    display: block;
+    text-align: center;
+    margin-top: 13px;
+    line-height: 36px;
+}
+.nentopnew{height: 200px;}
+
+
+
+
+/*TV*/
+    #txtHead {
+        font-size: 12px !important;
+    }
+    button.btn.btn-secondary.px-5.btgetw {
+    width: 100%;
+}
+    .Danhsachnhom {
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    display: block;
+}
+    .home .list-products {
+    padding: 10px 0!important;
+}
+
+.login-wrap .social a {
+    font-size: 13px;
+    margin: 4px !important;
+}
+input#TuNgay {
+    height: 36px;
+}
+input#DenNgay {
+    height: 36px;
+}
+.woocommerce ul.products li.product a img { width: 100%; height: auto !important;}
+
+.list_item {
+    width: 1000px;
+}
+
+.col-lg-3.col-md-6.chiavi {
+    width: 100%;
+    max-width: 100%;
+     flex: 0 0 100%;
+}
+
+.paddingMB{padding-right: 15px;
+    padding-left: 15px;}
+
+    .sp-thumbs a:link, .sp-thumbs a:visited {
+        width: 21%;
+        height: 50px;
+    }
+
+    [data-slick-one] .testimonial-item {
+    padding: 24px 7px 23px;
+}
+
+    [data-slick-one] .testimonial-content:after {
+    margin-left: -47px;
+    margin-top: -8px;
+    background-size: 40px;
+}
+    [data-slick-one] .testimonial-content:before {
+    left: -7px;
+    top: -20px;
+    background-size: 40px;
+}
 }
 
 

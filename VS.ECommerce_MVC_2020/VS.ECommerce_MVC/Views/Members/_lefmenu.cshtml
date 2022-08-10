@@ -1,0 +1,64 @@
+﻿<nav class="page-sidebar" id="sidebar">
+    <div id="sidebar-collapse">
+        <div class="admin-block d-flex">
+            <div>
+                @{
+                    try
+                    {
+                        List<Entity.Member> table = Services.SMember.Name_Text("select * from Members where ID=" + MoreAll.MoreAll.GetCookies("MembersID").ToString() + "");//
+                        if (table.Count > 0)
+                        {
+                            if (table[0].AnhDaiDien.Length > 2)
+                            {
+                                <img src="@table[0].AnhDaiDien"  style="width: 45px !important" />
+                            }
+                            else
+                            {
+                                <img src="/Resources/assets/img/admin-avatar.png" style="width: 45px !important" />
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    { }
+}
+
+            </div>
+            <div class="admin-info">
+                <span style="color:#fff">@MoreAll.MoreAll.GetCookies("MembersUser").ToString()</span>
+                @*<small>@MoreAll.MoreAll.GetCookies("DienThoai").ToString()</small>*@
+            </div>
+        </div>
+
+        <ul class="side-menu metismenu">
+            <li class="heading">Tài khoản - TV</li>
+
+            <li><a href="/wallet.html"><i class="sidebar-item-icon  fa fa-credit-card"></i><span class="nav-label"> Ví tiền</span></a></li>
+            <li><a href="/lich-su-vi-tien.html"><i class=" sidebar-item-icon fa fa-credit-card"></i> <span class="nav-label">Lịch sử ví tiền</span></a></li>
+            <li><a href="/lich-su-hoa-hong.html"><i class="sidebar-item-icon  ti-timer"></i> <span class="nav-label">Lịch sử hoa hồng</span></a></li>
+            <li><a href="/lich-su-mua-hang.html"><i class="sidebar-item-icon  ti-timer"></i> <span class="nav-label">Lịch sử mua hàng</span></a></li>
+
+            <li><a href="/rut-tien.html"><i class="sidebar-item-icon  fa fa-edit"></i> <span class="nav-label">Rút tiền</span></a></li>
+            <li><a href="/lich-su-thanh-toan.html"><i class="sidebar-item-icon  ti-timer"></i> <span class="nav-label">Lịch sử thanh toán</span></a></li>
+
+            <li><a href="/danh-sach-thanh-vien.html"><i class="sidebar-item-icon  fa fa-table"></i> <span class="nav-label">Danh sách thành viên</span></a></li>
+            <li><a href="/ho-so-thanh-vien.html"><i class="sidebar-item-icon  fa fa-user"></i> <span class="nav-label">Hồ sơ thành viên</span></a></li>
+            <li><a href="/doi-mat-khau.html"><i class="sidebar-item-icon  fa fa-lock"></i> <span class="nav-label">Đổi mật khẩu</span></a></li>
+            <li><a href="/Members/Thoat"><i class="sidebar-item-icon  fa fa-power-off"></i> <span class="nav-label">Thoát </span></a></li>
+        </ul>
+    </div>
+</nav>
+@{
+    try
+    {
+        if (MoreAll.MoreAll.GetCookies("Members").ToString() != null && MoreAll.MoreAll.GetCookies("Members").ToString().Length > 0)
+        {
+        }
+        else
+        {
+            Response.Redirect("/dang-nhap.html");
+        }
+    }
+    catch (Exception)
+    { }
+}
+

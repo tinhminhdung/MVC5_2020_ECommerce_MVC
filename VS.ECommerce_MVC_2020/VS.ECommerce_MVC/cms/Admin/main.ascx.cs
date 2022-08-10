@@ -31,6 +31,32 @@ namespace VS.ECommerce_MVC.cms.Admin
             switch (u)
             {
 
+                case "LichSuViGiaoDich":
+                    phcontrol.Controls.Add(LoadControl("MMember/MLSViTien.ascx"));
+                    break;
+                case "CapDuoi":
+                    phcontrol.Controls.Add(LoadControl("MMember/AllThanhVienCapDuoi.ascx"));
+                    break;
+                case "MTree":
+                    phcontrol.Controls.Add(LoadControl("MMember/DiagramTree.ascx"));
+                    break;
+                case "ChitietDonHang":
+                    phcontrol.Controls.Add(LoadControl("products/DetailCart.ascx"));
+                    break;
+                case "Danhsachloinhuan":
+                    phcontrol.Controls.Add(LoadControl("MMember/LoiNhuanMuaBan.ascx"));
+                    break;
+                case "Danhsachhoahong":
+                    phcontrol.Controls.Add(LoadControl("MMember/MHoaHong.ascx"));
+                    break;
+                case "LichSuThanhToan":
+                    phcontrol.Controls.Add(LoadControl("MMember/MLichSuRutTien.ascx"));
+                    break;
+                case "CauHinhHH":
+                    phcontrol.Controls.Add(LoadControl("MMember/Settings.ascx"));
+                    break;
+
+
                 case "301":
                     phcontrol.Controls.Add(LoadControl("Redirect301/StatusCode.ascx"));
                     break;

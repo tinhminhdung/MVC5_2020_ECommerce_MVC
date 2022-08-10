@@ -72,6 +72,15 @@
             <param name="Vitri"> Lấy ra vị trí của menu 1,2,3</param>
             <returns></returns>
         </member>
+        <member name="F:VS.E_Commerce.Autologon.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.Close.form1">
             <summary>
             form1 control.
@@ -7128,6 +7137,51 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.main.Danhsachloinhuan">
+            <summary>
+            Danhsachloinhuan control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.main.Li2">
+            <summary>
+            Li2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.main.Danhsachhoahong">
+            <summary>
+            Danhsachhoahong control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.main.LichSuThanhToan">
+            <summary>
+            LichSuThanhToan control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.main.CauHinhHH">
+            <summary>
+            CauHinhHH control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.Admin.main.Danhmuc">
             <summary>
             Danhmuc control.
@@ -7623,6 +7677,141 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.txtkeyword">
+            <summary>
+            txtkeyword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.lnksearch">
+            <summary>
+            lnksearch control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.bthienthi">
+            <summary>
+            bthienthi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.ddlstatus">
+            <summary>
+            ddlstatus control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.ddlordertype">
+            <summary>
+            ddlordertype control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.ltphanmuc">
+            <summary>
+            ltphanmuc control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.ltSum">
+            <summary>
+            ltSum control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.Repeater1">
+            <summary>
+            Repeater1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.ltpage">
+            <summary>
+            ltpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AllThanhVienCapDuoi.CollectionPager1">
+            <summary>
+            CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.Panel1">
+            <summary>
+            Panel1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.txtkeyword">
             <summary>
             txtkeyword control.
@@ -7644,6 +7833,24 @@
         <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlstatus">
             <summary>
             ddlstatus control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlcapdo">
+            <summary>
+            ddlcapdo control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlcodong">
+            <summary>
+            ddlcodong control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -7686,6 +7893,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ltSum">
+            <summary>
+            ltSum control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.Repeater1">
             <summary>
             Repeater1 control.
@@ -7707,6 +7923,1689 @@
         <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.CollectionPager1">
             <summary>
             CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.Panel2">
+            <summary>
+            Panel2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.lblmsg">
+            <summary>
+            lblmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.HoVaTen">
+            <summary>
+            HoVaTen control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator6">
+            <summary>
+            RequiredFieldValidator6 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.DienThoai">
+            <summary>
+            DienThoai control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator5">
+            <summary>
+            RequiredFieldValidator5 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlCountry">
+            <summary>
+            ddlCountry control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hdddlCountry">
+            <summary>
+            hdddlCountry control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlProvince">
+            <summary>
+            ddlProvince control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hdddlProvince">
+            <summary>
+            hdddlProvince control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ddlDistrict">
+            <summary>
+            ddlDistrict control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hdddlDistrict">
+            <summary>
+            hdddlDistrict control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.DiaChi">
+            <summary>
+            DiaChi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator4">
+            <summary>
+            RequiredFieldValidator4 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.TenNganHang">
+            <summary>
+            TenNganHang control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator2">
+            <summary>
+            RequiredFieldValidator2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ChuTaiKhoan">
+            <summary>
+            ChuTaiKhoan control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator1">
+            <summary>
+            RequiredFieldValidator1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.SoTaiKHoan">
+            <summary>
+            SoTaiKHoan control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.RequiredFieldValidator3">
+            <summary>
+            RequiredFieldValidator3 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.txtImage">
+            <summary>
+            txtImage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.ltimgs">
+            <summary>
+            ltimgs control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hdimgnews">
+            <summary>
+            hdimgnews control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.btn_InsertUpdate">
+            <summary>
+            btn_InsertUpdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.btnCancel">
+            <summary>
+            btnCancel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_insertupdate">
+            <summary>
+            hd_insertupdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_id">
+            <summary>
+            hd_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_page_edit_id">
+            <summary>
+            hd_page_edit_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_imgpath">
+            <summary>
+            hd_imgpath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_rootpic">
+            <summary>
+            hd_rootpic control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hd_par_id">
+            <summary>
+            hd_par_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.AMembers.hidLevel">
+            <summary>
+            hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.DiagramTree.ltname">
+            <summary>
+            ltname control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.DiagramTree.ltTongsobanghi">
+            <summary>
+            ltTongsobanghi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.DiagramTree.lttongtvht">
+            <summary>
+            lttongtvht control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.DiagramTree.ltshow">
+            <summary>
+            ltshow control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.Member.DiagramTree.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.Member.DiagramTree.ltname">
+            <summary>
+            ltname control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.Member.DiagramTree.ltshow">
+            <summary>
+            ltshow control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.UpdatePanel1">
+            <summary>
+            UpdatePanel1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.pn_list">
+            <summary>
+            pn_list control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.txtkeyword">
+            <summary>
+            txtkeyword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ddlkieuthanhvien">
+            <summary>
+            ddlkieuthanhvien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.lnksearch">
+            <summary>
+            lnksearch control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltthongbao">
+            <summary>
+            ltthongbao control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ddlPage">
+            <summary>
+            ddlPage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltmsg">
+            <summary>
+            ltmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.lbl_curpage">
+            <summary>
+            lbl_curpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.lnkxuatExel">
+            <summary>
+            lnkxuatExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.bthienthi">
+            <summary>
+            bthienthi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.lttongtien1">
+            <summary>
+            lttongtien1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltdachia1">
+            <summary>
+            ltdachia1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltconlai1">
+            <summary>
+            ltconlai1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.lttongtien">
+            <summary>
+            lttongtien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltdachia">
+            <summary>
+            ltdachia control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltconlai">
+            <summary>
+            ltconlai control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.rp_pagelist">
+            <summary>
+            rp_pagelist control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.ltpage">
+            <summary>
+            ltpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.CollectionPager1">
+            <summary>
+            CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_insertupdate">
+            <summary>
+            hd_insertupdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_id">
+            <summary>
+            hd_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_page_edit_id">
+            <summary>
+            hd_page_edit_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_imgpath">
+            <summary>
+            hd_imgpath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_rootpic">
+            <summary>
+            hd_rootpic control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hd_par_id">
+            <summary>
+            hd_par_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.E_Commerce.cms.Admin.MMember.LoiNhuanMuaBan.hidLevel">
+            <summary>
+            hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.UpdatePanel1">
+            <summary>
+            UpdatePanel1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.pn_list">
+            <summary>
+            pn_list control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.txtkeyword">
+            <summary>
+            txtkeyword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ddlkieuthanhvien">
+            <summary>
+            ddlkieuthanhvien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.lnksearch">
+            <summary>
+            lnksearch control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ltthongbao">
+            <summary>
+            ltthongbao control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ddlPage">
+            <summary>
+            ddlPage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ddlkieu">
+            <summary>
+            ddlkieu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ltmsg">
+            <summary>
+            ltmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.lbl_curpage">
+            <summary>
+            lbl_curpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.lnkxuatExel">
+            <summary>
+            lnkxuatExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.bthienthi">
+            <summary>
+            bthienthi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.btxoa">
+            <summary>
+            btxoa control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.lttongtien">
+            <summary>
+            lttongtien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ltPT">
+            <summary>
+            ltPT control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ltCoin">
+            <summary>
+            ltCoin control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.rp_pagelist">
+            <summary>
+            rp_pagelist control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.ltpage">
+            <summary>
+            ltpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.CollectionPager1">
+            <summary>
+            CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_insertupdate">
+            <summary>
+            hd_insertupdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_id">
+            <summary>
+            hd_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_page_edit_id">
+            <summary>
+            hd_page_edit_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_imgpath">
+            <summary>
+            hd_imgpath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_rootpic">
+            <summary>
+            hd_rootpic control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hd_par_id">
+            <summary>
+            hd_par_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MHoaHong.hidLevel">
+            <summary>
+            hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.pn_list">
+            <summary>
+            pn_list control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.txtkeyword">
+            <summary>
+            txtkeyword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.lnksearch">
+            <summary>
+            lnksearch control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.ltthongbao">
+            <summary>
+            ltthongbao control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.ddlPage">
+            <summary>
+            ddlPage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.ddltrangthai">
+            <summary>
+            ddltrangthai control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.ltmsg">
+            <summary>
+            ltmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.lbl_curpage">
+            <summary>
+            lbl_curpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.lnkxuatExel">
+            <summary>
+            lnkxuatExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.bthienthi">
+            <summary>
+            bthienthi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.btxoa">
+            <summary>
+            btxoa control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.rp_pagelist">
+            <summary>
+            rp_pagelist control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.lttongtien">
+            <summary>
+            lttongtien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.lttongtienbangchu">
+            <summary>
+            lttongtienbangchu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.ltpage">
+            <summary>
+            ltpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.CollectionPager1">
+            <summary>
+            CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_insertupdate">
+            <summary>
+            hd_insertupdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_id">
+            <summary>
+            hd_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_page_edit_id">
+            <summary>
+            hd_page_edit_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_imgpath">
+            <summary>
+            hd_imgpath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_rootpic">
+            <summary>
+            hd_rootpic control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hd_par_id">
+            <summary>
+            hd_par_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLichSuRutTien.hidLevel">
+            <summary>
+            hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.UpdatePanel1">
+            <summary>
+            UpdatePanel1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.pn_list">
+            <summary>
+            pn_list control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.txtkeyword">
+            <summary>
+            txtkeyword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ddlkieuthanhvien">
+            <summary>
+            ddlkieuthanhvien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.lnksearch">
+            <summary>
+            lnksearch control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ltthongbao">
+            <summary>
+            ltthongbao control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ddlPage">
+            <summary>
+            ddlPage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ddlkieu">
+            <summary>
+            ddlkieu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ltmsg">
+            <summary>
+            ltmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.lbl_curpage">
+            <summary>
+            lbl_curpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.lnkxuatExel">
+            <summary>
+            lnkxuatExel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.bthienthi">
+            <summary>
+            bthienthi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.btxoa">
+            <summary>
+            btxoa control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ltCoin">
+            <summary>
+            ltCoin control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.rp_pagelist">
+            <summary>
+            rp_pagelist control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.ltpage">
+            <summary>
+            ltpage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.CollectionPager1">
+            <summary>
+            CollectionPager1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_insertupdate">
+            <summary>
+            hd_insertupdate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_id">
+            <summary>
+            hd_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_page_edit_id">
+            <summary>
+            hd_page_edit_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_imgpath">
+            <summary>
+            hd_imgpath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_rootpic">
+            <summary>
+            hd_rootpic control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hd_par_id">
+            <summary>
+            hd_par_id control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.MLSViTien.hidLevel">
+            <summary>
+            hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.UpdatePanel1">
+            <summary>
+            UpdatePanel1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ltmsg">
+            <summary>
+            ltmsg control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DaiLy1">
+            <summary>
+            DaiLy1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DaiLy2">
+            <summary>
+            DaiLy2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DaiLy3">
+            <summary>
+            DaiLy3 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DaiLy4">
+            <summary>
+            DaiLy4 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.SoLuong">
+            <summary>
+            SoLuong control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.SoTien200K">
+            <summary>
+            SoTien200K control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.TrucTiepCoDong">
+            <summary>
+            TrucTiepCoDong control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.TaiTieuDung">
+            <summary>
+            TaiTieuDung control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.SoLanRutTien">
+            <summary>
+            SoLanRutTien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.SoTienChuyenVeViChinh">
+            <summary>
+            SoTienChuyenVeViChinh control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ChietKhau2">
+            <summary>
+            ChietKhau2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ChietKhau3">
+            <summary>
+            ChietKhau3 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ChietKhau4">
+            <summary>
+            ChietKhau4 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ChietKhau5">
+            <summary>
+            ChietKhau5 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.ChietKhau6">
+            <summary>
+            ChietKhau6 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim6F1">
+            <summary>
+            Tim6F1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.HHTNKD">
+            <summary>
+            HHTNKD control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim3DaiLyCap1">
+            <summary>
+            Tim3DaiLyCap1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.HHTPKD">
+            <summary>
+            HHTPKD control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim6DaiLyCap1">
+            <summary>
+            Tim6DaiLyCap1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.HHGDKD">
+            <summary>
+            HHGDKD control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim12DaiLyCap1">
+            <summary>
+            Tim12DaiLyCap1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.HHGDVung">
+            <summary>
+            HHGDVung control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim2GiamDocKinhDoanh">
+            <summary>
+            Tim2GiamDocKinhDoanh control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.HHGDMien">
+            <summary>
+            HHGDMien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim2GiamDocVung">
+            <summary>
+            Tim2GiamDocVung control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.Tim3GiamDocKinhDoanh">
+            <summary>
+            Tim3GiamDocKinhDoanh control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DongHuongGiamDocVung">
+            <summary>
+            DongHuongGiamDocVung control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.DongHuongGiamDocMien">
+            <summary>
+            DongHuongGiamDocMien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.MMember.Settings.btnsetup">
+            <summary>
+            btnsetup control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -9567,6 +11466,42 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.Cart.txtNgayThangNam">
+            <summary>
+            txtNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.Cart.CalendarExtender1">
+            <summary>
+            CalendarExtender1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.Cart.txtDenNgayThangNam">
+            <summary>
+            txtDenNgayThangNam control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.Cart.CalendarExtender2">
+            <summary>
+            CalendarExtender2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:VS.ECommerce_MVC.cms.Admin.Products.Cart.txtkeyword">
             <summary>
             txtkeyword control.
@@ -10605,6 +12540,177 @@
         <member name="F:VS.ECommerce_MVC.cms.Admin.Products.CProducts.hidLevel">
             <summary>
             hidLevel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltmadonhang">
+            <summary>
+            ltmadonhang control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltname">
+            <summary>
+            ltname control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltdiachi">
+            <summary>
+            ltdiachi control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltdienthoai">
+            <summary>
+            ltdienthoai control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltemail">
+            <summary>
+            ltemail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltthanhtoan">
+            <summary>
+            ltthanhtoan control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.lthinhthucgiaohang">
+            <summary>
+            lthinhthucgiaohang control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltghichu">
+            <summary>
+            ltghichu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.lttong">
+            <summary>
+            lttong control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltvietchu">
+            <summary>
+            ltvietchu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdid">
+            <summary>
+            hdid control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.btduyet">
+            <summary>
+            btduyet control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.ltmess">
+            <summary>
+            ltmess control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.rpcartdetail">
+            <summary>
+            rpcartdetail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdIDGiohang">
+            <summary>
+            hdIDGiohang control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdtongtien">
+            <summary>
+            hdtongtien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdIDThanhVien">
+            <summary>
+            hdIDThanhVien control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdtongtienchienluoc">
+            <summary>
+            hdtongtienchienluoc control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:VS.ECommerce_MVC.cms.Admin.Products.DetailCart.hdTienLoiNhuan">
+            <summary>
+            hdTienLoiNhuan control.
             </summary>
             <remarks>
             Auto-generated field.

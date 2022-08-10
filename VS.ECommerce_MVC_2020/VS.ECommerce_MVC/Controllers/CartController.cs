@@ -195,22 +195,43 @@ namespace VS.ECommerce_MVC.Controllers
             string Email = collect["Email"];
             string Noidung = collect["Noidung"];
             string IDThanhVien = collect["hdIDThanhVien"];
-            LoadCart();
-            try
-            {
-                if (!Commond.Setting("Emailden").Equals(""))
-                {
-                    Senmail(TenKH, DiaChi, SoDienThoai, Email, Noidung);
-                }
-            }
-            catch (Exception)
-            { }
-            ThanhtoanGiohang(TenKH, DiaChi, SoDienThoai, Email, Noidung, IDThanhVien);
 
-            System.Web.HttpContext.Current.Session["cartid"] = null;
-            System.Web.HttpContext.Current.Session["cart"] = null;
-            System.Web.HttpContext.Current.Session["Session_Size"] = null;
-            System.Web.HttpContext.Current.Session["Session_MauSac"] = null;
+            if (TenKH == "" || DiaChi == "" || SoDienThoai == "" || IDThanhVien == "")//|| Email == "" 
+            {
+                @Session["err1"] = "Vui lòng điền đầy đủ thông tin";
+                return View();
+            }
+
+            else if (MoreAll.RegularExpressions.phone(collect["SoDienThoai"]))
+            {
+                @Session["err1"] = "Điện thoại không đúng định dạng";
+                return View();
+            }
+            //else if (!MoreAll.RegularExpressions.IsValidEmail(collect["Email"]))
+            //{
+            //    @Session["err1"] = "Email không đúng định dạng";
+            //    return View();
+            //}
+            else
+            {
+                LoadCart();
+                try
+                {
+                    if (!Commond.Setting("Emailden").Equals(""))
+                    {
+                        Senmail(TenKH, DiaChi, SoDienThoai, Email, Noidung);
+                    }
+                }
+                catch (Exception)
+                { }
+                ThanhtoanGiohang(TenKH, DiaChi, SoDienThoai, Email, Noidung, IDThanhVien);
+
+                System.Web.HttpContext.Current.Session["cartid"] = null;
+                System.Web.HttpContext.Current.Session["cart"] = null;
+                System.Web.HttpContext.Current.Session["Session_Size"] = null;
+                System.Web.HttpContext.Current.Session["Session_MauSac"] = null;
+            }
+            @Session["err1"] = "";
             return Redirect("/Message-Ordersucess.html");
         }
         protected void ThanhtoanGiohang(string TenKH, string DiaChi, string SoDienThoai, string Email, string Noidung, string IDThanhVien)
